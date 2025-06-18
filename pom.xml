@@ -8,6 +8,6 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>24</maven.compiler.release>
-        <exec.mainClass>com.mycompany.clothing.store.manager.ClothingStoreManager</exec.mainClass>
+        <exec.mainClass>com.mycompany.clothing.store.manager.view.MainWindow.java</exec.mainClass>
     </properties>
 </project>
