@@ -38,7 +38,9 @@ public class MainWindow extends javax.swing.JFrame {
     private void initComponents() {
 
         PainelConsultar = new javax.swing.JPanel();
+        jButtonConsultar2 = new javax.swing.JButton();
         PainelAdicionar = new javax.swing.JPanel();
+        jButtonAdicionar2 = new javax.swing.JButton();
         PainelPrincipal = new javax.swing.JPanel();
         jButtonAdicionar = new javax.swing.JButton();
         jButtonConsultar = new javax.swing.JButton();
@@ -49,28 +51,49 @@ public class MainWindow extends javax.swing.JFrame {
 
         PainelConsultar.setName("PainelConsultar"); // NOI18N
 
+        jButtonConsultar2.setText("CONSULTAR");
+
         javax.swing.GroupLayout PainelConsultarLayout = new javax.swing.GroupLayout(PainelConsultar);
         PainelConsultar.setLayout(PainelConsultarLayout);
         PainelConsultarLayout.setHorizontalGroup(
             PainelConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(PainelConsultarLayout.createSequentialGroup()
+                .addGap(347, 347, 347)
+                .addComponent(jButtonConsultar2)
+                .addContainerGap(364, Short.MAX_VALUE))
         );
         PainelConsultarLayout.setVerticalGroup(
             PainelConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelConsultarLayout.createSequentialGroup()
+                .addContainerGap(434, Short.MAX_VALUE)
+                .addComponent(jButtonConsultar2)
+                .addGap(132, 132, 132))
         );
 
         PainelAdicionar.setName("PainelAdicionar"); // NOI18N
+
+        jButtonAdicionar2.setText("ADICIONAR");
+        jButtonAdicionar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAdicionar2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PainelAdicionarLayout = new javax.swing.GroupLayout(PainelAdicionar);
         PainelAdicionar.setLayout(PainelAdicionarLayout);
         PainelAdicionarLayout.setHorizontalGroup(
             PainelAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGroup(PainelAdicionarLayout.createSequentialGroup()
+                .addGap(318, 318, 318)
+                .addComponent(jButtonAdicionar2)
+                .addContainerGap(387, Short.MAX_VALUE))
         );
         PainelAdicionarLayout.setVerticalGroup(
             PainelAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelAdicionarLayout.createSequentialGroup()
+                .addContainerGap(392, Short.MAX_VALUE)
+                .addComponent(jButtonAdicionar2)
+                .addGap(165, 165, 165))
         );
 
         PainelPrincipal.setName("PainelPrincipal"); // NOI18N
@@ -128,37 +151,36 @@ public class MainWindow extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
                 .addComponent(PainelAdicionar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(146, 146, 146))
+                .addGap(0, 178, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGap(0, 488, Short.MAX_VALUE)
                     .addComponent(PainelConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(0, 488, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGap(0, 161, Short.MAX_VALUE)
                     .addComponent(PainelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(0, 162, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(PainelAdicionar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(200, Short.MAX_VALUE))
+                .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGap(0, 308, Short.MAX_VALUE)
                     .addComponent(PainelConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(0, 308, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGap(0, 76, Short.MAX_VALUE)
                     .addComponent(PainelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGap(0, 76, Short.MAX_VALUE)))
         );
 
         getAccessibleContext().setAccessibleName("mainPanel");
@@ -180,6 +202,10 @@ public class MainWindow extends javax.swing.JFrame {
         CardLayout a = (CardLayout) getContentPane().getLayout();
         a.show(getContentPane(),"PainelConsultar");
     }//GEN-LAST:event_jButtonConsultarActionPerformed
+
+    private void jButtonAdicionar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionar2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonAdicionar2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -211,7 +237,9 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel PainelConsultar;
     private javax.swing.JPanel PainelPrincipal;
     private javax.swing.JButton jButtonAdicionar;
+    private javax.swing.JButton jButtonAdicionar2;
     private javax.swing.JButton jButtonConsultar;
+    private javax.swing.JButton jButtonConsultar2;
     private javax.swing.JButton jButtonRemover;
     // End of variables declaration//GEN-END:variables
 }
