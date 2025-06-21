@@ -27,120 +27,72 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <Component id="PainelAdicionar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="178" max="32767" attributes="0"/>
-          </Group>
+          <EmptySpace min="0" pref="2056" max="32767" attributes="0"/>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="0" pref="488" max="32767" attributes="0"/>
-                  <Component id="PainelConsultar" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="488" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="701" max="32767" attributes="0"/>
+                  <Component id="PainelPrincipal" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="702" max="32767" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="0" pref="161" max="32767" attributes="0"/>
-                  <Component id="PainelPrincipal" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="162" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="PainelAdicionar" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+          <Group type="103" rootIndex="3" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="PainelRoupaNormal" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+          <Group type="103" rootIndex="4" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="PainelCamisa" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="PainelAdicionar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-          </Group>
+          <EmptySpace min="0" pref="1579" max="32767" attributes="0"/>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="0" pref="308" max="32767" attributes="0"/>
-                  <Component id="PainelConsultar" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="308" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="557" max="32767" attributes="0"/>
+                  <Component id="PainelPrincipal" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="558" max="32767" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="0" pref="76" max="32767" attributes="0"/>
-                  <Component id="PainelPrincipal" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="76" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="PainelAdicionar" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+          <Group type="103" rootIndex="3" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="PainelRoupaNormal" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+          <Group type="103" rootIndex="4" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="PainelCamisa" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="PainelConsultar">
-      <Properties>
-        <Property name="name" type="java.lang.String" value="PainelConsultar" noResource="true"/>
-      </Properties>
-
-      <Layout>
-        <DimensionLayout dim="0">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="347" max="-2" attributes="0"/>
-                  <Component id="jButtonConsultar2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="364" max="32767" attributes="0"/>
-              </Group>
-          </Group>
-        </DimensionLayout>
-        <DimensionLayout dim="1">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="434" max="32767" attributes="0"/>
-                  <Component id="jButtonConsultar2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="132" max="-2" attributes="0"/>
-              </Group>
-          </Group>
-        </DimensionLayout>
-      </Layout>
-      <SubComponents>
-        <Component class="javax.swing.JButton" name="jButtonConsultar2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="CONSULTAR"/>
-          </Properties>
-        </Component>
-      </SubComponents>
-    </Container>
-    <Container class="javax.swing.JPanel" name="PainelAdicionar">
-      <Properties>
-        <Property name="name" type="java.lang.String" value="PainelAdicionar" noResource="true"/>
-      </Properties>
-
-      <Layout>
-        <DimensionLayout dim="0">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="318" max="-2" attributes="0"/>
-                  <Component id="jButtonAdicionar2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="387" max="32767" attributes="0"/>
-              </Group>
-          </Group>
-        </DimensionLayout>
-        <DimensionLayout dim="1">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="392" max="32767" attributes="0"/>
-                  <Component id="jButtonAdicionar2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="165" max="-2" attributes="0"/>
-              </Group>
-          </Group>
-        </DimensionLayout>
-      </Layout>
-      <SubComponents>
-        <Component class="javax.swing.JButton" name="jButtonAdicionar2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="ADICIONAR"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAdicionar2ActionPerformed"/>
-          </Events>
-        </Component>
-      </SubComponents>
-    </Container>
     <Container class="javax.swing.JPanel" name="PainelPrincipal">
       <Properties>
         <Property name="name" type="java.lang.String" value="PainelPrincipal" noResource="true"/>
@@ -149,34 +101,27 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
-                          <Component id="jButtonConsultar" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="160" max="-2" attributes="0"/>
-                          <Component id="jButtonAdicionar" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="223" max="-2" attributes="0"/>
-                          <Component id="jButtonRemover" min="-2" max="-2" attributes="0"/>
-                      </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="250" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="jButtonAdicionar" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonConsultar" max="32767" attributes="0"/>
+                      <Component id="jButtonRemover" alignment="0" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="218" max="32767" attributes="0"/>
+                  <EmptySpace pref="307" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
+                  <Component id="jButtonAdicionar" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                  <Component id="jButtonConsultar" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                   <Component id="jButtonRemover" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jButtonAdicionar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButtonConsultar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="297" max="32767" attributes="0"/>
+                  <EmptySpace pref="198" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -205,6 +150,292 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRemoverActionPerformed"/>
           </Events>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="PainelAdicionar">
+      <Properties>
+        <Property name="name" type="java.lang.String" value="PainelAdicionar" noResource="true"/>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="120" max="-2" attributes="0"/>
+                  <Component id="jButtonRoupaNormal" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="526" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
+                  <Component id="jButtonRoupaNormal" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="522" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JButton" name="jButtonRoupaNormal">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="ROUPA NORMAL"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRoupaNormalActionPerformed"/>
+          </Events>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="PainelRoupaNormal">
+      <Properties>
+        <Property name="name" type="java.lang.String" value="PainelRoupaNormal" noResource="true"/>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="129" max="-2" attributes="0"/>
+                  <Component id="jButtonCamisa" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="770" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                  <Component id="jButtonCamisa" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="524" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JButton" name="jButtonCamisa">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="CAMISA"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCamisaActionPerformed"/>
+          </Events>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="PainelCamisa">
+      <Properties>
+        <Property name="name" type="java.lang.String" value="PainelCamisa" noResource="true"/>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="jLabelPrice" min="-2" pref="37" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldPrice" min="-2" pref="71" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="jLabelCor" min="-2" pref="37" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldColor" min="-2" pref="71" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="jLabelFabric" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldFabric" min="-2" pref="71" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="jLabelQuantity" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldQuantity" min="-2" pref="71" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabelStyle" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jTextFieldStyle" min="-2" pref="71" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabelGender" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldGender" min="-2" pref="71" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabelBrand" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jTextFieldBrand" min="-2" pref="71" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabelPattern" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jTextFieldPattern" min="-2" pref="71" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabelPocket" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jTextFieldPocket" min="-2" pref="71" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabelClosureType" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldClosureType" min="-2" pref="71" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="247" max="-2" attributes="0"/>
+                          <Component id="jButtonFinalizar" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace pref="730" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jTextFieldColor" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelCor" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabelPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabelQuantity" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldQuantity" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabelFabric" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldFabric" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabelBrand" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldBrand" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabelStyle" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldStyle" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabelGender" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldGender" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jTextFieldPattern" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelPattern" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabelPocket" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldPocket" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabelClosureType" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldClosureType" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
+                  <Component id="jButtonFinalizar" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="133" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JTextField" name="jTextFieldColor">
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldPrice">
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldQuantity">
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldFabric">
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldPattern">
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldPocket">
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldBrand">
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldGender">
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldStyle">
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldClosureType">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelCor">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="COR"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelPrice">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="PRECO"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelQuantity">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="QUANTIDADE"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelFabric">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="TECIDO"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelBrand">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="MARCA"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelStyle">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="ESTILO"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelGender">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="GENERO"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelPattern">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="ESTAMPA"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelPocket">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="BOLSO"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelClosureType">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="TIPO DE FECHAMENTO"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButtonFinalizar">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="FINALIZAR"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
