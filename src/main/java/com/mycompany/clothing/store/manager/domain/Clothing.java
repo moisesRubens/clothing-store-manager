@@ -4,28 +4,54 @@
  */
 package com.mycompany.clothing.store.manager.domain;
 
+import com.mycompany.clothing.store.manager.domain.enums.ClothingType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
+import jakarta.persistence.Table;
+
 /**
  *
  * @author moise
  */
+@Entity
+@Table(name="ROUPA")
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Clothing {
-    enum ClothingType {
-        UNDERWEAR, 
-        STANDARD
-    }
     
+    @Id 
+    @GeneratedValue(strategy = GenerationType.IDENTITY)       
     Integer id;
+    
+    @Column
     String color;
+    @Column
     Double price;
+    @Column
     Integer quantity;
+    @Column(nullable=true)
     String fabric;
+    @Column
     String brand;
+    @Column(nullable=true)
     String style;
+    @Column
     String gender;
+    @Column(nullable=true)
     String pattern;
+    @Column(nullable=true)
     Integer pocket;
+    @Column(nullable=true)
     String closureType;
+    @Column
     ClothingType clothingType;
+
+    public Clothing() {
+    }
 
     public Clothing(String color, Double price, Integer quantity, String brand, String gender, ClothingType clothingType) {
         this.color = color;
@@ -33,7 +59,7 @@ public abstract class Clothing {
         this.quantity = quantity;
         this.brand = brand;
         this.gender = gender;
-        this.clothingType = this.clothingType;
+        this.clothingType = clothingType;
     }
 
     public Clothing(String color, Double price, Integer quantity, ClothingType clothingType, String fabric, String brand, String style, String gender, String pattern, Integer pocket, String closureType) {
@@ -47,10 +73,6 @@ public abstract class Clothing {
 
     public Integer getId() {
         return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getColor() {

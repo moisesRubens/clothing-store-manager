@@ -4,14 +4,28 @@
  */
 package com.mycompany.clothing.store.manager.domain;
 
+import com.mycompany.clothing.store.manager.domain.enums.ClothingType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
 /**
  *
  * @author moise
  */
+@Entity
+@Table(name="CAMISA")
 public class Shirt extends Clothing {
+    @Column(nullable=true)
     Boolean sleeve;
+    @Column(nullable=true)
     Boolean collar;
+    @Column
     Character size;
+
+    public Shirt() {
+    }
+    
     
     public Shirt(String color, Double price, Integer quantity, String brand, String gender, ClothingType clothingType, Character size) {
         super(color, price, quantity, brand, gender, clothingType);
