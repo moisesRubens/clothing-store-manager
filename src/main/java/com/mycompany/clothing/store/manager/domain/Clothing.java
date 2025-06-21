@@ -9,14 +9,48 @@ package com.mycompany.clothing.store.manager.domain;
  * @author moise
  */
 public abstract class Clothing {
+    enum ClothingType {
+        UNDERWEAR, 
+        STANDARD
+    }
+    
+    Integer id;
     String color;
     Double price;
     Integer quantity;
+    String fabric;
+    String brand;
+    String style;
+    String gender;
+    String pattern;
+    Integer pocket;
+    String closureType;
+    ClothingType clothingType;
 
-    public Clothing(String color, Double price, Integer quantity) {
+    public Clothing(String color, Double price, Integer quantity, String brand, String gender, ClothingType clothingType) {
         this.color = color;
         this.price = price;
         this.quantity = quantity;
+        this.brand = brand;
+        this.gender = gender;
+        this.clothingType = this.clothingType;
+    }
+
+    public Clothing(String color, Double price, Integer quantity, ClothingType clothingType, String fabric, String brand, String style, String gender, String pattern, Integer pocket, String closureType) {
+        this(color, price, quantity, brand, gender, clothingType);
+        this.fabric = fabric;
+        this.style = style;
+        this.pattern = pattern;
+        this.pocket = pocket;
+        this.closureType = closureType;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getColor() {
@@ -42,7 +76,70 @@ public abstract class Clothing {
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
-    
+
+    public String getFabric() {
+        return fabric;
+    }
+
+    public void setFabric(String fabric) {
+        this.fabric = fabric;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public String getStyle() {
+        return style;
+    }
+
+    public void setStyle(String style) {
+        this.style = style;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getPattern() {
+        return pattern;
+    }
+
+    public void setPattern(String pattern) {
+        this.pattern = pattern;
+    }
+
+    public Integer getPocket() {
+        return pocket;
+    }
+
+    public void setPocket(Integer pocket) {
+        this.pocket = pocket;
+    }
+
+    public String getClosureType() {
+        return closureType;
+    }
+
+    public void setClosureType(String closureType) {
+        this.closureType = closureType;
+    }
+
+    public ClothingType getClothingType() {
+        return clothingType;
+    }
+
+    public void setClothingType(ClothingType clothingType) {
+        this.clothingType = clothingType;
+    }
     
     
 }
