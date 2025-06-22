@@ -6,6 +6,7 @@ package com.mycompany.clothing.store.manager.controller;
 
 import com.mycompany.clothing.store.manager.domain.Clothing;
 import com.mycompany.clothing.store.manager.domain.Shirt;
+import com.mycompany.clothing.store.manager.domain.ShirtRequestDTO;
 import com.mycompany.clothing.store.manager.service.ClothingService;
 
 /**
@@ -15,12 +16,7 @@ import com.mycompany.clothing.store.manager.service.ClothingService;
 public class ClothingController {
     private static ClothingService clothingService = new ClothingService();
     
-    public static boolean register(Clothing clothing) throws Exception {
-        if(clothing instanceof Shirt shirt) {
-            clothingService.register(shirt);
-            return true;
-        } else {
-            return false;
-        }
+    public static boolean register(ShirtRequestDTO shirtData) throws Exception {
+        
     }
 }

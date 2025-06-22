@@ -7,6 +7,7 @@ package com.mycompany.clothing.store.manager.view;
 import com.mycompany.clothing.store.manager.config.exception.RoupaJaExistenteException;
 import com.mycompany.clothing.store.manager.controller.ClothingController;
 import com.mycompany.clothing.store.manager.domain.Shirt;
+import com.mycompany.clothing.store.manager.domain.ShirtRequestDTO;
 import com.mycompany.clothing.store.manager.domain.enums.ClothingType;
 import com.mycompany.clothing.store.manager.domain.enums.Gender;
 import java.awt.CardLayout;
@@ -74,7 +75,11 @@ public class MainWindow extends javax.swing.JFrame {
         jLabelClosureType = new javax.swing.JLabel();
         jButtonFinalizar = new javax.swing.JButton();
         jLabelSize = new javax.swing.JLabel();
+        jTextFieldManga = new javax.swing.JTextField();
+        jLabelManga = new javax.swing.JLabel();
+        jLabelGola = new javax.swing.JLabel();
         jTextFieldSize = new javax.swing.JTextField();
+        jTextFieldGola = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setName("mainPanel"); // NOI18N
@@ -209,6 +214,10 @@ public class MainWindow extends javax.swing.JFrame {
 
         jLabelSize.setText("TAMANHO");
 
+        jLabelManga.setText("MANGA");
+
+        jLabelGola.setText("GOLA");
+
         javax.swing.GroupLayout PainelCamisaLayout = new javax.swing.GroupLayout(PainelCamisa);
         PainelCamisa.setLayout(PainelCamisaLayout);
         PainelCamisaLayout.setHorizontalGroup(
@@ -264,9 +273,19 @@ public class MainWindow extends javax.swing.JFrame {
                         .addComponent(jButtonFinalizar))
                     .addGroup(PainelCamisaLayout.createSequentialGroup()
                         .addGap(44, 44, 44)
-                        .addComponent(jLabelSize)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextFieldSize, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(PainelCamisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PainelCamisaLayout.createSequentialGroup()
+                                .addComponent(jLabelSize)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextFieldSize, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(PainelCamisaLayout.createSequentialGroup()
+                                .addGroup(PainelCamisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelManga)
+                                    .addComponent(jLabelGola))
+                                .addGap(18, 18, 18)
+                                .addGroup(PainelCamisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldGola, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldManga, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(730, Short.MAX_VALUE))
         );
         PainelCamisaLayout.setVerticalGroup(
@@ -314,11 +333,19 @@ public class MainWindow extends javax.swing.JFrame {
                     .addComponent(jTextFieldClosureType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(PainelCamisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelSize))
-                .addGap(124, 124, 124)
+                    .addComponent(jLabelSize)
+                    .addComponent(jTextFieldSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(PainelCamisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelGola)
+                    .addComponent(jTextFieldGola, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17)
+                .addGroup(PainelCamisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelManga)
+                    .addComponent(jTextFieldManga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(48, 48, 48)
                 .addComponent(jButtonFinalizar)
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -415,10 +442,16 @@ public class MainWindow extends javax.swing.JFrame {
         Integer quantity = Integer.parseInt(jTextFieldQuantity.getText());
         Character size = jTextFieldSize.getText().charAt(0);
         Gender gender = (jTextFieldGender.getText().charAt(0) == 'M') ? Gender.MALE : Gender.FEMALE; 
+        String fabric = (jTextFieldFabric.getText().isEmpty() || jTextFieldFabric.getText().isBlank()) ?null :jTextFieldFabric.getText();
+        String brand = (jTextFieldBrand.getText().isEmpty() || jTextFieldBrand.getText().isBlank()) ?null :jTextFieldBrand.getText();
+        String style = (jTextFieldStyle.getText().isEmpty() || jTextFieldStyle.getText().isBlank()) ?null :jTextFieldStyle.getText();
+        String pattern = (jTextFieldPattern.getText().isEmpty() || jTextFieldPattern.getText().isBlank()) ?null :jTextFieldPattern.getText();
+        Integer pocket = (jTextFieldPocket.getText().isEmpty() || jTextFieldPocket.getText().isBlank()) ?0 :Integer.parseInt(jTextFieldPocket.getText());
+        String closureType = (jTextFieldClosureType.getText().isEmpty() || jTextFieldClosureType.getText().isBlank()) ?null :jTextFieldClosureType.getText();
 
-        Shirt shirt = new Shirt(jTextFieldColor.getText(), price, quantity, jTextFieldBrand.getText(), gender,
-                                ClothingType.STANDARD, size);
-        ClothingController.register(shirt);
+        ShirtRequestDTO shirtData = new ShirtRequestDTO(jTextFieldColor.getText(), price, quantity, fabric, brand, style, gender, pattern, pocket, closureType,
+                                                        ClothingType.STANDARD, true, true, size);
+        ClothingController.register(shirtData);
         JOptionPane.showMessageDialog(this, "ROUPA CADASTRADA", "RESULTADO", JOptionPane.INFORMATION_MESSAGE);
     }
     
@@ -466,6 +499,8 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelCor;
     private javax.swing.JLabel jLabelFabric;
     private javax.swing.JLabel jLabelGender;
+    private javax.swing.JLabel jLabelGola;
+    private javax.swing.JLabel jLabelManga;
     private javax.swing.JLabel jLabelPattern;
     private javax.swing.JLabel jLabelPocket;
     private javax.swing.JLabel jLabelPrice;
@@ -477,6 +512,8 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldColor;
     private javax.swing.JTextField jTextFieldFabric;
     private javax.swing.JTextField jTextFieldGender;
+    private javax.swing.JTextField jTextFieldGola;
+    private javax.swing.JTextField jTextFieldManga;
     private javax.swing.JTextField jTextFieldPattern;
     private javax.swing.JTextField jTextFieldPocket;
     private javax.swing.JTextField jTextFieldPrice;

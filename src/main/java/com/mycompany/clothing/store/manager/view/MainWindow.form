@@ -298,9 +298,24 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-                          <Component id="jLabelSize" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jTextFieldSize" min="-2" pref="71" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="jLabelSize" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldSize" min="-2" pref="71" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabelManga" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelGola" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jTextFieldGola" min="-2" pref="71" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldManga" min="-2" pref="71" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
                       </Group>
                   </Group>
                   <EmptySpace pref="730" max="32767" attributes="0"/>
@@ -362,12 +377,22 @@
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextFieldSize" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabelSize" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldSize" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabelGola" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldGola" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabelManga" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldManga" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                   <Component id="jButtonFinalizar" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="71" max="32767" attributes="0"/>
+                  <EmptySpace pref="68" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -456,7 +481,21 @@
             <Property name="text" type="java.lang.String" value="TAMANHO"/>
           </Properties>
         </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldManga">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelManga">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="MANGA"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelGola">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="GOLA"/>
+          </Properties>
+        </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldSize">
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldGola">
         </Component>
       </SubComponents>
     </Container>
