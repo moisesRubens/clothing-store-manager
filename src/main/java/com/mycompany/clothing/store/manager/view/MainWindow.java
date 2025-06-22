@@ -4,10 +4,12 @@
  */
 package com.mycompany.clothing.store.manager.view;
 
+import com.mycompany.clothing.store.manager.config.exception.RoupaJaExistenteException;
 import com.mycompany.clothing.store.manager.controller.ClothingController;
 import com.mycompany.clothing.store.manager.domain.Shirt;
 import com.mycompany.clothing.store.manager.domain.enums.ClothingType;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -400,14 +402,27 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCamisaActionPerformed
 
     private void jButtonFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFinalizarActionPerformed
+        try {
+            finalizarAux();
+        } catch(Exception e) {
+            handleException(e);
+        }
+    }//GEN-LAST:event_jButtonFinalizarActionPerformed
+    
+    private void finalizarAux() throws Exception {
         Double price = Double.parseDouble(jTextFieldPrice.getText());
         Integer quantity = Integer.parseInt(jTextFieldQuantity.getText());
         Character size = jTextFieldSize.getText().charAt(0);
-        
+
         Shirt shirt = new Shirt(jTextFieldColor.getText(), price, quantity, jTextFieldBrand.getText(), jTextFieldGender.getText(),
                                 ClothingType.STANDARD, size);
-    }//GEN-LAST:event_jButtonFinalizarActionPerformed
-
+        ClothingController.register(shirt);
+        JOptionPane.showMessageDialog(this, "ROUPA CADASTRADA", "RESULTADO", JOptionPane.INFORMATION_MESSAGE);
+    }
+    
+    private void handleException(Exception e) {
+        JOptionPane.showMessageDialog(this, e.getMessage(), "RESULTADO", JOptionPane.ERROR_MESSAGE);
+    }
     /**
      * @param args the command line arguments
      */

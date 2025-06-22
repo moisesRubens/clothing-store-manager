@@ -13,11 +13,14 @@ import com.mycompany.clothing.store.manager.service.ClothingService;
  * @author moise
  */
 public class ClothingController {
-    private static ClothingService clothingService;
+    private static ClothingService clothingService = new ClothingService();
     
-    public static void register(Clothing clothing) {
-        Shirt shirt = (Shirt)clothing;
-        
-        clothingService.register(shirt);
+    public static boolean register(Clothing clothing) throws Exception {
+        if(clothing instanceof Shirt shirt) {
+            clothingService.register(shirt);
+            return true;
+        } else {
+            return false;
+        }
     }
 }
