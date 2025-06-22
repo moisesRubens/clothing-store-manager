@@ -5,6 +5,7 @@
 package com.mycompany.clothing.store.manager.domain;
 
 import com.mycompany.clothing.store.manager.domain.enums.ClothingType;
+import com.mycompany.clothing.store.manager.domain.enums.Gender;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -40,7 +41,7 @@ public abstract class Clothing {
     @Column(nullable=true)
     String style;
     @Column
-    String gender;
+    Gender gender;
     @Column(nullable=true)
     String pattern;
     @Column(nullable=true)
@@ -53,7 +54,7 @@ public abstract class Clothing {
     public Clothing() {
     }
 
-    public Clothing(String color, Double price, Integer quantity, String brand, String gender, ClothingType clothingType) {
+    public Clothing(String color, Double price, Integer quantity, String brand, Gender gender, ClothingType clothingType) {
         this.color = color;
         this.price = price;
         this.quantity = quantity;
@@ -62,7 +63,7 @@ public abstract class Clothing {
         this.clothingType = clothingType;
     }
 
-    public Clothing(String color, Double price, Integer quantity, ClothingType clothingType, String fabric, String brand, String style, String gender, String pattern, Integer pocket, String closureType) {
+    public Clothing(String color, Double price, Integer quantity, ClothingType clothingType, String fabric, String brand, String style, Gender gender, String pattern, Integer pocket, String closureType) {
         this(color, price, quantity, brand, gender, clothingType);
         this.fabric = fabric;
         this.style = style;
@@ -123,11 +124,11 @@ public abstract class Clothing {
         this.style = style;
     }
 
-    public String getGender() {
+    public Gender getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(Gender gender) {
         this.gender = gender;
     }
 

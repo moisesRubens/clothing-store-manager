@@ -8,6 +8,7 @@ import com.mycompany.clothing.store.manager.config.exception.RoupaJaExistenteExc
 import com.mycompany.clothing.store.manager.controller.ClothingController;
 import com.mycompany.clothing.store.manager.domain.Shirt;
 import com.mycompany.clothing.store.manager.domain.enums.ClothingType;
+import com.mycompany.clothing.store.manager.domain.enums.Gender;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 
@@ -413,8 +414,9 @@ public class MainWindow extends javax.swing.JFrame {
         Double price = Double.parseDouble(jTextFieldPrice.getText());
         Integer quantity = Integer.parseInt(jTextFieldQuantity.getText());
         Character size = jTextFieldSize.getText().charAt(0);
+        Gender gender = (jTextFieldGender.getText().charAt(0) == 'M') ? Gender.MALE : Gender.FEMALE; 
 
-        Shirt shirt = new Shirt(jTextFieldColor.getText(), price, quantity, jTextFieldBrand.getText(), jTextFieldGender.getText(),
+        Shirt shirt = new Shirt(jTextFieldColor.getText(), price, quantity, jTextFieldBrand.getText(), gender,
                                 ClothingType.STANDARD, size);
         ClothingController.register(shirt);
         JOptionPane.showMessageDialog(this, "ROUPA CADASTRADA", "RESULTADO", JOptionPane.INFORMATION_MESSAGE);
