@@ -4,6 +4,9 @@
  */
 package com.mycompany.clothing.store.manager.view;
 
+import com.mycompany.clothing.store.manager.controller.ClothingController;
+import com.mycompany.clothing.store.manager.domain.Shirt;
+import com.mycompany.clothing.store.manager.domain.enums.ClothingType;
 import java.awt.CardLayout;
 
 /**
@@ -67,6 +70,8 @@ public class MainWindow extends javax.swing.JFrame {
         jLabelPocket = new javax.swing.JLabel();
         jLabelClosureType = new javax.swing.JLabel();
         jButtonFinalizar = new javax.swing.JButton();
+        jLabelSize = new javax.swing.JLabel();
+        jTextFieldSize = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setName("mainPanel"); // NOI18N
@@ -193,6 +198,13 @@ public class MainWindow extends javax.swing.JFrame {
         jLabelClosureType.setText("TIPO DE FECHAMENTO");
 
         jButtonFinalizar.setText("FINALIZAR");
+        jButtonFinalizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonFinalizarActionPerformed(evt);
+            }
+        });
+
+        jLabelSize.setText("TAMANHO");
 
         javax.swing.GroupLayout PainelCamisaLayout = new javax.swing.GroupLayout(PainelCamisa);
         PainelCamisa.setLayout(PainelCamisaLayout);
@@ -246,7 +258,12 @@ public class MainWindow extends javax.swing.JFrame {
                                 .addComponent(jTextFieldClosureType, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(PainelCamisaLayout.createSequentialGroup()
                         .addGap(247, 247, 247)
-                        .addComponent(jButtonFinalizar)))
+                        .addComponent(jButtonFinalizar))
+                    .addGroup(PainelCamisaLayout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addComponent(jLabelSize)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextFieldSize, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(730, Short.MAX_VALUE))
         );
         PainelCamisaLayout.setVerticalGroup(
@@ -292,9 +309,13 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGroup(PainelCamisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelClosureType)
                     .addComponent(jTextFieldClosureType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(96, 96, 96)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(PainelCamisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelSize))
+                .addGap(124, 124, 124)
                 .addComponent(jButtonFinalizar)
-                .addContainerGap(133, Short.MAX_VALUE))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -378,6 +399,15 @@ public class MainWindow extends javax.swing.JFrame {
         a.show(getContentPane(),"PainelCamisa");
     }//GEN-LAST:event_jButtonCamisaActionPerformed
 
+    private void jButtonFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFinalizarActionPerformed
+        Double price = Double.parseDouble(jTextFieldPrice.getText());
+        Integer quantity = Integer.parseInt(jTextFieldQuantity.getText());
+        Character size = jTextFieldSize.getText().charAt(0);
+        
+        Shirt shirt = new Shirt(jTextFieldColor.getText(), price, quantity, jTextFieldBrand.getText(), jTextFieldGender.getText(),
+                                ClothingType.STANDARD, size);
+    }//GEN-LAST:event_jButtonFinalizarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -423,6 +453,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelPocket;
     private javax.swing.JLabel jLabelPrice;
     private javax.swing.JLabel jLabelQuantity;
+    private javax.swing.JLabel jLabelSize;
     private javax.swing.JLabel jLabelStyle;
     private javax.swing.JTextField jTextFieldBrand;
     private javax.swing.JTextField jTextFieldClosureType;
@@ -433,6 +464,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldPocket;
     private javax.swing.JTextField jTextFieldPrice;
     private javax.swing.JTextField jTextFieldQuantity;
+    private javax.swing.JTextField jTextFieldSize;
     private javax.swing.JTextField jTextFieldStyle;
     // End of variables declaration//GEN-END:variables
 }

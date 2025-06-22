@@ -296,6 +296,12 @@
                           <EmptySpace min="-2" pref="247" max="-2" attributes="0"/>
                           <Component id="jButtonFinalizar" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                          <Component id="jLabelSize" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jTextFieldSize" min="-2" pref="71" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace pref="730" max="32767" attributes="0"/>
               </Group>
@@ -354,9 +360,14 @@
                       <Component id="jLabelClosureType" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jTextFieldClosureType" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jTextFieldSize" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelSize" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
                   <Component id="jButtonFinalizar" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="133" max="32767" attributes="0"/>
+                  <EmptySpace pref="71" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -436,6 +447,16 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="FINALIZAR"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonFinalizarActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelSize">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="TAMANHO"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldSize">
         </Component>
       </SubComponents>
     </Container>
