@@ -5,9 +5,9 @@
 package com.mycompany.clothing.store.manager.controller;
 
 import com.mycompany.clothing.store.manager.domain.Clothing;
-import com.mycompany.clothing.store.manager.domain.ClothingRequestDTO;
+import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
 import com.mycompany.clothing.store.manager.domain.Shirt;
-import com.mycompany.clothing.store.manager.domain.ShirtRequestDTO;
+import com.mycompany.clothing.store.manager.domain.dto.ShirtRequestDTO;
 import com.mycompany.clothing.store.manager.service.ClothingService;
 
 /**
@@ -19,9 +19,9 @@ public class ClothingController {
     
     public static void register(ClothingRequestDTO data) throws Exception {
         if(data instanceof ShirtRequestDTO shirtData) {
-            Shirt shirt = new Shirt(shirtData.clothingType(), shirtData.sleeve(), shirtData.collar(), shirtData.size(),
-                                    shirtData.color(), shirtData.price(), shirtData.quantity(), shirtData.fabric(), shirtData.brand(),
-                                    shirtData.style(), shirtData.gender(), shirtData.pattern(), shirtData.pocket(), shirtData.closureType());
+            Shirt shirt = new Shirt(shirtData.color(), shirtData.price(), shirtData.quantity(), shirtData.clothingType(),
+                                    shirtData.fabric(), shirtData.brand(), shirtData.style(), shirtData.gender(), shirtData.pattern(),
+                                    shirtData.pocket(), shirtData.closureType(), shirtData.size(), shirtData.sleeve(), shirtData.collar());
             
             clothingService.register(shirt);
         }

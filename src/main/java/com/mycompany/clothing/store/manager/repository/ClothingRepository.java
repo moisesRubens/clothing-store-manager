@@ -4,7 +4,7 @@
  */
 package com.mycompany.clothing.store.manager.repository;
 
-import com.mycompany.clothing.store.manager.config.exception.RoupaJaExistenteException;
+import com.mycompany.clothing.store.manager.configuration.exception.RoupaJaExistenteException;
 import com.mycompany.clothing.store.manager.domain.Clothing;
 import com.mycompany.clothing.store.manager.domain.Shirt;
 import jakarta.persistence.EntityExistsException;

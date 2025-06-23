@@ -8,6 +8,8 @@ import com.mycompany.clothing.store.manager.domain.enums.ClothingType;
 import com.mycompany.clothing.store.manager.domain.enums.Gender;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -30,41 +32,48 @@ public abstract class Clothing {
     
     @Column
     String color;
+    
     @Column
     Double price;
+    
     @Column
     Integer quantity;
+    
     @Column(nullable=true)
     String fabric;
+    
     @Column
     String brand;
+    
     @Column(nullable=true)
     String style;
+    
+    @Enumerated(EnumType.STRING)
     @Column
     Gender gender;
+    
     @Column(nullable=true)
     String pattern;
+    
     @Column(nullable=true)
     Integer pocket;
+    
     @Column(nullable=true)
     String closureType;
+    
+    @Enumerated(EnumType.STRING)
     @Column
     ClothingType clothingType;
 
-    public Clothing() {
-    }
+    public Clothing() {}
 
-    public Clothing(String color, Double price, Integer quantity, String brand, Gender gender, ClothingType clothingType) {
+    public Clothing(String color, Double price, Integer quantity, ClothingType clothingType, String fabric, String brand, String style, Gender gender, String pattern, Integer pocket, String closureType) {
         this.color = color;
         this.price = price;
         this.quantity = quantity;
         this.brand = brand;
         this.gender = gender;
         this.clothingType = clothingType;
-    }
-
-    public Clothing(String color, Double price, Integer quantity, ClothingType clothingType, String fabric, String brand, String style, Gender gender, String pattern, Integer pocket, String closureType) {
-        this(color, price, quantity, brand, gender, clothingType);
         this.fabric = fabric;
         this.style = style;
         this.pattern = pattern;
@@ -162,7 +171,5 @@ public abstract class Clothing {
 
     public void setClothingType(ClothingType clothingType) {
         this.clothingType = clothingType;
-    }
-    
-    
+    }   
 }

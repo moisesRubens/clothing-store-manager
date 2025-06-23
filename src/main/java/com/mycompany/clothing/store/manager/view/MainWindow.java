@@ -4,12 +4,13 @@
  */
 package com.mycompany.clothing.store.manager.view;
 
-import com.mycompany.clothing.store.manager.config.exception.RoupaJaExistenteException;
+import com.mycompany.clothing.store.manager.configuration.exception.RoupaJaExistenteException;
 import com.mycompany.clothing.store.manager.controller.ClothingController;
 import com.mycompany.clothing.store.manager.domain.Shirt;
-import com.mycompany.clothing.store.manager.domain.ShirtRequestDTO;
+import com.mycompany.clothing.store.manager.domain.dto.ShirtRequestDTO;
 import com.mycompany.clothing.store.manager.domain.enums.ClothingType;
 import com.mycompany.clothing.store.manager.domain.enums.Gender;
+import com.mycompany.clothing.store.manager.domain.enums.ShirtSize;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 
@@ -446,7 +447,17 @@ public class MainWindow extends javax.swing.JFrame {
     private void finalizarAux() throws Exception {
         Double price = Double.parseDouble(jTextFieldPrice.getText());
         Integer quantity = Integer.parseInt(jTextFieldQuantity.getText());
-        Character size = jTextFieldSize.getText().charAt(0);
+        ShirtSize size;
+        if(jTextFieldSize.getText().equals("P")) {
+            size = ShirtSize.SMALL;
+        } else if(jTextFieldSize.getText().equals("M")) {
+            size = ShirtSize.MEDIUM;
+        } else if(jTextFieldSize.getText().equals("G")) {
+            size = ShirtSize.LARGE;
+        } else {
+            throw new IllegalArgumentException("INSIRA DADOS VALIDOS");
+        }
+        
         Gender gender = (jTextFieldGender.getText().charAt(0) == 'M') ? Gender.MALE : Gender.FEMALE; 
         String fabric = (jTextFieldFabric.getText().isEmpty() || jTextFieldFabric.getText().isBlank()) ?null :jTextFieldFabric.getText();
         String brand = (jTextFieldBrand.getText().isEmpty() || jTextFieldBrand.getText().isBlank()) ?null :jTextFieldBrand.getText();
