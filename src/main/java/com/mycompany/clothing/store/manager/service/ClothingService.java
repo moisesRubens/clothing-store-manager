@@ -16,10 +16,6 @@ public class ClothingService {
     private static ClothingRepository clothingRepository = new ClothingRepository();
     
     public static void register(Clothing clothing) throws Exception{
-        if(clothing instanceof Shirt shirt) {
-            clothingRepository.registerInDatabase(clothing);
-        } else { 
-            return;
-        }
+        clothingRepository.registerInDatabase(clothing);   
     }
 }

@@ -14,6 +14,5 @@ import com.mycompany.clothing.store.manager.domain.enums.Gender;
 public record ShirtRequestDTO(String color, Double price, Integer quantity, String fabric,
                               String brand, String style, Gender gender, String pattern, 
                               Integer pocket, String closureType, ClothingType clothingType,
-                              Boolean sleeve, Boolean collar, Character size) {
-
+                              Boolean sleeve, Boolean collar, Character size) implements ClothingRequestDTO {
 }

@@ -75,11 +75,9 @@ public class MainWindow extends javax.swing.JFrame {
         jLabelClosureType = new javax.swing.JLabel();
         jButtonFinalizar = new javax.swing.JButton();
         jLabelSize = new javax.swing.JLabel();
-        jTextFieldManga = new javax.swing.JTextField();
-        jLabelManga = new javax.swing.JLabel();
-        jLabelGola = new javax.swing.JLabel();
         jTextFieldSize = new javax.swing.JTextField();
-        jTextFieldGola = new javax.swing.JTextField();
+        jCheckBoxCollar = new javax.swing.JCheckBox();
+        jCheckBoxSleeve = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setName("mainPanel"); // NOI18N
@@ -214,9 +212,19 @@ public class MainWindow extends javax.swing.JFrame {
 
         jLabelSize.setText("TAMANHO");
 
-        jLabelManga.setText("MANGA");
+        jCheckBoxCollar.setText("GOLA");
+        jCheckBoxCollar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxCollarActionPerformed(evt);
+            }
+        });
 
-        jLabelGola.setText("GOLA");
+        jCheckBoxSleeve.setText("MANGA");
+        jCheckBoxSleeve.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxSleeveActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PainelCamisaLayout = new javax.swing.GroupLayout(PainelCamisa);
         PainelCamisa.setLayout(PainelCamisaLayout);
@@ -274,18 +282,12 @@ public class MainWindow extends javax.swing.JFrame {
                     .addGroup(PainelCamisaLayout.createSequentialGroup()
                         .addGap(44, 44, 44)
                         .addGroup(PainelCamisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jCheckBoxCollar)
                             .addGroup(PainelCamisaLayout.createSequentialGroup()
                                 .addComponent(jLabelSize)
                                 .addGap(18, 18, 18)
                                 .addComponent(jTextFieldSize, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(PainelCamisaLayout.createSequentialGroup()
-                                .addGroup(PainelCamisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelManga)
-                                    .addComponent(jLabelGola))
-                                .addGap(18, 18, 18)
-                                .addGroup(PainelCamisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldGola, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldManga, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                            .addComponent(jCheckBoxSleeve))))
                 .addContainerGap(730, Short.MAX_VALUE))
         );
         PainelCamisaLayout.setVerticalGroup(
@@ -336,16 +338,12 @@ public class MainWindow extends javax.swing.JFrame {
                     .addComponent(jLabelSize)
                     .addComponent(jTextFieldSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(PainelCamisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelGola)
-                    .addComponent(jTextFieldGola, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
-                .addGroup(PainelCamisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelManga)
-                    .addComponent(jTextFieldManga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(48, 48, 48)
+                .addComponent(jCheckBoxCollar)
+                .addGap(18, 18, 18)
+                .addComponent(jCheckBoxSleeve)
+                .addGap(88, 88, 88)
                 .addComponent(jButtonFinalizar)
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -436,6 +434,14 @@ public class MainWindow extends javax.swing.JFrame {
             handleException(e);
         }
     }//GEN-LAST:event_jButtonFinalizarActionPerformed
+
+    private void jCheckBoxCollarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxCollarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBoxCollarActionPerformed
+
+    private void jCheckBoxSleeveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxSleeveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBoxSleeveActionPerformed
     
     private void finalizarAux() throws Exception {
         Double price = Double.parseDouble(jTextFieldPrice.getText());
@@ -450,7 +456,7 @@ public class MainWindow extends javax.swing.JFrame {
         String closureType = (jTextFieldClosureType.getText().isEmpty() || jTextFieldClosureType.getText().isBlank()) ?null :jTextFieldClosureType.getText();
 
         ShirtRequestDTO shirtData = new ShirtRequestDTO(jTextFieldColor.getText(), price, quantity, fabric, brand, style, gender, pattern, pocket, closureType,
-                                                        ClothingType.STANDARD, true, true, size);
+                                                        ClothingType.STANDARD, jCheckBoxSleeve.isSelected(), jCheckBoxCollar.isSelected(), size);
         ClothingController.register(shirtData);
         JOptionPane.showMessageDialog(this, "ROUPA CADASTRADA", "RESULTADO", JOptionPane.INFORMATION_MESSAGE);
     }
@@ -494,13 +500,13 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton jButtonFinalizar;
     private javax.swing.JButton jButtonRemover;
     private javax.swing.JButton jButtonRoupaNormal;
+    private javax.swing.JCheckBox jCheckBoxCollar;
+    private javax.swing.JCheckBox jCheckBoxSleeve;
     private javax.swing.JLabel jLabelBrand;
     private javax.swing.JLabel jLabelClosureType;
     private javax.swing.JLabel jLabelCor;
     private javax.swing.JLabel jLabelFabric;
     private javax.swing.JLabel jLabelGender;
-    private javax.swing.JLabel jLabelGola;
-    private javax.swing.JLabel jLabelManga;
     private javax.swing.JLabel jLabelPattern;
     private javax.swing.JLabel jLabelPocket;
     private javax.swing.JLabel jLabelPrice;
@@ -512,8 +518,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldColor;
     private javax.swing.JTextField jTextFieldFabric;
     private javax.swing.JTextField jTextFieldGender;
-    private javax.swing.JTextField jTextFieldGola;
-    private javax.swing.JTextField jTextFieldManga;
     private javax.swing.JTextField jTextFieldPattern;
     private javax.swing.JTextField jTextFieldPocket;
     private javax.swing.JTextField jTextFieldPrice;
