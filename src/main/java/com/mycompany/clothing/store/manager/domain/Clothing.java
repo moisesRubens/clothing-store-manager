@@ -30,39 +30,39 @@ public abstract class Clothing {
     @GeneratedValue(strategy = GenerationType.IDENTITY)       
     Integer id;
     
-    @Column
+    @Column(name="COR")
     String color;
     
-    @Column
+    @Column(name="PRECO")
     Double price;
     
-    @Column
+    @Column(name="QUANTIDADE")
     Integer quantity;
     
-    @Column(nullable=true)
+    @Column(name="TECIDO", nullable=true)
     String fabric;
     
-    @Column
+    @Column(name="MARCA")
     String brand;
     
-    @Column(nullable=true)
+    @Column(name="MODELO", nullable=true)
     String style;
     
     @Enumerated(EnumType.STRING)
-    @Column
+    @Column(name="GENERO")
     Gender gender;
     
-    @Column(nullable=true)
+    @Column(name="ESTAMPA", nullable=true)
     String pattern;
     
-    @Column(nullable=true)
+    @Column(name="QUANT_BOLSOS", nullable=true)
     Integer pocket;
     
-    @Column(nullable=true)
+    @Column(name="TIPO_FECHAMENTO", nullable=true)
     String closureType;
     
     @Enumerated(EnumType.STRING)
-    @Column
+    @Column(name="TIPO_ROUPA")
     ClothingType clothingType;
 
     public Clothing() {}

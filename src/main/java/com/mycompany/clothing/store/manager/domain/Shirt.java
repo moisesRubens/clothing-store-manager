@@ -21,14 +21,14 @@ import jakarta.persistence.Table;
 @Table(name="CAMISA")
 public class Shirt extends Clothing {
     
-    @Column(nullable=true)
+    @Column(name="MANGA", nullable=true)
     Boolean sleeve;
     
-    @Column(nullable=true)
+    @Column(name="GOLA", nullable=true)
     Boolean collar;
     
     @Enumerated(EnumType.STRING)
-    @Column
+    @Column(name="TAMANHO")
     ShirtSize size;
 
     public Shirt() {}
