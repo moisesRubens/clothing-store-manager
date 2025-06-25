@@ -8,6 +8,9 @@ package com.mycompany.clothing.store.manager.configuration.exception;
  *
  * @author moise
  */
-public class RoupaNaoExistenteException {
-    
+public class RoupaNaoExistenteException extends Exception {
+
+    public RoupaNaoExistenteException(String message) {
+        super(message);
+    }    
 }

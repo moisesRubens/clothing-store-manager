@@ -5,12 +5,15 @@
 package com.mycompany.clothing.store.manager.repository;
 
 import com.mycompany.clothing.store.manager.configuration.exception.RoupaJaExistenteException;
+import com.mycompany.clothing.store.manager.configuration.exception.RoupaNaoExistenteException;
 import com.mycompany.clothing.store.manager.domain.Clothing;
 import com.mycompany.clothing.store.manager.domain.Shirt;
 import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import jakarta.persistence.QueryHint;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -39,6 +42,35 @@ public class ClothingRepository {
             if(em.getTransaction().isActive()) em.getTransaction().rollback();
             em.close();
         }
+    }
+    
+    public List consult(Clothing clothing) throws Exception {
+        EntityManager em = emf.createEntityManager();
+        try {
+            return consultAux(em, clothing);
+        } catch(Exception e) {
+            handleException(e);
+            throw e;
+        } finally {
+            if(em.getTransaction().isActive()) {
+                em.getTransaction().rollback();
+            }
+            em.close();
+        }
+    }
+    
+    private List consultAux(EntityManager em, Clothing clothing) throws Exception {
+        if(clothing instanceof Shirt shirt) {
+            List<Shirt> shirtsList = em.createQuery("SELECT s FROM Shirt s WHERE s.color LIKE :color", Shirt.class)
+                    .setParameter("color", "%"+ shirt.getColor() +"%").getResultList();
+            
+            if(shirtsList.isEmpty()) {
+                throw new RoupaNaoExistenteException("MODELO DE ROUPA INEXISTENTE");
+            }
+            
+            return shirtsList;
+        }
+        return null;
     }
     
     private void registerInDatabaseAux(EntityManager em, Clothing clothing) throws Exception {

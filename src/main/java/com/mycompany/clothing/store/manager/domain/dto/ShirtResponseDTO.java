@@ -4,10 +4,16 @@
  */
 package com.mycompany.clothing.store.manager.domain.dto;
 
+import com.mycompany.clothing.store.manager.domain.enums.ClothingType;
+import com.mycompany.clothing.store.manager.domain.enums.Gender;
+import com.mycompany.clothing.store.manager.domain.enums.ShirtSize;
+
 /**
  *
  * @author moise
  */
-public record ShirtResponseDTO() {
-
+public record ShirtResponseDTO(Integer id, String color, Double price, Integer quantity, String fabric,
+                              String brand, String style, Gender gender, String pattern, 
+                              Integer pocket, String closureType, ClothingType clothingType,
+                              Boolean sleeve, Boolean collar, ShirtSize size) implements ClothingResponseDTO {
 }
