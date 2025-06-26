@@ -8,6 +8,7 @@ import com.mycompany.clothing.store.manager.domain.Clothing;
 import com.mycompany.clothing.store.manager.domain.Shirt;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtResponseDTO;
 import com.mycompany.clothing.store.manager.repository.ClothingRepository;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,13 +22,9 @@ public class ClothingService {
         clothingRepository.registerInDatabase(clothing);   
     }
     
-    public List<ShirtResponseDTO> consult(Clothing clothing) throws Exception {
-        List<Clothing> clothingsList = clothingRepository.consult(clothing);
-        
-        if(clothingsList instanceof Shirt) {
-            return clothingsList.stream().map(clothingAux -> new ShirtResponseDTO(clothing.getId(), clothing.getColor())).toList();
-        }
-        
-        return null;
+    public List consult(Clothing clothing) throws Exception {
+        return clothingRepository.consult(clothing);
     }
+    
+    
 }

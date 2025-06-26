@@ -60,17 +60,16 @@ public class ClothingRepository {
     }
     
     private List consultAux(EntityManager em, Clothing clothing) throws Exception {
+        List list = null;
+        
         if(clothing instanceof Shirt shirt) {
-            List<Shirt> shirtsList = em.createQuery("SELECT s FROM Shirt s WHERE s.color LIKE :color", Shirt.class)
+            list = em.createQuery("SELECT s FROM Shirt s WHERE s.color LIKE :color", Shirt.class)
                     .setParameter("color", "%"+ shirt.getColor() +"%").getResultList();
-            
-            if(shirtsList.isEmpty()) {
-                throw new RoupaNaoExistenteException("MODELO DE ROUPA INEXISTENTE");
-            }
-            
-            return shirtsList;
         }
-        return null;
+        if(list.isEmpty()) {
+                throw new RoupaNaoExistenteException("MODELO DE ROUPA INEXISTENTE");
+        } 
+        return list;
     }
     
     private void registerInDatabaseAux(EntityManager em, Clothing clothing) throws Exception {

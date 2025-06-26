@@ -9,6 +9,7 @@ import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
 import com.mycompany.clothing.store.manager.domain.Shirt;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingResponseDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtRequestDTO;
+import com.mycompany.clothing.store.manager.domain.dto.ShirtResponseDTO;
 import com.mycompany.clothing.store.manager.service.ClothingService;
 import java.util.List;
 
@@ -30,11 +31,14 @@ public class ClothingController {
     }
     
     public static List<ClothingResponseDTO> consult(ClothingRequestDTO data) throws Exception {
+        List list = null;
         if(data instanceof ShirtRequestDTO shirtData) {
             Shirt shirt = new Shirt(shirtData.color(), shirtData.price(), shirtData.quantity(), shirtData.clothingType(),
                                     shirtData.fabric(), shirtData.brand(), shirtData.style(), shirtData.gender(), shirtData.pattern(),
                                     shirtData.pocket(), shirtData.closureType(), shirtData.size(), shirtData.sleeve(), shirtData.collar());
-            return clothingService.consult(shirt);
+            list = clothingService.consult(shirt); 
         }
+        
+        return list;
     }
 }

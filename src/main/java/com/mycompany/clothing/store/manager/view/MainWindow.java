@@ -442,6 +442,11 @@ public class MainWindow extends javax.swing.JFrame {
         jLabelCor1.setText("COR");
 
         jButton1.setText("CONSULTAR CAMISA");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PainelConsultarCamisaLayout = new javax.swing.GroupLayout(PainelConsultarCamisa);
         PainelConsultarCamisa.setLayout(PainelConsultarCamisaLayout);
@@ -692,6 +697,44 @@ public class MainWindow extends javax.swing.JFrame {
     private void jCheckBoxSleeve1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxSleeve1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBoxSleeve1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        try {
+            Double price = Double.parseDouble(jTextFieldPrice1.getText());
+            Integer pocket = Integer.parseInt(jTextFieldPocket1.getText());
+            Integer quantity = Integer.parseInt(jTextFieldQuantity1.getText());
+            Gender gender;
+            ShirtSize shirtSize;
+            
+            if(jTextFieldSize1.getText().equals("P")) {
+                shirtSize = ShirtSize.SMALL;
+            } else if(jTextFieldSize1.getText().equals("M")) {
+                shirtSize = ShirtSize.MEDIUM;
+            } else if(jTextFieldSize1.getText().equals("G")) {
+                shirtSize = ShirtSize.LARGE;
+            } else {
+                throw new IllegalArgumentException("DADOS INVALIDOS");
+            }
+            
+            if(jTextFieldClosureType1.getText().equals("M")) {
+                gender = Gender.MALE;
+            } else if(jTextFieldGender1.getText().equals("F")) {
+                gender = Gender.FEMALE;
+            }else {
+                throw new IllegalArgumentException("DADOS INVALIDOS");
+            }
+
+            ShirtRequestDTO data = new ShirtRequestDTO(jTextFieldColor1.getText(), price, quantity, jTextFieldFabric1.getText(),
+                                                       jTextFieldBrand1.getText(), jTextFieldStyle1.getText(), gender, jTextFieldPattern1.getText(),
+                                                       pocket, jTextFieldClosureType1.getText(), ClothingType.STANDARD, jCheckBoxSleeve1.isSelected(),
+                                                       jCheckBoxCollar1.isSelected(), shirtSize);
+            
+            ClothingController.consult(data);
+        } catch(Exception e) {
+            
+        }                                                 
+    }//GEN-LAST:event_jButton1ActionPerformed
     
     private void finalizarAux() throws Exception {
         Double price = Double.parseDouble(jTextFieldPrice.getText());
