@@ -631,7 +631,7 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="424" max="-2" attributes="0"/>
-                          <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonConsultarCamisa1" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="585" max="32767" attributes="0"/>
@@ -701,7 +701,7 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jCheckBoxSleeve1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonConsultarCamisa1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="112" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -801,12 +801,12 @@
             <Property name="text" type="java.lang.String" value="COR"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="jButtonConsultarCamisa1">
           <Properties>
             <Property name="text" type="java.lang.String" value="CONSULTAR CAMISA"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonConsultarCamisa1ActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

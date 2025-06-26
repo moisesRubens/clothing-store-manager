@@ -7,11 +7,13 @@ package com.mycompany.clothing.store.manager.view;
 import com.mycompany.clothing.store.manager.configuration.exception.RoupaJaExistenteException;
 import com.mycompany.clothing.store.manager.controller.ClothingController;
 import com.mycompany.clothing.store.manager.domain.Shirt;
+import com.mycompany.clothing.store.manager.domain.dto.ClothingResponseDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtRequestDTO;
 import com.mycompany.clothing.store.manager.domain.enums.ClothingType;
 import com.mycompany.clothing.store.manager.domain.enums.Gender;
 import com.mycompany.clothing.store.manager.domain.enums.ShirtSize;
 import java.awt.CardLayout;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,7 +21,7 @@ import javax.swing.JOptionPane;
  * @author moise
  */
 public class MainWindow extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MainWindow.class.getName());
 
     /**
@@ -27,9 +29,9 @@ public class MainWindow extends javax.swing.JFrame {
      */
     public MainWindow() {
         initComponents();
-        
+
         getContentPane().setLayout(new CardLayout());
-    
+
         getContentPane().add(PainelPrincipal, "PainelPrincipal");
         getContentPane().add(PainelAdicionar, "PainelAdicionar");
         getContentPane().add(PainelConsultar, "PainelConsultar");
@@ -108,7 +110,7 @@ public class MainWindow extends javax.swing.JFrame {
         jTextFieldStyle1 = new javax.swing.JTextField();
         jTextFieldClosureType1 = new javax.swing.JTextField();
         jLabelCor1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jButtonConsultarCamisa1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setName("mainPanel"); // NOI18N
@@ -441,10 +443,10 @@ public class MainWindow extends javax.swing.JFrame {
 
         jLabelCor1.setText("COR");
 
-        jButton1.setText("CONSULTAR CAMISA");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonConsultarCamisa1.setText("CONSULTAR CAMISA");
+        jButtonConsultarCamisa1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonConsultarCamisa1ActionPerformed(evt);
             }
         });
 
@@ -509,7 +511,7 @@ public class MainWindow extends javax.swing.JFrame {
                             .addComponent(jCheckBoxSleeve1)))
                     .addGroup(PainelConsultarCamisaLayout.createSequentialGroup()
                         .addGap(424, 424, 424)
-                        .addComponent(jButton1)))
+                        .addComponent(jButtonConsultarCamisa1)))
                 .addContainerGap(585, Short.MAX_VALUE))
         );
         PainelConsultarCamisaLayout.setVerticalGroup(
@@ -564,7 +566,7 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jCheckBoxSleeve1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(jButtonConsultarCamisa1)
                 .addContainerGap(112, Short.MAX_VALUE))
         );
 
@@ -646,33 +648,33 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jButtonRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemoverActionPerformed
         CardLayout a = (CardLayout) getContentPane().getLayout();
-        a.show(getContentPane(),"PainelRemover");
+        a.show(getContentPane(), "PainelRemover");
     }//GEN-LAST:event_jButtonRemoverActionPerformed
 
     private void jButtonAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarActionPerformed
         CardLayout a = (CardLayout) getContentPane().getLayout();
-        a.show(getContentPane(),"PainelAdicionar");
+        a.show(getContentPane(), "PainelAdicionar");
     }//GEN-LAST:event_jButtonAdicionarActionPerformed
 
     private void jButtonConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsultarActionPerformed
         CardLayout a = (CardLayout) getContentPane().getLayout();
-        a.show(getContentPane(),"PainelConsultar");
+        a.show(getContentPane(), "PainelConsultar");
     }//GEN-LAST:event_jButtonConsultarActionPerformed
 
     private void jButtonRoupaNormalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRoupaNormalActionPerformed
         CardLayout a = (CardLayout) getContentPane().getLayout();
-        a.show(getContentPane(),"PainelRoupaNormal");
+        a.show(getContentPane(), "PainelRoupaNormal");
     }//GEN-LAST:event_jButtonRoupaNormalActionPerformed
 
     private void jButtonCamisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCamisaActionPerformed
         CardLayout a = (CardLayout) getContentPane().getLayout();
-        a.show(getContentPane(),"PainelCamisa");
+        a.show(getContentPane(), "PainelCamisa");
     }//GEN-LAST:event_jButtonCamisaActionPerformed
 
     private void jButtonFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFinalizarActionPerformed
         try {
             finalizarAux();
-        } catch(Exception e) {
+        } catch (Exception e) {
             handleException(e);
         }
     }//GEN-LAST:event_jButtonFinalizarActionPerformed
@@ -687,7 +689,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jButtonConsultarCamisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsultarCamisaActionPerformed
         CardLayout a = (CardLayout) getContentPane().getLayout();
-        a.show(getContentPane(),"PainelConsultarCamisa");
+        a.show(getContentPane(), "PainelConsultarCamisa");
     }//GEN-LAST:event_jButtonConsultarCamisaActionPerformed
 
     private void jCheckBoxCollar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxCollar1ActionPerformed
@@ -698,75 +700,69 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBoxSleeve1ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+    private void jButtonConsultarCamisa1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsultarCamisa1ActionPerformed
         try {
-            Double price = Double.parseDouble(jTextFieldPrice1.getText());
-            Integer pocket = Integer.parseInt(jTextFieldPocket1.getText());
-            Integer quantity = Integer.parseInt(jTextFieldQuantity1.getText());
-            Gender gender;
-            ShirtSize shirtSize;
-            
-            if(jTextFieldSize1.getText().equals("P")) {
-                shirtSize = ShirtSize.SMALL;
-            } else if(jTextFieldSize1.getText().equals("M")) {
-                shirtSize = ShirtSize.MEDIUM;
-            } else if(jTextFieldSize1.getText().equals("G")) {
-                shirtSize = ShirtSize.LARGE;
-            } else {
-                throw new IllegalArgumentException("DADOS INVALIDOS");
-            }
-            
-            if(jTextFieldClosureType1.getText().equals("M")) {
-                gender = Gender.MALE;
-            } else if(jTextFieldGender1.getText().equals("F")) {
-                gender = Gender.FEMALE;
-            }else {
-                throw new IllegalArgumentException("DADOS INVALIDOS");
-            }
+            consultarCamisaAux();
+        } catch (Exception e) {
+            handleException(e);
+        }
+    }//GEN-LAST:event_jButtonConsultarCamisa1ActionPerformed
 
-            ShirtRequestDTO data = new ShirtRequestDTO(jTextFieldColor1.getText(), price, quantity, jTextFieldFabric1.getText(),
-                                                       jTextFieldBrand1.getText(), jTextFieldStyle1.getText(), gender, jTextFieldPattern1.getText(),
-                                                       pocket, jTextFieldClosureType1.getText(), ClothingType.STANDARD, jCheckBoxSleeve1.isSelected(),
-                                                       jCheckBoxCollar1.isSelected(), shirtSize);
-            
-            ClothingController.consult(data);
-        } catch(Exception e) {
-            
-        }                                                 
-    }//GEN-LAST:event_jButton1ActionPerformed
-    
     private void finalizarAux() throws Exception {
         Double price = Double.parseDouble(jTextFieldPrice.getText());
         Integer quantity = Integer.parseInt(jTextFieldQuantity.getText());
+        Gender gender = (jTextFieldGender.getText().charAt(0) == 'M') ? Gender.MALE : Gender.FEMALE;
+        String fabric = (jTextFieldFabric.getText().isEmpty() || jTextFieldFabric.getText().isBlank()) ? null : jTextFieldFabric.getText();
+        String brand = (jTextFieldBrand.getText().isEmpty() || jTextFieldBrand.getText().isBlank()) ? null : jTextFieldBrand.getText();
+        String style = (jTextFieldStyle.getText().isEmpty() || jTextFieldStyle.getText().isBlank()) ? null : jTextFieldStyle.getText();
+        String pattern = (jTextFieldPattern.getText().isEmpty() || jTextFieldPattern.getText().isBlank()) ? null : jTextFieldPattern.getText();
+        Integer pocket = (jTextFieldPocket.getText().isEmpty() || jTextFieldPocket.getText().isBlank()) ? 0 : Integer.parseInt(jTextFieldPocket.getText());
+        String closureType = (jTextFieldClosureType.getText().isEmpty() || jTextFieldClosureType.getText().isBlank()) ? null : jTextFieldClosureType.getText();
         ShirtSize size;
-        if(jTextFieldSize.getText().equals("P")) {
+        if (jTextFieldSize.getText().equals("P")) {
             size = ShirtSize.SMALL;
-        } else if(jTextFieldSize.getText().equals("M")) {
+        } else if (jTextFieldSize.getText().equals("M")) {
             size = ShirtSize.MEDIUM;
-        } else if(jTextFieldSize.getText().equals("G")) {
+        } else if (jTextFieldSize.getText().equals("G")) {
             size = ShirtSize.LARGE;
         } else {
             throw new IllegalArgumentException("INSIRA DADOS VALIDOS");
         }
-        
-        Gender gender = (jTextFieldGender.getText().charAt(0) == 'M') ? Gender.MALE : Gender.FEMALE; 
-        String fabric = (jTextFieldFabric.getText().isEmpty() || jTextFieldFabric.getText().isBlank()) ?null :jTextFieldFabric.getText();
-        String brand = (jTextFieldBrand.getText().isEmpty() || jTextFieldBrand.getText().isBlank()) ?null :jTextFieldBrand.getText();
-        String style = (jTextFieldStyle.getText().isEmpty() || jTextFieldStyle.getText().isBlank()) ?null :jTextFieldStyle.getText();
-        String pattern = (jTextFieldPattern.getText().isEmpty() || jTextFieldPattern.getText().isBlank()) ?null :jTextFieldPattern.getText();
-        Integer pocket = (jTextFieldPocket.getText().isEmpty() || jTextFieldPocket.getText().isBlank()) ?0 :Integer.parseInt(jTextFieldPocket.getText());
-        String closureType = (jTextFieldClosureType.getText().isEmpty() || jTextFieldClosureType.getText().isBlank()) ?null :jTextFieldClosureType.getText();
 
         ShirtRequestDTO shirtData = new ShirtRequestDTO(jTextFieldColor.getText(), price, quantity, fabric, brand, style, gender, pattern, pocket, closureType,
-                                                        ClothingType.STANDARD, jCheckBoxSleeve.isSelected(), jCheckBoxCollar.isSelected(), size);
+                ClothingType.STANDARD, jCheckBoxSleeve.isSelected(), jCheckBoxCollar.isSelected(), size);
         ClothingController.register(shirtData);
         JOptionPane.showMessageDialog(this, "ROUPA CADASTRADA", "RESULTADO", JOptionPane.INFORMATION_MESSAGE);
     }
-    
+
+    private void consultarCamisaAux() throws Exception {
+        Double price = Double.parseDouble(jTextFieldPrice1.getText());
+        Integer pocket = Integer.parseInt(jTextFieldPocket1.getText());
+        Integer quantity = Integer.parseInt(jTextFieldQuantity1.getText());
+        Gender gender;
+        ShirtSize shirtSize;
+
+        if (jTextFieldSize1.getText().equals("P")) shirtSize = ShirtSize.SMALL;
+        else if (jTextFieldSize1.getText().equals("M")) shirtSize = ShirtSize.MEDIUM;
+        else if (jTextFieldSize1.getText().equals("G")) shirtSize = ShirtSize.LARGE;
+        else throw new IllegalArgumentException("DADOS INVALIDOS");
+
+        if (jTextFieldClosureType1.getText().equals("M")) gender = Gender.MALE;
+        else if (jTextFieldGender1.getText().equals("F")) gender = Gender.FEMALE;
+        else throw new IllegalArgumentException("DADOS INVALIDOS");
+
+        ShirtRequestDTO data = new ShirtRequestDTO(jTextFieldColor1.getText(), price, quantity, jTextFieldFabric1.getText(),
+                jTextFieldBrand1.getText(), jTextFieldStyle1.getText(), gender, jTextFieldPattern1.getText(),
+                pocket, jTextFieldClosureType1.getText(), ClothingType.STANDARD, jCheckBoxSleeve1.isSelected(),
+                jCheckBoxCollar1.isSelected(), shirtSize);
+
+        List<ClothingResponseDTO> list = ClothingController.consult(data);
+    }
+
     private void handleException(Exception e) {
         JOptionPane.showMessageDialog(this, e.getMessage(), "RESULTADO", JOptionPane.ERROR_MESSAGE);
     }
+
     /**
      * @param args the command line arguments
      */
@@ -799,11 +795,11 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel PainelConsultarCamisa;
     private javax.swing.JPanel PainelPrincipal;
     private javax.swing.JPanel PainelRoupaNormal;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonAdicionar;
     private javax.swing.JButton jButtonCamisa;
     private javax.swing.JButton jButtonConsultar;
     private javax.swing.JButton jButtonConsultarCamisa;
+    private javax.swing.JButton jButtonConsultarCamisa1;
     private javax.swing.JButton jButtonFinalizar;
     private javax.swing.JButton jButtonRemover;
     private javax.swing.JButton jButtonRoupaNormal;
