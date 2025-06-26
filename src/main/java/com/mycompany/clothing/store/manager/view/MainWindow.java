@@ -38,6 +38,7 @@ public class MainWindow extends javax.swing.JFrame {
         getContentPane().add(PainelRoupaNormal, "PainelRoupaNormal");
         getContentPane().add(PainelCamisa, "PainelCamisa");
         getContentPane().add(PainelConsultarCamisa, "PainelConsultarCamisa");
+        getContentPane().add(PainelTabela, "PainelTabela");
     }
 
     /**
@@ -111,6 +112,9 @@ public class MainWindow extends javax.swing.JFrame {
         jTextFieldClosureType1 = new javax.swing.JTextField();
         jLabelCor1 = new javax.swing.JLabel();
         jButtonConsultarCamisa1 = new javax.swing.JButton();
+        PainelTabela = new javax.swing.JPanel();
+        jScrollPaneTabela = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setName("mainPanel"); // NOI18N
@@ -570,6 +574,38 @@ public class MainWindow extends javax.swing.JFrame {
                 .addContainerGap(112, Short.MAX_VALUE))
         );
 
+        PainelTabela.setName("PainelTabela"); // NOI18N
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPaneTabela.setViewportView(jTable1);
+
+        javax.swing.GroupLayout PainelTabelaLayout = new javax.swing.GroupLayout(PainelTabela);
+        PainelTabela.setLayout(PainelTabelaLayout);
+        PainelTabelaLayout.setHorizontalGroup(
+            PainelTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PainelTabelaLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(jScrollPaneTabela, javax.swing.GroupLayout.PREFERRED_SIZE, 1070, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(46, Short.MAX_VALUE))
+        );
+        PainelTabelaLayout.setVerticalGroup(
+            PainelTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelTabelaLayout.createSequentialGroup()
+                .addContainerGap(58, Short.MAX_VALUE)
+                .addComponent(jScrollPaneTabela, javax.swing.GroupLayout.PREFERRED_SIZE, 515, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -605,6 +641,11 @@ public class MainWindow extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(PainelConsultarCamisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(PainelTabela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -638,6 +679,11 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(PainelConsultarCamisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(PainelTabela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
@@ -795,6 +841,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel PainelConsultarCamisa;
     private javax.swing.JPanel PainelPrincipal;
     private javax.swing.JPanel PainelRoupaNormal;
+    private javax.swing.JPanel PainelTabela;
     private javax.swing.JButton jButtonAdicionar;
     private javax.swing.JButton jButtonCamisa;
     private javax.swing.JButton jButtonConsultar;
@@ -829,6 +876,8 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelSize1;
     private javax.swing.JLabel jLabelStyle;
     private javax.swing.JLabel jLabelStyle1;
+    private javax.swing.JScrollPane jScrollPaneTabela;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextFieldBrand;
     private javax.swing.JTextField jTextFieldBrand1;
     private javax.swing.JTextField jTextFieldClosureType;
