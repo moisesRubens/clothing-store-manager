@@ -10,7 +10,11 @@ import com.mycompany.clothing.store.manager.domain.Shirt;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingResponseDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtResponseDTO;
+import com.mycompany.clothing.store.manager.domain.enums.ClothingType;
+import com.mycompany.clothing.store.manager.domain.enums.Gender;
+import com.mycompany.clothing.store.manager.domain.enums.ShirtSize;
 import com.mycompany.clothing.store.manager.service.ClothingService;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,27 +22,34 @@ import java.util.List;
  * @author moise
  */
 public class ClothingController {
+
     private static ClothingService clothingService = new ClothingService();
-    
+
     public static void register(ClothingRequestDTO data) throws Exception {
-        if(data instanceof ShirtRequestDTO shirtData) {
+        if (data instanceof ShirtRequestDTO shirtData) {
             Shirt shirt = new Shirt(shirtData.color(), shirtData.price(), shirtData.quantity(), shirtData.clothingType(),
-                                    shirtData.fabric(), shirtData.brand(), shirtData.style(), shirtData.gender(), shirtData.pattern(),
-                                    shirtData.pocket(), shirtData.closureType(), shirtData.size(), shirtData.sleeve(), shirtData.collar());
-            
+                    shirtData.fabric(), shirtData.brand(), shirtData.style(), shirtData.gender(), shirtData.pattern(),
+                    shirtData.pocket(), shirtData.closureType(), shirtData.size(), shirtData.sleeve(), shirtData.collar());
+
             clothingService.register(shirt);
         }
     }
-    
+
     public static List<ClothingResponseDTO> consult(ClothingRequestDTO data) throws Exception {
-        List list = null;
-        if(data instanceof ShirtRequestDTO shirtData) {
+        List list = new ArrayList<>();
+
+        if (data instanceof ShirtRequestDTO shirtData) {
             Shirt shirt = new Shirt(shirtData.color(), shirtData.price(), shirtData.quantity(), shirtData.clothingType(),
-                                    shirtData.fabric(), shirtData.brand(), shirtData.style(), shirtData.gender(), shirtData.pattern(),
-                                    shirtData.pocket(), shirtData.closureType(), shirtData.size(), shirtData.sleeve(), shirtData.collar());
-            list = clothingService.consult(shirt); 
+                    shirtData.fabric(), shirtData.brand(), shirtData.style(), shirtData.gender(), shirtData.pattern(),
+                    shirtData.pocket(), shirtData.closureType(), shirtData.size(), shirtData.sleeve(), shirtData.collar());
+
+            List<Shirt> shirts = clothingService.consult(shirt);
+            list = shirts.stream().map(shirtAux -> new ShirtResponseDTO(shirtAux.getId(), shirtAux.getColor(), shirtAux.getPrice(), shirtAux.getQuantity(),
+                                                                        shirtAux.getFabric(), shirtAux.getBrand(), shirtAux.getStyle(), shirtAux.getGender(),
+                                                                        shirtAux.getPattern(), shirtAux.getPocket(), shirtAux.getClosureType(),
+                                                                        shirtAux.getClothingType(), shirtAux.getSleeve(), shirtAux.getCollar(),
+                                                                        shirtAux.getSize())).toList();
         }
-        
         return list;
     }
 }

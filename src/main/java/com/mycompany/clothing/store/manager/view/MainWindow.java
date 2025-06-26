@@ -9,12 +9,14 @@ import com.mycompany.clothing.store.manager.controller.ClothingController;
 import com.mycompany.clothing.store.manager.domain.Shirt;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingResponseDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtRequestDTO;
+import com.mycompany.clothing.store.manager.domain.dto.ShirtResponseDTO;
 import com.mycompany.clothing.store.manager.domain.enums.ClothingType;
 import com.mycompany.clothing.store.manager.domain.enums.Gender;
 import com.mycompany.clothing.store.manager.domain.enums.ShirtSize;
 import java.awt.CardLayout;
 import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -610,17 +612,15 @@ public class MainWindow extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 2056, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(649, Short.MAX_VALUE)
+                .addComponent(PainelAdicionar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(641, 641, 641))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 701, Short.MAX_VALUE)
                     .addComponent(PainelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 702, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(PainelAdicionar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -649,17 +649,15 @@ public class MainWindow extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1579, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(443, 443, 443)
+                .addComponent(PainelAdicionar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(520, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 557, Short.MAX_VALUE)
                     .addComponent(PainelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 558, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(PainelAdicionar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -788,14 +786,23 @@ public class MainWindow extends javax.swing.JFrame {
         Gender gender;
         ShirtSize shirtSize;
 
-        if (jTextFieldSize1.getText().equals("P")) shirtSize = ShirtSize.SMALL;
-        else if (jTextFieldSize1.getText().equals("M")) shirtSize = ShirtSize.MEDIUM;
-        else if (jTextFieldSize1.getText().equals("G")) shirtSize = ShirtSize.LARGE;
-        else throw new IllegalArgumentException("DADOS INVALIDOS");
+        if (jTextFieldSize1.getText().equals("P")) {
+            shirtSize = ShirtSize.SMALL;
+        } else if (jTextFieldSize1.getText().equals("M")) {
+            shirtSize = ShirtSize.MEDIUM;
+        } else if (jTextFieldSize1.getText().equals("G")) {
+            shirtSize = ShirtSize.LARGE;
+        } else {
+            throw new IllegalArgumentException("DADOS INVALIDOS");
+        }
 
-        if (jTextFieldClosureType1.getText().equals("M")) gender = Gender.MALE;
-        else if (jTextFieldGender1.getText().equals("F")) gender = Gender.FEMALE;
-        else throw new IllegalArgumentException("DADOS INVALIDOS");
+        if (jTextFieldClosureType1.getText().equals("M")) {
+            gender = Gender.MALE;
+        } else if (jTextFieldGender1.getText().equals("F")) {
+            gender = Gender.FEMALE;
+        } else {
+            throw new IllegalArgumentException("DADOS INVALIDOS");
+        }
 
         ShirtRequestDTO data = new ShirtRequestDTO(jTextFieldColor1.getText(), price, quantity, jTextFieldFabric1.getText(),
                 jTextFieldBrand1.getText(), jTextFieldStyle1.getText(), gender, jTextFieldPattern1.getText(),
@@ -803,6 +810,47 @@ public class MainWindow extends javax.swing.JFrame {
                 jCheckBoxCollar1.isSelected(), shirtSize);
 
         List<ClothingResponseDTO> list = ClothingController.consult(data);
+
+    }
+
+    private void fillTableShirt(List<ClothingResponseDTO> list) {
+        DefaultTableModel model = new DefaultTableModel();
+
+        if (list.getFirst() instanceof ShirtResponseDTO shirts) {
+            model.addColumn("ID");
+            model.addColumn("COLOR");
+            model.addColumn("PRICE");
+            model.addColumn("QUANTITY");
+            model.addColumn("BRAND");
+            model.addColumn("SIZE");
+            model.addColumn("GENDER");
+            model.addColumn("CLOSURE TYPE");
+            model.addColumn("CLOTHING TYPE");
+            model.addColumn("PATTERN");
+            model.addColumn("FABRIC");
+            model.addColumn("COLLAR");
+            model.addColumn("SLEEVE");
+
+            for (ShirtResponseDTO data : list) {
+                model.addRow(new Object[]{
+                    data.id(),
+                    data.color(),
+                    data.price(), 
+                    data.quantity(),
+                    data.brand(), 
+                    data.size(),
+                    data.gender(), 
+                    data.closureType(),
+                    data.clothingType(),
+                    data.pattern(),
+                    data.fabric(),
+                    data.collar(), 
+                    data.sleeve()
+                });
+            }
+
+            tabelaAlunos.setModel(model);
+        }
     }
 
     private void handleException(Exception e) {
