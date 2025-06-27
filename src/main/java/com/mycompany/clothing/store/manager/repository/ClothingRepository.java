@@ -66,8 +66,10 @@ public class ClothingRepository {
         List list = null;
 
         if (clothing instanceof Shirt shirt) {
-            list = em.createQuery("SELECT s FROM Shirt s WHERE s.color LIKE :color", Shirt.class)
-                    .setParameter("color", "%" + shirt.getColor() + "%").getResultList();
+            list = em.createQuery("SELECT s FROM Shirt s WHERE s.color LIKE :color " + 
+                                  "OR s.price LIKE :price", Shirt.class)
+                    .setParameter("color", "%" + shirt.getColor() + "%")
+                    .setParameter("price", shirt.getPrice()).getResultList();
         }
         if (list.isEmpty()) {
             throw new RoupaNaoExistenteException("MODELO DE ROUPA INEXISTENTE");
