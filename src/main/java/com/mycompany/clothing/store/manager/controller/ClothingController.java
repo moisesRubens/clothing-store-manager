@@ -49,6 +49,7 @@ public class ClothingController {
                                                                         shirtAux.getPattern(), shirtAux.getPocket(), shirtAux.getClosureType(),
                                                                         shirtAux.getClothingType(), shirtAux.getSleeve(), shirtAux.getCollar(),
                                                                         shirtAux.getSize())).toList();
+            
         }
         return list;
     }

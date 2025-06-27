@@ -5,6 +5,7 @@
 package com.mycompany.clothing.store.manager.view;
 
 import com.mycompany.clothing.store.manager.configuration.exception.RoupaJaExistenteException;
+import com.mycompany.clothing.store.manager.configuration.exception.RoupaNaoExistenteException;
 import com.mycompany.clothing.store.manager.controller.ClothingController;
 import com.mycompany.clothing.store.manager.domain.Shirt;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingResponseDTO;
@@ -747,6 +748,8 @@ public class MainWindow extends javax.swing.JFrame {
     private void jButtonConsultarCamisa1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsultarCamisa1ActionPerformed
         try {
             consultarCamisaAux();
+        } catch(RoupaNaoExistenteException e) {
+            handleException(e);
         } catch (Exception e) {
             handleException(e);
         }
@@ -755,14 +758,23 @@ public class MainWindow extends javax.swing.JFrame {
     private void finalizarAux() throws Exception {
         Double price = Double.parseDouble(jTextFieldPrice.getText());
         Integer quantity = Integer.parseInt(jTextFieldQuantity.getText());
-        Gender gender = (jTextFieldGender.getText().charAt(0) == 'M') ? Gender.MALE : Gender.FEMALE;
+        Gender gender;
         String fabric = (jTextFieldFabric.getText().isEmpty() || jTextFieldFabric.getText().isBlank()) ? null : jTextFieldFabric.getText();
         String brand = (jTextFieldBrand.getText().isEmpty() || jTextFieldBrand.getText().isBlank()) ? null : jTextFieldBrand.getText();
         String style = (jTextFieldStyle.getText().isEmpty() || jTextFieldStyle.getText().isBlank()) ? null : jTextFieldStyle.getText();
         String pattern = (jTextFieldPattern.getText().isEmpty() || jTextFieldPattern.getText().isBlank()) ? null : jTextFieldPattern.getText();
         Integer pocket = (jTextFieldPocket.getText().isEmpty() || jTextFieldPocket.getText().isBlank()) ? 0 : Integer.parseInt(jTextFieldPocket.getText());
         String closureType = (jTextFieldClosureType.getText().isEmpty() || jTextFieldClosureType.getText().isBlank()) ? null : jTextFieldClosureType.getText();
-        ShirtSize size;
+        gender = Gender.MALE;ShirtSize size;
+        
+        if (jTextFieldGender.getText().charAt(0) == 'M') {
+            gender = Gender.MALE;
+        } else if (jTextFieldGender.getText().charAt(0) == 'F') {
+            gender = Gender.FEMALE;
+        } else {
+            throw new IllegalArgumentException("INSIRA DADOS VALIDOS");
+        }
+        
         if (jTextFieldSize.getText().equals("P")) {
             size = ShirtSize.SMALL;
         } else if (jTextFieldSize.getText().equals("M")) {
@@ -810,6 +822,7 @@ public class MainWindow extends javax.swing.JFrame {
                 jCheckBoxCollar1.isSelected(), shirtSize);
 
         List<ClothingResponseDTO> list = ClothingController.consult(data);
+        fillTableShirt(list);
 
     }
 
