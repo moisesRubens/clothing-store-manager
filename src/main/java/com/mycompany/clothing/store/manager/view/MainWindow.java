@@ -816,7 +816,7 @@ public class MainWindow extends javax.swing.JFrame {
     private void fillTableShirt(List<ClothingResponseDTO> list) {
         DefaultTableModel model = new DefaultTableModel();
 
-        if (list.getFirst() instanceof ShirtResponseDTO shirts) {
+        if (list.getFirst() instanceof ShirtResponseDTO) {
             model.addColumn("ID");
             model.addColumn("COLOR");
             model.addColumn("PRICE");
@@ -830,26 +830,27 @@ public class MainWindow extends javax.swing.JFrame {
             model.addColumn("FABRIC");
             model.addColumn("COLLAR");
             model.addColumn("SLEEVE");
-
-            for (ShirtResponseDTO data : list) {
+            
+            for (ClothingResponseDTO data : list) {
+                ShirtResponseDTO shirtData = (ShirtResponseDTO) data;
                 model.addRow(new Object[]{
-                    data.id(),
-                    data.color(),
-                    data.price(), 
-                    data.quantity(),
-                    data.brand(), 
-                    data.size(),
-                    data.gender(), 
-                    data.closureType(),
-                    data.clothingType(),
-                    data.pattern(),
-                    data.fabric(),
-                    data.collar(), 
-                    data.sleeve()
+                    shirtData.id(),
+                    shirtData.color(),
+                    shirtData.price(), 
+                    shirtData.quantity(),
+                    shirtData.brand(), 
+                    shirtData.size(),
+                    shirtData.gender(), 
+                    shirtData.closureType(),
+                    shirtData.clothingType(),
+                    shirtData.pattern(),
+                    shirtData.fabric(),
+                    shirtData.collar(), 
+                    shirtData.sleeve()
                 });
             }
 
-            tabelaAlunos.setModel(model);
+            jTable1.setModel(model);
         }
     }
 
