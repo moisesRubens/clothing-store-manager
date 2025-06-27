@@ -792,11 +792,11 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     private void consultarCamisaAux() throws Exception {
-        Double price = Double.parseDouble(jTextFieldPrice1.getText());
-        Integer pocket = Integer.parseInt(jTextFieldPocket1.getText());
-        Integer quantity = Integer.parseInt(jTextFieldQuantity1.getText());
-        Gender gender;
-        ShirtSize shirtSize;
+        Double price = (jTextFieldPrice1.getText().isEmpty()) ?0D :Double.parseDouble(jTextFieldPrice1.getText());
+        Integer pocket = (jTextFieldPocket1.getText().isEmpty()) ?0 :Integer.parseInt(jTextFieldPocket1.getText());
+        Integer quantity = (jTextFieldQuantity1.getText().isEmpty()) ?0 :Integer.parseInt(jTextFieldQuantity1.getText());
+        Gender gender = null;
+        ShirtSize shirtSize = null;
 
         if (jTextFieldSize1.getText().equals("P")) {
             shirtSize = ShirtSize.SMALL;
@@ -804,7 +804,7 @@ public class MainWindow extends javax.swing.JFrame {
             shirtSize = ShirtSize.MEDIUM;
         } else if (jTextFieldSize1.getText().equals("G")) {
             shirtSize = ShirtSize.LARGE;
-        } else {
+        } else if(gender != null){
             throw new IllegalArgumentException("DADOS INVALIDOS");
         }
 
@@ -812,7 +812,7 @@ public class MainWindow extends javax.swing.JFrame {
             gender = Gender.MALE;
         } else if (jTextFieldGender1.getText().equals("F")) {
             gender = Gender.FEMALE;
-        } else {
+        } else if(shirtSize != null) {
             throw new IllegalArgumentException("DADOS INVALIDOS");
         }
 
