@@ -23,7 +23,7 @@ public class ClothingService {
     }
     
     public List consult(Clothing clothing) throws Exception {
-        return clothingRepository.consult(clothing);
+        return clothingRepository.consult(clothing); 
     }
     
     

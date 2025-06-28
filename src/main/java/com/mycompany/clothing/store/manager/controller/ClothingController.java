@@ -42,14 +42,15 @@ public class ClothingController {
             Shirt shirt = new Shirt(shirtData.color(), shirtData.price(), shirtData.quantity(), shirtData.clothingType(),
                     shirtData.fabric(), shirtData.brand(), shirtData.style(), shirtData.gender(), shirtData.pattern(),
                     shirtData.pocket(), shirtData.closureType(), shirtData.size(), shirtData.sleeve(), shirtData.collar());
-
+            
+            
             List<Shirt> shirts = clothingService.consult(shirt);
+            
             list = shirts.stream().map(shirtAux -> new ShirtResponseDTO(shirtAux.getId(), shirtAux.getColor(), shirtAux.getPrice(), shirtAux.getQuantity(),
                                                                         shirtAux.getFabric(), shirtAux.getBrand(), shirtAux.getStyle(), shirtAux.getGender(),
                                                                         shirtAux.getPattern(), shirtAux.getPocket(), shirtAux.getClosureType(),
                                                                         shirtAux.getClothingType(), shirtAux.getSleeve(), shirtAux.getCollar(),
                                                                         shirtAux.getSize())).toList();
-            
         }
         return list;
     }

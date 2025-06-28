@@ -797,18 +797,19 @@ public class MainWindow extends javax.swing.JFrame {
         Integer quantity = (jTextFieldQuantity1.getText().isEmpty()) ?0 :Integer.parseInt(jTextFieldQuantity1.getText());
         Gender gender = null;
         ShirtSize shirtSize = null;
-
+        String color = jTextFieldColor1.getText().trim();
+        
         if (jTextFieldSize1.getText().equals("P")) {
             shirtSize = ShirtSize.SMALL;
         } else if (jTextFieldSize1.getText().equals("M")) {
             shirtSize = ShirtSize.MEDIUM;
         } else if (jTextFieldSize1.getText().equals("G")) {
             shirtSize = ShirtSize.LARGE;
-        } else if(gender != null){
+        } else if(shirtSize != null){
             throw new IllegalArgumentException("DADOS INVALIDOS");
         }
 
-        if (jTextFieldClosureType1.getText().equals("M")) {
+        if (jTextFieldGender1.getText().equals("M")) {
             gender = Gender.MALE;
         } else if (jTextFieldGender1.getText().equals("F")) {
             gender = Gender.FEMALE;
@@ -816,14 +817,15 @@ public class MainWindow extends javax.swing.JFrame {
             throw new IllegalArgumentException("DADOS INVALIDOS");
         }
 
-        ShirtRequestDTO data = new ShirtRequestDTO(jTextFieldColor1.getText(), price, quantity, jTextFieldFabric1.getText(),
+        ShirtRequestDTO data = new ShirtRequestDTO(color, price, quantity, jTextFieldFabric1.getText(),
                 jTextFieldBrand1.getText(), jTextFieldStyle1.getText(), gender, jTextFieldPattern1.getText(),
                 pocket, jTextFieldClosureType1.getText(), ClothingType.STANDARD, jCheckBoxSleeve1.isSelected(),
                 jCheckBoxCollar1.isSelected(), shirtSize);
-
+        
+        
+        
         List<ClothingResponseDTO> list = ClothingController.consult(data);
         fillTableShirt(list);
-
     }
 
     private void fillTableShirt(List<ClothingResponseDTO> list) {
@@ -862,8 +864,9 @@ public class MainWindow extends javax.swing.JFrame {
                     shirtData.sleeve()
                 });
             }
-
             jTable1.setModel(model);
+            CardLayout a = (CardLayout) getContentPane().getLayout();
+            a.show(getContentPane(), "PainelTabela");
         }
     }
 

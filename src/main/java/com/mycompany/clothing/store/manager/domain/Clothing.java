@@ -81,6 +81,11 @@ public abstract class Clothing {
         this.closureType = closureType;
     }
 
+    @Override
+    public String toString() {
+        return "Clothing{" + "id=" + id + ", color=" + color + ", price=" + price + ", quantity=" + quantity + ", fabric=" + fabric + ", brand=" + brand + ", style=" + style + ", gender=" + gender + ", pattern=" + pattern + ", pocket=" + pocket + ", closureType=" + closureType + ", clothingType=" + clothingType + '}';
+    }
+    
     public Integer getId() {
         return id;
     }

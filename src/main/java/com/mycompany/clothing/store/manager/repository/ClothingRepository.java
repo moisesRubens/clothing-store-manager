@@ -67,7 +67,7 @@ public class ClothingRepository {
 
         if (clothing instanceof Shirt shirt) {
             list = em.createQuery("SELECT s FROM Shirt s WHERE s.color LIKE :color " + 
-                                  "OR s.price LIKE :price", Shirt.class)
+                                  "OR s.price = :price", Shirt.class)
                     .setParameter("color", "%" + shirt.getColor() + "%")
                     .setParameter("price", shirt.getPrice()).getResultList();
         }

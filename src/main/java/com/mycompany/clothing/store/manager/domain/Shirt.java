@@ -41,6 +41,11 @@ public class Shirt extends Clothing {
         this.collar = collar;
     }
 
+    @Override
+    public String toString() {
+        return super.toString() + " Shirt{" + "sleeve=" + sleeve + ", collar=" + collar + ", size=" + size + '}';
+    }
+    
     public Boolean getSleeve() {
         return sleeve;
     }
