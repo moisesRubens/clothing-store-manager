@@ -798,6 +798,11 @@ public class MainWindow extends javax.swing.JFrame {
         Gender gender = null;
         ShirtSize shirtSize = null;
         String color = (jTextFieldColor1.getText().isBlank()) ?"empty" :jTextFieldColor1.getText();
+        String fabric = (jTextFieldFabric1.getText().isBlank()) ?"empty" :jTextFieldFabric1.getText();
+        String brand = (jTextFieldBrand1.getText().isBlank()) ?"empty" :jTextFieldBrand1.getText();
+        String style = (jTextFieldStyle1.getText().isBlank()) ?"empty" :jTextFieldStyle1.getText();
+        String pattern = (jTextFieldPattern1.getText().isBlank()) ?"empty" :jTextFieldPattern1.getText();
+        String closureType = (jTextFieldClosureType1.getText().isBlank()) ?"empty" :jTextFieldClosureType1.getText();
         
         if (jTextFieldSize1.getText().equals("P")) {
             shirtSize = ShirtSize.SMALL;
@@ -817,9 +822,9 @@ public class MainWindow extends javax.swing.JFrame {
             throw new IllegalArgumentException("DADOS INVALIDOS");
         }
 
-        ShirtRequestDTO data = new ShirtRequestDTO(color, price, quantity, jTextFieldFabric1.getText(),
-                jTextFieldBrand1.getText(), jTextFieldStyle1.getText(), gender, jTextFieldPattern1.getText(),
-                pocket, jTextFieldClosureType1.getText(), ClothingType.STANDARD, jCheckBoxSleeve1.isSelected(),
+        ShirtRequestDTO data = new ShirtRequestDTO(color, price, quantity, fabric,
+                brand, style, gender, pattern,
+                pocket, closureType, ClothingType.STANDARD, jCheckBoxSleeve1.isSelected(),
                 jCheckBoxCollar1.isSelected(), shirtSize);
         
         

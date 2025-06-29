@@ -48,10 +48,10 @@ public class ClothingRepository {
         }
     }
 
-    public List consult(Clothing clothing) throws Exception {
+    public List consult(Clothing clothing, Boolean hasAtribute) throws Exception {
         EntityManager em = emf.createEntityManager();
         try {
-            return consultAux(em, clothing);
+            return consultAux(em, clothing, hasAtribute);
         } catch (Exception e) {
             handleException(e);
             throw e;
@@ -63,28 +63,34 @@ public class ClothingRepository {
         }
     }
 
-    private List consultAux(EntityManager em, Clothing clothing) throws Exception {
+    private List consultAux(EntityManager em, Clothing clothing, Boolean hasAtributes) throws Exception {
         List list = null;
 
         if (clothing instanceof Shirt shirt) {
-            String queryStr = "SELECT s FROM Shirt s WHERE 1=1";
+            TypedQuery<Shirt> query = null;
+            String queryStr = "SELECT s FROM Shirt s WHERE";
             
-            if(!shirt.getColor().equals("empty")) {
-                queryStr += " AND s.color LIKE :color";
-            } 
-            if(shirt.getPocket() != -1) {
-                queryStr += " AND s.pocket = :pocket";
+            if (hasAtributes == true) {
+                queryStr += " 1=1";
+                
+                if (!shirt.getColor().equals("empty")) {
+                    queryStr += " AND s.color LIKE :color";
+                }
+                if (shirt.getPocket() != -1) {
+                    queryStr += " AND s.pocket = :pocket";
+                }
+                query = em.createQuery(queryStr, Shirt.class);
+
+                if (!shirt.getColor().equals("empty")) {
+                    query.setParameter("color", "%" + shirt.getColor() + "%");
+                }
+                if (shirt.getPocket() != -1) {
+                    query.setParameter("pocket", shirt.getPocket());
+                }
+            } else {
+                queryStr += " 1=0";
             }
-            
-            TypedQuery<Shirt> query = em.createQuery(queryStr, Shirt.class);
-            
-            if(!shirt.getColor().equals("empty")) {
-                query.setParameter("color", "%"+shirt.getColor()+"%");
-            } 
-            if(shirt.getPocket() != -1) {
-                query.setParameter("pocket", shirt.getPocket());
-            }
-            
+
             list = query.getResultList();
             /*
             list = em.createQuery("SELECT s FROM Shirt s WHERE "+
@@ -93,7 +99,7 @@ public class ClothingRepository {
                    .setParameter("pocket", shirt.getPocket())
                    .setParameter("color", "%"+shirt.getColor()+"%").getResultList();*/
         }
-        
+
         if (list.isEmpty()) {
             throw new RoupaNaoExistenteException("MODELO DE ROUPA INEXISTENTE");
         }
@@ -113,7 +119,7 @@ public class ClothingRepository {
     private void shutDown() {
         emf.close();
     }
-    
+
     /*+
                                   "OR s.id = :id " +
                                   "OR s.brand LIKE :brand " +
@@ -130,5 +136,5 @@ public class ClothingRepository {
                     .setParameter("fabric", "%" + shirt.getFabric()+ "%").setParameter("style", "%" + shirt.getStyle()+ "%")
                     .setParameter("shirtSize", shirt.getSize())
                     .setParameter("closureType", "%" + shirt.getClosureType()+ "%")
-    */
+     */
 }
