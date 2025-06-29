@@ -792,12 +792,12 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     private void consultarCamisaAux() throws Exception {
-        Double price = (jTextFieldPrice1.getText().isEmpty()) ?0D :Double.parseDouble(jTextFieldPrice1.getText());
-        Integer pocket = (jTextFieldPocket1.getText().isEmpty()) ?0 :Integer.parseInt(jTextFieldPocket1.getText());
-        Integer quantity = (jTextFieldQuantity1.getText().isEmpty()) ?0 :Integer.parseInt(jTextFieldQuantity1.getText());
+        Double price = (jTextFieldPrice1.getText().isEmpty()) ?-1D :Double.parseDouble(jTextFieldPrice1.getText());
+        Integer pocket = (jTextFieldPocket1.getText().isEmpty()) ?-1 :Integer.parseInt(jTextFieldPocket1.getText());
+        Integer quantity = (jTextFieldQuantity1.getText().isEmpty()) ?-1 :Integer.parseInt(jTextFieldQuantity1.getText());
         Gender gender = null;
         ShirtSize shirtSize = null;
-        String color = jTextFieldColor1.getText().trim();
+        String color = (jTextFieldColor1.getText().isBlank()) ?"empty" :jTextFieldColor1.getText();
         
         if (jTextFieldSize1.getText().equals("P")) {
             shirtSize = ShirtSize.SMALL;

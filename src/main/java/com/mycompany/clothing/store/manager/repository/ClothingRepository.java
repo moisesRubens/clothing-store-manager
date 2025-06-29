@@ -13,6 +13,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.QueryHint;
+import jakarta.persistence.TypedQuery;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -66,12 +67,33 @@ public class ClothingRepository {
         List list = null;
 
         if (clothing instanceof Shirt shirt) {
-            list = em.createQuery("SELECT s FROM Shirt s WHERE s.color LIKE :color " + 
-                                  "OR s.price = :price " + 
-                                  "OR s.pocket = :pocket ", Shirt.class)
-                    .setParameter("color", "%" + shirt.getColor() + "%").setParameter("price", shirt.getPrice())
-                    .setParameter("pocket", shirt.getPocket()).getResultList();
+            String queryStr = "SELECT s FROM Shirt s WHERE 1=1";
+            
+            if(!shirt.getColor().equals("empty")) {
+                queryStr += " AND s.color LIKE :color";
+            } 
+            if(shirt.getPocket() != -1) {
+                queryStr += " AND s.pocket = :pocket";
+            }
+            
+            TypedQuery<Shirt> query = em.createQuery(queryStr, Shirt.class);
+            
+            if(!shirt.getColor().equals("empty")) {
+                query.setParameter("color", "%"+shirt.getColor()+"%");
+            } 
+            if(shirt.getPocket() != -1) {
+                query.setParameter("pocket", shirt.getPocket());
+            }
+            
+            list = query.getResultList();
+            /*
+            list = em.createQuery("SELECT s FROM Shirt s WHERE "+
+                                  "s.color LIKE :color OR "+
+                                  "s.pocket = :pocket", Shirt.class)
+                   .setParameter("pocket", shirt.getPocket())
+                   .setParameter("color", "%"+shirt.getColor()+"%").getResultList();*/
         }
+        
         if (list.isEmpty()) {
             throw new RoupaNaoExistenteException("MODELO DE ROUPA INEXISTENTE");
         }
