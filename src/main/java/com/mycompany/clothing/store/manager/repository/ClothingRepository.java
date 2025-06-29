@@ -67,9 +67,10 @@ public class ClothingRepository {
 
         if (clothing instanceof Shirt shirt) {
             list = em.createQuery("SELECT s FROM Shirt s WHERE s.color LIKE :color " + 
-                                  "OR s.price = :price", Shirt.class)
-                    .setParameter("color", "%" + shirt.getColor() + "%")
-                    .setParameter("price", shirt.getPrice()).getResultList();
+                                  "OR s.price = :price " + 
+                                  "OR s.pocket = :pocket ", Shirt.class)
+                    .setParameter("color", "%" + shirt.getColor() + "%").setParameter("price", shirt.getPrice())
+                    .setParameter("pocket", shirt.getPocket()).getResultList();
         }
         if (list.isEmpty()) {
             throw new RoupaNaoExistenteException("MODELO DE ROUPA INEXISTENTE");
@@ -90,4 +91,22 @@ public class ClothingRepository {
     private void shutDown() {
         emf.close();
     }
+    
+    /*+
+                                  "OR s.id = :id " +
+                                  "OR s.brand LIKE :brand " +
+                                  "OR s.pattern LIKE :pattern " +
+                                  "OR s.clothingType = :clothingType " +
+                                  "OR s.closureType LIKE :closureType " +
+                                  "OR s.fabric LIKE :fabric " +
+                                  "OR s.style LIKE :style" +  
+                                  
+                                  "OR s.shirtSize = :shirtSize"
+    
+    .setParameter("id", shirt.getId()).setParameter("brand", "%" + shirt.getBrand()+ "%")
+                    .setParameter("pattern", "%" + shirt.getPattern()+ "%").setParameter("clothingType", shirt.getClothingType())
+                    .setParameter("fabric", "%" + shirt.getFabric()+ "%").setParameter("style", "%" + shirt.getStyle()+ "%")
+                    .setParameter("shirtSize", shirt.getSize())
+                    .setParameter("closureType", "%" + shirt.getClosureType()+ "%")
+    */
 }
