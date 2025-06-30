@@ -39,8 +39,8 @@ public class ClothingService {
             System.out.println(shirt);
             hasAtribute = (!shirt.getColor().equals("empty") || !shirt.getBrand().equals("empty")
                     || !shirt.getPattern().equals("empty") || EnumSet.allOf(ShirtSize.class).contains(shirt.getSize())
-                    || !shirt.getClosureType().equals("empty") || EnumSet.allOf(ClothingType.class).contains(shirt.getClothingType())
-                    || !shirt.getFabric().equals("empty") || EnumSet.allOf(Gender.class).contains(shirt.getGender())
+                    || !shirt.getClosureType().equals("empty") || !shirt.getFabric().equals("empty") 
+                    || EnumSet.allOf(Gender.class).contains(shirt.getGender())
                     || !shirt.getStyle().equals("empty") || shirt.getCollar() == true || shirt.getSleeve() == true
                     || shirt.getPocket() != -1 || shirt.getQuantity() != -1);
         }   
