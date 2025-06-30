@@ -838,18 +838,19 @@ public class MainWindow extends javax.swing.JFrame {
 
         if (list.getFirst() instanceof ShirtResponseDTO) {
             model.addColumn("ID");
-            model.addColumn("COLOR");
-            model.addColumn("PRICE");
-            model.addColumn("QUANTITY");
-            model.addColumn("BRAND");
-            model.addColumn("SIZE");
-            model.addColumn("GENDER");
-            model.addColumn("CLOSURE TYPE");
-            model.addColumn("CLOTHING TYPE");
-            model.addColumn("PATTERN");
-            model.addColumn("FABRIC");
-            model.addColumn("COLLAR");
-            model.addColumn("SLEEVE");
+            model.addColumn("COR");
+            model.addColumn("VALOR");
+            model.addColumn("QUANTIDADE");
+            model.addColumn("MARCA");
+            model.addColumn("TAMANHO");
+            model.addColumn("GENERO");
+            model.addColumn("TIPO DE FECHAMENTO");
+            model.addColumn("TIPO DE ROUPA");
+            model.addColumn("ESTAMPA");
+            model.addColumn("TECIDO");
+            model.addColumn("QUANTIDADE DE BOLSOS");
+            model.addColumn("GOLA");
+            model.addColumn("MANGA");
             
             for (ClothingResponseDTO data : list) {
                 ShirtResponseDTO shirtData = (ShirtResponseDTO) data;
@@ -865,6 +866,7 @@ public class MainWindow extends javax.swing.JFrame {
                     shirtData.clothingType(),
                     shirtData.pattern(),
                     shirtData.fabric(),
+                    shirtData.pocket(),
                     shirtData.collar(), 
                     shirtData.sleeve()
                 });
