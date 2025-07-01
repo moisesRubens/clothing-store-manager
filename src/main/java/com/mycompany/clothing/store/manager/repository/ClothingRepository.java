@@ -38,15 +38,12 @@ public class ClothingRepository {
             registerInDatabaseAux(em, clothing);
             em.getTransaction().commit();
         } catch (EntityExistsException e) {
-            handleException(e);
+            handleException(em, e);
             throw new RoupaJaExistenteException("ROUPA JA CADASTRADA NO BANCO DE DADOS");
         } catch (Exception e) {
-            handleException(e);
+            handleException(em, e);
             throw new RuntimeException("ERRO AO CADASTRAR", e);
         } finally {
-            if (em.getTransaction().isActive()) {
-                em.getTransaction().rollback();
-            }
             em.close();
         }
     }
@@ -56,12 +53,9 @@ public class ClothingRepository {
         try {
             return consultAux(em, clothing, hasAtribute);
         } catch (Exception e) {
-            handleException(e);
+            handleException(em, e);
             throw e;
         } finally {
-            if (em.getTransaction().isActive()) {
-                em.getTransaction().rollback();
-            }
             em.close();
         }
     }
@@ -167,12 +161,9 @@ public class ClothingRepository {
         try {
             return getClothingByIdAux(em, id);
         } catch (Exception e) {
-            handleException(e);
+            handleException(em, e);
             throw e;
         } finally {
-            if (em.getTransaction().isActive()) {
-                em.getTransaction().rollback();
-            }
             em.close();
         }
     }
@@ -182,24 +173,19 @@ public class ClothingRepository {
         em.getTransaction().begin();
         try {
             updateDataAux(em, clothing);
+            em.getTransaction().commit();
         } catch (Exception e) {
-            handleException(e);
+            handleException(em, e);
             throw e;
         } finally {
-            if(em.getTransaction().isActive()) {
-                em.getTransaction().rollback();
-            }
             em.close();
         }
     }
 
     private void updateDataAux(EntityManager em, Clothing clothing) throws Exception {
-        if (em.contains(clothing)) {
-            em.createQuery("UPDATE Clothing SET quantity = :clothingQuantity WHERE id = :clothingId", Clothing.class)
-                    .setParameter("clothingQuantity", clothing.getQuantity())
-                    .setParameter("clothingId", clothing.getId());
-        }
+        em.merge(clothing);
     }
+        
 
     private Clothing getClothingByIdAux(EntityManager em, Integer id) throws Exception {
         return em.createQuery("SELECT s FROM Clothing s WHERE s.id = :id ", Clothing.class)
@@ -212,8 +198,11 @@ public class ClothingRepository {
         }
     }
 
-    private void handleException(Exception e) {
+    private void handleException(EntityManager em, Exception e) {
         logger.log(Level.WARNING, "ERRO", e);
+        if (em.getTransaction().isActive()) {
+                em.getTransaction().rollback();
+        }
     }
 
     private void shutDown() {
