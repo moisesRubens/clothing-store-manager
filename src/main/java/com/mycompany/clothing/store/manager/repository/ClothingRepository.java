@@ -75,11 +75,13 @@ public class ClothingRepository {
 
             if (hasAtributes == true) {
                 queryStr += " 1=1";
-                
-                if(shirt.getPrice() != -1) {
+
+                queryStr += " AND s.sleeve = :sleeve";
+                queryStr += " AND s.collar = :collar";
+                if (shirt.getPrice() != -1) {
                     queryStr += " AND s.price <= :price";
                 }
-                if(shirt.getQuantity() != -1) {
+                if (shirt.getQuantity() != -1) {
                     queryStr += " AND s.quantity >= :quantity";
                 }
                 if (shirt.getPocket() != -1) {
@@ -103,15 +105,17 @@ public class ClothingRepository {
                 if (!isEmptyOrBlank(shirt.getClosureType())) {
                     queryStr += " AND s.closureType LIKE :closureType";
                 }
-                if(EnumSet.allOf(ShirtSize.class).contains(shirt.getSize())) {
+                if (EnumSet.allOf(ShirtSize.class).contains(shirt.getSize())) {
                     queryStr += " AND s.size LIKE :" + shirt.getSize();
                 }
-                if(EnumSet.allOf(Gender.class).contains(shirt.getGender())) {
+                if (EnumSet.allOf(Gender.class).contains(shirt.getGender())) {
                     queryStr += " AND s.gender LIKE :" + shirt.getGender();
                 }
-                
+
                 query = em.createQuery(queryStr, Shirt.class);
 
+                query.setParameter("sleeve", shirt.getSleeve());
+                query.setParameter("collar", shirt.getCollar());
                 if (shirt.getPocket() != -1) {
                     query.setParameter("pocket", shirt.getPocket());
                 }
@@ -124,10 +128,10 @@ public class ClothingRepository {
                 if (!isEmptyOrBlank(shirt.getBrand())) {
                     query.setParameter("brand", shirt.getBrand());
                 }
-                if(shirt.getPrice() != -1) {
+                if (shirt.getPrice() != -1) {
                     query.setParameter("price", shirt.getPrice());
                 }
-                if(shirt.getQuantity() != -1) {
+                if (shirt.getQuantity() != -1) {
                     query.setParameter("quantity", shirt.getQuantity());
                 }
                 if (!isEmptyOrBlank(shirt.getBrand())) {
@@ -139,10 +143,10 @@ public class ClothingRepository {
                 if (!isEmptyOrBlank(shirt.getClosureType())) {
                     query.setParameter("closureType", shirt.getClosureType());
                 }
-                if(EnumSet.allOf(ShirtSize.class).contains(shirt.getSize())) {
+                if (EnumSet.allOf(ShirtSize.class).contains(shirt.getSize())) {
                     query.setParameter(shirt.getSize().toString(), shirt.getSize());
                 }
-                if(EnumSet.allOf(Gender.class).contains(shirt.getGender())) {
+                if (EnumSet.allOf(Gender.class).contains(shirt.getGender())) {
                     query.setParameter(shirt.getGender().toString(), shirt.getGender());
                 }
             } else {
@@ -170,7 +174,7 @@ public class ClothingRepository {
     private void shutDown() {
         emf.close();
     }
-    
+
     private boolean isEmptyOrBlank(String str) {
         return (str.isBlank() || str.isEmpty());
     }

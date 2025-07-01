@@ -670,13 +670,30 @@
                                       </Group>
                                   </Group>
                               </Group>
-                              <Component id="jCheckBoxCollar1" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabelSize1" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="jTextFieldSize1" min="-2" pref="71" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jCheckBoxSleeve1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jLabelCollar1" min="-2" pref="37" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxCollarSim1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jLabelSleeve1" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxSleeveSim1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jCheckBoxCollarNao1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jCheckBoxSleeveNao1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -746,13 +763,21 @@
                       <Component id="jLabelSize1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jTextFieldSize1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabelCollar1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxCollarSim1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxCollarNao1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jCheckBoxCollar1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jCheckBoxSleeve1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jCheckBoxSleeveNao1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxSleeveSim1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelSleeve1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                   <Component id="jButtonConsultarCamisa1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="112" max="32767" attributes="0"/>
+                  <EmptySpace pref="110" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -814,22 +839,22 @@
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldPrice1">
         </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBoxCollar1">
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxCollarSim1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="GOLA"/>
+            <Property name="text" type="java.lang.String" value="SIM"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxCollar1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxCollarSim1ActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldQuantity1">
         </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBoxSleeve1">
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxSleeveNao1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="MANGA"/>
+            <Property name="text" type="java.lang.String" value="NAO"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxSleeve1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxSleeveNao1ActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldFabric1">
@@ -858,6 +883,32 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonConsultarCamisa1ActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelCollar1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="GOLA"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxCollarNao1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="NAO"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxCollarNao1ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxSleeveSim1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="SIM"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxSleeveSim1ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelSleeve1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="MANGA"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
