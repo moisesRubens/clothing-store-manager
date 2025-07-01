@@ -52,4 +52,8 @@ public class ClothingController {
         } 
         return list;
     }
+    
+    public static void consultById(Integer id) {
+        
+    }
 }

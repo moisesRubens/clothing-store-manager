@@ -16,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
  * @author moise
  */
 public class Table extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Table.class.getName());
 
     /**
@@ -24,6 +24,7 @@ public class Table extends javax.swing.JFrame {
      */
     public Table() {
         initComponents();
+        
     }
 
     /**
@@ -93,7 +94,7 @@ public class Table extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new Table().setVisible(true));
     }
-    
+
     public void fillTable(List<ClothingResponseDTO> list) {
         DefaultTableModel model = new DefaultTableModel();
 
@@ -112,29 +113,31 @@ public class Table extends javax.swing.JFrame {
             model.addColumn("QUANTIDADE DE BOLSOS");
             model.addColumn("GOLA");
             model.addColumn("MANGA");
-            
+
             for (ClothingResponseDTO data : list) {
                 ShirtResponseDTO shirtData = (ShirtResponseDTO) data;
                 model.addRow(new Object[]{
                     shirtData.id(),
                     shirtData.color(),
-                    shirtData.price(), 
+                    shirtData.price(),
                     shirtData.quantity(),
-                    shirtData.brand(), 
+                    shirtData.brand(),
                     shirtData.size(),
-                    shirtData.gender(), 
+                    shirtData.gender(),
                     shirtData.closureType(),
                     shirtData.clothingType(),
                     shirtData.pattern(),
                     shirtData.fabric(),
                     shirtData.pocket(),
-                    shirtData.collar(), 
+                    shirtData.collar(),
                     shirtData.sleeve()
                 });
             }
             jTable1.setModel(model);
         }
     }
+
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;

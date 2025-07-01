@@ -28,9 +28,12 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="649" max="32767" attributes="0"/>
-              <Component id="PainelAdicionar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="641" max="-2" attributes="0"/>
+              <EmptySpace pref="167" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="PainelRemoveShirt" min="-2" max="-2" attributes="0"/>
+                  <Component id="PainelAdicionar" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="736" max="-2" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
@@ -91,7 +94,7 @@
           <Group type="103" rootIndex="9" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Component id="PainelRemoverCamisa" min="-2" max="-2" attributes="0"/>
+                  <Component id="PainelSearchToRemoveShirt" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -99,16 +102,18 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="443" max="-2" attributes="0"/>
               <Component id="PainelAdicionar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="520" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="PainelRemoveShirt" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="0" pref="557" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="839" max="32767" attributes="0"/>
                   <Component id="PainelPrincipal" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="558" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="840" max="32767" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
@@ -163,7 +168,7 @@
           <Group type="103" rootIndex="9" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Component id="PainelRemoverCamisa" min="-2" max="-2" attributes="0"/>
+                  <Component id="PainelSearchToRemoveShirt" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -678,12 +683,12 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jLabelCollar1" min="-2" pref="37" max="-2" attributes="0"/>
+                                          <Component id="jLabelConsultCollar" min="-2" pref="37" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="jCheckBoxCollarSim1" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jLabelSleeve1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelConsultSleeve" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Component id="jCheckBoxSleeveSim1" min="-2" max="-2" attributes="0"/>
                                       </Group>
@@ -765,7 +770,7 @@
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabelCollar1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelConsultCollar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jCheckBoxCollarSim1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jCheckBoxCollarNao1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -773,7 +778,7 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jCheckBoxSleeveNao1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jCheckBoxSleeveSim1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelSleeve1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelConsultSleeve" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                   <Component id="jButtonConsultarCamisa1" min="-2" max="-2" attributes="0"/>
@@ -884,7 +889,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonConsultarCamisa1ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabelCollar1">
+        <Component class="javax.swing.JLabel" name="jLabelConsultCollar">
           <Properties>
             <Property name="text" type="java.lang.String" value="GOLA"/>
           </Properties>
@@ -905,7 +910,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxSleeveSim1ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabelSleeve1">
+        <Component class="javax.swing.JLabel" name="jLabelConsultSleeve">
           <Properties>
             <Property name="text" type="java.lang.String" value="MANGA"/>
           </Properties>
@@ -920,35 +925,15 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="jScrollPaneTabela" alignment="0" pref="1147" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="1147" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="jScrollPaneTabela" alignment="0" pref="627" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="627" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
-      <SubComponents>
-        <Container class="javax.swing.JScrollPane" name="jScrollPaneTabela">
-
-          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-          <SubComponents>
-            <Component class="javax.swing.JTable" name="jTable1">
-              <Properties>
-                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="4" rowCount="4">
-                    <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                    <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                    <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                    <Column editable="true" title="Title 4" type="java.lang.Object"/>
-                  </Table>
-                </Property>
-              </Properties>
-            </Component>
-          </SubComponents>
-        </Container>
-      </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="PainelRemover">
       <Properties>
@@ -1022,179 +1007,188 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="PainelRemoverCamisa">
+    <Container class="javax.swing.JPanel" name="PainelSearchToRemoveShirt">
       <Properties>
-        <Property name="name" type="java.lang.String" value="PainelRemoverCamisa" noResource="true"/>
+        <Property name="name" type="java.lang.String" value="PainelSearchToRemoveShirt" noResource="true"/>
       </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Component id="jLabelPrice2" min="-2" pref="37" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                                              <Component id="jTextFieldPrice2" min="-2" pref="71" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Component id="jLabelCor2" min="-2" pref="37" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                                              <Component id="jTextFieldColor2" min="-2" pref="71" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jLabelFabric2" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="jTextFieldFabric2" min="-2" pref="71" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jLabelQuantity2" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="jTextFieldQuantity2" min="-2" pref="71" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jLabelStyle2" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jTextFieldStyle2" min="-2" pref="71" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jLabelGender2" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="jTextFieldGender2" min="-2" pref="71" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jLabelBrand2" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jTextFieldBrand2" min="-2" pref="71" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jLabelPattern2" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jTextFieldPattern2" min="-2" pref="71" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jLabelPocket2" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jTextFieldPocket2" min="-2" pref="71" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jLabelClosureType2" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="jTextFieldClosureType2" min="-2" pref="71" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
+                                  <Component id="jLabelPattern2" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jTextFieldRemovePattern" min="-2" pref="71" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jCheckBoxCollar2" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jLabelSize2" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldSize2" min="-2" pref="71" max="-2" attributes="0"/>
+                                  <Component id="jLabelCor2" min="-2" pref="37" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jTextFieldRemoveColor" min="-2" pref="71" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jCheckBoxSleeve2" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabelPrice2" min="-2" pref="37" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldremovePrice" min="-2" pref="71" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabelFabric2" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldRemoveFabric" min="-2" pref="71" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabelStyle2" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jTextFieldRemoveStyle" min="-2" pref="71" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="305" max="-2" attributes="0"/>
+                                  <Component id="jButtonRemoveSearchShirt" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabelBrand2" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jTextFieldRemoveBrand" min="-2" pref="71" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabelPocket2" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jTextFieldRemovePocket" min="-2" pref="71" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabelClosureType2" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldRemoveClosureType" min="-2" pref="71" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabelGender2" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldRemoveGender" min="-2" pref="71" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="424" max="-2" attributes="0"/>
-                          <Component id="jButtonConsultarCamisa2" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelSize2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jTextFieldRemoveSize" min="-2" pref="71" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabelRemoveCollar" min="-2" pref="37" max="-2" attributes="0"/>
+                              <Component id="jLabelRemoveSleeve" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="jCheckBoxRemoveCollarSim" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="jCheckBoxRemoveCollarNao" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jCheckBoxRemoveSleeveSim" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jCheckBoxRemoveSleeveNao" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="568" max="32767" attributes="0"/>
+                  <EmptySpace pref="511" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextFieldColor2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelCor2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="130" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="jTextFieldRemoveColor" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelCor2" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabelPrice2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextFieldPrice2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldremovePrice" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabelQuantity2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextFieldQuantity2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabelFabric2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextFieldFabric2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldRemoveFabric" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabelBrand2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextFieldBrand2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldRemoveBrand" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabelStyle2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextFieldStyle2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabelStyle2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextFieldRemoveStyle" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                          <Component id="jButtonRemoveSearchShirt" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabelGender2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextFieldGender2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldRemoveGender" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextFieldPattern2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldRemovePattern" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabelPattern2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabelPocket2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextFieldPocket2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldRemovePocket" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabelClosureType2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextFieldClosureType2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldRemoveClosureType" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabelSize2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextFieldSize2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldRemoveSize" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jCheckBoxCollar2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jCheckBoxSleeve2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButtonConsultarCamisa2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="100" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jCheckBoxRemoveCollarSim" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxRemoveCollarNao" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelRemoveCollar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabelRemoveSleeve" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxRemoveSleeveSim" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxRemoveSleeveNao" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="179" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JTextField" name="jTextFieldGender2">
+        <Component class="javax.swing.JTextField" name="jTextFieldRemoveGender">
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldStyle2">
+        <Component class="javax.swing.JTextField" name="jTextFieldRemoveStyle">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelPrice2">
           <Properties>
             <Property name="text" type="java.lang.String" value="PRECO"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldClosureType2">
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabelQuantity2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="QUANTIDADE"/>
-          </Properties>
+        <Component class="javax.swing.JTextField" name="jTextFieldRemoveClosureType">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelCor2">
           <Properties>
@@ -1206,12 +1200,12 @@
             <Property name="text" type="java.lang.String" value="TECIDO"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButtonConsultarCamisa2">
+        <Component class="javax.swing.JButton" name="jButtonRemoveSearchShirt">
           <Properties>
-            <Property name="text" type="java.lang.String" value="CONSULTAR CAMISA"/>
+            <Property name="text" type="java.lang.String" value="BUSCAR CAMISA"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonConsultarCamisa2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRemoveSearchShirtActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelBrand2">
@@ -1249,38 +1243,180 @@
             <Property name="text" type="java.lang.String" value="TAMANHO"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldColor2">
+        <Component class="javax.swing.JTextField" name="jTextFieldRemoveColor">
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldSize2">
+        <Component class="javax.swing.JTextField" name="jTextFieldRemoveSize">
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldPrice2">
+        <Component class="javax.swing.JTextField" name="jTextFieldremovePrice">
         </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBoxCollar2">
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxRemoveCollarSim">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="SIM"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxRemoveCollarSimActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxRemoveSleeveNao">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="NAO"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxRemoveSleeveNaoActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldRemoveFabric">
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldRemovePattern">
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldRemovePocket">
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldRemoveBrand">
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxRemoveCollarNao">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="NAO"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxRemoveCollarNaoActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxRemoveSleeveSim">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="SIM"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxRemoveSleeveSimActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelRemoveCollar">
           <Properties>
             <Property name="text" type="java.lang.String" value="GOLA"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxCollar2ActionPerformed"/>
-          </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldQuantity2">
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBoxSleeve2">
+        <Component class="javax.swing.JLabel" name="jLabelRemoveSleeve">
           <Properties>
             <Property name="text" type="java.lang.String" value="MANGA"/>
           </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="PainelRemoveShirt">
+      <Properties>
+        <Property name="name" type="java.lang.String" value="PainelRemoveShirt" noResource="true"/>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabelRemoveShirtQuantity" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="jTextFieldRemoveShirtQuantity" min="-2" pref="71" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="209" max="-2" attributes="0"/>
+                          <Component id="jButtonRemoveShirtRemove" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="226" max="-2" attributes="0"/>
+                          <Component id="jLabelRemoveShirtId" min="-2" pref="37" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jTextFieldRemoveShirtid" min="-2" pref="71" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace pref="696" max="32767" attributes="0"/>
+              </Group>
+              <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace pref="573" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="574" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="449" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jLabelRemoveShirtId" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldRemoveShirtid" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="jLabelRemoveShirtQuantity" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="jTextFieldRemoveShirtQuantity" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="498" max="-2" attributes="0"/>
+                          <Component id="jButtonRemoveShirtRemove" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace pref="551" max="32767" attributes="0"/>
+              </Group>
+              <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="624" max="-2" attributes="0"/>
+                      <EmptySpace pref="442" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JButton" name="jButtonRemoveShirtRemove">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="REMOVER"/>
+          </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxSleeve2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRemoveShirtRemoveActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldFabric2">
+        <Component class="javax.swing.JLabel" name="jLabelRemoveShirtId">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="ID"/>
+          </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldPattern2">
+        <Component class="javax.swing.JLabel" name="jLabelRemoveShirtQuantity">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="QUANTIDADE"/>
+          </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldPocket2">
+        <Component class="javax.swing.JTextField" name="jTextFieldRemoveShirtid">
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldBrand2">
+        <Component class="javax.swing.JTextField" name="jTextFieldRemoveShirtQuantity">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldRemoveShirtQuantityActionPerformed"/>
+          </Events>
         </Component>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JTable" name="jTable2">
+              <Properties>
+                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                  <Table columnCount="4" rowCount="4">
+                    <Column editable="true" title="Title 1" type="java.lang.Object"/>
+                    <Column editable="true" title="Title 2" type="java.lang.Object"/>
+                    <Column editable="true" title="Title 3" type="java.lang.Object"/>
+                    <Column editable="true" title="Title 4" type="java.lang.Object"/>
+                  </Table>
+                </Property>
+                <Property name="name" type="java.lang.String" value="jTable2" noResource="true"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
       </SubComponents>
     </Container>
   </SubComponents>
