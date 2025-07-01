@@ -161,6 +161,51 @@ public class ClothingRepository {
         return list;
     }
 
+    public Clothing getClothingById(Integer id) throws Exception {
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        try {
+            return getClothingByIdAux(em, id);
+        } catch (Exception e) {
+            handleException(e);
+            throw e;
+        } finally {
+            if (em.getTransaction().isActive()) {
+                em.getTransaction().rollback();
+            }
+            em.close();
+        }
+    }
+
+    public void updateData(Clothing clothing) throws Exception {
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        try {
+            updateDataAux(em, clothing);
+        } catch (Exception e) {
+            handleException(e);
+            throw e;
+        } finally {
+            if(em.getTransaction().isActive()) {
+                em.getTransaction().rollback();
+            }
+            em.close();
+        }
+    }
+
+    private void updateDataAux(EntityManager em, Clothing clothing) throws Exception {
+        if (em.contains(clothing)) {
+            em.createQuery("UPDATE Clothing SET quantity = :clothingQuantity WHERE id = :clothingId", Clothing.class)
+                    .setParameter("clothingQuantity", clothing.getQuantity())
+                    .setParameter("clothingId", clothing.getId());
+        }
+    }
+
+    private Clothing getClothingByIdAux(EntityManager em, Integer id) throws Exception {
+        return em.createQuery("SELECT s FROM Clothing s WHERE s.id = :id ", Clothing.class)
+                .setParameter("id", id).getSingleResult();
+    }
+
     private void registerInDatabaseAux(EntityManager em, Clothing clothing) throws Exception {
         if (clothing instanceof Shirt shirt) {
             em.persist(shirt);

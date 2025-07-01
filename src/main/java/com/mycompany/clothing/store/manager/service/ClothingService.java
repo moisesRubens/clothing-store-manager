@@ -46,4 +46,23 @@ public class ClothingService {
         
         return hasAtribute;
     }
+    
+    private Clothing getClothingById(Integer id) throws Exception {
+        return clothingRepository.getClothingById(id);
+    }
+    
+    public void decrement(Integer id, Integer quantity) throws Exception {
+        if(id < 0 || quantity <= 0) {
+            throw new IllegalArgumentException("INSIRA UM ID VALIDO");
+        }
+        
+        Clothing clothing = getClothingById(id);
+        if(clothing.getQuantity() < quantity) {
+            throw new IllegalStateException("QUANTIDADE INSUFICIENTE");
+        }
+        Integer newQuantity = clothing.getQuantity() - quantity;
+        clothing.setQuantity(newQuantity);
+        
+        clothingRepository.updateData(clothing);
+    }
 }

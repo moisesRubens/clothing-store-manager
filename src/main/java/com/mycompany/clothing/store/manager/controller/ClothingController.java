@@ -53,7 +53,7 @@ public class ClothingController {
         return list;
     }
     
-    public static void consultById(Integer id) {
-        
+    public static void decrementClothing(Integer id, Integer quantity) throws Exception {
+        clothingService.decrement(id, quantity);
     }
 }
