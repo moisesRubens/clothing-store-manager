@@ -1293,6 +1293,7 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     private void consultarCamisaAux(Function function) throws Exception {
+        Boolean hasAttribute = false;
         Double price;
         Integer pocket;
         Integer quantity = -1;
@@ -1343,9 +1344,7 @@ public class MainWindow extends javax.swing.JFrame {
 
             if ((jCheckBoxCollarSim1.isSelected() && jCheckBoxCollarNao1.isSelected()) || (jCheckBoxSleeveSim1.isSelected() && jCheckBoxSleeveNao1.isSelected())) {
                 throw new IllegalArgumentException("INSIRA APENAS UM VALOR PARA GOLA E MANGA");
-            } else if ((!jCheckBoxCollarSim1.isSelected() && !jCheckBoxCollarNao1.isSelected()) || (!jCheckBoxSleeveSim1.isSelected() && !jCheckBoxSleeveNao1.isSelected())) {
-                throw new IllegalArgumentException("INSIRA UM VALOR PARA GOLA E MANGA");
-            }
+            } 
 
             System.out.println("FORA DO ELSE IF DE VERIFICAÇÃO");
             collar = (jCheckBoxCollarSim1.isSelected()) ? true : false;
@@ -1394,9 +1393,7 @@ public class MainWindow extends javax.swing.JFrame {
 
             if ((jCheckBoxRemoveCollarSim.isSelected() && jCheckBoxRemoveCollarNao.isSelected()) || (jCheckBoxRemoveSleeveSim.isSelected() && jCheckBoxRemoveSleeveNao.isSelected())) {
                 throw new IllegalArgumentException("INSIRA APENAS UM VALOR PARA GOLA E MANGA");
-            } else if ((!jCheckBoxRemoveCollarSim.isSelected() && !jCheckBoxRemoveCollarNao.isSelected()) || (!jCheckBoxRemoveSleeveSim.isSelected() && !jCheckBoxRemoveSleeveNao.isSelected())) {
-                throw new IllegalArgumentException("INSIRA UM VALOR PARA GOLA E MANGA");
-            }
+            } 
 
             collar = (jCheckBoxRemoveCollarSim.isSelected()) ? true : false;
             sleeve = (jCheckBoxRemoveSleeveSim.isSelected()) ? true : false;
