@@ -184,6 +184,8 @@ public class ClothingRepository {
 
     private void updateDataAux(EntityManager em, Clothing clothing) throws Exception {
         em.merge(clothing);
+        em.createQuery("DELETE FROM Clothing WHERE quantity = 0")
+                .executeUpdate();
     }
         
 
