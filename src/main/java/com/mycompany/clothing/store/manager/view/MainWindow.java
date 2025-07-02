@@ -1240,8 +1240,7 @@ public class MainWindow extends javax.swing.JFrame {
             Integer quantity = Integer.parseInt(jTextFieldRemoveShirtQuantity.getText());
             ClothingController.decrementClothing(id, quantity);
             
-            list = ClothingController.consult(data);
-            fillTable(list, Function.REMOVE);
+            updateTable();
             CardLayout a = (CardLayout)getContentPane().getLayout();
             a.show(getContentPane(), "PainelRemoveShirt");
             
@@ -1407,12 +1406,16 @@ public class MainWindow extends javax.swing.JFrame {
                     collar, shirtSize);
 
             data = (ClothingRequestDTO) dataShirt;
-            list = ClothingController.consult(dataShirt);
-            fillTable(list, Function.REMOVE);
+            updateTable();
             CardLayout a = (CardLayout) getContentPane().getLayout();
             a.show(getContentPane(), "PainelRemoveShirt");
         }
 
+    }
+    
+    private void updateTable() throws Exception {
+        list = ClothingController.consult(data);
+        fillTable(list, Function.REMOVE);
     }
 
     private void handleException(Exception e) {
