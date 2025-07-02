@@ -46,7 +46,7 @@ public class MainWindow extends javax.swing.JFrame {
         getContentPane().add(PainelPrincipal, "PainelPrincipal");
         getContentPane().add(PainelAdicionar, "PainelAdicionar");
         getContentPane().add(PainelConsultar, "PainelConsultar");
-        getContentPane().add(PainelAdicionarRoupaNormal, "PainelRoupaNormal");
+        getContentPane().add(PainelAdicionarRoupaNormal, "PainelAdicionarRoupaNormal");
         getContentPane().add(PainelAdicionarCamisa, "PainelCamisa");
         getContentPane().add(PainelConsultarCamisa, "PainelConsultarCamisa");
         getContentPane().add(PainelTabela, "PainelTabela");
@@ -73,9 +73,11 @@ public class MainWindow extends javax.swing.JFrame {
         PainelAdicionar = new javax.swing.JPanel();
         jButtonRoupaNormal = new javax.swing.JButton();
         jButtonAddExit = new javax.swing.JButton();
+        jButtonAddBack = new javax.swing.JButton();
         PainelAdicionarRoupaNormal = new javax.swing.JPanel();
         jButtonCamisa = new javax.swing.JButton();
         jButtonAddNormalClothingExit = new javax.swing.JButton();
+        jButtonAddNormalClothingBack = new javax.swing.JButton();
         PainelAdicionarCamisa = new javax.swing.JPanel();
         jTextFieldColor = new javax.swing.JTextField();
         jTextFieldPrice = new javax.swing.JTextField();
@@ -103,9 +105,11 @@ public class MainWindow extends javax.swing.JFrame {
         jCheckBoxCollar = new javax.swing.JCheckBox();
         jCheckBoxSleeve = new javax.swing.JCheckBox();
         jButtonAddShirtExit = new javax.swing.JButton();
+        jButtonAddShirtBack = new javax.swing.JButton();
         PainelConsultar = new javax.swing.JPanel();
         jButtonConsultarCamisa = new javax.swing.JButton();
         jButtonSearchExit = new javax.swing.JButton();
+        jButtonSearch = new javax.swing.JButton();
         PainelConsultarCamisa = new javax.swing.JPanel();
         jLabelPrice1 = new javax.swing.JLabel();
         jLabelQuantity1 = new javax.swing.JLabel();
@@ -137,13 +141,16 @@ public class MainWindow extends javax.swing.JFrame {
         jCheckBoxSleeveSim1 = new javax.swing.JCheckBox();
         jLabelConsultSleeve = new javax.swing.JLabel();
         jButtonSearchShirtExit = new javax.swing.JButton();
+        jButtonSearchShirtBack = new javax.swing.JButton();
         PainelTabela = new javax.swing.JPanel();
         PainelRemover = new javax.swing.JPanel();
         jButtonRemoverRoupaNormal = new javax.swing.JButton();
         jButtonRemoveExit = new javax.swing.JButton();
+        jButtonRemoveBack = new javax.swing.JButton();
         PainelRemoverRoupaNormal = new javax.swing.JPanel();
         jButtonRemoverCamisa = new javax.swing.JButton();
         jButtonRemoveNormalClothingExit = new javax.swing.JButton();
+        jButtonRemoveNormalClothingBack = new javax.swing.JButton();
         PainelSearchToRemoveShirt = new javax.swing.JPanel();
         jTextFieldRemoveGender = new javax.swing.JTextField();
         jTextFieldRemoveStyle = new javax.swing.JTextField();
@@ -173,6 +180,7 @@ public class MainWindow extends javax.swing.JFrame {
         jLabelRemoveCollar = new javax.swing.JLabel();
         jLabelRemoveSleeve = new javax.swing.JLabel();
         jButtonRemoveSearchShirtExit = new javax.swing.JButton();
+        jButtonSearchToRemoveShirtBack = new javax.swing.JButton();
         PainelRemoveShirt = new javax.swing.JPanel();
         jButtonRemoveShirtRemove = new javax.swing.JButton();
         jLabelRemoveShirtId = new javax.swing.JLabel();
@@ -182,6 +190,7 @@ public class MainWindow extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jButtonRemoveShirtExit = new javax.swing.JButton();
+        jButtonRemoveShirtBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setName("mainPanel"); // NOI18N
@@ -242,9 +251,9 @@ public class MainWindow extends javax.swing.JFrame {
                 .addComponent(jButtonConsultar)
                 .addGap(40, 40, 40)
                 .addComponent(jButtonRemover)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jButtonExit)
-                .addGap(83, 83, 83))
+                .addContainerGap(157, Short.MAX_VALUE))
         );
 
         PainelAdicionar.setName("PainelAdicionar"); // NOI18N
@@ -263,6 +272,13 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
+        jButtonAddBack.setText("VOLTAR");
+        jButtonAddBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PainelAdicionarLayout = new javax.swing.GroupLayout(PainelAdicionar);
         PainelAdicionar.setLayout(PainelAdicionarLayout);
         PainelAdicionarLayout.setHorizontalGroup(
@@ -273,9 +289,11 @@ public class MainWindow extends javax.swing.JFrame {
                         .addGap(120, 120, 120)
                         .addComponent(jButtonRoupaNormal))
                     .addGroup(PainelAdicionarLayout.createSequentialGroup()
-                        .addGap(329, 329, 329)
+                        .addGap(223, 223, 223)
+                        .addComponent(jButtonAddBack)
+                        .addGap(31, 31, 31)
                         .addComponent(jButtonAddExit)))
-                .addContainerGap(365, Short.MAX_VALUE))
+                .addContainerGap(367, Short.MAX_VALUE))
         );
         PainelAdicionarLayout.setVerticalGroup(
             PainelAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -283,7 +301,9 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGap(71, 71, 71)
                 .addComponent(jButtonRoupaNormal)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 289, Short.MAX_VALUE)
-                .addComponent(jButtonAddExit)
+                .addGroup(PainelAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonAddExit)
+                    .addComponent(jButtonAddBack))
                 .addGap(210, 210, 210))
         );
 
@@ -303,6 +323,13 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
+        jButtonAddNormalClothingBack.setText("VOLTAR");
+        jButtonAddNormalClothingBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddNormalClothingBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PainelAdicionarRoupaNormalLayout = new javax.swing.GroupLayout(PainelAdicionarRoupaNormal);
         PainelAdicionarRoupaNormal.setLayout(PainelAdicionarRoupaNormalLayout);
         PainelAdicionarRoupaNormalLayout.setHorizontalGroup(
@@ -314,8 +341,10 @@ public class MainWindow extends javax.swing.JFrame {
                         .addComponent(jButtonCamisa))
                     .addGroup(PainelAdicionarRoupaNormalLayout.createSequentialGroup()
                         .addGap(347, 347, 347)
-                        .addComponent(jButtonAddNormalClothingExit)))
-                .addContainerGap(553, Short.MAX_VALUE))
+                        .addComponent(jButtonAddNormalClothingExit)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonAddNormalClothingBack)))
+                .addContainerGap(468, Short.MAX_VALUE))
         );
         PainelAdicionarRoupaNormalLayout.setVerticalGroup(
             PainelAdicionarRoupaNormalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -323,7 +352,9 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGap(56, 56, 56)
                 .addComponent(jButtonCamisa)
                 .addGap(207, 207, 207)
-                .addComponent(jButtonAddNormalClothingExit)
+                .addGroup(PainelAdicionarRoupaNormalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonAddNormalClothingExit)
+                    .addComponent(jButtonAddNormalClothingBack))
                 .addContainerGap(294, Short.MAX_VALUE))
         );
 
@@ -376,6 +407,13 @@ public class MainWindow extends javax.swing.JFrame {
         jButtonAddShirtExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonAddShirtExitActionPerformed(evt);
+            }
+        });
+
+        jButtonAddShirtBack.setText("VOLTAR");
+        jButtonAddShirtBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddShirtBackActionPerformed(evt);
             }
         });
 
@@ -433,7 +471,9 @@ public class MainWindow extends javax.swing.JFrame {
                         .addGap(247, 247, 247)
                         .addComponent(jButtonFinalizar)
                         .addGap(96, 96, 96)
-                        .addComponent(jButtonAddShirtExit))
+                        .addComponent(jButtonAddShirtExit)
+                        .addGap(61, 61, 61)
+                        .addComponent(jButtonAddShirtBack))
                     .addGroup(PainelAdicionarCamisaLayout.createSequentialGroup()
                         .addGap(44, 44, 44)
                         .addGroup(PainelAdicionarCamisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -443,7 +483,7 @@ public class MainWindow extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jTextFieldSize, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jCheckBoxSleeve))))
-                .addContainerGap(562, Short.MAX_VALUE))
+                .addContainerGap(428, Short.MAX_VALUE))
         );
         PainelAdicionarCamisaLayout.setVerticalGroup(
             PainelAdicionarCamisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -499,7 +539,8 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGap(88, 88, 88)
                 .addGroup(PainelAdicionarCamisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonFinalizar)
-                    .addComponent(jButtonAddShirtExit))
+                    .addComponent(jButtonAddShirtExit)
+                    .addComponent(jButtonAddShirtBack))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
 
@@ -519,6 +560,13 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
+        jButtonSearch.setText("VOLTAR");
+        jButtonSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSearchActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PainelConsultarLayout = new javax.swing.GroupLayout(PainelConsultar);
         PainelConsultar.setLayout(PainelConsultarLayout);
         PainelConsultarLayout.setHorizontalGroup(
@@ -530,8 +578,10 @@ public class MainWindow extends javax.swing.JFrame {
                         .addComponent(jButtonConsultarCamisa))
                     .addGroup(PainelConsultarLayout.createSequentialGroup()
                         .addGap(399, 399, 399)
-                        .addComponent(jButtonSearchExit)))
-                .addContainerGap(629, Short.MAX_VALUE))
+                        .addComponent(jButtonSearchExit)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonSearch)))
+                .addContainerGap(538, Short.MAX_VALUE))
         );
         PainelConsultarLayout.setVerticalGroup(
             PainelConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -539,7 +589,9 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGap(128, 128, 128)
                 .addComponent(jButtonConsultarCamisa)
                 .addGap(176, 176, 176)
-                .addComponent(jButtonSearchExit)
+                .addGroup(PainelConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonSearchExit)
+                    .addComponent(jButtonSearch))
                 .addContainerGap(288, Short.MAX_VALUE))
         );
 
@@ -610,6 +662,13 @@ public class MainWindow extends javax.swing.JFrame {
         jButtonSearchShirtExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSearchShirtExitActionPerformed(evt);
+            }
+        });
+
+        jButtonSearchShirtBack.setText("VOLTAR");
+        jButtonSearchShirtBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSearchShirtBackActionPerformed(evt);
             }
         });
 
@@ -688,8 +747,10 @@ public class MainWindow extends javax.swing.JFrame {
                         .addGap(424, 424, 424)
                         .addComponent(jButtonConsultarCamisa1)
                         .addGap(37, 37, 37)
-                        .addComponent(jButtonSearchShirtExit)))
-                .addContainerGap(476, Short.MAX_VALUE))
+                        .addComponent(jButtonSearchShirtExit)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonSearchShirtBack)))
+                .addContainerGap(385, Short.MAX_VALUE))
         );
         PainelConsultarCamisaLayout.setVerticalGroup(
             PainelConsultarCamisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -751,7 +812,8 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addGroup(PainelConsultarCamisaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonConsultarCamisa1)
-                    .addComponent(jButtonSearchShirtExit))
+                    .addComponent(jButtonSearchShirtExit)
+                    .addComponent(jButtonSearchShirtBack))
                 .addContainerGap(110, Short.MAX_VALUE))
         );
 
@@ -784,6 +846,13 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
+        jButtonRemoveBack.setText("VOLTAR");
+        jButtonRemoveBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRemoveBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PainelRemoverLayout = new javax.swing.GroupLayout(PainelRemover);
         PainelRemover.setLayout(PainelRemoverLayout);
         PainelRemoverLayout.setHorizontalGroup(
@@ -795,8 +864,10 @@ public class MainWindow extends javax.swing.JFrame {
                         .addComponent(jButtonRemoverRoupaNormal))
                     .addGroup(PainelRemoverLayout.createSequentialGroup()
                         .addGap(407, 407, 407)
-                        .addComponent(jButtonRemoveExit)))
-                .addContainerGap(662, Short.MAX_VALUE))
+                        .addComponent(jButtonRemoveExit)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonRemoveBack)))
+                .addContainerGap(571, Short.MAX_VALUE))
         );
         PainelRemoverLayout.setVerticalGroup(
             PainelRemoverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -804,7 +875,9 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGap(88, 88, 88)
                 .addComponent(jButtonRemoverRoupaNormal)
                 .addGap(181, 181, 181)
-                .addComponent(jButtonRemoveExit)
+                .addGroup(PainelRemoverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonRemoveExit)
+                    .addComponent(jButtonRemoveBack))
                 .addContainerGap(313, Short.MAX_VALUE))
         );
 
@@ -824,6 +897,13 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
+        jButtonRemoveNormalClothingBack.setText("VOLTAR");
+        jButtonRemoveNormalClothingBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRemoveNormalClothingBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PainelRemoverRoupaNormalLayout = new javax.swing.GroupLayout(PainelRemoverRoupaNormal);
         PainelRemoverRoupaNormal.setLayout(PainelRemoverRoupaNormalLayout);
         PainelRemoverRoupaNormalLayout.setHorizontalGroup(
@@ -835,8 +915,10 @@ public class MainWindow extends javax.swing.JFrame {
                         .addComponent(jButtonRemoverCamisa))
                     .addGroup(PainelRemoverRoupaNormalLayout.createSequentialGroup()
                         .addGap(362, 362, 362)
-                        .addComponent(jButtonRemoveNormalClothingExit)))
-                .addContainerGap(451, Short.MAX_VALUE))
+                        .addComponent(jButtonRemoveNormalClothingExit)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonRemoveNormalClothingBack)))
+                .addContainerGap(360, Short.MAX_VALUE))
         );
         PainelRemoverRoupaNormalLayout.setVerticalGroup(
             PainelRemoverRoupaNormalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -844,7 +926,9 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGap(90, 90, 90)
                 .addComponent(jButtonRemoverCamisa)
                 .addGap(175, 175, 175)
-                .addComponent(jButtonRemoveNormalClothingExit)
+                .addGroup(PainelRemoverRoupaNormalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonRemoveNormalClothingExit)
+                    .addComponent(jButtonRemoveNormalClothingBack))
                 .addContainerGap(289, Short.MAX_VALUE))
         );
 
@@ -916,6 +1000,13 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
+        jButtonSearchToRemoveShirtBack.setText("VOLTAR");
+        jButtonSearchToRemoveShirtBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSearchToRemoveShirtBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PainelSearchToRemoveShirtLayout = new javax.swing.GroupLayout(PainelSearchToRemoveShirt);
         PainelSearchToRemoveShirt.setLayout(PainelSearchToRemoveShirtLayout);
         PainelSearchToRemoveShirtLayout.setHorizontalGroup(
@@ -926,12 +1017,6 @@ public class MainWindow extends javax.swing.JFrame {
                     .addGroup(PainelSearchToRemoveShirtLayout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addGroup(PainelSearchToRemoveShirtLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(PainelSearchToRemoveShirtLayout.createSequentialGroup()
-                                .addComponent(jLabelPattern2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldRemovePattern, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(304, 304, 304)
-                                .addComponent(jButtonRemoveSearchShirtExit))
                             .addGroup(PainelSearchToRemoveShirtLayout.createSequentialGroup()
                                 .addComponent(jLabelCor2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -955,17 +1040,26 @@ public class MainWindow extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextFieldRemoveBrand, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(PainelSearchToRemoveShirtLayout.createSequentialGroup()
-                                .addComponent(jLabelPocket2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldRemovePocket, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(PainelSearchToRemoveShirtLayout.createSequentialGroup()
                                 .addComponent(jLabelClosureType2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jTextFieldRemoveClosureType, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(PainelSearchToRemoveShirtLayout.createSequentialGroup()
                                 .addComponent(jLabelGender2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextFieldRemoveGender, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jTextFieldRemoveGender, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(PainelSearchToRemoveShirtLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PainelSearchToRemoveShirtLayout.createSequentialGroup()
+                                    .addComponent(jLabelPocket2)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jTextFieldRemovePocket, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButtonSearchToRemoveShirtBack))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PainelSearchToRemoveShirtLayout.createSequentialGroup()
+                                    .addComponent(jLabelPattern2)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jTextFieldRemovePattern, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(304, 304, 304)
+                                    .addComponent(jButtonRemoveSearchShirtExit)))))
                     .addGroup(PainelSearchToRemoveShirtLayout.createSequentialGroup()
                         .addComponent(jLabelSize2)
                         .addGap(18, 18, 18)
@@ -1031,7 +1125,8 @@ public class MainWindow extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(PainelSearchToRemoveShirtLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelPocket2)
-                    .addComponent(jTextFieldRemovePocket, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldRemovePocket, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonSearchToRemoveShirtBack))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(PainelSearchToRemoveShirtLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelClosureType2)
@@ -1050,7 +1145,7 @@ public class MainWindow extends javax.swing.JFrame {
                     .addComponent(jLabelRemoveSleeve)
                     .addComponent(jCheckBoxRemoveSleeveSim)
                     .addComponent(jCheckBoxRemoveSleeveNao))
-                .addContainerGap(179, Short.MAX_VALUE))
+                .addContainerGap(178, Short.MAX_VALUE))
         );
 
         PainelRemoveShirt.setName("PainelRemoveShirt"); // NOI18N
@@ -1093,6 +1188,13 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
+        jButtonRemoveShirtBack.setText("VOLTAR");
+        jButtonRemoveShirtBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRemoveShirtBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PainelRemoveShirtLayout = new javax.swing.GroupLayout(PainelRemoveShirt);
         PainelRemoveShirt.setLayout(PainelRemoveShirtLayout);
         PainelRemoveShirtLayout.setHorizontalGroup(
@@ -1110,7 +1212,8 @@ public class MainWindow extends javax.swing.JFrame {
                             .addComponent(jLabelRemoveShirtId, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jTextFieldRemoveShirtid, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jButtonRemoveShirtExit))
+                    .addComponent(jButtonRemoveShirtExit)
+                    .addComponent(jButtonRemoveShirtBack))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 908, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -1131,7 +1234,9 @@ public class MainWindow extends javax.swing.JFrame {
                         .addGap(61, 61, 61)
                         .addComponent(jButtonRemoveShirtRemove)
                         .addGap(51, 51, 51)
-                        .addComponent(jButtonRemoveShirtExit))
+                        .addComponent(jButtonRemoveShirtExit)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonRemoveShirtBack))
                     .addGroup(PainelRemoveShirtLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 624, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -1271,7 +1376,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jButtonRoupaNormalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRoupaNormalActionPerformed
         CardLayout a = (CardLayout) getContentPane().getLayout();
-        a.show(getContentPane(), "PainelRoupaNormal");
+        a.show(getContentPane(), "PainelAdicionarRoupaNormal");
     }//GEN-LAST:event_jButtonRoupaNormalActionPerformed
 
     private void jButtonCamisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCamisaActionPerformed
@@ -1411,6 +1516,51 @@ public class MainWindow extends javax.swing.JFrame {
     private void jButtonRemoveShirtExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemoveShirtExitActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButtonRemoveShirtExitActionPerformed
+
+    private void jButtonAddBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddBackActionPerformed
+        CardLayout a = (CardLayout)getContentPane().getLayout();
+        a.show(getContentPane(), "PainelPrincipal");
+    }//GEN-LAST:event_jButtonAddBackActionPerformed
+
+    private void jButtonAddNormalClothingBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddNormalClothingBackActionPerformed
+        CardLayout a = (CardLayout)getContentPane().getLayout();
+        a.show(getContentPane(), "PainelAdicionar");
+    }//GEN-LAST:event_jButtonAddNormalClothingBackActionPerformed
+
+    private void jButtonAddShirtBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddShirtBackActionPerformed
+        CardLayout a = (CardLayout)getContentPane().getLayout();
+        a.show(getContentPane(), "PainelAdicionarRoupaNormal");
+    }//GEN-LAST:event_jButtonAddShirtBackActionPerformed
+
+    private void jButtonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchActionPerformed
+        CardLayout a = (CardLayout)getContentPane().getLayout();
+        a.show(getContentPane(), "PainelPrincipal");
+    }//GEN-LAST:event_jButtonSearchActionPerformed
+
+    private void jButtonSearchShirtBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchShirtBackActionPerformed
+        CardLayout a = (CardLayout)getContentPane().getLayout();
+        a.show(getContentPane(), "PainelConsultar");
+    }//GEN-LAST:event_jButtonSearchShirtBackActionPerformed
+
+    private void jButtonRemoveBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemoveBackActionPerformed
+        CardLayout a = (CardLayout)getContentPane().getLayout();
+        a.show(getContentPane(), "PainelPrincipal");
+    }//GEN-LAST:event_jButtonRemoveBackActionPerformed
+
+    private void jButtonRemoveNormalClothingBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemoveNormalClothingBackActionPerformed
+        CardLayout a = (CardLayout)getContentPane().getLayout();
+        a.show(getContentPane(), "PainelRemover");
+    }//GEN-LAST:event_jButtonRemoveNormalClothingBackActionPerformed
+
+    private void jButtonSearchToRemoveShirtBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchToRemoveShirtBackActionPerformed
+        CardLayout a = (CardLayout)getContentPane().getLayout();
+        a.show(getContentPane(), "PainelRemoverRoupaNormal");
+    }//GEN-LAST:event_jButtonSearchToRemoveShirtBackActionPerformed
+
+    private void jButtonRemoveShirtBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemoveShirtBackActionPerformed
+        CardLayout a = (CardLayout)getContentPane().getLayout();
+        a.show(getContentPane(), "PainelSearchToRemoveShirt");
+    }//GEN-LAST:event_jButtonRemoveShirtBackActionPerformed
 
     private void removeShirtById() throws Exception {
         try {
@@ -1672,8 +1822,11 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel PainelRemoverRoupaNormal;
     private javax.swing.JPanel PainelSearchToRemoveShirt;
     private javax.swing.JPanel PainelTabela;
+    private javax.swing.JButton jButtonAddBack;
     private javax.swing.JButton jButtonAddExit;
+    private javax.swing.JButton jButtonAddNormalClothingBack;
     private javax.swing.JButton jButtonAddNormalClothingExit;
+    private javax.swing.JButton jButtonAddShirtBack;
     private javax.swing.JButton jButtonAddShirtExit;
     private javax.swing.JButton jButtonAdicionar;
     private javax.swing.JButton jButtonCamisa;
@@ -1682,18 +1835,24 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton jButtonConsultarCamisa1;
     private javax.swing.JButton jButtonExit;
     private javax.swing.JButton jButtonFinalizar;
+    private javax.swing.JButton jButtonRemoveBack;
     private javax.swing.JButton jButtonRemoveExit;
+    private javax.swing.JButton jButtonRemoveNormalClothingBack;
     private javax.swing.JButton jButtonRemoveNormalClothingExit;
     private javax.swing.JButton jButtonRemoveSearchShirt;
     private javax.swing.JButton jButtonRemoveSearchShirtExit;
+    private javax.swing.JButton jButtonRemoveShirtBack;
     private javax.swing.JButton jButtonRemoveShirtExit;
     private javax.swing.JButton jButtonRemoveShirtRemove;
     private javax.swing.JButton jButtonRemover;
     private javax.swing.JButton jButtonRemoverCamisa;
     private javax.swing.JButton jButtonRemoverRoupaNormal;
     private javax.swing.JButton jButtonRoupaNormal;
+    private javax.swing.JButton jButtonSearch;
     private javax.swing.JButton jButtonSearchExit;
+    private javax.swing.JButton jButtonSearchShirtBack;
     private javax.swing.JButton jButtonSearchShirtExit;
+    private javax.swing.JButton jButtonSearchToRemoveShirtBack;
     private javax.swing.JCheckBox jCheckBoxCollar;
     private javax.swing.JCheckBox jCheckBoxCollarNao1;
     private javax.swing.JCheckBox jCheckBoxCollarSim1;
