@@ -53,7 +53,7 @@ public class ClothingService {
     
     public void decrement(Integer id, Integer quantity) throws Exception {
         if(id < 0 || quantity <= 0) {
-            throw new IllegalArgumentException("INSIRA UM ID VALIDO");
+            throw new IllegalArgumentException("PREENCHA CORRETAMENTE OS CAMPOS");
         }
         
         Clothing clothing = getClothingById(id);

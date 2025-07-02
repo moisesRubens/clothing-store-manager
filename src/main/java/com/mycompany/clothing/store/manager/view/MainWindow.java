@@ -1255,27 +1255,24 @@ public class MainWindow extends javax.swing.JFrame {
     private void finalizarAux() throws Exception {
         Double price = Double.parseDouble(jTextFieldPrice.getText());
         Integer quantity = Integer.parseInt(jTextFieldQuantity.getText());
-        Gender gender;
         String fabric = (jTextFieldFabric.getText().isEmpty() || jTextFieldFabric.getText().isBlank()) ? null : jTextFieldFabric.getText();
         String brand = (jTextFieldBrand.getText().isEmpty() || jTextFieldBrand.getText().isBlank()) ? null : jTextFieldBrand.getText();
         String style = (jTextFieldStyle.getText().isEmpty() || jTextFieldStyle.getText().isBlank()) ? null : jTextFieldStyle.getText();
         String pattern = (jTextFieldPattern.getText().isEmpty() || jTextFieldPattern.getText().isBlank()) ? null : jTextFieldPattern.getText();
         Integer pocket = (jTextFieldPocket.getText().isEmpty() || jTextFieldPocket.getText().isBlank()) ? 0 : Integer.parseInt(jTextFieldPocket.getText());
         String closureType = (jTextFieldClosureType.getText().isEmpty() || jTextFieldClosureType.getText().isBlank()) ? null : jTextFieldClosureType.getText();
-        gender = Gender.MALE;
         ShirtSize size;
+        Gender gender;
+        gender = Gender.MALE;
 
-        if (jTextFieldGender1.getText().charAt(0) == 'M') {
-            System.out.println("MALE");
+        if (jTextFieldGender.getText().charAt(0) == 'M') {
             gender = Gender.MALE;
-        } else if (jTextFieldGender1.getText().charAt(0) == 'F') {
-            System.out.println("FEMALE");
+        } else if (jTextFieldGender.getText().charAt(0) == 'F') {
             gender = Gender.FEMALE;
         } else {
-            System.out.println("EXCEPTION");
             throw new IllegalArgumentException("INSIRA DADOS VALIDOS");
         }
-
+        
         if (jTextFieldSize.getText().equals("P")) {
             size = ShirtSize.SMALL;
         } else if (jTextFieldSize.getText().equals("M")) {
@@ -1285,7 +1282,7 @@ public class MainWindow extends javax.swing.JFrame {
         } else {
             throw new IllegalArgumentException("INSIRA DADOS VALIDOS");
         }
-
+        
         ShirtRequestDTO shirtData = new ShirtRequestDTO(jTextFieldColor.getText(), price, quantity, fabric, brand, style, gender, pattern, pocket, closureType,
                 ClothingType.STANDARD, jCheckBoxSleeve.isSelected(), jCheckBoxCollar.isSelected(), size);
         ClothingController.register(shirtData);
@@ -1378,7 +1375,7 @@ public class MainWindow extends javax.swing.JFrame {
             } else if (jTextFieldRemoveSize.getText().isBlank() || jTextFieldRemoveSize.getText().isEmpty()) {
                 shirtSize = null;
             } else {
-                throw new IllegalArgumentException("INAIRA DADOS VALIDOS");
+                throw new IllegalArgumentException("INSIRA DADOS VALIDOS");
             }
 
             if (jTextFieldRemoveGender.getText().equals("M")) {

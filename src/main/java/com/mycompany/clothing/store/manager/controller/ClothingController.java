@@ -26,6 +26,8 @@ public class ClothingController {
     private static ClothingService clothingService = new ClothingService();
 
     public static void register(ClothingRequestDTO data) throws Exception {
+        System.out.println("AAAAAAAAAAAAAAAAAAAAAAA");
+        
         if (data instanceof ShirtRequestDTO shirtData) {
             Shirt shirt = new Shirt(shirtData.color(), shirtData.price(), shirtData.quantity(), shirtData.clothingType(),
                     shirtData.fabric(), shirtData.brand(), shirtData.style(), shirtData.gender(), shirtData.pattern(),
