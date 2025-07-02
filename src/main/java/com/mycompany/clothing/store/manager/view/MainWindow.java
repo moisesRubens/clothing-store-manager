@@ -8,6 +8,7 @@ import com.mycompany.clothing.store.manager.configuration.exception.RoupaJaExist
 import com.mycompany.clothing.store.manager.configuration.exception.RoupaNaoExistenteException;
 import com.mycompany.clothing.store.manager.controller.ClothingController;
 import com.mycompany.clothing.store.manager.domain.Shirt;
+import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingResponseDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtResponseDTO;
@@ -1190,8 +1191,6 @@ public class MainWindow extends javax.swing.JFrame {
     private void jButtonRemoveSearchShirtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemoveSearchShirtActionPerformed
         try {
             consultarCamisaAux(Function.REMOVE);
-        } catch (RoupaNaoExistenteException e) {
-            handleException(e);
         } catch (Exception e) {
             handleException(e);
         }
@@ -1240,7 +1239,14 @@ public class MainWindow extends javax.swing.JFrame {
             Integer id = Integer.parseInt(jTextFieldRemoveShirtid.getText());
             Integer quantity = Integer.parseInt(jTextFieldRemoveShirtQuantity.getText());
             ClothingController.decrementClothing(id, quantity);
+            
+            list = ClothingController.consult(data);
+            fillTable(list, Function.REMOVE);
+            CardLayout a = (CardLayout)getContentPane().getLayout();
+            a.show(getContentPane(), "PainelRemoveShirt");
+            
             JOptionPane.showMessageDialog(this, "SUCESSO", "RESULTADO", JOptionPane.INFORMATION_MESSAGE);
+            
         } catch(IllegalArgumentException e) {
             throw new IllegalArgumentException("ID INVALIDO", e);
         }
@@ -1396,11 +1402,12 @@ public class MainWindow extends javax.swing.JFrame {
             collar = (jCheckBoxRemoveCollarSim.isSelected()) ? true : false;
             sleeve = (jCheckBoxRemoveSleeveSim.isSelected()) ? true : false;
 
-            ShirtRequestDTO data = new ShirtRequestDTO(color, price, quantity, fabric,
+            ShirtRequestDTO dataShirt = new ShirtRequestDTO(color, price, quantity, fabric,
                     brand, style, gender, pattern, pocket, closureType, ClothingType.STANDARD, sleeve,
                     collar, shirtSize);
 
-            List<ClothingResponseDTO> list = ClothingController.consult(data);
+            data = (ClothingRequestDTO) dataShirt;
+            list = ClothingController.consult(dataShirt);
             fillTable(list, Function.REMOVE);
             CardLayout a = (CardLayout) getContentPane().getLayout();
             a.show(getContentPane(), "PainelRemoveShirt");
@@ -1588,4 +1595,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldStyle1;
     private javax.swing.JTextField jTextFieldremovePrice;
     // End of variables declaration//GEN-END:variables
+    private List<ClothingResponseDTO> list;
+    private ClothingRequestDTO data;
 }

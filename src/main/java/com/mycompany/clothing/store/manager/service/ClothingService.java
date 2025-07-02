@@ -36,11 +36,11 @@ public class ClothingService {
         Boolean hasAtribute = false;
         
         if (clothing instanceof Shirt shirt) {
-            hasAtribute = (!shirt.getColor().isBlank() || !shirt.getColor().isEmpty() || !shirt.getBrand().isBlank() || !shirt.getBrand().isEmpty()
-                    || !shirt.getPattern().isBlank() || !shirt.getPattern().isEmpty() || EnumSet.allOf(ShirtSize.class).contains(shirt.getSize())
-                    || !shirt.getClosureType().isBlank() || !shirt.getClosureType().isEmpty() || !shirt.getFabric().isBlank() || !shirt.getFabric().isEmpty()
+            hasAtribute = (!shirt.getColor().isEmpty() || !shirt.getColor().isBlank() || !shirt.getBrand().isEmpty() || !shirt.getBrand().isBlank()
+                    || !shirt.getPattern().isEmpty() || !shirt.getPattern().isBlank() || EnumSet.allOf(ShirtSize.class).contains(shirt.getSize())
+                    || !shirt.getClosureType().isEmpty() || !shirt.getClosureType().isBlank() || !shirt.getFabric().isEmpty() || !shirt.getFabric().isBlank()
                     || EnumSet.allOf(Gender.class).contains(shirt.getGender())
-                    || !shirt.getStyle().isBlank() || !shirt.getStyle().isEmpty() || shirt.getCollar() == true || shirt.getSleeve() == true
+                    || !shirt.getStyle().isEmpty() || !shirt.getStyle().isBlank() || shirt.getCollar() == true || shirt.getSleeve() == true
                     || shirt.getPocket() != -1 || shirt.getQuantity() != -1 || shirt.getPrice() != -1);
         } 
         
