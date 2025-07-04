@@ -4,6 +4,7 @@
  */
 package com.mycompany.clothing.store.manager.service;
 
+import com.mycompany.clothing.store.manager.configuration.exception.RoupaNaoExistenteException;
 import com.mycompany.clothing.store.manager.domain.Clothing;
 import com.mycompany.clothing.store.manager.domain.Shirt;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtResponseDTO;
@@ -24,7 +25,7 @@ public class ClothingService {
 
     private EntityManager em;
     private ClothingRepository clothingRepository;
-    
+
     public ClothingService(EntityManager em) {
         this.em = em;
         this.clothingRepository = new ClothingRepository(em);
@@ -35,13 +36,18 @@ public class ClothingService {
     }
 
     public List consult(Clothing clothing) throws Exception {
+        Clothing clothingAux = clothingRepository.getClothingById(clothing.getId());
+        if(clothingAux ==  null) {
+            throw new RoupaNaoExistenteException("ERRO AO CONSULTAR. CAMISA NAO EXISTENTE NO BANCO DE DADOS");
+        }
+        
         Boolean hasAtribute = containstAtributes(clothing);
         return clothingRepository.consult(clothing, hasAtribute);
     }
 
     private boolean containstAtributes(Clothing clothing) {
         Boolean hasAtribute = false;
-        
+
         if (clothing instanceof Shirt shirt) {
             hasAtribute = (!shirt.getColor().isEmpty() || !shirt.getColor().isBlank() || !shirt.getBrand().isEmpty() || !shirt.getBrand().isBlank()
                     || !shirt.getPattern().isEmpty() || !shirt.getPattern().isBlank() || EnumSet.allOf(ShirtSize.class).contains(shirt.getSize())
@@ -49,27 +55,25 @@ public class ClothingService {
                     || EnumSet.allOf(Gender.class).contains(shirt.getGender())
                     || !shirt.getStyle().isEmpty() || !shirt.getStyle().isBlank() || shirt.getCollar() != -1 || shirt.getSleeve() != -1
                     || shirt.getPocket() != -1 || shirt.getQuantity() != -1 || shirt.getPrice() != -1);
-        } 
-        
+        }
+
         return hasAtribute;
     }
-    
+
     private Clothing getClothingById(Integer id) throws Exception {
         return clothingRepository.getClothingById(id);
     }
-    
+
     public void decrement(Integer id, Integer quantity) throws Exception {
-        if(id < 0 || quantity <= 0) {
+        if (id < 0 || quantity <= 0) {
             throw new IllegalArgumentException("PREENCHA CORRETAMENTE OS CAMPOS");
         }
-        
         Clothing clothing = getClothingById(id);
-        if(clothing.getQuantity() < quantity) {
+        if (clothing.getQuantity() < quantity) {
             throw new IllegalStateException("QUANTIDADE INSUFICIENTE");
         }
-        
         clothing.setQuantity(clothing.getQuantity() - quantity);
-        
         clothingRepository.updateData(clothing);
+
     }
 }

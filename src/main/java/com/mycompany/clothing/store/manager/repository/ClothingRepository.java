@@ -26,6 +26,7 @@ import java.util.logging.Logger;
  * @author moise
  */
 public class ClothingRepository {
+
     private static final Logger logger = Logger.getLogger(ClothingRepository.class.getName());
     EntityManager em;
 
@@ -45,7 +46,7 @@ public class ClothingRepository {
         } catch (Exception e) {
             handleException(e);
             throw new RuntimeException("ERRO AO CADASTRAR", e);
-        } 
+        }
     }
 
     public List consult(Clothing clothing, Boolean hasAtribute) throws Exception {
@@ -65,9 +66,10 @@ public class ClothingRepository {
             TypedQuery<Shirt> query;
 
             if (hasAtributes == true) {
+                System.out.println("DENTRO DO IF QUE DEFINE A QUERY");
                 queryStr += " 1=1";
-                
-                if (shirt.getSleeve()!= -1) {
+
+                if (shirt.getSleeve() != -1) {
                     queryStr += " AND s.sleeve <= :sleeve";
                 }
                 if (shirt.getCollar() != -1) {
@@ -149,6 +151,7 @@ public class ClothingRepository {
                     query.setParameter("gender", shirt.getGender());
                 }
             } else {
+                System.out.println("DENTRO DO ELSE QUE DEFINE A QUERY");
                 queryStr += " 1=0";
                 query = em.createQuery(queryStr, Shirt.class);
             }
@@ -166,7 +169,7 @@ public class ClothingRepository {
         } catch (Exception e) {
             handleException(e);
             throw e;
-        } 
+        }
     }
 
     public void updateData(Clothing clothing) throws Exception {
@@ -182,16 +185,16 @@ public class ClothingRepository {
 
     private void updateDataAux(EntityManager em, Clothing clothing) throws Exception {
         em.merge(clothing);
+        em.flush();
         em.createQuery("DELETE FROM Clothing WHERE quantity = 0")
                 .executeUpdate();
     }
-        
 
     private Clothing getClothingByIdAux(Integer id) throws Exception {
         List<Clothing> result = em.createQuery("SELECT s FROM Clothing s WHERE s.id = :id ", Clothing.class)
                 .setParameter("id", id).getResultList();
-        
-        return result.isEmpty() ?null : result.get(0);
+
+        return result.isEmpty() ? null : result.get(0);
     }
 
     private void registerInDatabaseAux(Clothing clothing) throws Exception {
@@ -203,7 +206,7 @@ public class ClothingRepository {
     private void handleException(Exception e) {
         logger.log(Level.WARNING, "ERRO", e);
         if (em.getTransaction().isActive()) {
-                em.getTransaction().rollback();
+            em.getTransaction().rollback();
         }
     }
 

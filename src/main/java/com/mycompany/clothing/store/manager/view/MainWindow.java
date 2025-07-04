@@ -1475,6 +1475,9 @@ public class MainWindow extends javax.swing.JFrame {
     private void jButtonRemoveShirtRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemoveShirtRemoveActionPerformed
         try {
             removeShirtById();
+            updateTable();
+            CardLayout a = (CardLayout) getContentPane().getLayout();
+            a.show(getContentPane(), "PainelRemoveShirt");
         } catch (Exception e) {
             handleException(e);
         }
@@ -1521,47 +1524,47 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonRemoveShirtExitActionPerformed
 
     private void jButtonAddBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddBackActionPerformed
-        CardLayout a = (CardLayout)getContentPane().getLayout();
+        CardLayout a = (CardLayout) getContentPane().getLayout();
         a.show(getContentPane(), "PainelPrincipal");
     }//GEN-LAST:event_jButtonAddBackActionPerformed
 
     private void jButtonAddNormalClothingBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddNormalClothingBackActionPerformed
-        CardLayout a = (CardLayout)getContentPane().getLayout();
+        CardLayout a = (CardLayout) getContentPane().getLayout();
         a.show(getContentPane(), "PainelAdicionar");
     }//GEN-LAST:event_jButtonAddNormalClothingBackActionPerformed
 
     private void jButtonAddShirtBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddShirtBackActionPerformed
-        CardLayout a = (CardLayout)getContentPane().getLayout();
+        CardLayout a = (CardLayout) getContentPane().getLayout();
         a.show(getContentPane(), "PainelAdicionarRoupaNormal");
     }//GEN-LAST:event_jButtonAddShirtBackActionPerformed
 
     private void jButtonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchActionPerformed
-        CardLayout a = (CardLayout)getContentPane().getLayout();
+        CardLayout a = (CardLayout) getContentPane().getLayout();
         a.show(getContentPane(), "PainelPrincipal");
     }//GEN-LAST:event_jButtonSearchActionPerformed
 
     private void jButtonSearchShirtBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchShirtBackActionPerformed
-        CardLayout a = (CardLayout)getContentPane().getLayout();
+        CardLayout a = (CardLayout) getContentPane().getLayout();
         a.show(getContentPane(), "PainelConsultar");
     }//GEN-LAST:event_jButtonSearchShirtBackActionPerformed
 
     private void jButtonRemoveBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemoveBackActionPerformed
-        CardLayout a = (CardLayout)getContentPane().getLayout();
+        CardLayout a = (CardLayout) getContentPane().getLayout();
         a.show(getContentPane(), "PainelPrincipal");
     }//GEN-LAST:event_jButtonRemoveBackActionPerformed
 
     private void jButtonRemoveNormalClothingBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemoveNormalClothingBackActionPerformed
-        CardLayout a = (CardLayout)getContentPane().getLayout();
+        CardLayout a = (CardLayout) getContentPane().getLayout();
         a.show(getContentPane(), "PainelRemover");
     }//GEN-LAST:event_jButtonRemoveNormalClothingBackActionPerformed
 
     private void jButtonSearchToRemoveShirtBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchToRemoveShirtBackActionPerformed
-        CardLayout a = (CardLayout)getContentPane().getLayout();
+        CardLayout a = (CardLayout) getContentPane().getLayout();
         a.show(getContentPane(), "PainelRemoverRoupaNormal");
     }//GEN-LAST:event_jButtonSearchToRemoveShirtBackActionPerformed
 
     private void jButtonRemoveShirtBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemoveShirtBackActionPerformed
-        CardLayout a = (CardLayout)getContentPane().getLayout();
+        CardLayout a = (CardLayout) getContentPane().getLayout();
         a.show(getContentPane(), "PainelSearchToRemoveShirt");
     }//GEN-LAST:event_jButtonRemoveShirtBackActionPerformed
 
@@ -1570,13 +1573,7 @@ public class MainWindow extends javax.swing.JFrame {
             Integer id = Integer.parseInt(jTextFieldRemoveShirtid.getText());
             Integer quantity = Integer.parseInt(jTextFieldRemoveShirtQuantity.getText());
             clothingController.decrementClothing(id, quantity);
-
-            updateTable();
-            CardLayout a = (CardLayout) getContentPane().getLayout();
-            a.show(getContentPane(), "PainelRemoveShirt");
-
             JOptionPane.showMessageDialog(this, "SUCESSO", "RESULTADO", JOptionPane.INFORMATION_MESSAGE);
-
         } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException("ID INVALIDO", e);
         }
@@ -1594,8 +1591,8 @@ public class MainWindow extends javax.swing.JFrame {
         ShirtSize size;
         Gender gender;
         gender = Gender.MALE;
-        Integer sleeve = (jCheckBoxSleeve.isSelected()) ?1 :0;
-        Integer collar = (jCheckBoxCollar.isSelected()) ?1 :0;
+        Integer sleeve = (jCheckBoxSleeve.isSelected()) ? 1 : 0;
+        Integer collar = (jCheckBoxCollar.isSelected()) ? 1 : 0;
 
         if (jTextFieldGender.getText().charAt(0) == 'M') {
             gender = Gender.MALE;
@@ -1624,7 +1621,7 @@ public class MainWindow extends javax.swing.JFrame {
     private void consultarCamisaAux(Function function) throws Exception {
         Boolean hasAttribute = false;
         Integer collar;
-        Integer sleeve = -1;
+        Integer sleeve;
         Integer pocket;
         Integer quantity = -1;
         Double price;
@@ -1674,18 +1671,18 @@ public class MainWindow extends javax.swing.JFrame {
             if ((jCheckBoxCollarSim1.isSelected() && jCheckBoxCollarNao1.isSelected()) || (jCheckBoxSleeveSim1.isSelected() && jCheckBoxSleeveNao1.isSelected())) {
                 throw new IllegalArgumentException("INSIRA APENAS UM VALOR PARA GOLA E MANGA");
             }
-            
-            if(!jCheckBoxCollarSim1.isSelected() && !jCheckBoxCollarNao1.isSelected()) {
+
+            if (!jCheckBoxCollarSim1.isSelected() && !jCheckBoxCollarNao1.isSelected()) {
                 collar = -1;
-            } else if(jCheckBoxCollarSim1.isSelected()) {
+            } else if (jCheckBoxCollarSim1.isSelected()) {
                 collar = 1;
             } else {
                 collar = 0;
             }
-            
-            if(!jCheckBoxSleeveSim1.isSelected() && !jCheckBoxSleeveNao1.isSelected()) {
+
+            if (!jCheckBoxSleeveSim1.isSelected() && !jCheckBoxSleeveNao1.isSelected()) {
                 sleeve = -1;
-            } else if(jCheckBoxSleeveSim1.isSelected()) {
+            } else if (jCheckBoxSleeveSim1.isSelected()) {
                 sleeve = 1;
             } else {
                 sleeve = 0;
@@ -1700,6 +1697,7 @@ public class MainWindow extends javax.swing.JFrame {
             table.fillTable(list);
             table.setLocationRelativeTo(null);
             table.setVisible(true);
+                        System.out.println("DENTRO DE SEARCH");
         } else {
             pattern = jTextFieldRemovePattern.getText();
             style = jTextFieldRemoveStyle.getText();
@@ -1736,17 +1734,17 @@ public class MainWindow extends javax.swing.JFrame {
                 throw new IllegalArgumentException("INSIRA APENAS UM VALOR PARA GOLA E MANGA");
             }
 
-            if(!jCheckBoxRemoveCollarSim.isSelected() && !jCheckBoxRemoveCollarNao.isSelected()) {
+            if (!jCheckBoxRemoveCollarSim.isSelected() && !jCheckBoxRemoveCollarNao.isSelected()) {
                 collar = -1;
-            } else if(jCheckBoxRemoveCollarSim.isSelected()) {
+            } else if (jCheckBoxRemoveCollarSim.isSelected()) {
                 collar = 1;
             } else {
                 collar = 0;
             }
-            
-            if(!jCheckBoxRemoveSleeveSim.isSelected() && !jCheckBoxRemoveSleeveNao.isSelected()) {
+
+            if (!jCheckBoxRemoveSleeveSim.isSelected() && !jCheckBoxRemoveSleeveNao.isSelected()) {
                 sleeve = -1;
-            } else if(jCheckBoxRemoveSleeveSim.isSelected()) {
+            } else if (jCheckBoxRemoveSleeveSim.isSelected()) {
                 sleeve = 1;
             } else {
                 sleeve = 0;
@@ -1765,8 +1763,12 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     private void updateTable() throws Exception {
-        list = clothingController.consult(data);
-        fillTable(list, Function.REMOVE);
+        try {            
+            list = clothingController.consult(data);
+            fillTable(list, Function.REMOVE);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage(), "RESULT", JOptionPane.INFORMATION_MESSAGE);
+        }
     }
 
     private void handleException(Exception e) {
@@ -1818,7 +1820,6 @@ public class MainWindow extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PainelAdicionar;
