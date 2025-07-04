@@ -22,10 +22,10 @@ import jakarta.persistence.Table;
 public class Shirt extends Clothing {
     
     @Column(name="MANGA", nullable=true)
-    Boolean sleeve;
+    Integer sleeve;
     
     @Column(name="GOLA", nullable=true)
-    Boolean collar;
+    Integer collar;
     
     @Enumerated(EnumType.STRING)
     @Column(name="TAMANHO")
@@ -34,31 +34,31 @@ public class Shirt extends Clothing {
     public Shirt() {}
 
     public Shirt(String color, Double price, Integer quantity, ClothingType clothingType, String fabric, String brand,
-                 String style, Gender gender, String pattern, Integer pocket, String closureType, ShirtSize size, Boolean sleeve, Boolean collar) {
+                 String style, Gender gender, String pattern, Integer pocket, String closureType, ShirtSize size, Integer sleeve, Integer collar) {
         super(color, price, quantity, clothingType, fabric, brand, style, gender, pattern, pocket, closureType);
         this.size = size;
         this.sleeve = sleeve;
         this.collar = collar;
     }
-
+    
     @Override
     public String toString() {
         return super.toString() + " Shirt{" + "sleeve=" + sleeve + ", collar=" + collar + ", size=" + size + '}';
     }
     
-    public Boolean getSleeve() {
+    public Integer getSleeve() {
         return sleeve;
     }
 
-    public void setSleeve(Boolean sleeve) {
+    public void setSleeve(Integer sleeve) {
         this.sleeve = sleeve;
     }
 
-    public Boolean getCollar() {
+    public Integer getCollar() {
         return collar;
     }
 
-    public void setCollar(Boolean collar) {
+    public void setCollar(Integer collar) {
         this.collar = collar;
     }
 

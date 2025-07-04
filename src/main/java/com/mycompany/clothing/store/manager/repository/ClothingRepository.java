@@ -66,9 +66,13 @@ public class ClothingRepository {
 
             if (hasAtributes == true) {
                 queryStr += " 1=1";
-
-                queryStr += " AND s.sleeve = :sleeve";
-                queryStr += " AND s.collar = :collar";
+                
+                if (shirt.getSleeve()!= -1) {
+                    queryStr += " AND s.sleeve <= :sleeve";
+                }
+                if (shirt.getCollar() != -1) {
+                    queryStr += " AND s.collar <= :collar";
+                }
                 if (shirt.getPrice() != -1) {
                     queryStr += " AND s.price <= :price";
                 }
@@ -105,8 +109,12 @@ public class ClothingRepository {
 
                 query = em.createQuery(queryStr, Shirt.class);
 
-                query.setParameter("sleeve", shirt.getSleeve());
-                query.setParameter("collar", shirt.getCollar());
+                if (shirt.getSleeve() != -1) {
+                    query.setParameter("sleeve", shirt.getSleeve());
+                }
+                if (shirt.getCollar() != -1) {
+                    query.setParameter("collar", shirt.getCollar());
+                }
                 if (shirt.getPocket() != -1) {
                     query.setParameter("pocket", shirt.getPocket());
                 }
@@ -180,8 +188,10 @@ public class ClothingRepository {
         
 
     private Clothing getClothingByIdAux(Integer id) throws Exception {
-        return em.createQuery("SELECT s FROM Clothing s WHERE s.id = :id ", Clothing.class)
-                .setParameter("id", id).getSingleResult();
+        List<Clothing> result = em.createQuery("SELECT s FROM Clothing s WHERE s.id = :id ", Clothing.class)
+                .setParameter("id", id).getResultList();
+        
+        return result.isEmpty() ?null : result.get(0);
     }
 
     private void registerInDatabaseAux(Clothing clothing) throws Exception {

@@ -47,7 +47,7 @@ public class ClothingService {
                     || !shirt.getPattern().isEmpty() || !shirt.getPattern().isBlank() || EnumSet.allOf(ShirtSize.class).contains(shirt.getSize())
                     || !shirt.getClosureType().isEmpty() || !shirt.getClosureType().isBlank() || !shirt.getFabric().isEmpty() || !shirt.getFabric().isBlank()
                     || EnumSet.allOf(Gender.class).contains(shirt.getGender())
-                    || !shirt.getStyle().isEmpty() || !shirt.getStyle().isBlank() || shirt.getCollar() == true || shirt.getSleeve() == true
+                    || !shirt.getStyle().isEmpty() || !shirt.getStyle().isBlank() || shirt.getCollar() != -1 || shirt.getSleeve() != -1
                     || shirt.getPocket() != -1 || shirt.getQuantity() != -1 || shirt.getPrice() != -1);
         } 
         
@@ -67,8 +67,8 @@ public class ClothingService {
         if(clothing.getQuantity() < quantity) {
             throw new IllegalStateException("QUANTIDADE INSUFICIENTE");
         }
-        Integer newQuantity = clothing.getQuantity() - quantity;
-        clothing.setQuantity(newQuantity);
+        
+        clothing.setQuantity(clothing.getQuantity() - quantity);
         
         clothingRepository.updateData(clothing);
     }

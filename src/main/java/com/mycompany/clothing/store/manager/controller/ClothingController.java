@@ -46,9 +46,7 @@ public class ClothingController {
         List list = null;
 
         if (data instanceof ShirtRequestDTO shirtData) {
-            Shirt shirt = new Shirt(shirtData.color(), shirtData.price(), shirtData.quantity(), shirtData.clothingType(),
-                    shirtData.fabric(), shirtData.brand(), shirtData.style(), shirtData.gender(), shirtData.pattern(),
-                    shirtData.pocket(), shirtData.closureType(), shirtData.size(), shirtData.sleeve(), shirtData.collar());
+            Shirt shirt = (Shirt)fromRequestDToToInstance(data);
             
             List<Shirt> shirts = clothingService.consult(shirt);
             list = shirts.stream().map(shirtAux -> new ShirtResponseDTO(shirtAux.getId(), shirtAux.getColor(), shirtAux.getPrice(), shirtAux.getQuantity(),
@@ -62,5 +60,14 @@ public class ClothingController {
     
     public void decrementClothing(Integer id, Integer quantity) throws Exception {
         clothingService.decrement(id, quantity);
+    }
+    
+    private Clothing fromRequestDToToInstance(ClothingRequestDTO data) {
+        if(data instanceof ShirtRequestDTO shirtData) {
+            return new Shirt(shirtData.color(), shirtData.price(), shirtData.quantity(), shirtData.clothingType(),
+                                    shirtData.fabric(), shirtData.brand(), shirtData.style(), shirtData.gender(), shirtData.pattern(),
+                                    shirtData.pocket(), shirtData.closureType(), shirtData.size(), shirtData.sleeve(), shirtData.collar());
+        }
+        return null;
     }
 }

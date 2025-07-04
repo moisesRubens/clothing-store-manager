@@ -765,7 +765,7 @@
                                           <Group type="102" alignment="1" attributes="0">
                                               <Component id="jLabelCor1" min="-2" pref="37" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                                              <Component id="jTextFieldColor1" min="-2" pref="71" max="-2" attributes="0"/>
+                                              <Component id="jTextFieldSearchColor" min="-2" pref="71" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
@@ -854,7 +854,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextFieldColor1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldSearchColor" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabelCor1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -981,7 +981,7 @@
             <Property name="text" type="java.lang.String" value="TAMANHO"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldColor1">
+        <Component class="javax.swing.JTextField" name="jTextFieldSearchColor">
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldSize1">
         </Component>
