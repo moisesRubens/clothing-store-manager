@@ -26,37 +26,34 @@ import java.util.logging.Logger;
  * @author moise
  */
 public class ClothingRepository {
-
     private static final Logger logger = Logger.getLogger(ClothingRepository.class.getName());
-    EntityManagerFactory emf = Persistence.createEntityManagerFactory("meuPU");
+    EntityManager em;
+
+    public ClothingRepository(EntityManager em) {
+        this.em = em;
+    }
 
     public void registerInDatabase(Clothing clothing) throws Exception {
-        EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
 
         try {
-            registerInDatabaseAux(em, clothing);
+            registerInDatabaseAux(clothing);
             em.getTransaction().commit();
         } catch (EntityExistsException e) {
-            handleException(em, e);
+            handleException(e);
             throw new RoupaJaExistenteException("ROUPA JA CADASTRADA NO BANCO DE DADOS");
         } catch (Exception e) {
-            handleException(em, e);
+            handleException(e);
             throw new RuntimeException("ERRO AO CADASTRAR", e);
-        } finally {
-            em.close();
-        }
+        } 
     }
 
     public List consult(Clothing clothing, Boolean hasAtribute) throws Exception {
-        EntityManager em = emf.createEntityManager();
         try {
             return consultAux(em, clothing, hasAtribute);
         } catch (Exception e) {
-            handleException(em, e);
+            handleException(e);
             throw e;
-        } finally {
-            em.close();
         }
     }
 
@@ -100,10 +97,10 @@ public class ClothingRepository {
                     queryStr += " AND s.closureType LIKE :closureType";
                 }
                 if (EnumSet.allOf(ShirtSize.class).contains(shirt.getSize())) {
-                    queryStr += " AND s.size LIKE :" + shirt.getSize();
+                    queryStr += " AND s.size = :size";
                 }
                 if (EnumSet.allOf(Gender.class).contains(shirt.getGender())) {
-                    queryStr += " AND s.gender LIKE :" + shirt.getGender();
+                    queryStr += " AND s.gender = :gender";
                 }
 
                 query = em.createQuery(queryStr, Shirt.class);
@@ -138,10 +135,10 @@ public class ClothingRepository {
                     query.setParameter("closureType", shirt.getClosureType());
                 }
                 if (EnumSet.allOf(ShirtSize.class).contains(shirt.getSize())) {
-                    query.setParameter(shirt.getSize().toString(), shirt.getSize());
+                    query.setParameter("size", shirt.getSize());
                 }
                 if (EnumSet.allOf(Gender.class).contains(shirt.getGender())) {
-                    query.setParameter(shirt.getGender().toString(), shirt.getGender());
+                    query.setParameter("gender", shirt.getGender());
                 }
             } else {
                 queryStr += " 1=0";
@@ -156,29 +153,22 @@ public class ClothingRepository {
     }
 
     public Clothing getClothingById(Integer id) throws Exception {
-        EntityManager em = emf.createEntityManager();
-        em.getTransaction().begin();
         try {
-            return getClothingByIdAux(em, id);
+            return getClothingByIdAux(id);
         } catch (Exception e) {
-            handleException(em, e);
+            handleException(e);
             throw e;
-        } finally {
-            em.close();
-        }
+        } 
     }
 
     public void updateData(Clothing clothing) throws Exception {
-        EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
         try {
             updateDataAux(em, clothing);
             em.getTransaction().commit();
         } catch (Exception e) {
-            handleException(em, e);
+            handleException(e);
             throw e;
-        } finally {
-            em.close();
         }
     }
 
@@ -189,26 +179,22 @@ public class ClothingRepository {
     }
         
 
-    private Clothing getClothingByIdAux(EntityManager em, Integer id) throws Exception {
+    private Clothing getClothingByIdAux(Integer id) throws Exception {
         return em.createQuery("SELECT s FROM Clothing s WHERE s.id = :id ", Clothing.class)
                 .setParameter("id", id).getSingleResult();
     }
 
-    private void registerInDatabaseAux(EntityManager em, Clothing clothing) throws Exception {
+    private void registerInDatabaseAux(Clothing clothing) throws Exception {
         if (clothing instanceof Shirt shirt) {
             em.persist(shirt);
         }
     }
 
-    private void handleException(EntityManager em, Exception e) {
+    private void handleException(Exception e) {
         logger.log(Level.WARNING, "ERRO", e);
         if (em.getTransaction().isActive()) {
                 em.getTransaction().rollback();
         }
-    }
-
-    private void shutDown() {
-        emf.close();
     }
 
     private boolean isEmptyOrBlank(String str) {

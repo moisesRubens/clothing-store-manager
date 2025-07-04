@@ -1,30 +1,51 @@
 package main;
 
-
 import com.mycompany.clothing.store.manager.view.MainWindow;
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-/**
- *
- * @author moise
- */
 public class Main {
-    public static void main(String[] args) {
+    private EntityManagerFactory emf;
+    private EntityManager em;
+
+    public void initialize() {
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info :
-                    javax.swing.UIManager.getInstalledLookAndFeels()) {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
         } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(
-                    java.util.logging.Level.SEVERE, null, ex);
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
-        java.awt.EventQueue.invokeLater(() -> new MainWindow().setVisible(true));
+
+        emf = Persistence.createEntityManagerFactory("meuPU");
+        em = emf.createEntityManager();
+
+        MainWindow window = new MainWindow(em);
+        window.setVisible(true);
+
+        window.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                if (em.isOpen()) {
+                    em.close();
+                }
+                if (emf.isOpen()) {
+                    emf.close();
+                }
+                System.exit(0);
+            }
+        });
+    }
+
+    public static void main(String[] args) {
+        new Main().initialize();
     }
 }

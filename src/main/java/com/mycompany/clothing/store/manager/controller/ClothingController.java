@@ -14,6 +14,7 @@ import com.mycompany.clothing.store.manager.domain.enums.ClothingType;
 import com.mycompany.clothing.store.manager.domain.enums.Gender;
 import com.mycompany.clothing.store.manager.domain.enums.ShirtSize;
 import com.mycompany.clothing.store.manager.service.ClothingService;
+import jakarta.persistence.EntityManager;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,9 +24,15 @@ import java.util.List;
  */
 public class ClothingController {
 
-    private static ClothingService clothingService = new ClothingService();
+    private ClothingService clothingService;
+    private EntityManager em;
+    
+    public ClothingController(EntityManager em) {
+        this.em = em;
+        this.clothingService = new ClothingService(em);
+    }
 
-    public static void register(ClothingRequestDTO data) throws Exception {
+    public void register(ClothingRequestDTO data) throws Exception {
         if (data instanceof ShirtRequestDTO shirtData) {
             Shirt shirt = new Shirt(shirtData.color(), shirtData.price(), shirtData.quantity(), shirtData.clothingType(),
                     shirtData.fabric(), shirtData.brand(), shirtData.style(), shirtData.gender(), shirtData.pattern(),
@@ -35,7 +42,7 @@ public class ClothingController {
         }
     }
 
-    public static List<ClothingResponseDTO> consult(ClothingRequestDTO data) throws Exception {
+    public List<ClothingResponseDTO> consult(ClothingRequestDTO data) throws Exception {
         List list = null;
 
         if (data instanceof ShirtRequestDTO shirtData) {
@@ -53,7 +60,7 @@ public class ClothingController {
         return list;
     }
     
-    public static void decrementClothing(Integer id, Integer quantity) throws Exception {
+    public void decrementClothing(Integer id, Integer quantity) throws Exception {
         clothingService.decrement(id, quantity);
     }
 }

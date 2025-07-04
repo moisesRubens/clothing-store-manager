@@ -15,6 +15,7 @@ import com.mycompany.clothing.store.manager.domain.dto.ShirtResponseDTO;
 import com.mycompany.clothing.store.manager.domain.enums.ClothingType;
 import com.mycompany.clothing.store.manager.domain.enums.Gender;
 import com.mycompany.clothing.store.manager.domain.enums.ShirtSize;
+import jakarta.persistence.EntityManager;
 import java.awt.CardLayout;
 import java.util.List;
 import javax.swing.JFrame;
@@ -38,7 +39,9 @@ public class MainWindow extends javax.swing.JFrame {
     /**
      * Creates new form MainWindow
      */
-    public MainWindow() {
+    public MainWindow(EntityManager em) {
+        this.em = em;
+        this.clothingController = new ClothingController(em);
         initComponents();
 
         getContentPane().setLayout(new CardLayout());
@@ -1566,7 +1569,7 @@ public class MainWindow extends javax.swing.JFrame {
         try {
             Integer id = Integer.parseInt(jTextFieldRemoveShirtid.getText());
             Integer quantity = Integer.parseInt(jTextFieldRemoveShirtQuantity.getText());
-            ClothingController.decrementClothing(id, quantity);
+            clothingController.decrementClothing(id, quantity);
 
             updateTable();
             CardLayout a = (CardLayout) getContentPane().getLayout();
@@ -1612,7 +1615,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         ShirtRequestDTO shirtData = new ShirtRequestDTO(jTextFieldColor.getText(), price, quantity, fabric, brand, style, gender, pattern, pocket, closureType,
                 ClothingType.STANDARD, jCheckBoxSleeve.isSelected(), jCheckBoxCollar.isSelected(), size);
-        ClothingController.register(shirtData);
+        clothingController.register(shirtData);
         JOptionPane.showMessageDialog(this, "ROUPA CADASTRADA", "RESULTADO", JOptionPane.INFORMATION_MESSAGE);
     }
 
@@ -1678,7 +1681,7 @@ public class MainWindow extends javax.swing.JFrame {
                     brand, style, gender, pattern, pocket, closureType, ClothingType.STANDARD, sleeve,
                     collar, shirtSize);
 
-            List<ClothingResponseDTO> list = ClothingController.consult(data);
+            List<ClothingResponseDTO> list = clothingController.consult(data);
             Table table = new Table();
             table.fillTable(list);
             table.setLocationRelativeTo(null);
@@ -1735,7 +1738,7 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     private void updateTable() throws Exception {
-        list = ClothingController.consult(data);
+        list = clothingController.consult(data);
         fillTable(list, Function.REMOVE);
     }
 
@@ -1920,4 +1923,6 @@ public class MainWindow extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     private List<ClothingResponseDTO> list;
     private ClothingRequestDTO data;
+    public EntityManager em;
+    public ClothingController clothingController;
 }

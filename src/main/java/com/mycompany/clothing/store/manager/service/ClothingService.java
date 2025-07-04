@@ -11,6 +11,7 @@ import com.mycompany.clothing.store.manager.domain.enums.ClothingType;
 import com.mycompany.clothing.store.manager.domain.enums.Gender;
 import com.mycompany.clothing.store.manager.domain.enums.ShirtSize;
 import com.mycompany.clothing.store.manager.repository.ClothingRepository;
+import jakarta.persistence.EntityManager;
 import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.List;
@@ -21,7 +22,13 @@ import java.util.List;
  */
 public class ClothingService {
 
-    private static ClothingRepository clothingRepository = new ClothingRepository();
+    private EntityManager em;
+    private ClothingRepository clothingRepository;
+    
+    public ClothingService(EntityManager em) {
+        this.em = em;
+        this.clothingRepository = new ClothingRepository(em);
+    }
 
     public void register(Clothing clothing) throws Exception {
         clothingRepository.registerInDatabase(clothing);
