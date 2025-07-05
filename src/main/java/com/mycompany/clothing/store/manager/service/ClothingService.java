@@ -36,12 +36,8 @@ public class ClothingService {
     }
 
     public List consult(Clothing clothing) throws Exception {
-        Clothing clothingAux = clothingRepository.getClothingById(clothing.getId());
-        if(clothingAux ==  null) {
-            throw new RoupaNaoExistenteException("ERRO AO CONSULTAR. CAMISA NAO EXISTENTE NO BANCO DE DADOS");
-        }
-        
         Boolean hasAtribute = containstAtributes(clothing);
+        if(hasAtribute)
         return clothingRepository.consult(clothing, hasAtribute);
     }
 

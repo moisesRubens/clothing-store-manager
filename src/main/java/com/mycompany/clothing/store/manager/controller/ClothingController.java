@@ -46,7 +46,9 @@ public class ClothingController {
         List list = null;
 
         if (data instanceof ShirtRequestDTO shirtData) {
-            Shirt shirt = (Shirt)fromRequestDToToInstance(data);
+            Shirt shirt = new Shirt(shirtData.color(), shirtData.price(), shirtData.quantity(), shirtData.clothingType(),
+                                    shirtData.fabric(), shirtData.brand(), shirtData.style(), shirtData.gender(), shirtData.pattern(),
+                                    shirtData.pocket(), shirtData.closureType(), shirtData.size(), shirtData.sleeve(), shirtData.collar());
             
             List<Shirt> shirts = clothingService.consult(shirt);
             list = shirts.stream().map(shirtAux -> new ShirtResponseDTO(shirtAux.getId(), shirtAux.getColor(), shirtAux.getPrice(), shirtAux.getQuantity(),
