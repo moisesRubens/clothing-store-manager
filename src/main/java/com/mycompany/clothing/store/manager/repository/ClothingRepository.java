@@ -175,7 +175,7 @@ public class ClothingRepository {
     public void updateData(Clothing clothing) throws Exception {
         em.getTransaction().begin();
         try {
-            updateDataAux(em, clothing);
+            updateDataAux(clothing);
             em.getTransaction().commit();
         } catch (Exception e) {
             handleException(e);
@@ -183,7 +183,7 @@ public class ClothingRepository {
         }
     }
 
-    private void updateDataAux(EntityManager em, Clothing clothing) throws Exception {
+    private void updateDataAux(Clothing clothing) throws Exception {
         em.merge(clothing);
         em.flush();
         em.createQuery("DELETE FROM Clothing WHERE quantity = 0")
@@ -212,5 +212,10 @@ public class ClothingRepository {
 
     private boolean isEmptyOrBlank(String str) {
         return (str.isBlank() || str.isEmpty());
+    }
+    
+    public List getById(Integer id) {
+        return em.createQuery("SELECT s FROM Shirt s WHERE s.id = :id")
+                .setParameter("id", id).getResultList();
     }
 }

@@ -64,12 +64,23 @@ public class ClothingController {
         clothingService.decrement(id, quantity);
     }
     
-    private Clothing fromRequestDToToInstance(ClothingRequestDTO data) {
-        if(data instanceof ShirtRequestDTO shirtData) {
-            return new Shirt(shirtData.color(), shirtData.price(), shirtData.quantity(), shirtData.clothingType(),
-                                    shirtData.fabric(), shirtData.brand(), shirtData.style(), shirtData.gender(), shirtData.pattern(),
-                                    shirtData.pocket(), shirtData.closureType(), shirtData.size(), shirtData.sleeve(), shirtData.collar());
+    public List<ClothingResponseDTO> consultById(Integer id) {
+        List<Clothing> list = clothingService.getById(id);
+        List listResult = null;
+        
+        if(list.getFirst() instanceof Shirt) {
+            List<Shirt> shirts = new ArrayList<>();
+            
+            for(Clothing c : list) {
+                shirts.add((Shirt)c);
+            }
+            
+            listResult = shirts.stream().map(shirt -> new ShirtResponseDTO(shirt.getId(), shirt.getColor(), shirt.getPrice(), shirt.getQuantity(),
+                                                                   shirt.getFabric(), shirt.getBrand(), shirt.getStyle(), shirt.getGender(), 
+                                                                   shirt.getPattern(), shirt.getPocket(), shirt.getClosureType(), shirt.getClothingType(),
+                                                                   shirt.getSleeve(), shirt.getCollar(), shirt.getSize())).toList();
+            
         }
-        return null;
+        return listResult;
     }
 }

@@ -37,7 +37,7 @@ public class ClothingService {
 
     public List consult(Clothing clothing) throws Exception {
         Boolean hasAtribute = containstAtributes(clothing);
-        if(hasAtribute)
+        
         return clothingRepository.consult(clothing, hasAtribute);
     }
 
@@ -71,5 +71,9 @@ public class ClothingService {
         clothing.setQuantity(clothing.getQuantity() - quantity);
         clothingRepository.updateData(clothing);
 
+    }
+    
+    public List getById(Integer id) {
+        return clothingRepository.getById(id);
     }
 }
