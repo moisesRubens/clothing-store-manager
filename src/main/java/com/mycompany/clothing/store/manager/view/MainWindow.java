@@ -18,6 +18,8 @@ import com.mycompany.clothing.store.manager.domain.enums.ShirtSize;
 import jakarta.persistence.EntityManager;
 import java.awt.CardLayout;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -32,6 +34,10 @@ public class MainWindow extends javax.swing.JFrame {
     enum Function {
         REMOVE,
         SEARCH
+    }
+    
+    enum ClothingPiece {
+        SHIRT
     }
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MainWindow.class.getName());
@@ -1591,12 +1597,16 @@ public class MainWindow extends javax.swing.JFrame {
         }
     }
 
-    private void updateTable() {
-        Integer id = Integer.valueOf(jTextFieldRemoveShirtid.getText());
-        List listA = clothingController.consultById(id);
-        fillTable(listA);
+    private void updateTable() throws Exception {
+        try {
+            Integer id = Integer.valueOf(jTextFieldRemoveShirtid.getText());
+            List listA = clothingController.consultById(id);
+            fillTable(listA, ClothingPiece.SHIRT);
+        } catch (Exception e) {
+            throw new Exception("A LISTA A E NULL", e);
+        }
     }
-    
+
     private void finalizarAux() throws Exception {
         Double price = Double.parseDouble(jTextFieldPrice.getText());
         Integer quantity = Integer.parseInt(jTextFieldQuantity.getText());
@@ -1640,8 +1650,8 @@ public class MainWindow extends javax.swing.JFrame {
         Integer collar;
         Integer sleeve;
         Integer quantity = -1;
-        Integer pocket = (jTextFieldRemovePocket.getText().isEmpty()) ?-1 :Integer.parseInt(jTextFieldRemovePocket.getText());
-        Double price = (jTextFieldRemovePrice.getText().isEmpty()) ?-1D :Double.parseDouble(jTextFieldRemovePrice.getText());
+        Integer pocket = (jTextFieldRemovePocket.getText().isEmpty()) ? -1 : Integer.parseInt(jTextFieldRemovePocket.getText());
+        Double price = (jTextFieldRemovePrice.getText().isEmpty()) ? -1D : Double.parseDouble(jTextFieldRemovePrice.getText());
         String pattern = jTextFieldRemovePattern.getText();
         String style = jTextFieldRemoveStyle.getText();
         String brand = jTextFieldRemoveBrand.getText();
@@ -1650,27 +1660,27 @@ public class MainWindow extends javax.swing.JFrame {
         String closureType = jTextFieldRemoveClosureType.getText();
         ShirtSize shirtSize = null;
         Gender gender = null;
-        
-        if(jTextFieldRemoveSize.getText().equals("P")) {
+
+        if (jTextFieldRemoveSize.getText().equals("P")) {
             shirtSize = ShirtSize.SMALL;
-        } else if(jTextFieldRemoveSize.getText().equals("M")) {
+        } else if (jTextFieldRemoveSize.getText().equals("M")) {
             shirtSize = ShirtSize.MEDIUM;
-        } else if(jTextFieldRemoveSize.getText().equals("G")) {
+        } else if (jTextFieldRemoveSize.getText().equals("G")) {
             shirtSize = ShirtSize.LARGE;
-        } else if(!jTextFieldRemoveSize.getText().isEmpty() || !jTextFieldRemoveSize.getText().isBlank()) {
+        } else if (!jTextFieldRemoveSize.getText().isEmpty() || !jTextFieldRemoveSize.getText().isBlank()) {
             throw new IllegalArgumentException("INSIRA UM TAMANHO VALIDO");
         }
 
-        if(jTextFieldRemoveGender.getText().equals("M")) {
+        if (jTextFieldRemoveGender.getText().equals("M")) {
             gender = Gender.MALE;
-        } else if(jTextFieldRemoveGender.getText().equals("F")) {
+        } else if (jTextFieldRemoveGender.getText().equals("F")) {
             gender = Gender.FEMALE;
-        } else if(!jTextFieldRemoveGender.getText().isEmpty() || !jTextFieldRemoveGender.getText().isBlank()) {
+        } else if (!jTextFieldRemoveGender.getText().isEmpty() || !jTextFieldRemoveGender.getText().isBlank()) {
             throw new IllegalArgumentException("INSIRA UM GENERO VALIDO");
         }
 
-        if ((jCheckBoxRemoveCollarSim.isSelected() && jCheckBoxRemoveCollarNao.isSelected()) || 
-            (jCheckBoxRemoveSleeveSim.isSelected() && jCheckBoxRemoveSleeveNao.isSelected())) {
+        if ((jCheckBoxRemoveCollarSim.isSelected() && jCheckBoxRemoveCollarNao.isSelected())
+                || (jCheckBoxRemoveSleeveSim.isSelected() && jCheckBoxRemoveSleeveNao.isSelected())) {
             throw new IllegalArgumentException("INSIRA APENAS UM VALOR PARA GOLA E MANGA");
         }
 
@@ -1691,11 +1701,11 @@ public class MainWindow extends javax.swing.JFrame {
         }
 
         ShirtRequestDTO dataShirt = new ShirtRequestDTO(color, price, quantity, fabric, brand, style,
-                                                        gender, pattern, pocket, closureType, ClothingType.STANDARD,
-                                                        sleeve, collar, shirtSize);
+                gender, pattern, pocket, closureType, ClothingType.STANDARD,
+                sleeve, collar, shirtSize);
 
         List<ClothingResponseDTO> listSearchToRemove = clothingController.consult(dataShirt);
-        fillTable(listSearchToRemove);
+        fillTable(listSearchToRemove, ClothingPiece.SHIRT);
         CardLayout a = (CardLayout) getContentPane().getLayout();
         a.show(getContentPane(), "PainelRemoveShirt");
     }
@@ -1704,9 +1714,9 @@ public class MainWindow extends javax.swing.JFrame {
         System.out.println("DENTRO DE CONSULTAR NORMAL");
         Integer collar;
         Integer sleeve;
-        Integer pocket = (jTextFieldConsultPocket.getText().isEmpty()) ?-1 :Integer.parseInt(jTextFieldConsultPocket.getText());
-        Integer quantity = (jTextFieldConsultQuantity.getText().isEmpty()) ?-1 :Integer.valueOf(jTextFieldConsultQuantity.getText());
-        Double price = (jTextFieldConsultPrice.getText().isEmpty()) ?-1D :Double.parseDouble(jTextFieldConsultPrice.getText());
+        Integer pocket = (jTextFieldConsultPocket.getText().isEmpty()) ? -1 : Integer.parseInt(jTextFieldConsultPocket.getText());
+        Integer quantity = (jTextFieldConsultQuantity.getText().isEmpty()) ? -1 : Integer.valueOf(jTextFieldConsultQuantity.getText());
+        Double price = (jTextFieldConsultPrice.getText().isEmpty()) ? -1D : Double.parseDouble(jTextFieldConsultPrice.getText());
         String pattern = jTextFieldConsultPattern.getText();
         String style = jTextFieldConsultStyle.getText();
         String brand = jTextFieldConsultBrand.getText();
@@ -1715,27 +1725,27 @@ public class MainWindow extends javax.swing.JFrame {
         String closureType = jTextFieldConsultClosureType.getText();
         ShirtSize shirtSize = null;
         Gender gender = null;
-        
-        if(jTextFieldConsultShirtSize.getText().equals("P")) {
+
+        if (jTextFieldConsultShirtSize.getText().equals("P")) {
             shirtSize = ShirtSize.SMALL;
-        } else if(jTextFieldConsultShirtSize.getText().equals("M")) {
+        } else if (jTextFieldConsultShirtSize.getText().equals("M")) {
             shirtSize = ShirtSize.MEDIUM;
-        } else if(jTextFieldConsultShirtSize.getText().equals("G")) {
+        } else if (jTextFieldConsultShirtSize.getText().equals("G")) {
             shirtSize = ShirtSize.LARGE;
-        } else if(!jTextFieldConsultShirtSize.getText().isEmpty() || !jTextFieldConsultShirtSize.getText().isBlank()) {
+        } else if (!jTextFieldConsultShirtSize.getText().isEmpty() || !jTextFieldConsultShirtSize.getText().isBlank()) {
             throw new IllegalArgumentException("INSIRA UM TAMANHO VALIDO");
         }
 
-        if(jTextFieldConsultGender.getText().equals("M")) {
+        if (jTextFieldConsultGender.getText().equals("M")) {
             gender = Gender.MALE;
-        } else if(jTextFieldConsultGender.getText().equals("F")) {
+        } else if (jTextFieldConsultGender.getText().equals("F")) {
             gender = Gender.FEMALE;
-        } else if(!jTextFieldConsultGender.getText().isEmpty() || !jTextFieldConsultGender.getText().isBlank()) {
+        } else if (!jTextFieldConsultGender.getText().isEmpty() || !jTextFieldConsultGender.getText().isBlank()) {
             throw new IllegalArgumentException("INSIRA UM GENERO VALIDO");
         }
 
-        if ((jCheckBoxConsultCollarSim.isSelected() && jCheckBoxConsultCollarNao.isSelected()) || 
-            (jCheckBoxConsultSleeveSim.isSelected() && jCheckBoxConsultSleeveNao.isSelected())) {
+        if ((jCheckBoxConsultCollarSim.isSelected() && jCheckBoxConsultCollarNao.isSelected())
+                || (jCheckBoxConsultSleeveSim.isSelected() && jCheckBoxConsultSleeveNao.isSelected())) {
             throw new IllegalArgumentException("INSIRA APENAS UM VALOR PARA GOLA E MANGA");
         }
 
@@ -1756,8 +1766,8 @@ public class MainWindow extends javax.swing.JFrame {
         }
 
         ShirtRequestDTO dataShirt = new ShirtRequestDTO(color, price, quantity, fabric, brand, style,
-                                                        gender, pattern, pocket, closureType, ClothingType.STANDARD,
-                                                        sleeve, collar, shirtSize);
+                gender, pattern, pocket, closureType, ClothingType.STANDARD,
+                sleeve, collar, shirtSize);
 
         List<ClothingResponseDTO> listSearch = clothingController.consult(dataShirt);
         Table table = new Table();
@@ -1767,35 +1777,18 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     private void handleException(Exception e) {
+        logger.log(Level.WARNING, "ERRO", e);
         JOptionPane.showMessageDialog(this, e.getMessage(), "RESULTADO", JOptionPane.ERROR_MESSAGE);
     }
 
-    public void fillTable(List<ClothingResponseDTO> list) {
+    public void fillTable(List<ClothingResponseDTO> list, ClothingPiece p) throws Exception {
         DefaultTableModel model = new DefaultTableModel();
 
-        if(list == null || list.isEmpty()) {
-            jTable2.setModel(model);
-            return;
-        }
+        fillTableAux(model, p);
         
-        if (list.getFirst() instanceof ShirtResponseDTO) {
-            model.addColumn("ID");
-            model.addColumn("COR");
-            model.addColumn("VALOR");
-            model.addColumn("QUANTIDADE");
-            model.addColumn("MARCA");
-            model.addColumn("TAMANHO");
-            model.addColumn("GENERO");
-            model.addColumn("TIPO DE FECHAMENTO");
-            model.addColumn("TIPO DE ROUPA");
-            model.addColumn("ESTAMPA");
-            model.addColumn("TECIDO");
-            model.addColumn("QUANTIDADE DE BOLSOS");
-            model.addColumn("GOLA");
-            model.addColumn("MANGA");
-
+        if (list != null || !list.isEmpty()) {
             for (ClothingResponseDTO data : list) {
-                ShirtResponseDTO shirtData = (ShirtResponseDTO)data;
+                ShirtResponseDTO shirtData = (ShirtResponseDTO) data;
                 model.addRow(new Object[]{
                     shirtData.id(),
                     shirtData.color(),
@@ -1813,7 +1806,26 @@ public class MainWindow extends javax.swing.JFrame {
                     shirtData.sleeve()
                 });
             }
-            jTable2.setModel(model);
+        }
+        jTable2.setModel(model);
+    }
+
+    private void fillTableAux(DefaultTableModel model, ClothingPiece p) {
+        if(p.equals(ClothingPiece.SHIRT)) {
+            model.addColumn("ID");
+            model.addColumn("COR");
+            model.addColumn("VALOR");
+            model.addColumn("QUANTIDADE");
+            model.addColumn("MARCA");
+            model.addColumn("TAMANHO");
+            model.addColumn("GENERO");
+            model.addColumn("TIPO DE FECHAMENTO");
+            model.addColumn("TIPO DE ROUPA");
+            model.addColumn("ESTAMPA");
+            model.addColumn("TECIDO");
+            model.addColumn("QUANTIDADE DE BOLSOS");
+            model.addColumn("GOLA");
+            model.addColumn("MANGA");
         }
     }
 
@@ -1953,4 +1965,5 @@ public class MainWindow extends javax.swing.JFrame {
     private ClothingRequestDTO data;
     public EntityManager em;
     public ClothingController clothingController;
+
 }

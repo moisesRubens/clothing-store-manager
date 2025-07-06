@@ -66,9 +66,13 @@ public class ClothingController {
     
     public List<ClothingResponseDTO> consultById(Integer id) {
         List<Clothing> list = clothingService.getById(id);
-        List listResult = null;
+        List listResult = new ArrayList<>();
         
-        if(list.getFirst() instanceof Shirt) {
+        if(list == null || list.isEmpty()) {
+            return listResult;
+        }
+        
+        if(list.get(0) instanceof Shirt) {
             List<Shirt> shirts = new ArrayList<>();
             
             for(Clothing c : list) {
@@ -79,8 +83,8 @@ public class ClothingController {
                                                                    shirt.getFabric(), shirt.getBrand(), shirt.getStyle(), shirt.getGender(), 
                                                                    shirt.getPattern(), shirt.getPocket(), shirt.getClosureType(), shirt.getClothingType(),
                                                                    shirt.getSleeve(), shirt.getCollar(), shirt.getSize())).toList();
-            
         }
+
         return listResult;
     }
 }
