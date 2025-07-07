@@ -577,6 +577,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
+        jLabelQuantityClothings.setText("q");
         jLabelQuantityClothings.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 jLabelQuantityClothingsAncestorAdded(evt);
@@ -597,7 +598,7 @@ public class MainWindow extends javax.swing.JFrame {
                         .addGap(83, 83, 83)
                         .addComponent(jButtonConsultarCamisa)
                         .addGap(150, 150, 150)
-                        .addComponent(jLabelQuantityClothings, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabelQuantityClothings, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PainelConsultarLayout.createSequentialGroup()
                         .addGap(399, 399, 399)
                         .addComponent(jButtonSearchExit)
@@ -1402,6 +1403,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAdicionarActionPerformed
 
     private void jButtonConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsultarActionPerformed
+        updateQuantityClothings();
         CardLayout a = (CardLayout) getContentPane().getLayout();
         a.show(getContentPane(), "PainelConsultar");
     }//GEN-LAST:event_jButtonConsultarActionPerformed
@@ -1608,7 +1610,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void updateQuantityClothings() {
         Integer quantity = clothingController.getQuantity();
-        jLabelQuantityClothings.setText(""+quantity);
+        jLabelQuantityClothings.setText("UNIDADE DE MODELOS: "+quantity);
     }
     
     private void removeShirtById() throws Exception {

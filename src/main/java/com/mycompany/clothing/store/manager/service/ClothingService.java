@@ -40,6 +40,10 @@ public class ClothingService {
         
         return clothingRepository.consult(clothing, hasAtribute);
     }
+    
+    public Integer getTotalQuantity() {
+        return clothingRepository.getTotalQuantity();
+    }
 
     private boolean containstAtributes(Clothing clothing) {
         Boolean hasAtribute = false;

@@ -34,6 +34,12 @@ public class ClothingRepository {
         this.em = em;
     }
 
+    public Integer getTotalQuantity() {
+        List<Clothing> list = em.createQuery("SELECT s FROM Shirt s").getResultList();
+        
+        return list.size();
+    }
+    
     public void registerInDatabase(Clothing clothing) throws Exception {
         em.getTransaction().begin();
 

@@ -89,6 +89,6 @@ public class ClothingController {
     }
     
     public Integer getQuantity() {
-        return 0;
+        return clothingService.getTotalQuantity();
     }
 }
