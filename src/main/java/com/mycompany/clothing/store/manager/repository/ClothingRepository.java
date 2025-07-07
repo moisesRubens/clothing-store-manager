@@ -47,7 +47,9 @@ public class ClothingRepository {
         em.createQuery("UPDATE Clothing c SET c.quantity = c.quantity + :quantity WHERE c.id = :id")
                 .setParameter("quantity", quantity)
                 .setParameter("id", id).executeUpdate();
+        
         em.getTransaction().commit();
+        em.clear();
         } catch(PersistenceException e) {
             handleException(e);
             throw e;
@@ -152,7 +154,6 @@ public class ClothingRepository {
             TypedQuery<Shirt> query;
 
             if (hasAtributes == true) {
-                System.out.println("DENTRO DO IF QUE DEFINE A QUERY");
                 queryStr += " 1=1";
 
                 if (shirt.getSleeve() != -1) {

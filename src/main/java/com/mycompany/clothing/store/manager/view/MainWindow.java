@@ -1181,6 +1181,15 @@ public class MainWindow extends javax.swing.JFrame {
         );
 
         PainelRemoveShirt.setName("PainelRemoveShirt"); // NOI18N
+        PainelRemoveShirt.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                PainelRemoveShirtAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
 
         jButtonRemoveShirtRemove.setText("REMOVER");
         jButtonRemoveShirtRemove.addActionListener(new java.awt.event.ActionListener() {
@@ -1608,6 +1617,10 @@ public class MainWindow extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jLabelQuantityClothingsAncestorAdded
 
+    private void PainelRemoveShirtAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_PainelRemoveShirtAncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PainelRemoveShirtAncestorAdded
+
     private void updateQuantityClothings() {
         Integer quantity = clothingController.getQuantity();
         jLabelQuantityClothings.setText("UNIDADE DE MODELOS: " + quantity);
@@ -1624,6 +1637,14 @@ public class MainWindow extends javax.swing.JFrame {
         }
     }
 
+    private void updateTable(List list) throws Exception {
+        try {
+            fillTable(list, ClothingPiece.SHIRT);
+        } catch (Exception e) {
+            throw new Exception("A LISTA A E NULL", e);
+        }
+    }
+    
     private void updateTable() throws Exception {
         try {
             Integer id = Integer.valueOf(jTextFieldRemoveShirtid.getText());
@@ -1738,7 +1759,6 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     private void consultarCamisaAux() throws Exception {
-        System.out.println("DENTRO DE CONSULTAR NORMAL");
         Integer collar;
         Integer sleeve;
         Integer pocket = (jTextFieldConsultPocket.getText().isEmpty()) ? -1 : Integer.parseInt(jTextFieldConsultPocket.getText());
