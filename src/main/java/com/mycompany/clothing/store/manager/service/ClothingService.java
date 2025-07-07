@@ -23,21 +23,26 @@ import java.util.List;
  */
 public class ClothingService {
 
-    private EntityManager em;
-    private ClothingRepository clothingRepository;
+    private final EntityManager em;
+    private final ClothingRepository clothingRepository;
 
     public ClothingService(EntityManager em) {
         this.em = em;
         this.clothingRepository = new ClothingRepository(em);
     }
     
-    public Boolean existClothing(Clothing clothing) {
-        clothingRepository.existClothing(clothing);
-        return true;
+    private Integer existClothing(Clothing clothing) {
+        return clothingRepository.existClothing(clothing);
     }
 
     public void register(Clothing clothing) throws Exception {
-        clothingRepository.registerInDatabase(clothing);
+        Integer id = existClothing(clothing);
+        
+        if(id == -1) {
+            clothingRepository.registerInDatabase(clothing);
+        } else {
+            incrementClothing(id, clothing.getQuantity());
+        }
     }
 
     public List consult(Clothing clothing) throws Exception {
@@ -79,7 +84,13 @@ public class ClothingService {
         }
         clothing.setQuantity(clothing.getQuantity() - quantity);
         clothingRepository.updateData(clothing);
-
+    }
+    
+    private void incrementClothing(Integer id, Integer quantity) {
+        if (id < 0 || quantity <= 0) {
+            throw new IllegalArgumentException("PREENCHA CORRETAMENTE OS CAMPOS");
+        }
+        clothingRepository.incrementClothing(id, quantity);
     }
     
     public List getById(Integer id) {

@@ -38,7 +38,6 @@ public class ClothingController {
                     shirtData.fabric(), shirtData.brand(), shirtData.style(), shirtData.gender(), shirtData.pattern(),
                     shirtData.pocket(), shirtData.closureType(), shirtData.size(), shirtData.sleeve(), shirtData.collar());
 
-            clothingService.existClothing(shirt);
             clothingService.register(shirt);
         }
     }
