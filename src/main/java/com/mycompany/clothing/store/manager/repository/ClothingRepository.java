@@ -36,13 +36,12 @@ public class ClothingRepository {
 
     public Integer getTotalQuantity() {
         List<Clothing> list = em.createQuery("SELECT s FROM Shirt s").getResultList();
-        
+
         return list.size();
     }
-    
+
     public void registerInDatabase(Clothing clothing) throws Exception {
         em.getTransaction().begin();
-
         try {
             registerInDatabaseAux(clothing);
             em.getTransaction().commit();
@@ -57,14 +56,55 @@ public class ClothingRepository {
 
     public List consult(Clothing clothing, Boolean hasAtribute) throws Exception {
         try {
-            return consultAux(em, clothing, hasAtribute);
+            return consultAux(clothing, hasAtribute);
         } catch (Exception e) {
             handleException(e);
             throw e;
         }
     }
 
-    private List consultAux(EntityManager em, Clothing clothing, Boolean hasAtributes) throws Exception {
+    public Boolean existClothing(Clothing clothing) {
+        String queryStr;
+        TypedQuery<Shirt> query;
+
+        if (clothing instanceof Shirt shirt) {
+            queryStr = "SELECT s FROM Shirt s WHERE s.sleeve = :sleeve"
+                    + " AND s.collar = :collar"
+                    + " AND s.price = :price"
+                    + " AND s.quantity = :quantity"
+                    + " AND s.pocket = :pocket"
+                    + " AND s.color LIKE :color"
+                    + " AND s.brand LIKE :brand"
+                    + " AND s.size = :size"
+                    + " AND s.gender = :gender"
+                    + " AND s.fabric LIKE :fabric"
+                    + " AND s.style LIKE :style"
+                    + " AND s.pattern LIKE :pattern"
+                    + " AND s.closureType LIKE :closureType";
+
+            query = em.createQuery(queryStr, Shirt.class);
+
+            query.setParameter("sleeve", shirt.getSleeve())
+                    .setParameter("collar", shirt.getCollar())
+                    .setParameter("pocket", shirt.getPocket())
+                    .setParameter("color", shirt.getColor())
+                    .setParameter("quantity", shirt.getQuantity())
+                    .setParameter("price", shirt.getPrice())
+                    .setParameter("gender", shirt.getGender())
+                    .setParameter("size", shirt.getSize())
+                    .setParameter("brand", shirt.getBrand())
+                    .setParameter("fabric", shirt.getFabric())
+                    .setParameter("style", shirt.getStyle())
+                    .setParameter("pattern", shirt.getPattern())
+                    .setParameter("closureType", shirt.getClosureType());
+            
+            return !query.getResultList().isEmpty();
+        }
+        
+        return false;
+    }
+
+    private List consultAux(Clothing clothing, Boolean hasAtributes) throws Exception {
         List list = null;
 
         if (clothing instanceof Shirt shirt) {
@@ -133,7 +173,7 @@ public class ClothingRepository {
                     query.setParameter("fabric", shirt.getFabric());
                 }
                 if (!isEmptyOrBlank(shirt.getBrand())) {
-                    query.setParameter("brand", "%"+shirt.getBrand()+"%");
+                    query.setParameter("brand", "%" + shirt.getBrand() + "%");
                 }
                 if (shirt.getPrice() != -1) {
                     query.setParameter("price", shirt.getPrice());
@@ -219,7 +259,7 @@ public class ClothingRepository {
     private boolean isEmptyOrBlank(String str) {
         return (str.isBlank() || str.isEmpty());
     }
-    
+
     public List getById(Integer id) {
         return em.createQuery("SELECT s FROM Shirt s WHERE s.id = :id")
                 .setParameter("id", id).getResultList();

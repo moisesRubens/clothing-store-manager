@@ -35,7 +35,7 @@ public class MainWindow extends javax.swing.JFrame {
         REMOVE,
         SEARCH
     }
-    
+
     enum ClothingPiece {
         SHIRT
     }
@@ -63,6 +63,7 @@ public class MainWindow extends javax.swing.JFrame {
         getContentPane().add(PainelRemoverRoupaNormal, "PainelRemoverRoupaNormal");
         getContentPane().add(PainelSearchToRemoveShirt, "PainelSearchToRemoveShirt");
         getContentPane().add(PainelRemoveShirt, "PainelRemoveShirt");
+        updateQuantityClothings();
     }
 
     /**
@@ -1403,7 +1404,6 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAdicionarActionPerformed
 
     private void jButtonConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsultarActionPerformed
-        updateQuantityClothings();
         CardLayout a = (CardLayout) getContentPane().getLayout();
         a.show(getContentPane(), "PainelConsultar");
     }//GEN-LAST:event_jButtonConsultarActionPerformed
@@ -1420,7 +1420,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jButtonFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFinalizarActionPerformed
         try {
-            finalizarAux();
+            addClothing();
             updateQuantityClothings();
         } catch (Exception e) {
             handleException(e);
@@ -1605,14 +1605,14 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldConsultQuantityActionPerformed
 
     private void jLabelQuantityClothingsAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabelQuantityClothingsAncestorAdded
-        
+
     }//GEN-LAST:event_jLabelQuantityClothingsAncestorAdded
 
     private void updateQuantityClothings() {
         Integer quantity = clothingController.getQuantity();
-        jLabelQuantityClothings.setText("UNIDADE DE MODELOS: "+quantity);
+        jLabelQuantityClothings.setText("UNIDADE DE MODELOS: " + quantity);
     }
-    
+
     private void removeShirtById() throws Exception {
         try {
             Integer id = Integer.valueOf(jTextFieldRemoveShirtid.getText());
@@ -1634,43 +1634,48 @@ public class MainWindow extends javax.swing.JFrame {
         }
     }
 
-    private void finalizarAux() throws Exception {
-        Double price = Double.parseDouble(jTextFieldPrice.getText());
-        Integer quantity = Integer.parseInt(jTextFieldQuantity.getText());
-        String fabric = (jTextFieldFabric.getText().isEmpty() || jTextFieldFabric.getText().isBlank()) ? null : jTextFieldFabric.getText();
-        String brand = (jTextFieldBrand.getText().isEmpty() || jTextFieldBrand.getText().isBlank()) ? null : jTextFieldBrand.getText();
-        String style = (jTextFieldStyle.getText().isEmpty() || jTextFieldStyle.getText().isBlank()) ? null : jTextFieldStyle.getText();
-        String pattern = (jTextFieldPattern.getText().isEmpty() || jTextFieldPattern.getText().isBlank()) ? null : jTextFieldPattern.getText();
-        Integer pocket = (jTextFieldPocket.getText().isEmpty() || jTextFieldPocket.getText().isBlank()) ? 0 : Integer.parseInt(jTextFieldPocket.getText());
-        String closureType = (jTextFieldClosureType.getText().isEmpty() || jTextFieldClosureType.getText().isBlank()) ? null : jTextFieldClosureType.getText();
-        ShirtSize size;
-        Gender gender;
-        gender = Gender.MALE;
-        Integer sleeve = (jCheckBoxSleeve.isSelected()) ? 1 : 0;
-        Integer collar = (jCheckBoxCollar.isSelected()) ? 1 : 0;
-
-        if (jTextFieldGender.getText().charAt(0) == 'M') {
+    private void addClothing() throws Exception {
+        try {
+            Double price = Double.valueOf(jTextFieldPrice.getText());
+            Integer quantity = Integer.valueOf(jTextFieldQuantity.getText());
+            String fabric = (jTextFieldFabric.getText().isEmpty() || jTextFieldFabric.getText().isBlank()) ? null : jTextFieldFabric.getText();
+            String brand = jTextFieldBrand.getText();
+            String color = jTextFieldColor.getText();
+            String style = (jTextFieldStyle.getText().isEmpty() || jTextFieldStyle.getText().isBlank()) ? null : jTextFieldStyle.getText();
+            String pattern = (jTextFieldPattern.getText().isEmpty() || jTextFieldPattern.getText().isBlank()) ? null : jTextFieldPattern.getText();
+            Integer pocket = (jTextFieldPocket.getText().isEmpty() || jTextFieldPocket.getText().isBlank()) ? 0 : Integer.valueOf(jTextFieldPocket.getText());
+            String closureType = (jTextFieldClosureType.getText().isEmpty() || jTextFieldClosureType.getText().isBlank()) ? null : jTextFieldClosureType.getText();
+            ShirtSize size;
+            Gender gender;
             gender = Gender.MALE;
-        } else if (jTextFieldGender.getText().charAt(0) == 'F') {
-            gender = Gender.FEMALE;
-        } else {
-            throw new IllegalArgumentException("INSIRA DADOS VALIDOS");
-        }
+            Integer sleeve = (jCheckBoxSleeve.isSelected()) ? 1 : 0;
+            Integer collar = (jCheckBoxCollar.isSelected()) ? 1 : 0;
 
-        if (jTextFieldSize.getText().equals("P")) {
-            size = ShirtSize.SMALL;
-        } else if (jTextFieldSize.getText().equals("M")) {
-            size = ShirtSize.MEDIUM;
-        } else if (jTextFieldSize.getText().equals("G")) {
-            size = ShirtSize.LARGE;
-        } else {
-            throw new IllegalArgumentException("INSIRA DADOS VALIDOS");
-        }
+            if (jTextFieldGender.getText().charAt(0) == 'M') {
+                gender = Gender.MALE;
+            } else if (jTextFieldGender.getText().charAt(0) == 'F') {
+                gender = Gender.FEMALE;
+            } else {
+                throw new IllegalArgumentException("INSIRA DADOS VALIDOS");
+            }
 
-        ShirtRequestDTO shirtData = new ShirtRequestDTO(jTextFieldColor.getText(), price, quantity, fabric, brand, style, gender, pattern, pocket, closureType,
-                ClothingType.STANDARD, sleeve, collar, size);
-        clothingController.register(shirtData);
-        JOptionPane.showMessageDialog(this, "ROUPA CADASTRADA", "RESULTADO", JOptionPane.INFORMATION_MESSAGE);
+            if (jTextFieldSize.getText().equals("P")) {
+                size = ShirtSize.SMALL;
+            } else if (jTextFieldSize.getText().equals("M")) {
+                size = ShirtSize.MEDIUM;
+            } else if (jTextFieldSize.getText().equals("G")) {
+                size = ShirtSize.LARGE;
+            } else {
+                throw new IllegalArgumentException("INSIRA DADOS VALIDOS");
+            }
+
+            ShirtRequestDTO shirtData = new ShirtRequestDTO(color, price, quantity, fabric, brand, style, gender, pattern, pocket, closureType,
+                    ClothingType.STANDARD, sleeve, collar, size);
+            clothingController.registerClothing(shirtData);
+            JOptionPane.showMessageDialog(this, "ROUPA CADASTRADA", "RESULTADO", JOptionPane.INFORMATION_MESSAGE);
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException("INSIRA OS DADOS PARA CADASTRO", e);
+        }
     }
 
     private void consultarCamisaAux(Boolean toRemove) throws Exception {
@@ -1812,7 +1817,7 @@ public class MainWindow extends javax.swing.JFrame {
         DefaultTableModel model = new DefaultTableModel();
 
         fillTableAux(model, p);
-        
+
         if (list != null || !list.isEmpty()) {
             for (ClothingResponseDTO data : list) {
                 ShirtResponseDTO shirtData = (ShirtResponseDTO) data;
@@ -1838,7 +1843,7 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     private void fillTableAux(DefaultTableModel model, ClothingPiece p) {
-        if(p.equals(ClothingPiece.SHIRT)) {
+        if (p.equals(ClothingPiece.SHIRT)) {
             model.addColumn("ID");
             model.addColumn("COR");
             model.addColumn("VALOR");

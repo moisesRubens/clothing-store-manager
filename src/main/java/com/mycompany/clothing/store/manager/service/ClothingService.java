@@ -30,6 +30,11 @@ public class ClothingService {
         this.em = em;
         this.clothingRepository = new ClothingRepository(em);
     }
+    
+    public Boolean existClothing(Clothing clothing) {
+        clothingRepository.existClothing(clothing);
+        return true;
+    }
 
     public void register(Clothing clothing) throws Exception {
         clothingRepository.registerInDatabase(clothing);

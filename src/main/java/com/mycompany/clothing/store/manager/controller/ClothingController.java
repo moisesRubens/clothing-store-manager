@@ -32,16 +32,17 @@ public class ClothingController {
         this.clothingService = new ClothingService(em);
     }
 
-    public void register(ClothingRequestDTO data) throws Exception {
+    public void registerClothing(ClothingRequestDTO data) throws Exception {
         if (data instanceof ShirtRequestDTO shirtData) {
             Shirt shirt = new Shirt(shirtData.color(), shirtData.price(), shirtData.quantity(), shirtData.clothingType(),
                     shirtData.fabric(), shirtData.brand(), shirtData.style(), shirtData.gender(), shirtData.pattern(),
                     shirtData.pocket(), shirtData.closureType(), shirtData.size(), shirtData.sleeve(), shirtData.collar());
 
+            clothingService.existClothing(shirt);
             clothingService.register(shirt);
         }
     }
-
+    
     public List<ClothingResponseDTO> consult(ClothingRequestDTO data) throws Exception {
         List list = null;
 
