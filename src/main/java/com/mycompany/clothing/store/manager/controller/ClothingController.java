@@ -87,4 +87,8 @@ public class ClothingController {
 
         return listResult;
     }
+    
+    public Integer getQuantity() {
+        return 0;
+    }
 }

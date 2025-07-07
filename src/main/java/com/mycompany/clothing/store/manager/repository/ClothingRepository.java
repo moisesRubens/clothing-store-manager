@@ -127,7 +127,7 @@ public class ClothingRepository {
                     query.setParameter("fabric", shirt.getFabric());
                 }
                 if (!isEmptyOrBlank(shirt.getBrand())) {
-                    query.setParameter("brand", shirt.getBrand());
+                    query.setParameter("brand", "%"+shirt.getBrand()+"%");
                 }
                 if (shirt.getPrice() != -1) {
                     query.setParameter("price", shirt.getPrice());

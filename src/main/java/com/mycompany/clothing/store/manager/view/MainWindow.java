@@ -119,6 +119,7 @@ public class MainWindow extends javax.swing.JFrame {
         jButtonConsultarCamisa = new javax.swing.JButton();
         jButtonSearchExit = new javax.swing.JButton();
         jButtonSearch = new javax.swing.JButton();
+        jLabelQuantityClothings = new javax.swing.JLabel();
         PainelConsultarCamisa = new javax.swing.JPanel();
         jLabelPrice1 = new javax.swing.JLabel();
         jLabelQuantity1 = new javax.swing.JLabel();
@@ -576,6 +577,16 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
+        jLabelQuantityClothings.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jLabelQuantityClothingsAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+
         javax.swing.GroupLayout PainelConsultarLayout = new javax.swing.GroupLayout(PainelConsultar);
         PainelConsultar.setLayout(PainelConsultarLayout);
         PainelConsultarLayout.setHorizontalGroup(
@@ -584,7 +595,9 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGroup(PainelConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PainelConsultarLayout.createSequentialGroup()
                         .addGap(83, 83, 83)
-                        .addComponent(jButtonConsultarCamisa))
+                        .addComponent(jButtonConsultarCamisa)
+                        .addGap(150, 150, 150)
+                        .addComponent(jLabelQuantityClothings, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PainelConsultarLayout.createSequentialGroup()
                         .addGap(399, 399, 399)
                         .addComponent(jButtonSearchExit)
@@ -596,7 +609,9 @@ public class MainWindow extends javax.swing.JFrame {
             PainelConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PainelConsultarLayout.createSequentialGroup()
                 .addGap(128, 128, 128)
-                .addComponent(jButtonConsultarCamisa)
+                .addGroup(PainelConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonConsultarCamisa)
+                    .addComponent(jLabelQuantityClothings, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(176, 176, 176)
                 .addGroup(PainelConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonSearchExit)
@@ -1404,6 +1419,7 @@ public class MainWindow extends javax.swing.JFrame {
     private void jButtonFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFinalizarActionPerformed
         try {
             finalizarAux();
+            updateQuantityClothings();
         } catch (Exception e) {
             handleException(e);
         }
@@ -1586,6 +1602,15 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldConsultQuantityActionPerformed
 
+    private void jLabelQuantityClothingsAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabelQuantityClothingsAncestorAdded
+        
+    }//GEN-LAST:event_jLabelQuantityClothingsAncestorAdded
+
+    private void updateQuantityClothings() {
+        Integer quantity = clothingController.getQuantity();
+        jLabelQuantityClothings.setText(""+quantity);
+    }
+    
     private void removeShirtById() throws Exception {
         try {
             Integer id = Integer.valueOf(jTextFieldRemoveShirtid.getText());
@@ -1914,6 +1939,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelPrice2;
     private javax.swing.JLabel jLabelQuantity;
     private javax.swing.JLabel jLabelQuantity1;
+    private javax.swing.JLabel jLabelQuantityClothings;
     private javax.swing.JLabel jLabelRemoveCollar;
     private javax.swing.JLabel jLabelRemoveShirtId;
     private javax.swing.JLabel jLabelRemoveShirtQuantity;
