@@ -21,7 +21,9 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
+import javax.swing.JPopupMenu;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -33,7 +35,8 @@ public class MainWindow extends javax.swing.JFrame {
 
     enum Function {
         REMOVE,
-        SEARCH
+        SEARCH,
+        ADD
     }
 
     enum ClothingPiece {
@@ -49,6 +52,10 @@ public class MainWindow extends javax.swing.JFrame {
         this.em = em;
         this.clothingController = new ClothingController(em);
         initComponents();
+        configurarPopupMenu(jPopupMenuAdicionar, Function.ADD);
+        configurarPopupMenu(jPopupMenuConsultar, Function.SEARCH);
+        configurarPopupMenu(jPopupMenuRemove, Function.REMOVE);
+
 
         getContentPane().setLayout(new CardLayout());
 
@@ -56,7 +63,7 @@ public class MainWindow extends javax.swing.JFrame {
         getContentPane().add(PainelAdicionar, "PainelAdicionar");
         getContentPane().add(PainelConsultar, "PainelConsultar");
         getContentPane().add(PainelAdicionarRoupaNormal, "PainelAdicionarRoupaNormal");
-        getContentPane().add(PainelAdicionarCamisa, "PainelCamisa");
+        getContentPane().add(PainelAdicionarCamisa, "PainelAdicionarCamisa");
         getContentPane().add(PainelConsultarCamisa, "PainelConsultarCamisa");
         getContentPane().add(PainelTabela, "PainelTabela");
         getContentPane().add(PainelRemover, "PainelRemover");
@@ -75,11 +82,15 @@ public class MainWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPopupMenuAdicionar = new javax.swing.JPopupMenu();
+        jPopupMenuConsultar = new javax.swing.JPopupMenu();
+        jPopupMenuRemove = new javax.swing.JPopupMenu();
         PainelPrincipal = new javax.swing.JPanel();
         jButtonAdicionar = new javax.swing.JButton();
         jButtonConsultar = new javax.swing.JButton();
         jButtonRemover = new javax.swing.JButton();
         jButtonExit = new javax.swing.JButton();
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 0));
         PainelAdicionar = new javax.swing.JPanel();
         jButtonRoupaNormal = new javax.swing.JButton();
         jButtonAddExit = new javax.swing.JButton();
@@ -207,6 +218,7 @@ public class MainWindow extends javax.swing.JFrame {
         setName("mainPanel"); // NOI18N
 
         PainelPrincipal.setName("PainelPrincipal"); // NOI18N
+        PainelPrincipal.setLayout(null);
 
         jButtonAdicionar.setText("ADICIONAR");
         jButtonAdicionar.addActionListener(new java.awt.event.ActionListener() {
@@ -214,6 +226,8 @@ public class MainWindow extends javax.swing.JFrame {
                 jButtonAdicionarActionPerformed(evt);
             }
         });
+        PainelPrincipal.add(jButtonAdicionar);
+        jButtonAdicionar.setBounds(250, 125, 93, 23);
 
         jButtonConsultar.setText("CONSULTAR");
         jButtonConsultar.addActionListener(new java.awt.event.ActionListener() {
@@ -221,6 +235,8 @@ public class MainWindow extends javax.swing.JFrame {
                 jButtonConsultarActionPerformed(evt);
             }
         });
+        PainelPrincipal.add(jButtonConsultar);
+        jButtonConsultar.setBounds(250, 186, 96, 23);
 
         jButtonRemover.setText("REMOVER");
         jButtonRemover.addActionListener(new java.awt.event.ActionListener() {
@@ -228,6 +244,8 @@ public class MainWindow extends javax.swing.JFrame {
                 jButtonRemoverActionPerformed(evt);
             }
         });
+        PainelPrincipal.add(jButtonRemover);
+        jButtonRemover.setBounds(250, 350, 96, 23);
 
         jButtonExit.setText("SAIR");
         jButtonExit.addActionListener(new java.awt.event.ActionListener() {
@@ -235,37 +253,10 @@ public class MainWindow extends javax.swing.JFrame {
                 jButtonExitActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout PainelPrincipalLayout = new javax.swing.GroupLayout(PainelPrincipal);
-        PainelPrincipal.setLayout(PainelPrincipalLayout);
-        PainelPrincipalLayout.setHorizontalGroup(
-            PainelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PainelPrincipalLayout.createSequentialGroup()
-                .addGroup(PainelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PainelPrincipalLayout.createSequentialGroup()
-                        .addGap(250, 250, 250)
-                        .addGroup(PainelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButtonAdicionar)
-                            .addComponent(jButtonConsultar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonRemover, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(PainelPrincipalLayout.createSequentialGroup()
-                        .addGap(263, 263, 263)
-                        .addComponent(jButtonExit)))
-                .addContainerGap(307, Short.MAX_VALUE))
-        );
-        PainelPrincipalLayout.setVerticalGroup(
-            PainelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PainelPrincipalLayout.createSequentialGroup()
-                .addGap(119, 119, 119)
-                .addComponent(jButtonAdicionar)
-                .addGap(38, 38, 38)
-                .addComponent(jButtonConsultar)
-                .addGap(40, 40, 40)
-                .addComponent(jButtonRemover)
-                .addGap(18, 18, 18)
-                .addComponent(jButtonExit)
-                .addContainerGap(157, Short.MAX_VALUE))
-        );
+        PainelPrincipal.add(jButtonExit);
+        jButtonExit.setBounds(263, 391, 72, 23);
+        PainelPrincipal.add(filler1);
+        filler1.setBounds(709, 72, 0, 0);
 
         PainelAdicionar.setName("PainelAdicionar"); // NOI18N
 
@@ -1402,20 +1393,19 @@ public class MainWindow extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemoverActionPerformed
-        CardLayout a = (CardLayout) getContentPane().getLayout();
-        a.show(getContentPane(), "PainelRemover");
-    }//GEN-LAST:event_jButtonRemoverActionPerformed
+    private void configurarPopupMenu(JPopupMenu jPopupMenu, Function function) {
+        JMenuItem itemCamisa = new JMenuItem("CAMISA");
+        jPopupMenu.add(itemCamisa);
+        itemCamisa.addActionListener(e -> {CardLayout a = (CardLayout) getContentPane().getLayout();
 
-    private void jButtonAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarActionPerformed
-        CardLayout a = (CardLayout) getContentPane().getLayout();
-        a.show(getContentPane(), "PainelAdicionar");
-    }//GEN-LAST:event_jButtonAdicionarActionPerformed
+        String painel = switch(function) {
+            case Function.ADD -> "PainelAdicionarCamisa";
+            case Function.SEARCH -> "PainelConsultarCamisa";
+            case Function.REMOVE -> "PainelSearchToRemoveShirt";
+        };
+        a.show(getContentPane(), painel);});
+    }
 
-    private void jButtonConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsultarActionPerformed
-        CardLayout a = (CardLayout) getContentPane().getLayout();
-        a.show(getContentPane(), "PainelConsultar");
-    }//GEN-LAST:event_jButtonConsultarActionPerformed
 
     private void jButtonRoupaNormalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRoupaNormalActionPerformed
         CardLayout a = (CardLayout) getContentPane().getLayout();
@@ -1524,10 +1514,6 @@ public class MainWindow extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonRemoveShirtRemoveActionPerformed
 
-    private void jButtonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExitActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_jButtonExitActionPerformed
-
     private void jButtonAddExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddExitActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButtonAddExitActionPerformed
@@ -1621,6 +1607,22 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_PainelRemoveShirtAncestorAdded
 
+    private void jButtonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExitActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jButtonExitActionPerformed
+
+    private void jButtonRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemoverActionPerformed
+        jPopupMenuRemove.show(jButtonRemover, 0, jButtonRemover.getHeight());
+    }//GEN-LAST:event_jButtonRemoverActionPerformed
+
+    private void jButtonConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsultarActionPerformed
+        jPopupMenuConsultar.show(jButtonConsultar, 0, jButtonConsultar.getHeight());
+    }//GEN-LAST:event_jButtonConsultarActionPerformed
+
+    private void jButtonAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarActionPerformed
+        jPopupMenuAdicionar.show(jButtonAdicionar, 0, jButtonAdicionar.getHeight());
+    }//GEN-LAST:event_jButtonAdicionarActionPerformed
+
     private void updateQuantityClothings() {
         Integer quantity = clothingController.getQuantity();
         jLabelQuantityClothings.setText("UNIDADE DE MODELOS: " + quantity);
@@ -1644,7 +1646,7 @@ public class MainWindow extends javax.swing.JFrame {
             throw new Exception("A LISTA A E NULL", e);
         }
     }
-    
+
     private void updateTable() throws Exception {
         try {
             Integer id = Integer.valueOf(jTextFieldRemoveShirtid.getText());
@@ -1656,42 +1658,49 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     private void addClothing() throws Exception {
-            Integer sleeve = (jCheckBoxSleeve.isSelected()) ?1 :0;
-            Integer collar = (jCheckBoxCollar.isSelected()) ?1 :0;
-            Integer quantity = Integer.valueOf(jTextFieldQuantity.getText());
-            Double price = Double.valueOf(jTextFieldPrice.getText());
-            ShirtSize size;
-            Gender gender;
-            String brand = jTextFieldBrand.getText();
-            String color = jTextFieldColor.getText();
-            String fabric = (jTextFieldFabric.getText().isEmpty() || jTextFieldFabric.getText().isBlank()) ?null :jTextFieldFabric.getText();
-            String style = (jTextFieldStyle.getText().isEmpty() || jTextFieldStyle.getText().isBlank()) ?null :jTextFieldStyle.getText();
-            String pattern = (jTextFieldPattern.getText().isEmpty() || jTextFieldPattern.getText().isBlank()) ?null :jTextFieldPattern.getText();
-            String closureType = (jTextFieldClosureType.getText().isEmpty() || jTextFieldClosureType.getText().isBlank()) ?null :jTextFieldClosureType.getText();
-            Integer pocket = (jTextFieldPocket.getText().isEmpty() || jTextFieldPocket.getText().isBlank()) ?0 :Integer.valueOf(jTextFieldPocket.getText());
-            
-            if(color.isBlank() || brand.isBlank() || jTextFieldGender.getText().isBlank() || jTextFieldSize.getText().isBlank()) {
-                throw new IllegalArgumentException("INSIRA DADOS NOS CAMPOS");
-            }
-            
-            switch (jTextFieldGender.getText().charAt(0)) {
-                case 'M' -> gender = Gender.MALE;
-                case 'F' -> gender = Gender.FEMALE;
-                default -> throw new IllegalArgumentException("INSIRA UM GENERO");
-            }
+        Integer sleeve = (jCheckBoxSleeve.isSelected()) ? 1 : 0;
+        Integer collar = (jCheckBoxCollar.isSelected()) ? 1 : 0;
+        Integer quantity = Integer.valueOf(jTextFieldQuantity.getText());
+        Double price = Double.valueOf(jTextFieldPrice.getText());
+        ShirtSize size;
+        Gender gender;
+        String brand = jTextFieldBrand.getText();
+        String color = jTextFieldColor.getText();
+        String fabric = (jTextFieldFabric.getText().isEmpty() || jTextFieldFabric.getText().isBlank()) ? null : jTextFieldFabric.getText();
+        String style = (jTextFieldStyle.getText().isEmpty() || jTextFieldStyle.getText().isBlank()) ? null : jTextFieldStyle.getText();
+        String pattern = (jTextFieldPattern.getText().isEmpty() || jTextFieldPattern.getText().isBlank()) ? null : jTextFieldPattern.getText();
+        String closureType = (jTextFieldClosureType.getText().isEmpty() || jTextFieldClosureType.getText().isBlank()) ? null : jTextFieldClosureType.getText();
+        Integer pocket = (jTextFieldPocket.getText().isEmpty() || jTextFieldPocket.getText().isBlank()) ? 0 : Integer.valueOf(jTextFieldPocket.getText());
 
-            switch (jTextFieldSize.getText().charAt(0)) {
-                case 'P' -> size = ShirtSize.SMALL;
-                case 'M' -> size = ShirtSize.MEDIUM;
-                case 'G' -> size = ShirtSize.LARGE;
-                default -> throw new IllegalArgumentException("INSIRA UM TAMANHO VALIDO");
-            }
+        if (color.isBlank() || brand.isBlank() || jTextFieldGender.getText().isBlank() || jTextFieldSize.getText().isBlank()) {
+            throw new IllegalArgumentException("INSIRA DADOS NOS CAMPOS");
+        }
 
-            ShirtRequestDTO shirtData = new ShirtRequestDTO(color, price, quantity, fabric, brand, style, gender, pattern, pocket, closureType,
-                    ClothingType.STANDARD, sleeve, collar, size);
-            
-            clothingController.registerClothing(shirtData);
-            JOptionPane.showMessageDialog(this, "ROUPA CADASTRADA", "RESULTADO", JOptionPane.INFORMATION_MESSAGE);
+        switch (jTextFieldGender.getText().charAt(0)) {
+            case 'M' ->
+                gender = Gender.MALE;
+            case 'F' ->
+                gender = Gender.FEMALE;
+            default ->
+                throw new IllegalArgumentException("INSIRA UM GENERO");
+        }
+
+        switch (jTextFieldSize.getText().charAt(0)) {
+            case 'P' ->
+                size = ShirtSize.SMALL;
+            case 'M' ->
+                size = ShirtSize.MEDIUM;
+            case 'G' ->
+                size = ShirtSize.LARGE;
+            default ->
+                throw new IllegalArgumentException("INSIRA UM TAMANHO VALIDO");
+        }
+
+        ShirtRequestDTO shirtData = new ShirtRequestDTO(color, price, quantity, fabric, brand, style, gender, pattern, pocket, closureType,
+                ClothingType.STANDARD, sleeve, collar, size);
+
+        clothingController.registerClothing(shirtData);
+        JOptionPane.showMessageDialog(this, "ROUPA CADASTRADA", "RESULTADO", JOptionPane.INFORMATION_MESSAGE);
     }
 
     private void consultarCamisaAux(Boolean toRemove) throws Exception {
@@ -1892,6 +1901,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel PainelRemoverRoupaNormal;
     private javax.swing.JPanel PainelSearchToRemoveShirt;
     private javax.swing.JPanel PainelTabela;
+    private javax.swing.Box.Filler filler1;
     private javax.swing.JButton jButtonAddBack;
     private javax.swing.JButton jButtonAddExit;
     private javax.swing.JButton jButtonAddNormalClothingBack;
@@ -1972,6 +1982,9 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelStyle;
     private javax.swing.JLabel jLabelStyle1;
     private javax.swing.JLabel jLabelStyle2;
+    private javax.swing.JPopupMenu jPopupMenuAdicionar;
+    private javax.swing.JPopupMenu jPopupMenuConsultar;
+    private javax.swing.JPopupMenu jPopupMenuRemove;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextFieldBrand;
