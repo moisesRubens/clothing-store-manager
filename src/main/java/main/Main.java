@@ -29,6 +29,9 @@ public class Main {
         em = emf.createEntityManager();
 
         MainWindow window = new MainWindow(em);
+        window.pack(); 
+        window.setSize(800, 600);
+        window.setLocationRelativeTo(null);
         window.setVisible(true);
 
         window.addWindowListener(new WindowAdapter() {
