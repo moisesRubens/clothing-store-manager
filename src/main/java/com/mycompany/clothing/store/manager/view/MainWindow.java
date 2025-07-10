@@ -4,6 +4,7 @@
  */
 package com.mycompany.clothing.store.manager.view;
 
+import com.google.protobuf.LazyStringArrayList;
 import com.mycompany.clothing.store.manager.configuration.exception.RoupaJaExistenteException;
 import com.mycompany.clothing.store.manager.configuration.exception.RoupaNaoExistenteException;
 import com.mycompany.clothing.store.manager.controller.ClothingController;
@@ -1116,6 +1117,7 @@ public class MainWindow extends javax.swing.JFrame {
     private void jButtonRemoveSearchShirtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemoveSearchShirtActionPerformed
         try {
             consultarCamisaAux(true);
+            allClothings = false;
         } catch (Exception e) {
             handleException(e);
         }
@@ -1152,7 +1154,7 @@ public class MainWindow extends javax.swing.JFrame {
     private void jButtonRemoveShirtRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemoveShirtRemoveActionPerformed
         try {
             removeShirtById();
-            updateTable();
+            updateTable(allClothings);
             CardLayout a = (CardLayout) getContentPane().getLayout();
             a.show(getContentPane(), "PainelRemoveShirt");
         } catch (Exception e) {
@@ -1256,7 +1258,8 @@ public class MainWindow extends javax.swing.JFrame {
     private void buttonViewAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonViewAllActionPerformed
         try {
             List<ClothingResponseDTO> list = clothingController.viewAll(ClothingPiece.SHIRT);
-            fillTable(list, ClothingPiece.SHIRT);
+            fillTable(list, ClothingPiece.SHIRT); 
+            allClothings = true;
             CardLayout a = (CardLayout) getContentPane().getLayout();
             a.show(getContentPane(), "PainelRemoveShirt");
         } catch (Exception e) {
@@ -1279,17 +1282,13 @@ public class MainWindow extends javax.swing.JFrame {
         }
     }
 
-    private void updateTable(List list) throws Exception {
+    private void updateTable(Boolean allClothings) throws Exception {
+        List<ClothingResponseDTO> listSearchToRemove = new ArrayList<>();
         try {
-            fillTable(list, ClothingPiece.SHIRT);
-        } catch (Exception e) {
-            throw new Exception("A LISTA A E NULL", e);
-        }
-    }
-
-    private void updateTable() throws Exception {
-        List<ClothingResponseDTO> listSearchToRemove = null;
-        try {
+            if(allClothings == true) {
+                listSearchToRemove = clothingController.viewAll(ClothingPiece.SHIRT);
+            } else {
+            
             Integer collar;
             Integer sleeve;
             Integer quantity = -1;
@@ -1348,6 +1347,7 @@ public class MainWindow extends javax.swing.JFrame {
                     sleeve, collar, shirtSize);
 
             listSearchToRemove = clothingController.consult(dataShirt);
+            }
         } catch (Exception e) {
             listSearchToRemove = new ArrayList<>();
         } finally {
@@ -1707,9 +1707,9 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldSize;
     private javax.swing.JTextField jTextFieldStyle;
     // End of variables declaration//GEN-END:variables
-    private List<ClothingResponseDTO> list;
     private ClothingRequestDTO data;
     public EntityManager em;
     public ClothingController clothingController;
+    private Boolean allClothings = false;
 
 }
