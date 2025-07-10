@@ -1266,9 +1266,65 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void updateTable() throws Exception {
         try {
-            Integer id = Integer.valueOf(jTextFieldRemoveShirtid.getText());
-            List listA = clothingController.consultById(id);
-            fillTable(listA, ClothingPiece.SHIRT);
+            Integer collar;
+        Integer sleeve;
+        Integer quantity = -1;
+        Integer pocket = (jTextFieldRemovePocket.getText().isEmpty()) ? -1 : Integer.parseInt(jTextFieldRemovePocket.getText());
+        Double price = (jTextFieldRemovePrice.getText().isEmpty()) ? -1D : Double.parseDouble(jTextFieldRemovePrice.getText());
+        String pattern = jTextFieldRemovePattern.getText();
+        String style = jTextFieldRemoveStyle.getText();
+        String brand = jTextFieldRemoveBrand.getText();
+        String fabric = jTextFieldRemoveFabric.getText();
+        String color = jTextFieldRemoveColor.getText();
+        String closureType = jTextFieldRemoveClosureType.getText();
+        ShirtSize shirtSize = null;
+        Gender gender = null;
+
+        if (jTextFieldRemoveSize.getText().equals("P")) {
+            shirtSize = ShirtSize.SMALL;
+        } else if (jTextFieldRemoveSize.getText().equals("M")) {
+            shirtSize = ShirtSize.MEDIUM;
+        } else if (jTextFieldRemoveSize.getText().equals("G")) {
+            shirtSize = ShirtSize.LARGE;
+        } else if (!jTextFieldRemoveSize.getText().isEmpty() || !jTextFieldRemoveSize.getText().isBlank()) {
+            throw new IllegalArgumentException("INSIRA UM TAMANHO VALIDO");
+        }
+
+        if (jTextFieldRemoveGender.getText().equals("M")) {
+            gender = Gender.MALE;
+        } else if (jTextFieldRemoveGender.getText().equals("F")) {
+            gender = Gender.FEMALE;
+        } else if (!jTextFieldRemoveGender.getText().isEmpty() || !jTextFieldRemoveGender.getText().isBlank()) {
+            throw new IllegalArgumentException("INSIRA UM GENERO VALIDO");
+        }
+
+        if ((jCheckBoxRemoveCollarSim.isSelected() && jCheckBoxRemoveCollarNao.isSelected())
+                || (jCheckBoxRemoveSleeveSim.isSelected() && jCheckBoxRemoveSleeveNao.isSelected())) {
+            throw new IllegalArgumentException("INSIRA APENAS UM VALOR PARA GOLA E MANGA");
+        }
+
+        if (!jCheckBoxRemoveCollarSim.isSelected() && !jCheckBoxRemoveCollarNao.isSelected()) {
+            collar = -1;
+        } else if (jCheckBoxRemoveCollarSim.isSelected()) {
+            collar = 1;
+        } else {
+            collar = 0;
+        }
+
+        if (!jCheckBoxRemoveSleeveSim.isSelected() && !jCheckBoxRemoveSleeveNao.isSelected()) {
+            sleeve = -1;
+        } else if (jCheckBoxRemoveSleeveSim.isSelected()) {
+            sleeve = 1;
+        } else {
+            sleeve = 0;
+        }
+
+        ShirtRequestDTO dataShirt = new ShirtRequestDTO(color, price, quantity, fabric, brand, style,
+                gender, pattern, pocket, closureType, ClothingType.STANDARD,
+                sleeve, collar, shirtSize);
+
+        List<ClothingResponseDTO> listSearchToRemove = clothingController.consult(dataShirt);
+        fillTable(listSearchToRemove, ClothingPiece.SHIRT);
         } catch (Exception e) {
             throw new Exception("A LISTA A E NULL", e);
         }
@@ -1460,6 +1516,7 @@ public class MainWindow extends javax.swing.JFrame {
         fillTableAux(model, p);
 
         if (list != null || !list.isEmpty()) {
+            System.out.println("DENTRO DO FOR EACH");
             for (ClothingResponseDTO data : list) {
                 ShirtResponseDTO shirtData = (ShirtResponseDTO) data;
                 model.addRow(new Object[]{
@@ -1479,6 +1536,7 @@ public class MainWindow extends javax.swing.JFrame {
                     shirtData.sleeve()
                 });
             }
+            System.out.println("FORA DO FOR EACH");
         }
         jTable2.setModel(model);
     }
