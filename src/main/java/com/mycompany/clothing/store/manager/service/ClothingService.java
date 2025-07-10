@@ -8,6 +8,7 @@ import com.mycompany.clothing.store.manager.configuration.exception.RoupaNaoExis
 import com.mycompany.clothing.store.manager.domain.Clothing;
 import com.mycompany.clothing.store.manager.domain.Shirt;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtResponseDTO;
+import com.mycompany.clothing.store.manager.domain.enums.ClothingPiece;
 import com.mycompany.clothing.store.manager.domain.enums.ClothingType;
 import com.mycompany.clothing.store.manager.domain.enums.Gender;
 import com.mycompany.clothing.store.manager.domain.enums.ShirtSize;
@@ -30,15 +31,19 @@ public class ClothingService {
         this.em = em;
         this.clothingRepository = new ClothingRepository(em);
     }
-    
+
     private Integer existClothing(Clothing clothing) {
         return clothingRepository.existClothing(clothing);
     }
 
+    public List<Clothing> getAllClothings(ClothingPiece piece) {
+        return clothingRepository.getAll(piece);
+    }
+
     public void register(Clothing clothing) throws Exception {
         Integer id = existClothing(clothing);
-        
-        if(id == -1) {
+
+        if (id == -1) {
             clothingRepository.registerInDatabase(clothing);
         } else {
             incrementClothing(id, clothing.getQuantity());
@@ -47,10 +52,10 @@ public class ClothingService {
 
     public List consult(Clothing clothing) throws Exception {
         Boolean hasAtribute = containstAtributes(clothing);
-        
+
         return clothingRepository.consult(clothing, hasAtribute);
     }
-    
+
     public Integer getTotalQuantity() {
         return clothingRepository.getTotalQuantity();
     }
@@ -85,14 +90,14 @@ public class ClothingService {
         clothing.setQuantity(clothing.getQuantity() - quantity);
         clothingRepository.updateData(clothing);
     }
-    
+
     private void incrementClothing(Integer id, Integer quantity) {
         if (id < 0 || quantity <= 0) {
             throw new IllegalArgumentException("PREENCHA CORRETAMENTE OS CAMPOS");
         }
         clothingRepository.incrementClothing(id, quantity);
     }
-    
+
     public List getById(Integer id) {
         return clothingRepository.getById(id);
     }

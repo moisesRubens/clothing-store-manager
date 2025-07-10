@@ -945,16 +945,21 @@
                                           <Component id="jCheckBoxRemoveSleeveSim" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Component id="jCheckBoxRemoveSleeveNao" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="187" max="-2" attributes="0"/>
-                                          <Component id="jButtonRemoveSearchShirt" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="694" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="326" max="-2" attributes="0"/>
+                  <Component id="jButtonRemoveSearchShirt" linkSize="8" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                  <Component id="buttonViewAll" linkSize="8" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1002,21 +1007,18 @@
                       <Component id="jCheckBoxRemoveCollarSim" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jCheckBoxRemoveCollarNao" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabelRemoveSleeve" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jCheckBoxRemoveSleeveSim" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jCheckBoxRemoveSleeveNao" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="jButtonRemoveSearchShirt" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabelRemoveSleeve" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxRemoveSleeveSim" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxRemoveSleeveNao" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="228" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jButtonRemoveSearchShirt" linkSize="9" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="buttonViewAll" linkSize="9" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="180" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jButtonSearchToRemoveShirtBack" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButtonRemoveSearchShirtExit" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1050,7 +1052,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonRemoveSearchShirt">
           <Properties>
-            <Property name="text" type="java.lang.String" value="BUSCAR CAMISA"/>
+            <Property name="text" type="java.lang.String" value="Pesquisar"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRemoveSearchShirtActionPerformed"/>
@@ -1149,7 +1151,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonRemoveSearchShirtExit">
           <Properties>
-            <Property name="text" type="java.lang.String" value="SAIR"/>
+            <Property name="text" type="java.lang.String" value="Sair"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRemoveSearchShirtExitActionPerformed"/>
@@ -1157,10 +1159,18 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonSearchToRemoveShirtBack">
           <Properties>
-            <Property name="text" type="java.lang.String" value="VOLTAR"/>
+            <Property name="text" type="java.lang.String" value="Voltar"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSearchToRemoveShirtBackActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="buttonViewAll">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Visualizar todas"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonViewAllActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

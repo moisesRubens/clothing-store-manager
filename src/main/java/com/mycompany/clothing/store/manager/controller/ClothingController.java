@@ -10,6 +10,7 @@ import com.mycompany.clothing.store.manager.domain.Shirt;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingResponseDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtResponseDTO;
+import com.mycompany.clothing.store.manager.domain.enums.ClothingPiece;
 import com.mycompany.clothing.store.manager.domain.enums.ClothingType;
 import com.mycompany.clothing.store.manager.domain.enums.Gender;
 import com.mycompany.clothing.store.manager.domain.enums.ShirtSize;
@@ -40,6 +41,23 @@ public class ClothingController {
 
             clothingService.register(shirt);
         }
+    }
+    
+    public List viewAll(ClothingPiece piece) {
+        List<Clothing> list = clothingService.getAllClothings(piece);
+        
+        if(piece.equals(ClothingPiece.SHIRT)) {
+            List<ShirtResponseDTO> shirts = new ArrayList<>();
+            for(Clothing clothing : list) {
+                Shirt shirt = (Shirt)clothing;
+                shirts.add(new ShirtResponseDTO(shirt.getId(), shirt.getColor(), shirt.getPrice(), shirt.getQuantity(), shirt.getFabric(),
+                                               shirt.getBrand(), shirt.getStyle(), shirt.getGender(), shirt.getPattern(), shirt.getPocket(),
+                                               shirt.getClosureType(), shirt.getClothingType(), shirt.getSleeve(), shirt.getCollar(), shirt.getSize()));
+            }   
+            return shirts;
+        }
+        
+        return null;
     }
     
     public List<ClothingResponseDTO> consult(ClothingRequestDTO data) throws Exception {

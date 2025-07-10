@@ -8,6 +8,7 @@ import com.mycompany.clothing.store.manager.configuration.exception.RoupaJaExist
 import com.mycompany.clothing.store.manager.configuration.exception.RoupaNaoExistenteException;
 import com.mycompany.clothing.store.manager.domain.Clothing;
 import com.mycompany.clothing.store.manager.domain.Shirt;
+import com.mycompany.clothing.store.manager.domain.enums.ClothingPiece;
 import com.mycompany.clothing.store.manager.domain.enums.Gender;
 import com.mycompany.clothing.store.manager.domain.enums.ShirtSize;
 import jakarta.persistence.EntityExistsException;
@@ -40,17 +41,25 @@ public class ClothingRepository {
 
         return list.size();
     }
-    
+
+    public List<Clothing> getAll(ClothingPiece piece) {
+        if (piece.equals(ClothingPiece.SHIRT)) {
+            return em.createQuery("SELECT a FROM Shirt a").getResultList();
+        }
+
+        return null;
+    }
+
     public void incrementClothing(Integer id, Integer quantity) {
         try {
-        em.getTransaction().begin();
-        em.createQuery("UPDATE Clothing c SET c.quantity = c.quantity + :quantity WHERE c.id = :id")
-                .setParameter("quantity", quantity)
-                .setParameter("id", id).executeUpdate();
-        
-        em.getTransaction().commit();
-        em.clear();
-        } catch(PersistenceException e) {
+            em.getTransaction().begin();
+            em.createQuery("UPDATE Clothing c SET c.quantity = c.quantity + :quantity WHERE c.id = :id")
+                    .setParameter("quantity", quantity)
+                    .setParameter("id", id).executeUpdate();
+
+            em.getTransaction().commit();
+            em.clear();
+        } catch (PersistenceException e) {
             handleException(e);
             throw e;
         }
@@ -93,23 +102,23 @@ public class ClothingRepository {
                     + " AND s.brand = :brand"
                     + " AND s.size = :size"
                     + " AND s.gender = :gender";
-            
-            if(!isBlank(shirt.getFabric())) {
+
+            if (!isBlank(shirt.getFabric())) {
                 queryStr += " AND s.fabric LIKE :fabric";
             } else {
                 queryStr += " AND s.fabric IS NULL";
             }
-            if(!isBlank(shirt.getStyle())) {
+            if (!isBlank(shirt.getStyle())) {
                 queryStr += " AND s.style LIKE :style";
             } else {
                 queryStr += " AND s.style IS NULL";
             }
-            if(!isBlank(shirt.getPattern())) {
+            if (!isBlank(shirt.getPattern())) {
                 queryStr += " AND s.pattern LIKE :pattern ";
             } else {
                 queryStr += " AND s.pattern  IS NULL";
             }
-            if(!isBlank(shirt.getClosureType())) {
+            if (!isBlank(shirt.getClosureType())) {
                 queryStr += " AND s.closureType LIKE :closureType ";
             } else {
                 queryStr += " AND s.closureType  IS NULL";
@@ -124,26 +133,26 @@ public class ClothingRepository {
                     .setParameter("gender", shirt.getGender())
                     .setParameter("size", shirt.getSize())
                     .setParameter("brand", shirt.getBrand());
-            
-            if(!isBlank(shirt.getFabric())) {
+
+            if (!isBlank(shirt.getFabric())) {
                 query.setParameter("fabric", shirt.getFabric());
             }
-            if(!isBlank(shirt.getStyle())) {
+            if (!isBlank(shirt.getStyle())) {
                 query.setParameter("style", shirt.getStyle());
             }
-            if(!isBlank(shirt.getPattern())) {
+            if (!isBlank(shirt.getPattern())) {
                 query.setParameter("pattern", shirt.getPattern());
             }
-            if(!isBlank(shirt.getClosureType())) {
+            if (!isBlank(shirt.getClosureType())) {
                 query.setParameter("closureType", shirt.getClosureType());
             }
-            
-            if(!query.getResultList().isEmpty()) {
+
+            if (!query.getResultList().isEmpty()) {
                 System.out.println(query.getResultList().get(0));
                 id = query.getResultList().get(0).getId();
             }
         }
-        
+
         return id;
     }
 
@@ -245,12 +254,12 @@ public class ClothingRepository {
             }
             list = query.getResultList();
         }
-        
-        if(list == null) {
+
+        if (list == null) {
             System.out.println("A LISTA E NULL NO REPOSITORY");
             return null;
         }
-        
+
         if (list.isEmpty()) {
             throw new RoupaNaoExistenteException("MODELO DE ROUPA INEXISTENTE");
         }

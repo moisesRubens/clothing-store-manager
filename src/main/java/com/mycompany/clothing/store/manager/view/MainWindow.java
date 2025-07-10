@@ -7,11 +7,13 @@ package com.mycompany.clothing.store.manager.view;
 import com.mycompany.clothing.store.manager.configuration.exception.RoupaJaExistenteException;
 import com.mycompany.clothing.store.manager.configuration.exception.RoupaNaoExistenteException;
 import com.mycompany.clothing.store.manager.controller.ClothingController;
+import com.mycompany.clothing.store.manager.domain.Clothing;
 import com.mycompany.clothing.store.manager.domain.Shirt;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingResponseDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtResponseDTO;
+import com.mycompany.clothing.store.manager.domain.enums.ClothingPiece;
 import com.mycompany.clothing.store.manager.domain.enums.ClothingType;
 import com.mycompany.clothing.store.manager.domain.enums.Gender;
 import com.mycompany.clothing.store.manager.domain.enums.ShirtSize;
@@ -31,8 +33,6 @@ import java.awt.Image;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 
-
-
 /**
  *
  * @author moise
@@ -43,10 +43,6 @@ public class MainWindow extends javax.swing.JFrame {
         REMOVE,
         SEARCH,
         ADD
-    }
-
-    enum ClothingPiece {
-        SHIRT
     }
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MainWindow.class.getName());
@@ -183,6 +179,7 @@ public class MainWindow extends javax.swing.JFrame {
         jLabelRemoveSleeve = new javax.swing.JLabel();
         jButtonRemoveSearchShirtExit = new javax.swing.JButton();
         jButtonSearchToRemoveShirtBack = new javax.swing.JButton();
+        buttonViewAll = new javax.swing.JButton();
         PainelRemoveShirt = new javax.swing.JPanel();
         jButtonRemoveShirtRemove = new javax.swing.JButton();
         jLabelRemoveShirtId = new javax.swing.JLabel();
@@ -742,7 +739,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         jLabelFabric2.setText("TECIDO");
 
-        jButtonRemoveSearchShirt.setText("BUSCAR CAMISA");
+        jButtonRemoveSearchShirt.setText("Pesquisar");
         jButtonRemoveSearchShirt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonRemoveSearchShirtActionPerformed(evt);
@@ -795,17 +792,24 @@ public class MainWindow extends javax.swing.JFrame {
 
         jLabelRemoveSleeve.setText("MANGA");
 
-        jButtonRemoveSearchShirtExit.setText("SAIR");
+        jButtonRemoveSearchShirtExit.setText("Sair");
         jButtonRemoveSearchShirtExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonRemoveSearchShirtExitActionPerformed(evt);
             }
         });
 
-        jButtonSearchToRemoveShirtBack.setText("VOLTAR");
+        jButtonSearchToRemoveShirtBack.setText("Voltar");
         jButtonSearchToRemoveShirtBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSearchToRemoveShirtBackActionPerformed(evt);
+            }
+        });
+
+        buttonViewAll.setText("Visualizar todas");
+        buttonViewAll.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonViewAllActionPerformed(evt);
             }
         });
 
@@ -875,14 +879,20 @@ public class MainWindow extends javax.swing.JFrame {
                                         .addGap(18, 18, 18)
                                         .addComponent(jCheckBoxRemoveSleeveSim)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jCheckBoxRemoveSleeveNao)
-                                        .addGap(187, 187, 187)
-                                        .addComponent(jButtonRemoveSearchShirt)))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                        .addComponent(jCheckBoxRemoveSleeveNao)))
+                                .addGap(0, 694, Short.MAX_VALUE)))))
                 .addContainerGap())
+            .addGroup(PainelSearchToRemoveShirtLayout.createSequentialGroup()
+                .addGap(326, 326, 326)
+                .addComponent(jButtonRemoveSearchShirt)
+                .addGap(41, 41, 41)
+                .addComponent(buttonViewAll)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         PainelSearchToRemoveShirtLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jTextFieldRemoveClosureType, jTextFieldRemoveColor, jTextFieldRemoveFabric, jTextFieldRemovePattern, jTextFieldRemoveStyle});
+
+        PainelSearchToRemoveShirtLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {buttonViewAll, jButtonRemoveSearchShirt});
 
         PainelSearchToRemoveShirtLayout.setVerticalGroup(
             PainelSearchToRemoveShirtLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -922,25 +932,26 @@ public class MainWindow extends javax.swing.JFrame {
                     .addComponent(jLabelRemoveCollar)
                     .addComponent(jCheckBoxRemoveCollarSim)
                     .addComponent(jCheckBoxRemoveCollarNao))
-                .addGroup(PainelSearchToRemoveShirtLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PainelSearchToRemoveShirtLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(PainelSearchToRemoveShirtLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelRemoveSleeve)
-                            .addComponent(jCheckBoxRemoveSleeveSim)
-                            .addComponent(jCheckBoxRemoveSleeveNao)))
-                    .addGroup(PainelSearchToRemoveShirtLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jButtonRemoveSearchShirt)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 228, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(PainelSearchToRemoveShirtLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelRemoveSleeve)
+                    .addComponent(jCheckBoxRemoveSleeveSim)
+                    .addComponent(jCheckBoxRemoveSleeveNao))
+                .addGap(46, 46, 46)
+                .addGroup(PainelSearchToRemoveShirtLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonRemoveSearchShirt)
+                    .addComponent(buttonViewAll))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 180, Short.MAX_VALUE)
                 .addGroup(PainelSearchToRemoveShirtLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonSearchToRemoveShirtBack)
                     .addComponent(jButtonRemoveSearchShirtExit))
                 .addContainerGap())
         );
 
+        PainelSearchToRemoveShirtLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {buttonViewAll, jButtonRemoveSearchShirt});
+
         getContentPane().add(PainelSearchToRemoveShirt);
-        PainelSearchToRemoveShirt.setBounds(912, 721, 877, 609);
+        PainelSearchToRemoveShirt.setBounds(912, 721, 881, 609);
 
         PainelRemoveShirt.setBackground(new java.awt.Color(0, 153, 153));
         PainelRemoveShirt.setName("PainelRemoveShirt"); // NOI18N
@@ -1058,7 +1069,7 @@ public class MainWindow extends javax.swing.JFrame {
         PainelRemoveShirtLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButtonRemoveShirtExit, jButtonRemoveShirtRemove});
 
         getContentPane().add(PainelRemoveShirt);
-        PainelRemoveShirt.setBounds(1071, 1065, 1168, 548);
+        PainelRemoveShirt.setBounds(1071, 1065, 1167, 548);
 
         getAccessibleContext().setAccessibleName("mainPanel");
 
@@ -1242,6 +1253,17 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldConsultBrandActionPerformed
 
+    private void buttonViewAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonViewAllActionPerformed
+        try {
+            List<ClothingResponseDTO> list = clothingController.viewAll(ClothingPiece.SHIRT);
+            fillTable(list, ClothingPiece.SHIRT);
+            CardLayout a = (CardLayout) getContentPane().getLayout();
+            a.show(getContentPane(), "PainelRemoveShirt");
+        } catch (Exception e) {
+
+        }
+    }//GEN-LAST:event_buttonViewAllActionPerformed
+
     private void updateQuantityClothings() {
         Integer quantity = clothingController.getQuantity();
     }
@@ -1268,64 +1290,64 @@ public class MainWindow extends javax.swing.JFrame {
     private void updateTable() throws Exception {
         List<ClothingResponseDTO> listSearchToRemove = null;
         try {
-        Integer collar;
-        Integer sleeve;
-        Integer quantity = -1;
-        Integer pocket = (jTextFieldRemovePocket.getText().isEmpty()) ? -1 : Integer.parseInt(jTextFieldRemovePocket.getText());
-        Double price = (jTextFieldRemovePrice.getText().isEmpty()) ? -1D : Double.parseDouble(jTextFieldRemovePrice.getText());
-        String pattern = jTextFieldRemovePattern.getText();
-        String style = jTextFieldRemoveStyle.getText();
-        String brand = jTextFieldRemoveBrand.getText();
-        String fabric = jTextFieldRemoveFabric.getText();
-        String color = jTextFieldRemoveColor.getText();
-        String closureType = jTextFieldRemoveClosureType.getText();
-        ShirtSize shirtSize = null;
-        Gender gender = null;
+            Integer collar;
+            Integer sleeve;
+            Integer quantity = -1;
+            Integer pocket = (jTextFieldRemovePocket.getText().isEmpty()) ? -1 : Integer.parseInt(jTextFieldRemovePocket.getText());
+            Double price = (jTextFieldRemovePrice.getText().isEmpty()) ? -1D : Double.parseDouble(jTextFieldRemovePrice.getText());
+            String pattern = jTextFieldRemovePattern.getText();
+            String style = jTextFieldRemoveStyle.getText();
+            String brand = jTextFieldRemoveBrand.getText();
+            String fabric = jTextFieldRemoveFabric.getText();
+            String color = jTextFieldRemoveColor.getText();
+            String closureType = jTextFieldRemoveClosureType.getText();
+            ShirtSize shirtSize = null;
+            Gender gender = null;
 
-        if (jTextFieldRemoveSize.getText().equals("P")) {
-            shirtSize = ShirtSize.SMALL;
-        } else if (jTextFieldRemoveSize.getText().equals("M")) {
-            shirtSize = ShirtSize.MEDIUM;
-        } else if (jTextFieldRemoveSize.getText().equals("G")) {
-            shirtSize = ShirtSize.LARGE;
-        } else if (!jTextFieldRemoveSize.getText().isEmpty() || !jTextFieldRemoveSize.getText().isBlank()) {
-            throw new IllegalArgumentException("INSIRA UM TAMANHO VALIDO");
-        }
+            if (jTextFieldRemoveSize.getText().equals("P")) {
+                shirtSize = ShirtSize.SMALL;
+            } else if (jTextFieldRemoveSize.getText().equals("M")) {
+                shirtSize = ShirtSize.MEDIUM;
+            } else if (jTextFieldRemoveSize.getText().equals("G")) {
+                shirtSize = ShirtSize.LARGE;
+            } else if (!jTextFieldRemoveSize.getText().isEmpty() || !jTextFieldRemoveSize.getText().isBlank()) {
+                throw new IllegalArgumentException("INSIRA UM TAMANHO VALIDO");
+            }
 
-        if (jTextFieldRemoveGender.getText().equals("M")) {
-            gender = Gender.MALE;
-        } else if (jTextFieldRemoveGender.getText().equals("F")) {
-            gender = Gender.FEMALE;
-        } else if (!jTextFieldRemoveGender.getText().isEmpty() || !jTextFieldRemoveGender.getText().isBlank()) {
-            throw new IllegalArgumentException("INSIRA UM GENERO VALIDO");
-        }
+            if (jTextFieldRemoveGender.getText().equals("M")) {
+                gender = Gender.MALE;
+            } else if (jTextFieldRemoveGender.getText().equals("F")) {
+                gender = Gender.FEMALE;
+            } else if (!jTextFieldRemoveGender.getText().isEmpty() || !jTextFieldRemoveGender.getText().isBlank()) {
+                throw new IllegalArgumentException("INSIRA UM GENERO VALIDO");
+            }
 
-        if ((jCheckBoxRemoveCollarSim.isSelected() && jCheckBoxRemoveCollarNao.isSelected())
-                || (jCheckBoxRemoveSleeveSim.isSelected() && jCheckBoxRemoveSleeveNao.isSelected())) {
-            throw new IllegalArgumentException("INSIRA APENAS UM VALOR PARA GOLA E MANGA");
-        }
+            if ((jCheckBoxRemoveCollarSim.isSelected() && jCheckBoxRemoveCollarNao.isSelected())
+                    || (jCheckBoxRemoveSleeveSim.isSelected() && jCheckBoxRemoveSleeveNao.isSelected())) {
+                throw new IllegalArgumentException("INSIRA APENAS UM VALOR PARA GOLA E MANGA");
+            }
 
-        if (!jCheckBoxRemoveCollarSim.isSelected() && !jCheckBoxRemoveCollarNao.isSelected()) {
-            collar = -1;
-        } else if (jCheckBoxRemoveCollarSim.isSelected()) {
-            collar = 1;
-        } else {
-            collar = 0;
-        }
+            if (!jCheckBoxRemoveCollarSim.isSelected() && !jCheckBoxRemoveCollarNao.isSelected()) {
+                collar = -1;
+            } else if (jCheckBoxRemoveCollarSim.isSelected()) {
+                collar = 1;
+            } else {
+                collar = 0;
+            }
 
-        if (!jCheckBoxRemoveSleeveSim.isSelected() && !jCheckBoxRemoveSleeveNao.isSelected()) {
-            sleeve = -1;
-        } else if (jCheckBoxRemoveSleeveSim.isSelected()) {
-            sleeve = 1;
-        } else {
-            sleeve = 0;
-        }
+            if (!jCheckBoxRemoveSleeveSim.isSelected() && !jCheckBoxRemoveSleeveNao.isSelected()) {
+                sleeve = -1;
+            } else if (jCheckBoxRemoveSleeveSim.isSelected()) {
+                sleeve = 1;
+            } else {
+                sleeve = 0;
+            }
 
-        ShirtRequestDTO dataShirt = new ShirtRequestDTO(color, price, quantity, fabric, brand, style,
-                gender, pattern, pocket, closureType, ClothingType.STANDARD,
-                sleeve, collar, shirtSize);
-        
-        listSearchToRemove = clothingController.consult(dataShirt);
+            ShirtRequestDTO dataShirt = new ShirtRequestDTO(color, price, quantity, fabric, brand, style,
+                    gender, pattern, pocket, closureType, ClothingType.STANDARD,
+                    sleeve, collar, shirtSize);
+
+            listSearchToRemove = clothingController.consult(dataShirt);
         } catch (Exception e) {
             listSearchToRemove = new ArrayList<>();
         } finally {
@@ -1517,10 +1539,10 @@ public class MainWindow extends javax.swing.JFrame {
         DefaultTableModel model = new DefaultTableModel();
 
         fillTableAux(model, p);
-        if(list == null) {
+        if (list == null) {
             return;
         }
-        
+
         System.out.println("DENTRO DE FILL TABLE");
         if (!list.isEmpty()) {
             for (ClothingResponseDTO data : list) {
@@ -1576,6 +1598,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel PainelPrincipal;
     private javax.swing.JPanel PainelRemoveShirt;
     private javax.swing.JPanel PainelSearchToRemoveShirt;
+    private javax.swing.JButton buttonViewAll;
     private javax.swing.JButton jButtonAddShirtBack;
     private javax.swing.JButton jButtonAddShirtExit;
     private javax.swing.JButton jButtonAdicionar;
