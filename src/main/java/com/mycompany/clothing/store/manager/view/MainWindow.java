@@ -28,6 +28,7 @@ import javax.swing.JPopupMenu;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import java.awt.Image;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 
 
@@ -1265,8 +1266,9 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     private void updateTable() throws Exception {
+        List<ClothingResponseDTO> listSearchToRemove = null;
         try {
-            Integer collar;
+        Integer collar;
         Integer sleeve;
         Integer quantity = -1;
         Integer pocket = (jTextFieldRemovePocket.getText().isEmpty()) ? -1 : Integer.parseInt(jTextFieldRemovePocket.getText());
@@ -1322,11 +1324,12 @@ public class MainWindow extends javax.swing.JFrame {
         ShirtRequestDTO dataShirt = new ShirtRequestDTO(color, price, quantity, fabric, brand, style,
                 gender, pattern, pocket, closureType, ClothingType.STANDARD,
                 sleeve, collar, shirtSize);
-
-        List<ClothingResponseDTO> listSearchToRemove = clothingController.consult(dataShirt);
-        fillTable(listSearchToRemove, ClothingPiece.SHIRT);
+        
+        listSearchToRemove = clothingController.consult(dataShirt);
         } catch (Exception e) {
-            throw new Exception("A LISTA A E NULL", e);
+            listSearchToRemove = new ArrayList<>();
+        } finally {
+            fillTable(listSearchToRemove, ClothingPiece.SHIRT);
         }
     }
 
@@ -1514,9 +1517,12 @@ public class MainWindow extends javax.swing.JFrame {
         DefaultTableModel model = new DefaultTableModel();
 
         fillTableAux(model, p);
-
-        if (list != null || !list.isEmpty()) {
-            System.out.println("DENTRO DO FOR EACH");
+        if(list == null) {
+            return;
+        }
+        
+        System.out.println("DENTRO DE FILL TABLE");
+        if (!list.isEmpty()) {
             for (ClothingResponseDTO data : list) {
                 ShirtResponseDTO shirtData = (ShirtResponseDTO) data;
                 model.addRow(new Object[]{
@@ -1536,8 +1542,8 @@ public class MainWindow extends javax.swing.JFrame {
                     shirtData.sleeve()
                 });
             }
-            System.out.println("FORA DO FOR EACH");
         }
+        System.out.println("DENO FINAL DE FILL TABLE");
         jTable2.setModel(model);
     }
 

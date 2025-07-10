@@ -74,6 +74,7 @@ public class ClothingRepository {
         try {
             return consultAux(clothing, hasAtribute);
         } catch (Exception e) {
+            System.out.println("DENTRO DO CATCH DE CONSULT ");
             handleException(e);
             throw e;
         }
@@ -244,6 +245,12 @@ public class ClothingRepository {
             }
             list = query.getResultList();
         }
+        
+        if(list == null) {
+            System.out.println("A LISTA E NULL NO REPOSITORY");
+            return null;
+        }
+        
         if (list.isEmpty()) {
             throw new RoupaNaoExistenteException("MODELO DE ROUPA INEXISTENTE");
         }
