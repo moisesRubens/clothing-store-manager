@@ -8,9 +8,12 @@ import com.mycompany.clothing.store.manager.configuration.exception.RoupaJaExist
 import com.mycompany.clothing.store.manager.configuration.exception.RoupaNaoExistenteException;
 import com.mycompany.clothing.store.manager.domain.Clothing;
 import com.mycompany.clothing.store.manager.domain.Shirt;
+import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
+import com.mycompany.clothing.store.manager.domain.dto.ShirtRequestDTO;
 import com.mycompany.clothing.store.manager.domain.enums.ClothingPiece;
 import com.mycompany.clothing.store.manager.domain.enums.Gender;
 import com.mycompany.clothing.store.manager.domain.enums.ShirtSize;
+import com.mycompany.clothing.store.manager.service.ClothingMapper;
 import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -89,12 +92,12 @@ public class ClothingRepository {
         }
     }
 
-    public Integer existClothing(Clothing clothing) {
+    public Integer existClothing(ClothingRequestDTO clothing) {
         String queryStr;
         TypedQuery<Shirt> query;
         Integer id = -1;
 
-        if (clothing instanceof Shirt shirt) {
+        if (clothing instanceof ShirtRequestDTO shirt) {
             queryStr = "SELECT s FROM Shirt s WHERE s.sleeve = :sleeve"
                     + " AND s.collar = :collar"
                     + " AND s.pocket = :pocket"
@@ -103,22 +106,22 @@ public class ClothingRepository {
                     + " AND s.size = :size"
                     + " AND s.gender = :gender";
 
-            if (!isBlank(shirt.getFabric())) {
+            if (!isBlank(shirt.fabric())) {
                 queryStr += " AND s.fabric LIKE :fabric";
             } else {
                 queryStr += " AND s.fabric IS NULL";
             }
-            if (!isBlank(shirt.getStyle())) {
+            if (!isBlank(shirt.style())) {
                 queryStr += " AND s.style LIKE :style";
             } else {
                 queryStr += " AND s.style IS NULL";
             }
-            if (!isBlank(shirt.getPattern())) {
+            if (!isBlank(shirt.pattern())) {
                 queryStr += " AND s.pattern LIKE :pattern ";
             } else {
                 queryStr += " AND s.pattern  IS NULL";
             }
-            if (!isBlank(shirt.getClosureType())) {
+            if (!isBlank(shirt.closureType())) {
                 queryStr += " AND s.closureType LIKE :closureType ";
             } else {
                 queryStr += " AND s.closureType  IS NULL";
@@ -126,25 +129,25 @@ public class ClothingRepository {
 
             query = em.createQuery(queryStr, Shirt.class);
 
-            query.setParameter("sleeve", shirt.getSleeve())
-                    .setParameter("collar", shirt.getCollar())
-                    .setParameter("pocket", shirt.getPocket())
-                    .setParameter("color", shirt.getColor())
-                    .setParameter("gender", shirt.getGender())
-                    .setParameter("size", shirt.getSize())
-                    .setParameter("brand", shirt.getBrand());
+            query.setParameter("sleeve", shirt.sleeve())
+                    .setParameter("collar", shirt.collar())
+                    .setParameter("pocket", shirt.pocket())
+                    .setParameter("color", shirt.color())
+                    .setParameter("gender", shirt.gender())
+                    .setParameter("size", shirt.size())
+                    .setParameter("brand", shirt.brand());
 
-            if (!isBlank(shirt.getFabric())) {
-                query.setParameter("fabric", shirt.getFabric());
+            if (!isBlank(shirt.fabric())) {
+                query.setParameter("fabric", shirt.fabric());
             }
-            if (!isBlank(shirt.getStyle())) {
-                query.setParameter("style", shirt.getStyle());
+            if (!isBlank(shirt.style())) {
+                query.setParameter("style", shirt.style());
             }
-            if (!isBlank(shirt.getPattern())) {
-                query.setParameter("pattern", shirt.getPattern());
+            if (!isBlank(shirt.pattern())) {
+                query.setParameter("pattern", shirt.pattern());
             }
-            if (!isBlank(shirt.getClosureType())) {
-                query.setParameter("closureType", shirt.getClosureType());
+            if (!isBlank(shirt.closureType())) {
+                query.setParameter("closureType", shirt.closureType());
             }
 
             if (!query.getResultList().isEmpty()) {
@@ -301,9 +304,7 @@ public class ClothingRepository {
     }
 
     private void registerInDatabaseAux(Clothing clothing) throws Exception {
-        if (clothing instanceof Shirt shirt) {
-            em.persist(shirt);
-        }
+        em.persist(clothing);
     }
 
     private void handleException(Exception e) {

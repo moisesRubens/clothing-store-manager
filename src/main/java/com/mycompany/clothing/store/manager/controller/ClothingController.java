@@ -25,8 +25,8 @@ import java.util.List;
  */
 public class ClothingController {
 
-    private ClothingService clothingService;
-    private EntityManager em;
+    private final ClothingService clothingService;
+    private final EntityManager em;
     
     public ClothingController(EntityManager em) {
         this.em = em;
@@ -34,13 +34,7 @@ public class ClothingController {
     }
 
     public void registerClothing(ClothingRequestDTO data) throws Exception {
-        if (data instanceof ShirtRequestDTO shirtData) {
-            Shirt shirt = new Shirt(shirtData.color(), shirtData.price(), shirtData.quantity(), shirtData.clothingType(),
-                    shirtData.fabric(), shirtData.brand(), shirtData.style(), shirtData.gender(), shirtData.pattern(),
-                    shirtData.pocket(), shirtData.closureType(), shirtData.size(), shirtData.sleeve(), shirtData.collar());
-
-            clothingService.register(shirt);
-        }
+        clothingService.register(data);
     }
     
     public List viewAll(ClothingPiece piece) {

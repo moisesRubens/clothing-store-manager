@@ -478,7 +478,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonFinalizar">
           <Properties>
-            <Property name="text" type="java.lang.String" value="FINALIZAR"/>
+            <Property name="text" type="java.lang.String" value="Cadastrar Camisa"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonFinalizarActionPerformed"/>
@@ -509,7 +509,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonAddShirtExit">
           <Properties>
-            <Property name="text" type="java.lang.String" value="SAIR"/>
+            <Property name="text" type="java.lang.String" value="Sair"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAddShirtExitActionPerformed"/>
@@ -517,7 +517,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonAddShirtBack">
           <Properties>
-            <Property name="text" type="java.lang.String" value="VOLTAR"/>
+            <Property name="text" type="java.lang.String" value="Voltar"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAddShirtBackActionPerformed"/>

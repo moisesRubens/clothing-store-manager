@@ -7,6 +7,8 @@ package com.mycompany.clothing.store.manager.service;
 import com.mycompany.clothing.store.manager.configuration.exception.RoupaNaoExistenteException;
 import com.mycompany.clothing.store.manager.domain.Clothing;
 import com.mycompany.clothing.store.manager.domain.Shirt;
+import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
+import com.mycompany.clothing.store.manager.domain.dto.ClothingResponseDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtResponseDTO;
 import com.mycompany.clothing.store.manager.domain.enums.ClothingPiece;
 import com.mycompany.clothing.store.manager.domain.enums.ClothingType;
@@ -32,7 +34,7 @@ public class ClothingService {
         this.clothingRepository = new ClothingRepository(em);
     }
 
-    private Integer existClothing(Clothing clothing) {
+    private Integer existClothing(ClothingRequestDTO clothing) {
         return clothingRepository.existClothing(clothing);
     }
 
@@ -40,13 +42,14 @@ public class ClothingService {
         return clothingRepository.getAll(piece);
     }
 
-    public void register(Clothing clothing) throws Exception {
+    public void register(ClothingRequestDTO clothing) throws Exception {
         Integer id = existClothing(clothing);
 
         if (id == -1) {
-            clothingRepository.registerInDatabase(clothing);
+            Clothing clothing2 = ClothingMapper.DTOToShirt(clothing);
+            clothingRepository.registerInDatabase(clothing2);
         } else {
-            incrementClothing(id, clothing.getQuantity());
+            incrementClothing(id, clothing.quantity());
         }
     }
 
