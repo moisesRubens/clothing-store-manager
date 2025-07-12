@@ -550,41 +550,50 @@
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="jLabelCor1" min="-2" pref="37" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="345" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="jLabelStyle1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="345" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="jLabelPattern1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="jLabelFabric1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="341" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jLabelSize1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldConsultShirtSize" linkSize="3" min="-2" pref="71" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jLabelClosureType1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jTextFieldConsultPattern" min="-2" pref="253" max="-2" attributes="0"/>
-                                      <Component id="jTextFieldConsultClosureType" linkSize="3" min="-2" pref="71" max="-2" attributes="0"/>
-                                      <Component id="jTextFieldConsultStyle" linkSize="3" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
-                                      <Component id="jTextFieldConsultFabric" linkSize="3" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jTextFieldConsultColor" linkSize="3" alignment="0" min="-2" pref="179" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="jLabelCor1" min="-2" pref="37" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="345" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="jLabelStyle1" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="345" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="jLabelPattern1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="jLabelFabric1" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="341" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jLabelSize1" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                                          <Component id="jTextFieldConsultShirtSize" linkSize="3" min="-2" pref="71" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jLabelClosureType1" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jTextFieldConsultPattern" min="-2" pref="253" max="-2" attributes="0"/>
+                                              <Component id="jTextFieldConsultClosureType" linkSize="3" min="-2" pref="71" max="-2" attributes="0"/>
+                                              <Component id="jTextFieldConsultStyle" linkSize="3" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
+                                              <Component id="jTextFieldConsultFabric" linkSize="3" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="jTextFieldConsultColor" linkSize="3" alignment="0" min="-2" pref="179" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                   </Group>
+                                  <EmptySpace pref="68" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="jButtonConsultarCamisa1" linkSize="10" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="68" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabelConsultSleeve" min="-2" max="-2" attributes="0"/>
@@ -617,13 +626,12 @@
                                       <Component id="jTextFieldConsultQuantity" linkSize="3" min="-2" pref="253" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
+                              <Component id="jButton1" linkSize="10" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Group type="102" alignment="1" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jButtonSearchShirtBack" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="265" max="-2" attributes="0"/>
-                          <Component id="jButtonConsultarCamisa1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="jButtonSearchShirtExit" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -684,11 +692,15 @@
                       <Component id="jCheckBoxConsultSleeveSim" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jCheckBoxConsultSleeveNao" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="284" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jButton1" linkSize="11" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonConsultarCamisa1" linkSize="11" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="145" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jButtonSearchShirtExit" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButtonSearchShirtBack" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButtonConsultarCamisa1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -800,7 +812,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonConsultarCamisa1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="CONSULTAR CAMISA"/>
+            <Property name="text" type="java.lang.String" value="Consultar Camisa"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonConsultarCamisa1ActionPerformed"/>
@@ -834,7 +846,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonSearchShirtExit">
           <Properties>
-            <Property name="text" type="java.lang.String" value="SAIR"/>
+            <Property name="text" type="java.lang.String" value="Sair"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSearchShirtExitActionPerformed"/>
@@ -842,10 +854,18 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonSearchShirtBack">
           <Properties>
-            <Property name="text" type="java.lang.String" value="VOLTAR"/>
+            <Property name="text" type="java.lang.String" value="Voltar"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSearchShirtBackActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButton1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Consultar Lista"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

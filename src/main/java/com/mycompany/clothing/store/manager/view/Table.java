@@ -4,9 +4,12 @@
  */
 package com.mycompany.clothing.store.manager.view;
 
+import com.mycompany.clothing.store.manager.controller.ClothingController;
 import com.mycompany.clothing.store.manager.domain.Clothing;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingResponseDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtResponseDTO;
+import com.mycompany.clothing.store.manager.domain.enums.ClothingPiece;
+import jakarta.persistence.EntityManager;
 import java.awt.CardLayout;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
@@ -21,10 +24,12 @@ public class Table extends javax.swing.JFrame {
 
     /**
      * Creates new form Remove
+     * @param em
      */
-    public Table() {
+    public Table(EntityManager em) {
         initComponents();
-        
+        this.em = em;
+        this.clothingController = new ClothingController(em);
     }
 
     /**
@@ -70,31 +75,6 @@ public class Table extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new Table().setVisible(true));
-    }
-
     public void fillTable(List<ClothingResponseDTO> list) {
         DefaultTableModel model = new DefaultTableModel();
 
@@ -137,10 +117,15 @@ public class Table extends javax.swing.JFrame {
         }
     }
 
-    
+    public void viewAllClothing(ClothingPiece piece) {
+        List<ClothingResponseDTO> list = clothingController.viewAll(piece);
+        fillTable(list);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
+    public EntityManager em;
+    public ClothingController clothingController;
 }
