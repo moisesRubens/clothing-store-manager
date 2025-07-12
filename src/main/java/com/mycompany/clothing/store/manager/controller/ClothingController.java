@@ -62,7 +62,7 @@ public class ClothingController {
                                     shirtData.fabric(), shirtData.brand(), shirtData.style(), shirtData.gender(), shirtData.pattern(),
                                     shirtData.pocket(), shirtData.closureType(), shirtData.size(), shirtData.sleeve(), shirtData.collar());
             
-            List<Shirt> shirts = clothingService.consult(shirt);
+            List<Shirt> shirts = clothingService.consult(data);
             list = shirts.stream().map(shirtAux -> new ShirtResponseDTO(shirtAux.getId(), shirtAux.getColor(), shirtAux.getPrice(), shirtAux.getQuantity(),
                                                                         shirtAux.getFabric(), shirtAux.getBrand(), shirtAux.getStyle(), shirtAux.getGender(),
                                                                         shirtAux.getPattern(), shirtAux.getPocket(), shirtAux.getClosureType(),

@@ -9,6 +9,7 @@ import com.mycompany.clothing.store.manager.domain.Clothing;
 import com.mycompany.clothing.store.manager.domain.Shirt;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingResponseDTO;
+import com.mycompany.clothing.store.manager.domain.dto.ShirtRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtResponseDTO;
 import com.mycompany.clothing.store.manager.domain.enums.ClothingPiece;
 import com.mycompany.clothing.store.manager.domain.enums.ClothingType;
@@ -53,26 +54,82 @@ public class ClothingService {
         }
     }
 
-    public List consult(Clothing clothing) throws Exception {
-        Boolean hasAtribute = containstAtributes(clothing);
-
-        return clothingRepository.consult(clothing, hasAtribute);
+    public List consult(ClothingRequestDTO data) throws Exception {
+        String query = createQuerry(data);
+        return clothingRepository.consult(data, query);
     }
+
+    private String createQuerry(ClothingRequestDTO data) {
+        String query = "";
+        
+        if (data instanceof ShirtRequestDTO shirtData) {
+            query += "SELECT s FROM Shirt s WHERE";
+
+            if (!containstAtributes(data)) {
+                query += " 1=0";
+                return query;
+            }
+            
+            query += " 1=1";
+            if (shirtData.sleeve() != -1) {
+                query += " AND s.sleeve <= :sleeve";
+            }
+            if (shirtData.collar() != -1) {
+                query += " AND s.collar <= :collar";
+            }
+            if (shirtData.price() != -1) {
+                query += " AND s.price <= :price";
+            }
+            if (shirtData.quantity() != -1) {
+                query += " AND s.quantity >= :quantity";
+            }
+            if (shirtData.pocket() != -1) {
+                query += " AND s.pocket = :pocket";
+            }
+            if (!shirtData.color().isBlank()) {
+                query += " AND s.color LIKE :color";
+            }
+            if (!shirtData.fabric().isBlank()) {
+                query += " AND s.fabric LIKE :fabric";
+            }
+            if (!shirtData.brand().isBlank()) {
+                query += " AND s.brand LIKE :brand";
+            }
+            if (!shirtData.style().isBlank()) {
+                query += " AND s.style LIKE :style";
+            }
+            if (!shirtData.pattern().isBlank()) {
+                query += " AND s.pattern LIKE :pattern";
+            }
+            if (!shirtData.closureType().isBlank()) {
+                query += " AND s.closureType LIKE :closureType";
+            }
+            if (EnumSet.allOf(ShirtSize.class).contains(shirtData.size())) {
+                query += " AND s.size = :size";
+            }
+            if (EnumSet.allOf(Gender.class).contains(shirtData.gender())) {
+                query += " AND s.gender = :gender";
+            }
+
+            return query;
+        }
+        return "";
+    }
+    
 
     public Integer getTotalQuantity() {
         return clothingRepository.getTotalQuantity();
     }
 
-    private boolean containstAtributes(Clothing clothing) {
+    private boolean containstAtributes(ClothingRequestDTO data) {
         Boolean hasAtribute = false;
 
-        if (clothing instanceof Shirt shirt) {
-            hasAtribute = (!shirt.getColor().isEmpty() || !shirt.getColor().isBlank() || !shirt.getBrand().isEmpty() || !shirt.getBrand().isBlank()
-                    || !shirt.getPattern().isEmpty() || !shirt.getPattern().isBlank() || EnumSet.allOf(ShirtSize.class).contains(shirt.getSize())
-                    || !shirt.getClosureType().isEmpty() || !shirt.getClosureType().isBlank() || !shirt.getFabric().isEmpty() || !shirt.getFabric().isBlank()
-                    || EnumSet.allOf(Gender.class).contains(shirt.getGender())
-                    || !shirt.getStyle().isEmpty() || !shirt.getStyle().isBlank() || shirt.getCollar() != -1 || shirt.getSleeve() != -1
-                    || shirt.getPocket() != -1 || shirt.getQuantity() != -1 || shirt.getPrice() != -1);
+        if (data instanceof ShirtRequestDTO shirtData) {
+            hasAtribute = (!shirtData.color().isBlank() || !shirtData.brand().isBlank() || !shirtData.pattern().isBlank()
+                    || EnumSet.allOf(ShirtSize.class).contains(shirtData.size()) || !shirtData.closureType().isBlank()
+                    || !shirtData.fabric().isBlank() || EnumSet.allOf(Gender.class).contains(shirtData.gender())
+                    || !shirtData.style().isBlank() || shirtData.collar() != -1 || shirtData.sleeve() != -1
+                    || shirtData.pocket() != -1 || shirtData.quantity() != -1 || shirtData.price() != -1);
         }
 
         return hasAtribute;

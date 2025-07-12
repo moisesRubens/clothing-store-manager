@@ -82,11 +82,10 @@ public class ClothingRepository {
         }
     }
 
-    public List consult(Clothing clothing, Boolean hasAtribute) throws Exception {
+    public List consult(ClothingRequestDTO data, String query) throws Exception {
         try {
-            return consultAux(clothing, hasAtribute);
+            return consultAux(data, query);
         } catch (Exception e) {
-            System.out.println("DENTRO DO CATCH DE CONSULT ");
             handleException(e);
             throw e;
         }
@@ -159,107 +158,58 @@ public class ClothingRepository {
         return id;
     }
 
-    private List consultAux(Clothing clothing, Boolean hasAtributes) throws Exception {
+    private List consultAux(ClothingRequestDTO data, String query) throws Exception {
         List list = null;
 
-        if (clothing instanceof Shirt shirt) {
-            String queryStr = "SELECT s FROM Shirt s WHERE";
-            TypedQuery<Shirt> query;
+        if (data instanceof ShirtRequestDTO shirtData) {
+            TypedQuery<Shirt> queryShirt;
 
-            if (hasAtributes == true) {
-                queryStr += " 1=1";
+            queryShirt = em.createQuery(query, Shirt.class);
 
-                if (shirt.getSleeve() != -1) {
-                    queryStr += " AND s.sleeve <= :sleeve";
-                }
-                if (shirt.getCollar() != -1) {
-                    queryStr += " AND s.collar <= :collar";
-                }
-                if (shirt.getPrice() != -1) {
-                    queryStr += " AND s.price <= :price";
-                }
-                if (shirt.getQuantity() != -1) {
-                    queryStr += " AND s.quantity >= :quantity";
-                }
-                if (shirt.getPocket() != -1) {
-                    queryStr += " AND s.pocket = :pocket";
-                }
-                if (!isBlank(shirt.getColor())) {
-                    queryStr += " AND s.color LIKE :color";
-                }
-                if (!isBlank(shirt.getFabric())) {
-                    queryStr += " AND s.fabric LIKE :fabric";
-                }
-                if (!isBlank(shirt.getBrand())) {
-                    queryStr += " AND s.brand LIKE :brand";
-                }
-                if (!isBlank(shirt.getStyle())) {
-                    queryStr += " AND s.style LIKE :style";
-                }
-                if (!isBlank(shirt.getPattern())) {
-                    queryStr += " AND s.pattern LIKE :pattern";
-                }
-                if (!isBlank(shirt.getClosureType())) {
-                    queryStr += " AND s.closureType LIKE :closureType";
-                }
-                if (EnumSet.allOf(ShirtSize.class).contains(shirt.getSize())) {
-                    queryStr += " AND s.size = :size";
-                }
-                if (EnumSet.allOf(Gender.class).contains(shirt.getGender())) {
-                    queryStr += " AND s.gender = :gender";
-                }
-
-                query = em.createQuery(queryStr, Shirt.class);
-
-                if (shirt.getSleeve() != -1) {
-                    query.setParameter("sleeve", shirt.getSleeve());
-                }
-                if (shirt.getCollar() != -1) {
-                    query.setParameter("collar", shirt.getCollar());
-                }
-                if (shirt.getPocket() != -1) {
-                    query.setParameter("pocket", shirt.getPocket());
-                }
-                if (!isBlank(shirt.getColor())) {
-                    query.setParameter("color", "%" + shirt.getColor() + "%");
-                }
-                if (!isBlank(shirt.getFabric())) {
-                    query.setParameter("fabric", shirt.getFabric());
-                }
-                if (!isBlank(shirt.getBrand())) {
-                    query.setParameter("brand", "%" + shirt.getBrand() + "%");
-                }
-                if (shirt.getPrice() != -1) {
-                    query.setParameter("price", shirt.getPrice());
-                }
-                if (shirt.getQuantity() != -1) {
-                    query.setParameter("quantity", shirt.getQuantity());
-                }
-                if (!isBlank(shirt.getBrand())) {
-                    query.setParameter("style", shirt.getStyle());
-                }
-                if (!isBlank(shirt.getPattern())) {
-                    query.setParameter("pattern", shirt.getPattern());
-                }
-                if (!isBlank(shirt.getClosureType())) {
-                    query.setParameter("closureType", shirt.getClosureType());
-                }
-                if (EnumSet.allOf(ShirtSize.class).contains(shirt.getSize())) {
-                    query.setParameter("size", shirt.getSize());
-                }
-                if (EnumSet.allOf(Gender.class).contains(shirt.getGender())) {
-                    query.setParameter("gender", shirt.getGender());
-                }
-            } else {
-                System.out.println("DENTRO DO ELSE QUE DEFINE A QUERY");
-                queryStr += " 1=0";
-                query = em.createQuery(queryStr, Shirt.class);
+            if (shirtData.sleeve() != -1) {
+                queryShirt.setParameter("sleeve", shirtData.sleeve());
             }
-            list = query.getResultList();
+            if (shirtData.collar() != -1) {
+                queryShirt.setParameter("collar", shirtData.collar());
+            }
+            if (shirtData.pocket() != -1) {
+                queryShirt.setParameter("pocket", shirtData.pocket());
+            }
+            if (shirtData.price() != -1) {
+                queryShirt.setParameter("price", shirtData.price());
+            }
+            if (shirtData.quantity() != -1) {
+                queryShirt.setParameter("quantity", shirtData.quantity());    
+            }
+            if (EnumSet.allOf(ShirtSize.class).contains(shirtData.size())) {
+                queryShirt.setParameter("size", shirtData.size());
+            }
+            if (EnumSet.allOf(Gender.class).contains(shirtData.gender())) {
+                queryShirt.setParameter("gender", shirtData.gender());
+            }
+            if(!shirtData.fabric().isBlank()) {
+            queryShirt.setParameter("fabric", shirtData.fabric());
+            }
+            if(!shirtData.color().isBlank()) {
+                queryShirt.setParameter("color", "%" + shirtData.color() + "%");
+            }
+            if(!shirtData.brand().isBlank()) {
+            queryShirt.setParameter("brand", shirtData.brand());
+            }
+            if(!shirtData.style().isBlank()) {
+            queryShirt.setParameter("style", shirtData.style());
+            }
+            if(!shirtData.pattern().isBlank()) {
+            queryShirt.setParameter("pattern", shirtData.pattern());
+            }
+            if(!shirtData.closureType().isBlank()) {
+            queryShirt.setParameter("closureType", shirtData.closureType());
+            }
+            
+            list = queryShirt.getResultList();
         }
 
         if (list == null) {
-            System.out.println("A LISTA E NULL NO REPOSITORY");
             return null;
         }
 

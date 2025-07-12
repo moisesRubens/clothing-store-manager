@@ -1127,9 +1127,7 @@ public class MainWindow extends javax.swing.JFrame {
     private void jButtonConsultarCamisa1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsultarCamisa1ActionPerformed
         try {
             consultarCamisaAux();
-        } catch (RoupaNaoExistenteException e) {
-            handleException(e);
-        } catch (Exception e) {
+        } catch(Exception e) {
             handleException(e);
         }
     }//GEN-LAST:event_jButtonConsultarCamisa1ActionPerformed
@@ -1492,11 +1490,11 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     private void consultarCamisaAux() throws Exception {
-        Integer collar;
-        Integer sleeve;
-        Integer pocket = (jTextFieldConsultPocket.getText().isEmpty()) ? -1 : Integer.valueOf(jTextFieldConsultPocket.getText());
-        Integer quantity = (jTextFieldConsultQuantity.getText().isEmpty()) ? -1 : Integer.valueOf(jTextFieldConsultQuantity.getText());
-        Double price = (jTextFieldConsultPrice.getText().isEmpty()) ? -1D : Double.valueOf(jTextFieldConsultPrice.getText());
+        Integer collar = -1;
+        Integer sleeve = -1;
+        Integer pocket = (jTextFieldConsultPocket.getText().isBlank()) ? -1 : Integer.valueOf(jTextFieldConsultPocket.getText());
+        Integer quantity = (jTextFieldConsultQuantity.getText().isBlank()) ? -1 : Integer.valueOf(jTextFieldConsultQuantity.getText());
+        Double price = (jTextFieldConsultPrice.getText().isBlank()) ? -1D : Double.valueOf(jTextFieldConsultPrice.getText());
         String pattern = jTextFieldConsultPattern.getText();
         String style = jTextFieldConsultStyle.getText();
         String brand = jTextFieldConsultBrand.getText();
@@ -1505,14 +1503,14 @@ public class MainWindow extends javax.swing.JFrame {
         String closureType = jTextFieldConsultClosureType.getText();
         ShirtSize shirtSize = null;
         Gender gender = null;
-
+        
         if (jTextFieldConsultShirtSize.getText().equals("P")) {
             shirtSize = ShirtSize.SMALL;
         } else if (jTextFieldConsultShirtSize.getText().equals("M")) {
             shirtSize = ShirtSize.MEDIUM;
         } else if (jTextFieldConsultShirtSize.getText().equals("G")) {
             shirtSize = ShirtSize.LARGE;
-        } else if (!jTextFieldConsultShirtSize.getText().isEmpty() || !jTextFieldConsultShirtSize.getText().isBlank()) {
+        } else if (!jTextFieldConsultShirtSize.getText().isBlank()) {
             throw new IllegalArgumentException("INSIRA UM TAMANHO VALIDO");
         }
 
@@ -1520,30 +1518,26 @@ public class MainWindow extends javax.swing.JFrame {
             gender = Gender.MALE;
         } else if (jTextFieldConsultGender.getText().equals("F")) {
             gender = Gender.FEMALE;
-        } else if (!jTextFieldConsultGender.getText().isEmpty() || !jTextFieldConsultGender.getText().isBlank()) {
+        } else if (!jTextFieldConsultGender.getText().isBlank()) {
             throw new IllegalArgumentException("INSIRA UM GENERO VALIDO");
         }
 
         if ((jCheckBoxConsultCollarSim.isSelected() && jCheckBoxConsultCollarNao.isSelected())
-                || (jCheckBoxConsultSleeveSim.isSelected() && jCheckBoxConsultSleeveNao.isSelected())) {
+            || (jCheckBoxConsultSleeveSim.isSelected() && jCheckBoxConsultSleeveNao.isSelected())) {
             throw new IllegalArgumentException("INSIRA APENAS UM VALOR PARA GOLA E MANGA");
         }
 
-        if (!jCheckBoxConsultCollarSim.isSelected() && !jCheckBoxConsultCollarNao.isSelected()) {
-            collar = -1;
-        } else if (jCheckBoxConsultCollarSim.isSelected()) {
+        if (jCheckBoxConsultCollarSim.isSelected()) {
             collar = 1;
-        } else {
+        } else if (jCheckBoxConsultCollarNao.isSelected()) {
             collar = 0;
         }
 
-        if (!jCheckBoxConsultSleeveSim.isSelected() && !jCheckBoxConsultSleeveNao.isSelected()) {
-            sleeve = -1;
-        } else if (jCheckBoxConsultSleeveSim.isSelected()) {
+        if (jCheckBoxConsultSleeveSim.isSelected()) {
             sleeve = 1;
-        } else {
+        } else if (jCheckBoxConsultSleeveNao.isSelected()) {
             sleeve = 0;
-        }
+        } 
 
         ShirtRequestDTO dataShirt = new ShirtRequestDTO(color, price, quantity, fabric, brand, style,
                 gender, pattern, pocket, closureType, ClothingType.STANDARD,
