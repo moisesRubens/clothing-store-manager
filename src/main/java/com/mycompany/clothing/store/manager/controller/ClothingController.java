@@ -50,7 +50,6 @@ public class ClothingController {
             }
             return shirts;
         }
-
         return null;
     }
 
@@ -74,30 +73,6 @@ public class ClothingController {
 
     public void decrementClothing(Integer id, Integer quantity) throws Exception {
         clothingService.decrement(id, quantity);
-    }
-
-    public List<ClothingResponseDTO> consultById(Integer id) {
-        List<Clothing> list = clothingService.getById(id);
-        List listResult = new ArrayList<>();
-
-        if (list == null || list.isEmpty()) {
-            return listResult;
-        }
-
-        if (list.get(0) instanceof Shirt) {
-            List<Shirt> shirts = new ArrayList<>();
-
-            for (Clothing c : list) {
-                shirts.add((Shirt) c);
-            }
-
-            listResult = shirts.stream().map(shirt -> new ShirtResponseDTO(shirt.getId(), shirt.getColor(), shirt.getPrice(), shirt.getQuantity(),
-                    shirt.getFabric(), shirt.getBrand(), shirt.getStyle(), shirt.getGender(),
-                    shirt.getPattern(), shirt.getPocket(), shirt.getClosureType(), shirt.getClothingType(),
-                    shirt.getSleeve(), shirt.getCollar(), shirt.getSize())).toList();
-        }
-
-        return listResult;
     }
 
     public Integer getQuantity() {

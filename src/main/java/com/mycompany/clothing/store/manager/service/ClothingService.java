@@ -40,7 +40,13 @@ public class ClothingService {
     }
 
     public List<Clothing> getAllClothings(ClothingPiece piece) {
-        return clothingRepository.getAll(piece);
+        String query = "";
+        
+        if(piece.equals(ClothingPiece.SHIRT)) {
+            query += "SELECT s FROM Shirt s";
+        }
+        
+        return clothingRepository.getAll(query);
     }
 
     public void register(ClothingRequestDTO clothing) throws Exception {

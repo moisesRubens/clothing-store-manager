@@ -21,6 +21,7 @@ import jakarta.persistence.Persistence;
 import jakarta.persistence.PersistenceException;
 import jakarta.persistence.QueryHint;
 import jakarta.persistence.TypedQuery;
+import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.List;
 import java.util.logging.Level;
@@ -45,12 +46,8 @@ public class ClothingRepository {
         return list.size();
     }
 
-    public List<Clothing> getAll(ClothingPiece piece) {
-        if (piece.equals(ClothingPiece.SHIRT)) {
-            return em.createQuery("SELECT a FROM Shirt a").getResultList();
-        }
-
-        return null;
+    public List<Clothing> getAll(String query) {
+        return em.createQuery(query).getResultList();
     }
 
     public void incrementClothing(Integer id, Integer quantity) {
