@@ -82,7 +82,7 @@ public class ClothingRepository {
         }
     }
 
-    public List consult(ClothingRequestDTO data, String query) throws Exception {
+    public List<Clothing> consult(ClothingRequestDTO data, String query) throws Exception {
         try {
             return consultAux(data, query);
         } catch (Exception e) {
@@ -158,7 +158,7 @@ public class ClothingRepository {
         return id;
     }
 
-    private List consultAux(ClothingRequestDTO data, String query) throws Exception {
+    private List<Clothing> consultAux(ClothingRequestDTO data, String query) throws Exception {
         List list = null;
 
         if (data instanceof ShirtRequestDTO shirtData) {

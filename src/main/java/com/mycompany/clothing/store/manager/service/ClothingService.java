@@ -54,7 +54,7 @@ public class ClothingService {
         }
     }
 
-    public List consult(ClothingRequestDTO data) throws Exception {
+    public List<Clothing> consult(ClothingRequestDTO data) throws Exception {
         String query = createQuerry(data);
         return clothingRepository.consult(data, query);
     }

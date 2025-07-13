@@ -27,7 +27,7 @@ public class ClothingController {
 
     private final ClothingService clothingService;
     private final EntityManager em;
-    
+
     public ClothingController(EntityManager em) {
         this.em = em;
         this.clothingService = new ClothingService(em);
@@ -36,70 +36,70 @@ public class ClothingController {
     public void registerClothing(ClothingRequestDTO data) throws Exception {
         clothingService.register(data);
     }
-    
+
     public List viewAll(ClothingPiece piece) {
         List<Clothing> list = clothingService.getAllClothings(piece);
-        
-        if(piece.equals(ClothingPiece.SHIRT)) {
+
+        if (piece.equals(ClothingPiece.SHIRT)) {
             List<ShirtResponseDTO> shirts = new ArrayList<>();
-            for(Clothing clothing : list) {
-                Shirt shirt = (Shirt)clothing;
+            for (Clothing clothing : list) {
+                Shirt shirt = (Shirt) clothing;
                 shirts.add(new ShirtResponseDTO(shirt.getId(), shirt.getColor(), shirt.getPrice(), shirt.getQuantity(), shirt.getFabric(),
-                                               shirt.getBrand(), shirt.getStyle(), shirt.getGender(), shirt.getPattern(), shirt.getPocket(),
-                                               shirt.getClosureType(), shirt.getClothingType(), shirt.getSleeve(), shirt.getCollar(), shirt.getSize()));
-            }   
+                        shirt.getBrand(), shirt.getStyle(), shirt.getGender(), shirt.getPattern(), shirt.getPocket(),
+                        shirt.getClosureType(), shirt.getClothingType(), shirt.getSleeve(), shirt.getCollar(), shirt.getSize()));
+            }
             return shirts;
         }
-        
+
         return null;
     }
-    
-    public List<ClothingResponseDTO> consult(ClothingRequestDTO data) throws Exception {
-        List list = null;
 
-        if (data instanceof ShirtRequestDTO shirtData) {
-            Shirt shirt = new Shirt(shirtData.color(), shirtData.price(), shirtData.quantity(), shirtData.clothingType(),
-                                    shirtData.fabric(), shirtData.brand(), shirtData.style(), shirtData.gender(), shirtData.pattern(),
-                                    shirtData.pocket(), shirtData.closureType(), shirtData.size(), shirtData.sleeve(), shirtData.collar());
-            
-            List<Shirt> shirts = clothingService.consult(data);
-            list = shirts.stream().map(shirtAux -> new ShirtResponseDTO(shirtAux.getId(), shirtAux.getColor(), shirtAux.getPrice(), shirtAux.getQuantity(),
-                                                                        shirtAux.getFabric(), shirtAux.getBrand(), shirtAux.getStyle(), shirtAux.getGender(),
-                                                                        shirtAux.getPattern(), shirtAux.getPocket(), shirtAux.getClosureType(),
-                                                                        shirtAux.getClothingType(), shirtAux.getSleeve(), shirtAux.getCollar(),
-                                                                        shirtAux.getSize())).toList();
-        } 
+    public List<ClothingResponseDTO> consult(ClothingRequestDTO data) throws Exception {
+        List<ClothingResponseDTO> list = new ArrayList<>();
+        List<Clothing> shirts = clothingService.consult(data);
+
+        if (data instanceof ShirtRequestDTO) {
+            for (Clothing c : shirts) {
+                Shirt s = (Shirt)c;
+                list.add(new ShirtResponseDTO(s.getId(), s.getColor(), s.getPrice(), s.getQuantity(),
+                        s.getFabric(), s.getBrand(), s.getStyle(), s.getGender(),
+                        s.getPattern(), s.getPocket(), s.getClosureType(),
+                        s.getClothingType(), s.getSleeve(), s.getCollar(),
+                        s.getSize()));
+            }
+            return list;
+        }
         return list;
     }
-    
+
     public void decrementClothing(Integer id, Integer quantity) throws Exception {
         clothingService.decrement(id, quantity);
     }
-    
+
     public List<ClothingResponseDTO> consultById(Integer id) {
         List<Clothing> list = clothingService.getById(id);
         List listResult = new ArrayList<>();
-        
-        if(list == null || list.isEmpty()) {
+
+        if (list == null || list.isEmpty()) {
             return listResult;
         }
-        
-        if(list.get(0) instanceof Shirt) {
+
+        if (list.get(0) instanceof Shirt) {
             List<Shirt> shirts = new ArrayList<>();
-            
-            for(Clothing c : list) {
-                shirts.add((Shirt)c);
+
+            for (Clothing c : list) {
+                shirts.add((Shirt) c);
             }
-            
+
             listResult = shirts.stream().map(shirt -> new ShirtResponseDTO(shirt.getId(), shirt.getColor(), shirt.getPrice(), shirt.getQuantity(),
-                                                                   shirt.getFabric(), shirt.getBrand(), shirt.getStyle(), shirt.getGender(), 
-                                                                   shirt.getPattern(), shirt.getPocket(), shirt.getClosureType(), shirt.getClothingType(),
-                                                                   shirt.getSleeve(), shirt.getCollar(), shirt.getSize())).toList();
+                    shirt.getFabric(), shirt.getBrand(), shirt.getStyle(), shirt.getGender(),
+                    shirt.getPattern(), shirt.getPocket(), shirt.getClosureType(), shirt.getClothingType(),
+                    shirt.getSleeve(), shirt.getCollar(), shirt.getSize())).toList();
         }
 
         return listResult;
     }
-    
+
     public Integer getQuantity() {
         return clothingService.getTotalQuantity();
     }
