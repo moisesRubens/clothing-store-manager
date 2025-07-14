@@ -20,21 +20,6 @@
         <Property name="useNullLayout" type="boolean" value="true"/>
       </Layout>
     </Container>
-    <Container class="javax.swing.JPanel" name="PainelRemoverCalca1">
-
-      <Layout>
-        <DimensionLayout dim="0">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="100" max="32767" attributes="0"/>
-          </Group>
-        </DimensionLayout>
-        <DimensionLayout dim="1">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="100" max="32767" attributes="0"/>
-          </Group>
-        </DimensionLayout>
-      </Layout>
-    </Container>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
@@ -253,38 +238,77 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jButtonAddShirtBack" min="-2" pref="87" max="-2" attributes="0"/>
+                                  <Component id="jButtonAdicionarCamisaBack" min="-2" pref="87" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="jButtonAddShirtExit" min="-2" pref="87" max="-2" attributes="0"/>
+                                  <Component id="jButtonAdicionarCamisaExit" min="-2" pref="87" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jLabelSize" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelAdicionarCamisaSize" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldSize" min="-2" pref="255" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldAdicionarCamisaSize" min="-2" pref="255" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jCheckBoxCollar" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jCheckBoxAdicionarCamisaCollar" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jCheckBoxSleeve" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jCheckBoxAdicionarCamisaSleeve" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="336" max="-2" attributes="0"/>
+                          <Component id="jButtonAdicionarCamisa" min="-2" pref="228" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="336" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabelAdicionarCamisaCor" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
+                              <Component id="jLabelAdicionarCamisaQuantity" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelAdicionarCamisaBrand" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelAdicionarCamisaGender" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelAdicionarCamisaPocket" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="PainelCadastrarRoupa" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldAdicionarCamisaColor" min="-2" pref="256" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+                                  <Component id="jLabelAdicionarCamisaPrice" min="-2" pref="37" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="336" max="-2" attributes="0"/>
-                                  <Component id="jButtonFinalizar" min="-2" pref="228" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jTextFieldAdicionarCamisaQuantity" alignment="0" min="-2" pref="255" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldAdicionarCamisaBrand" alignment="0" min="-2" pref="255" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabelAdicionarCamisaStyle" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelAdicionarCamisaFabric" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jTextFieldAdicionarCamisaGender" alignment="0" min="-2" pref="255" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldAdicionarCamisaPocket" alignment="0" min="-2" pref="255" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabelAdicionarCamisaClosureType" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelAdicionarCamisaPattern" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jTextFieldAdicionarCamisaClosureType" alignment="1" max="32767" attributes="0"/>
+                              <Component id="jTextFieldAdicionarCamisaPrice" alignment="0" pref="333" max="32767" attributes="0"/>
+                              <Component id="jTextFieldAdicionarCamisaPattern" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jTextFieldAdicionarCamisaStyle" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jTextFieldAdicionarCamisaFabric" alignment="0" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -295,20 +319,53 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="PainelCadastrarRoupa" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabelSize" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextFieldSize" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCheckBoxCollar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCheckBoxSleeve" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelAdicionarCamisaCor" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldAdicionarCamisaColor" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelAdicionarCamisaPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldAdicionarCamisaPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabelAdicionarCamisaQuantity" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldAdicionarCamisaQuantity" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelAdicionarCamisaFabric" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldAdicionarCamisaFabric" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabelAdicionarCamisaBrand" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldAdicionarCamisaBrand" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelAdicionarCamisaStyle" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldAdicionarCamisaStyle" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jTextFieldAdicionarCamisaGender" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelAdicionarCamisaPattern" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldAdicionarCamisaPattern" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelAdicionarCamisaGender" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabelAdicionarCamisaPocket" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldAdicionarCamisaPocket" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelAdicionarCamisaClosureType" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="jTextFieldAdicionarCamisaClosureType" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabelAdicionarCamisaSize" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldAdicionarCamisaSize" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxAdicionarCamisaCollar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxAdicionarCamisaSleeve" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="84" max="32767" attributes="0"/>
-                  <Component id="jButtonFinalizar" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonAdicionarCamisa" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jButtonAddShirtExit" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButtonAddShirtBack" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonAdicionarCamisaExit" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonAdicionarCamisaBack" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -316,237 +373,132 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="jButtonFinalizar">
+        <Component class="javax.swing.JButton" name="jButtonAdicionarCamisa">
           <Properties>
             <Property name="text" type="java.lang.String" value="Cadastrar Camisa"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonFinalizarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAdicionarCamisaActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabelSize">
+        <Component class="javax.swing.JLabel" name="jLabelAdicionarCamisaSize">
           <Properties>
             <Property name="text" type="java.lang.String" value="TAMANHO"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldSize">
+        <Component class="javax.swing.JTextField" name="jTextFieldAdicionarCamisaSize">
         </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBoxCollar">
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxAdicionarCamisaCollar">
           <Properties>
             <Property name="text" type="java.lang.String" value="GOLA"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxCollarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxAdicionarCamisaCollarActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBoxSleeve">
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxAdicionarCamisaSleeve">
           <Properties>
             <Property name="text" type="java.lang.String" value="MANGA"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxSleeveActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxAdicionarCamisaSleeveActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButtonAddShirtExit">
+        <Component class="javax.swing.JButton" name="jButtonAdicionarCamisaExit">
           <Properties>
             <Property name="text" type="java.lang.String" value="Sair"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAddShirtExitActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAdicionarCamisaExitActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButtonAddShirtBack">
+        <Component class="javax.swing.JButton" name="jButtonAdicionarCamisaBack">
           <Properties>
             <Property name="text" type="java.lang.String" value="Voltar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAddShirtBackActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAdicionarCamisaBackActionPerformed"/>
           </Events>
         </Component>
-        <Container class="javax.swing.JPanel" name="PainelCadastrarRoupa">
+        <Component class="javax.swing.JLabel" name="jLabelAdicionarCamisaQuantity">
           <Properties>
-            <Property name="opaque" type="boolean" value="false"/>
+            <Property name="text" type="java.lang.String" value="QUANTIDADE"/>
           </Properties>
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabelCor3" min="-2" pref="37" max="-2" attributes="0"/>
-                          <Component id="jLabelQuantity2" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelBrand3" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelGender3" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelPocket3" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jTextFieldColor" min="-2" pref="256" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
-                              <Component id="jLabelPrice3" min="-2" pref="37" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTextFieldQuantity" alignment="0" min="-2" pref="255" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldBrand" alignment="0" min="-2" pref="255" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabelStyle3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelFabric3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTextFieldGender" alignment="0" min="-2" pref="255" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldPocket" alignment="0" min="-2" pref="255" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabelClosureType3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelPattern3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTextFieldPrice" pref="315" max="32767" attributes="0"/>
-                          <Component id="jTextFieldPattern" max="32767" attributes="0"/>
-                          <Component id="jTextFieldClosureType" max="32767" attributes="0"/>
-                          <Component id="jTextFieldStyle" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jTextFieldFabric" alignment="0" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabelCor3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldColor" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelPrice3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldPrice" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabelQuantity2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldQuantity" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelFabric3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldFabric" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabelBrand3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldBrand" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelStyle3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldStyle" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jTextFieldGender" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelPattern3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldPattern" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelGender3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabelPocket3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldPocket" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelClosureType3" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="jTextFieldClosureType" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="27" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-          <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabelCor3">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="COR"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabelPrice3">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="PRECO"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabelQuantity2">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="QUANTIDADE"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabelFabric3">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="TECIDO"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabelBrand3">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="MARCA"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabelStyle3">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="ESTILO"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabelGender3">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="GENERO"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabelPattern3">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="ESTAMPA"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabelPocket3">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="BOLSO"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabelClosureType3">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="TIPO DE FECHAMENTO"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldColor">
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldPrice">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldPriceActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldQuantity">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldQuantityActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldFabric">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldFabricActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldPattern">
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldPocket">
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldBrand">
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldGender">
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldStyle">
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldClosureType">
-            </Component>
-          </SubComponents>
-        </Container>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldAdicionarCamisaFabric">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldAdicionarCamisaFabricActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelAdicionarCamisaFabric">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="TECIDO"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldAdicionarCamisaPattern">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelAdicionarCamisaBrand">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="MARCA"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldAdicionarCamisaPocket">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelAdicionarCamisaStyle">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="ESTILO"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldAdicionarCamisaBrand">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelAdicionarCamisaGender">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="GENERO"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldAdicionarCamisaGender">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelAdicionarCamisaPattern">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="ESTAMPA"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldAdicionarCamisaStyle">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelAdicionarCamisaPocket">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="BOLSO"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldAdicionarCamisaClosureType">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelAdicionarCamisaClosureType">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="TIPO DE FECHAMENTO"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldAdicionarCamisaColor">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelAdicionarCamisaCor">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="COR"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldAdicionarCamisaPrice">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldAdicionarCamisaPriceActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelAdicionarCamisaPrice">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="PRECO"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldAdicionarCamisaQuantity">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldAdicionarCamisaQuantityActionPerformed"/>
+          </Events>
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="PainelConsultarCamisa">
@@ -1422,6 +1374,26 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <EmptySpace min="0" pref="100" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+    </Container>
+    <Container class="javax.swing.JPanel" name="PainelAdicionarCalca">
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="0" y="0" width="-1" height="-1"/>
+        </Constraint>
+      </Constraints>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="1106" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="572" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
