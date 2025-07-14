@@ -1282,16 +1282,24 @@ public class MainWindow extends javax.swing.JFrame {
             allClothings = true;
             CardLayout a = (CardLayout) getContentPane().getLayout();
             a.show(getContentPane(), "PainelRemoveShirt");
+        } catch (RoupaNaoExistenteException e) {
+            JOptionPane.showMessageDialog(this, "NÃO HÁ ROUPAS PARA REMOVER", "LISTA VAZIA", JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception e) {
-            handleException(e);
+            JOptionPane.showMessageDialog(this, "OCORREU UM ERRO", "FALHA NO SISTEMA", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_buttonViewAllActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Table table = new Table(em);
-        table.viewAllClothing(ClothingPiece.SHIRT);
-        table.setLocationRelativeTo(null);
-        table.setVisible(true);
+        try {
+            Table table = new Table(em);
+            table.viewAllClothing(ClothingPiece.SHIRT);
+            table.setLocationRelativeTo(null);
+            table.setVisible(true);
+        } catch (RoupaNaoExistenteException e) {
+            JOptionPane.showMessageDialog(this, "NÃO HÁ ROUPAS PARA CONSULTAR", "LISTA VAZIA", JOptionPane.INFORMATION_MESSAGE);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "OCORREU UM ERRO", "FALHA NO SISTEMA", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void updateQuantityClothings() {
@@ -1303,10 +1311,12 @@ public class MainWindow extends javax.swing.JFrame {
             Integer id = Integer.valueOf(jTextFieldRemoveShirtid.getText());
             Integer quantity = Integer.valueOf(jTextFieldRemoveShirtQuantity.getText());
             clothingController.decrementClothing(id, quantity);
-            JOptionPane.showMessageDialog(this, "SUCESSO", "RESULTADO", JOptionPane.INFORMATION_MESSAGE);
-        } catch (IllegalArgumentException e) {
-            throw new IllegalArgumentException("ID INVALIDO", e);
-        }
+            JOptionPane.showMessageDialog(this, "REMOÇÃO EFETUADA", "RESULTADO", JOptionPane.INFORMATION_MESSAGE);
+        } catch (IllegalArgumentException | IllegalStateException | RoupaNaoExistenteException e) {
+            JOptionPane.showMessageDialog(this, e.getMessage(), "RESULTADO", JOptionPane.INFORMATION_MESSAGE);
+        } catch(Exception e) {
+            JOptionPane.showMessageDialog(this, "FALHA NO SISTEMA", "ERRO", JOptionPane.ERROR_MESSAGE);
+        } 
     }
 
     private void updateTable(Boolean allClothings) throws Exception {
@@ -1362,7 +1372,7 @@ public class MainWindow extends javax.swing.JFrame {
                     sleeve = 1;
                 } else if (jCheckBoxRemoveSleeveNao.isSelected()) {
                     sleeve = 0;
-                } 
+                }
 
                 ShirtRequestDTO dataShirt = new ShirtRequestDTO(color, price, quantity, fabric, brand, style,
                         gender, pattern, pocket, closureType, ClothingType.STANDARD,

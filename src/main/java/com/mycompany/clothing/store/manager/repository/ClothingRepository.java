@@ -17,6 +17,7 @@ import com.mycompany.clothing.store.manager.service.ClothingMapper;
 import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.NoResultException;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.PersistenceException;
 import jakarta.persistence.QueryHint;
@@ -47,7 +48,14 @@ public class ClothingRepository {
     }
 
     public List<Clothing> getAll(String query) {
-        return em.createQuery(query).getResultList();
+        List<Clothing> list = new ArrayList<>();
+        try {
+            list = em.createQuery(query).getResultList();
+        } catch (PersistenceException e) {
+            handleException(e);
+            throw e;
+        }
+        return list;
     }
 
     public void incrementClothing(Integer id, Integer quantity) {
@@ -176,7 +184,7 @@ public class ClothingRepository {
                 queryShirt.setParameter("price", shirtData.price());
             }
             if (shirtData.quantity() != -1) {
-                queryShirt.setParameter("quantity", shirtData.quantity());    
+                queryShirt.setParameter("quantity", shirtData.quantity());
             }
             if (EnumSet.allOf(ShirtSize.class).contains(shirtData.size())) {
                 queryShirt.setParameter("size", shirtData.size());
@@ -184,25 +192,25 @@ public class ClothingRepository {
             if (EnumSet.allOf(Gender.class).contains(shirtData.gender())) {
                 queryShirt.setParameter("gender", shirtData.gender());
             }
-            if(!shirtData.fabric().isBlank()) {
-            queryShirt.setParameter("fabric", shirtData.fabric());
+            if (!shirtData.fabric().isBlank()) {
+                queryShirt.setParameter("fabric", shirtData.fabric());
             }
-            if(!shirtData.color().isBlank()) {
+            if (!shirtData.color().isBlank()) {
                 queryShirt.setParameter("color", "%" + shirtData.color() + "%");
             }
-            if(!shirtData.brand().isBlank()) {
-            queryShirt.setParameter("brand", shirtData.brand());
+            if (!shirtData.brand().isBlank()) {
+                queryShirt.setParameter("brand", shirtData.brand());
             }
-            if(!shirtData.style().isBlank()) {
-            queryShirt.setParameter("style", shirtData.style());
+            if (!shirtData.style().isBlank()) {
+                queryShirt.setParameter("style", shirtData.style());
             }
-            if(!shirtData.pattern().isBlank()) {
-            queryShirt.setParameter("pattern", shirtData.pattern());
+            if (!shirtData.pattern().isBlank()) {
+                queryShirt.setParameter("pattern", shirtData.pattern());
             }
-            if(!shirtData.closureType().isBlank()) {
-            queryShirt.setParameter("closureType", shirtData.closureType());
+            if (!shirtData.closureType().isBlank()) {
+                queryShirt.setParameter("closureType", shirtData.closureType());
             }
-            
+
             list = queryShirt.getResultList();
         }
 
@@ -219,6 +227,8 @@ public class ClothingRepository {
     public Clothing getClothingById(Integer id) throws Exception {
         try {
             return getClothingByIdAux(id);
+        } catch (RoupaNaoExistenteException e) {
+            throw e;
         } catch (Exception e) {
             handleException(e);
             throw e;
@@ -244,10 +254,14 @@ public class ClothingRepository {
     }
 
     private Clothing getClothingByIdAux(Integer id) throws Exception {
-        List<Clothing> result = em.createQuery("SELECT s FROM Clothing s WHERE s.id = :id ", Clothing.class)
-                .setParameter("id", id).getResultList();
-
-        return result.isEmpty() ? null : result.get(0);
+        Clothing clothing;
+        try {
+            clothing = em.createQuery("SELECT s FROM Clothing s WHERE s.id = :id ", Clothing.class)
+                .setParameter("id", id).getSingleResult();
+        } catch(NoResultException e) {
+            throw new RoupaNaoExistenteException("ROUPA NÃO EXISTENTE NO SISTEMA");
+        }
+        return clothing;
     }
 
     private void registerInDatabaseAux(Clothing clothing) throws Exception {
@@ -255,7 +269,7 @@ public class ClothingRepository {
     }
 
     private void handleException(Exception e) {
-        logger.log(Level.WARNING, "ERRO", e);
+        logger.log(Level.SEVERE, "ERRO", e);
         if (em.getTransaction().isActive()) {
             em.getTransaction().rollback();
         }
@@ -265,8 +279,15 @@ public class ClothingRepository {
         return (str == null || str.isEmpty() || str.isBlank());
     }
 
-    public List getById(Integer id) {
-        return em.createQuery("SELECT s FROM Shirt s WHERE s.id = :id")
-                .setParameter("id", id).getResultList();
+    public Clothing getById(Integer id) throws Exception{
+        try {
+            return em.createQuery("SELECT s FROM Shirt s WHERE s.id = :id", Shirt.class)
+                    .setParameter("id", id).getSingleResult();
+        } catch (NoResultException e) {
+            throw new RoupaNaoExistenteException();
+        } catch (PersistenceException e) {
+            handleException(e);
+            throw e;
+        }
     }
 }

@@ -12,5 +12,9 @@ public class RoupaNaoExistenteException extends Exception {
 
     public RoupaNaoExistenteException(String message) {
         super(message);
-    }    
+    }  
+    
+    public RoupaNaoExistenteException() {
+        super();
+    }
 }

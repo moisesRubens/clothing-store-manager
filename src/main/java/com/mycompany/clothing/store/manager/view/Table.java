@@ -77,7 +77,7 @@ public class Table extends javax.swing.JFrame {
 
     public void fillTable(List<ClothingResponseDTO> list) {
         DefaultTableModel model = new DefaultTableModel();
-
+        
         if (list.getFirst() instanceof ShirtResponseDTO) {
             model.addColumn("ID");
             model.addColumn("COR");
@@ -117,7 +117,7 @@ public class Table extends javax.swing.JFrame {
         }
     }
 
-    public void viewAllClothing(ClothingPiece piece) {
+    public void viewAllClothing(ClothingPiece piece) throws Exception {
         List<ClothingResponseDTO> list = clothingController.viewAll(piece);
         fillTable(list);
     }

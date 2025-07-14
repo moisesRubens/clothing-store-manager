@@ -39,14 +39,19 @@ public class ClothingService {
         return clothingRepository.existClothing(clothing);
     }
 
-    public List<Clothing> getAllClothings(ClothingPiece piece) {
+    public List<Clothing> getAllClothings(ClothingPiece piece) throws Exception {
+        List<Clothing> list;
         String query = "";
         
         if(piece.equals(ClothingPiece.SHIRT)) {
             query += "SELECT s FROM Shirt s";
         }
         
-        return clothingRepository.getAll(query);
+        list = clothingRepository.getAll(query);
+        if(list.isEmpty()) {
+            throw new RoupaNaoExistenteException();
+        }
+        return list;
     }
 
     public void register(ClothingRequestDTO clothing) throws Exception {
@@ -147,11 +152,11 @@ public class ClothingService {
 
     public void decrement(Integer id, Integer quantity) throws Exception {
         if (id < 0 || quantity <= 0) {
-            throw new IllegalArgumentException("PREENCHA CORRETAMENTE OS CAMPOS");
+            throw new IllegalArgumentException("INSIRA UM ID VALIDO");
         }
         Clothing clothing = getClothingById(id);
         if (clothing.getQuantity() < quantity) {
-            throw new IllegalStateException("QUANTIDADE INSUFICIENTE");
+            throw new IllegalStateException("QUANTIDADE INSUFICIENTE DE UNIDADES DESTE MODELO");
         }
         clothing.setQuantity(clothing.getQuantity() - quantity);
         clothingRepository.updateData(clothing);
@@ -164,7 +169,7 @@ public class ClothingService {
         clothingRepository.incrementClothing(id, quantity);
     }
 
-    public List getById(Integer id) {
+    public Clothing getById(Integer id) throws Exception {
         return clothingRepository.getById(id);
     }
 }

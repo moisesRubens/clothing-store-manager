@@ -37,18 +37,18 @@ public class ClothingController {
         clothingService.register(data);
     }
 
-    public List viewAll(ClothingPiece piece) {
+    public List<ClothingResponseDTO> viewAll(ClothingPiece piece) throws Exception {
         List<Clothing> list = clothingService.getAllClothings(piece);
+        List<ClothingResponseDTO> listResult = new ArrayList<>();
 
         if (piece.equals(ClothingPiece.SHIRT)) {
-            List<ShirtResponseDTO> shirts = new ArrayList<>();
-            for (Clothing clothing : list) {
-                Shirt shirt = (Shirt) clothing;
-                shirts.add(new ShirtResponseDTO(shirt.getId(), shirt.getColor(), shirt.getPrice(), shirt.getQuantity(), shirt.getFabric(),
+            for (Clothing c : list) {
+                Shirt shirt = (Shirt) c;
+                listResult.add(new ShirtResponseDTO(shirt.getId(), shirt.getColor(), shirt.getPrice(), shirt.getQuantity(), shirt.getFabric(),
                         shirt.getBrand(), shirt.getStyle(), shirt.getGender(), shirt.getPattern(), shirt.getPocket(),
                         shirt.getClosureType(), shirt.getClothingType(), shirt.getSleeve(), shirt.getCollar(), shirt.getSize()));
             }
-            return shirts;
+            return listResult;
         }
         return null;
     }
