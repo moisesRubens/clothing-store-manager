@@ -261,15 +261,18 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="336" max="-2" attributes="0"/>
                           <Component id="jButtonAdicionarCamisa" min="-2" pref="228" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="336" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="483" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabelAdicionarCamisaCor" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
                               <Component id="jLabelAdicionarCamisaQuantity" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabelAdicionarCamisaBrand" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabelAdicionarCamisaGender" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabelAdicionarCamisaPocket" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jLabelAdicionarCamisaCor" min="-2" pref="37" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -304,7 +307,7 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jTextFieldAdicionarCamisaClosureType" alignment="1" max="32767" attributes="0"/>
-                              <Component id="jTextFieldAdicionarCamisaPrice" alignment="0" pref="333" max="32767" attributes="0"/>
+                              <Component id="jTextFieldAdicionarCamisaPrice" alignment="0" pref="480" max="32767" attributes="0"/>
                               <Component id="jTextFieldAdicionarCamisaPattern" alignment="0" max="32767" attributes="0"/>
                               <Component id="jTextFieldAdicionarCamisaStyle" alignment="0" max="32767" attributes="0"/>
                               <Component id="jTextFieldAdicionarCamisaFabric" alignment="0" max="32767" attributes="0"/>
@@ -319,13 +322,20 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabelAdicionarCamisaCor" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextFieldAdicionarCamisaColor" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelAdicionarCamisaPrice" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextFieldAdicionarCamisaPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jTextFieldAdicionarCamisaColor" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelAdicionarCamisaPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextFieldAdicionarCamisaPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jLabelAdicionarCamisaCor" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabelAdicionarCamisaQuantity" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jTextFieldAdicionarCamisaQuantity" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -360,7 +370,7 @@
                       <Component id="jCheckBoxAdicionarCamisaCollar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jCheckBoxAdicionarCamisaSleeve" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="84" max="32767" attributes="0"/>
+                  <EmptySpace pref="140" max="32767" attributes="0"/>
                   <Component id="jButtonAdicionarCamisa" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -1379,6 +1389,11 @@
       </Layout>
     </Container>
     <Container class="javax.swing.JPanel" name="PainelAdicionarCalca">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="99" green="99" red="0" type="rgb"/>
+        </Property>
+      </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="0" y="0" width="-1" height="-1"/>
@@ -1388,15 +1403,188 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="1106" max="32767" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jLabelAdicionarCalcaQuantity" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelAdicionarCalcaBrand" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelAdicionarCalcaGender" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelAdicionarCalcaPocket" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelAdicionarCalcaCor" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jTextFieldAdicionarCalcaColor" min="-2" pref="256" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+                          <Component id="jLabelAdicionarCalcaPrice" min="-2" pref="37" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jTextFieldAdicionarCalcaQuantity" alignment="0" min="-2" pref="255" max="-2" attributes="0"/>
+                              <Component id="jTextFieldAdicionarCalcaBrand" alignment="0" min="-2" pref="255" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabelAdicionarCalcaStyle" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelAdicionarCalcaFabric" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jTextFieldAdicionarCalcaGender" alignment="0" min="-2" pref="255" max="-2" attributes="0"/>
+                              <Component id="jTextFieldAdicionarCalcaPocket" alignment="0" min="-2" pref="255" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabelAdicionarCalcaClosureType" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelAdicionarCalcaPattern" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jTextFieldAdicionarCalcaClosureType" alignment="1" max="32767" attributes="0"/>
+                      <Component id="jTextFieldAdicionarCalcaPrice" alignment="0" pref="491" max="32767" attributes="0"/>
+                      <Component id="jTextFieldAdicionarCalcaPattern" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jTextFieldAdicionarCalcaStyle" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jTextFieldAdicionarCalcaFabric" alignment="0" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+              </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="572" max="32767" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jTextFieldAdicionarCalcaColor" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelAdicionarCalcaPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextFieldAdicionarCalcaPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jLabelAdicionarCalcaCor" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabelAdicionarCalcaQuantity" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldAdicionarCalcaQuantity" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelAdicionarCalcaFabric" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldAdicionarCalcaFabric" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabelAdicionarCalcaBrand" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldAdicionarCalcaBrand" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelAdicionarCalcaStyle" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldAdicionarCalcaStyle" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jTextFieldAdicionarCalcaGender" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelAdicionarCalcaPattern" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldAdicionarCalcaPattern" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelAdicionarCalcaGender" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabelAdicionarCalcaPocket" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldAdicionarCalcaPocket" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelAdicionarCalcaClosureType" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="jTextFieldAdicionarCalcaClosureType" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="380" max="32767" attributes="0"/>
+              </Group>
           </Group>
         </DimensionLayout>
       </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JTextField" name="jTextFieldAdicionarCalcaPattern">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelAdicionarCalcaBrand">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="MARCA"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldAdicionarCalcaPocket">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelAdicionarCalcaStyle">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="ESTILO"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldAdicionarCalcaBrand">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelAdicionarCalcaGender">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="GENERO"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldAdicionarCalcaGender">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelAdicionarCalcaPattern">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="ESTAMPA"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldAdicionarCalcaStyle">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelAdicionarCalcaPocket">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="BOLSO"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldAdicionarCalcaClosureType">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelAdicionarCalcaClosureType">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="TIPO DE FECHAMENTO"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldAdicionarCalcaColor">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelAdicionarCalcaCor">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="COR"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldAdicionarCalcaPrice">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldAdicionarCalcaPriceActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelAdicionarCalcaPrice">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="PRECO"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldAdicionarCalcaQuantity">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldAdicionarCalcaQuantityActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelAdicionarCalcaQuantity">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="QUANTIDADE"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldAdicionarCalcaFabric">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldAdicionarCalcaFabricActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelAdicionarCalcaFabric">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="TECIDO"/>
+          </Properties>
+        </Component>
+      </SubComponents>
     </Container>
   </SubComponents>
 </Form>
