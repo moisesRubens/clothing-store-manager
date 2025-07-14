@@ -10,6 +10,7 @@
 
     
     <class>com.mycompany.clothing.store.manager.domain.Shirt</class>
+    <class>com.mycompany.clothing.store.manager.domain.Pantie</class>
 
     <properties>
       <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
