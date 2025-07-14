@@ -68,7 +68,7 @@ public class MainWindow extends javax.swing.JFrame {
         getContentPane().add(PainelConsultarCamisa, "PainelConsultarCamisa");
         getContentPane().add(PainelSearchToRemoveShirt, "PainelSearchToRemoveShirt");
         getContentPane().add(PainelRemoveShirt, "PainelRemoveShirt");
-        getContentPane().add(PainelAdicionarCalca, "PainelAdicionarCalca");
+       // getContentPane().add(PainelAdicionarCalca, "PainelAdicionarCalca");
         getContentPane().add(PainelConsultarCalca, "PainelConsultarCalca");
         getContentPane().add(PainelConsultarPraRemoverCalca, "PainelConsultarPraRemoverCalca");
         getContentPane().add(PainelRemoverCalca, "PainelRemoverCalca");
@@ -116,16 +116,16 @@ public class MainWindow extends javax.swing.JFrame {
         jLabelPattern3 = new javax.swing.JLabel();
         jLabelPocket3 = new javax.swing.JLabel();
         jLabelClosureType3 = new javax.swing.JLabel();
-        jTextFieldColor1 = new javax.swing.JTextField();
-        jTextFieldPrice1 = new javax.swing.JTextField();
-        jTextFieldQuantity1 = new javax.swing.JTextField();
-        jTextFieldFabric1 = new javax.swing.JTextField();
-        jTextFieldPattern1 = new javax.swing.JTextField();
-        jTextFieldPocket1 = new javax.swing.JTextField();
-        jTextFieldBrand1 = new javax.swing.JTextField();
-        jTextFieldGender1 = new javax.swing.JTextField();
-        jTextFieldStyle1 = new javax.swing.JTextField();
-        jTextFieldClosureType1 = new javax.swing.JTextField();
+        jTextFieldColor = new javax.swing.JTextField();
+        jTextFieldPrice = new javax.swing.JTextField();
+        jTextFieldQuantity = new javax.swing.JTextField();
+        jTextFieldFabric = new javax.swing.JTextField();
+        jTextFieldPattern = new javax.swing.JTextField();
+        jTextFieldPocket = new javax.swing.JTextField();
+        jTextFieldBrand = new javax.swing.JTextField();
+        jTextFieldGender = new javax.swing.JTextField();
+        jTextFieldStyle = new javax.swing.JTextField();
+        jTextFieldClosureType = new javax.swing.JTextField();
         PainelConsultarCamisa = new javax.swing.JPanel();
         jLabelPrice1 = new javax.swing.JLabel();
         jLabelQuantity1 = new javax.swing.JLabel();
@@ -386,15 +386,21 @@ public class MainWindow extends javax.swing.JFrame {
 
         jLabelClosureType3.setText("TIPO DE FECHAMENTO");
 
-        jTextFieldQuantity1.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldPrice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldQuantity1ActionPerformed(evt);
+                jTextFieldPriceActionPerformed(evt);
             }
         });
 
-        jTextFieldFabric1.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldQuantity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldFabric1ActionPerformed(evt);
+                jTextFieldQuantityActionPerformed(evt);
+            }
+        });
+
+        jTextFieldFabric.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldFabricActionPerformed(evt);
             }
         });
 
@@ -413,32 +419,32 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addGroup(PainelCadastrarRoupaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PainelCadastrarRoupaLayout.createSequentialGroup()
-                        .addComponent(jTextFieldColor1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextFieldColor, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(69, 69, 69)
                         .addComponent(jLabelPrice3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(PainelCadastrarRoupaLayout.createSequentialGroup()
                         .addGroup(PainelCadastrarRoupaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldQuantity1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldBrand1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextFieldQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldBrand, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(70, 70, 70)
                         .addGroup(PainelCadastrarRoupaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelStyle3)
                             .addComponent(jLabelFabric3)))
                     .addGroup(PainelCadastrarRoupaLayout.createSequentialGroup()
                         .addGroup(PainelCadastrarRoupaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldGender1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldPocket1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextFieldGender, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldPocket, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(70, 70, 70)
                         .addGroup(PainelCadastrarRoupaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelClosureType3)
                             .addComponent(jLabelPattern3))))
                 .addGap(18, 18, 18)
                 .addGroup(PainelCadastrarRoupaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextFieldPrice1, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
-                    .addComponent(jTextFieldPattern1)
-                    .addComponent(jTextFieldClosureType1)
-                    .addComponent(jTextFieldStyle1)
-                    .addComponent(jTextFieldFabric1))
+                    .addComponent(jTextFieldPrice, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
+                    .addComponent(jTextFieldPattern)
+                    .addComponent(jTextFieldClosureType)
+                    .addComponent(jTextFieldStyle)
+                    .addComponent(jTextFieldFabric))
                 .addContainerGap())
         );
         PainelCadastrarRoupaLayout.setVerticalGroup(
@@ -447,33 +453,33 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addGroup(PainelCadastrarRoupaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelCor3)
-                    .addComponent(jTextFieldColor1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelPrice3)
-                    .addComponent(jTextFieldPrice1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(PainelCadastrarRoupaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelQuantity2)
-                    .addComponent(jTextFieldQuantity1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelFabric3)
-                    .addComponent(jTextFieldFabric1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldFabric, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(19, 19, 19)
                 .addGroup(PainelCadastrarRoupaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelBrand3)
-                    .addComponent(jTextFieldBrand1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldBrand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelStyle3)
-                    .addComponent(jTextFieldStyle1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldStyle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(PainelCadastrarRoupaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldGender1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelPattern3)
-                    .addComponent(jTextFieldPattern1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldPattern, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelGender3))
                 .addGap(18, 18, 18)
                 .addGroup(PainelCadastrarRoupaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelPocket3)
-                    .addComponent(jTextFieldPocket1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldPocket, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelClosureType3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldClosureType1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldClosureType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
 
@@ -1126,15 +1132,15 @@ public class MainWindow extends javax.swing.JFrame {
         PainelConsultarCalca.setLayout(PainelConsultarCalcaLayout);
         PainelConsultarCalcaLayout.setHorizontalGroup(
             PainelConsultarCalcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 944, Short.MAX_VALUE)
         );
         PainelConsultarCalcaLayout.setVerticalGroup(
             PainelConsultarCalcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 590, Short.MAX_VALUE)
         );
 
         getContentPane().add(PainelConsultarCalca);
-        PainelConsultarCalca.setBounds(0, 0, 100, 100);
+        PainelConsultarCalca.setBounds(0, 0, 944, 590);
 
         javax.swing.GroupLayout PainelConsultarPraRemoverCalcaLayout = new javax.swing.GroupLayout(PainelConsultarPraRemoverCalca);
         PainelConsultarPraRemoverCalca.setLayout(PainelConsultarPraRemoverCalcaLayout);
@@ -1357,13 +1363,13 @@ public class MainWindow extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jTextFieldFabric1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldFabric1ActionPerformed
+    private void jTextFieldFabricActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldFabricActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldFabric1ActionPerformed
+    }//GEN-LAST:event_jTextFieldFabricActionPerformed
 
-    private void jTextFieldQuantity1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldQuantity1ActionPerformed
+    private void jTextFieldQuantityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldQuantityActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldQuantity1ActionPerformed
+    }//GEN-LAST:event_jTextFieldQuantityActionPerformed
 
     private void jButtonAddShirtBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddShirtBackActionPerformed
         CardLayout a = (CardLayout) getContentPane().getLayout();
@@ -1390,6 +1396,10 @@ public class MainWindow extends javax.swing.JFrame {
             handleException(e);
         }
     }//GEN-LAST:event_jButtonFinalizarActionPerformed
+
+    private void jTextFieldPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPriceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldPriceActionPerformed
 
 
     private void updateQuantityClothings() {
@@ -1490,24 +1500,11 @@ public class MainWindow extends javax.swing.JFrame {
         String pattern = (String) map.get("pattern");
         String closureType = (String) map.get("closureType");
         Gender gender = (Gender) map.get("gender");
-        
-        if (color.isBlank() || brand.isBlank()) {
-                throw new IllegalArgumentException("INSIRA DADOS NOS CAMPOS");
-        }
 
         if (piece.equals(ClothingPiece.SHIRT)) {
             Integer sleeve = (jCheckBoxSleeve.isSelected()) ? 1 : 0;
             Integer collar = (jCheckBoxCollar.isSelected()) ? 1 : 0;
             ShirtSize size;
-
-            switch (jTextFieldGender.getText().charAt(0)) {
-                case 'M' ->
-                    gender = Gender.MALE;
-                case 'F' ->
-                    gender = Gender.FEMALE;
-                default ->
-                    throw new IllegalArgumentException("INSIRA UM GENERO");
-            }
 
             switch (jTextFieldSize.getText().charAt(0)) {
                 case 'P' ->
@@ -1527,8 +1524,8 @@ public class MainWindow extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "ROUPA CADASTRADA", "RESULTADO", JOptionPane.INFORMATION_MESSAGE);
     }
 
-    private Map<String, Object> fillClothing() {
-        Map<String, Object> map = new HashMap<String, Object>();
+    private Map<String, Object> fillClothing() throws Exception {
+        Map<String, Object> map = new HashMap<>();
 
         Integer quantity = Integer.valueOf(jTextFieldQuantity.getText());
         Integer pocket = (jTextFieldPocket.getText().isBlank()) ? 0 : Integer.valueOf(jTextFieldPocket.getText());
@@ -1548,6 +1545,10 @@ public class MainWindow extends javax.swing.JFrame {
                 gender = Gender.FEMALE;
             default ->
                 throw new IllegalArgumentException("INSIRA UM GENERO");
+        }
+        
+        if (color.isBlank() || brand.isBlank()) {
+            throw new IllegalArgumentException("INSIRA DADOS NOS CAMPOS");
         }
 
         map.put("quantity", quantity);
@@ -1829,9 +1830,9 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPopupMenu jPopupMenuRemove;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextFieldBrand1;
-    private javax.swing.JTextField jTextFieldClosureType1;
-    private javax.swing.JTextField jTextFieldColor1;
+    private javax.swing.JTextField jTextFieldBrand;
+    private javax.swing.JTextField jTextFieldClosureType;
+    private javax.swing.JTextField jTextFieldColor;
     private javax.swing.JTextField jTextFieldConsultBrand;
     private javax.swing.JTextField jTextFieldConsultClosureType;
     private javax.swing.JTextField jTextFieldConsultColor;
@@ -1843,12 +1844,12 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldConsultQuantity;
     private javax.swing.JTextField jTextFieldConsultShirtSize;
     private javax.swing.JTextField jTextFieldConsultStyle;
-    private javax.swing.JTextField jTextFieldFabric1;
-    private javax.swing.JTextField jTextFieldGender1;
-    private javax.swing.JTextField jTextFieldPattern1;
-    private javax.swing.JTextField jTextFieldPocket1;
-    private javax.swing.JTextField jTextFieldPrice1;
-    private javax.swing.JTextField jTextFieldQuantity1;
+    private javax.swing.JTextField jTextFieldFabric;
+    private javax.swing.JTextField jTextFieldGender;
+    private javax.swing.JTextField jTextFieldPattern;
+    private javax.swing.JTextField jTextFieldPocket;
+    private javax.swing.JTextField jTextFieldPrice;
+    private javax.swing.JTextField jTextFieldQuantity;
     private javax.swing.JTextField jTextFieldRemoveBrand;
     private javax.swing.JTextField jTextFieldRemoveClosureType;
     private javax.swing.JTextField jTextFieldRemoveColor;
@@ -1862,7 +1863,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldRemoveSize;
     private javax.swing.JTextField jTextFieldRemoveStyle;
     private javax.swing.JTextField jTextFieldSize;
-    private javax.swing.JTextField jTextFieldStyle1;
+    private javax.swing.JTextField jTextFieldStyle;
     // End of variables declaration//GEN-END:variables
     private ClothingRequestDTO data;
     public EntityManager em;

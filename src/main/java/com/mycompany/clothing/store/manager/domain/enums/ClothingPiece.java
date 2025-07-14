@@ -9,5 +9,6 @@ package com.mycompany.clothing.store.manager.domain.enums;
  * @author moise
  */
 public enum ClothingPiece {
-        SHIRT
+        SHIRT,
+        PANTIE
 }

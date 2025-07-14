@@ -383,14 +383,14 @@
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jTextFieldColor1" min="-2" pref="256" max="-2" attributes="0"/>
+                              <Component id="jTextFieldColor" min="-2" pref="256" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
                               <Component id="jLabelPrice3" min="-2" pref="37" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTextFieldQuantity1" alignment="0" min="-2" pref="255" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldBrand1" alignment="0" min="-2" pref="255" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldQuantity" alignment="0" min="-2" pref="255" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldBrand" alignment="0" min="-2" pref="255" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -400,8 +400,8 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTextFieldGender1" alignment="0" min="-2" pref="255" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldPocket1" alignment="0" min="-2" pref="255" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldGender" alignment="0" min="-2" pref="255" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldPocket" alignment="0" min="-2" pref="255" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -412,11 +412,11 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTextFieldPrice1" pref="315" max="32767" attributes="0"/>
-                          <Component id="jTextFieldPattern1" max="32767" attributes="0"/>
-                          <Component id="jTextFieldClosureType1" max="32767" attributes="0"/>
-                          <Component id="jTextFieldStyle1" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jTextFieldFabric1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jTextFieldPrice" pref="315" max="32767" attributes="0"/>
+                          <Component id="jTextFieldPattern" max="32767" attributes="0"/>
+                          <Component id="jTextFieldClosureType" max="32767" attributes="0"/>
+                          <Component id="jTextFieldStyle" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jTextFieldFabric" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -428,37 +428,37 @@
                       <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabelCor3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldColor1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldColor" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabelPrice3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldPrice1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldPrice" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabelQuantity2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldQuantity1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldQuantity" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabelFabric3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldFabric1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldFabric" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabelBrand3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldBrand1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldBrand" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabelStyle3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldStyle1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldStyle" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jTextFieldGender1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldGender" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabelPattern3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldPattern1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldPattern" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabelGender3" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabelPocket3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldPocket1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldPocket" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabelClosureType3" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="jTextFieldClosureType1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldClosureType" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="27" max="32767" attributes="0"/>
                   </Group>
@@ -516,31 +516,34 @@
                 <Property name="text" type="java.lang.String" value="TIPO DE FECHAMENTO"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldColor1">
+            <Component class="javax.swing.JTextField" name="jTextFieldColor">
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldPrice1">
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldQuantity1">
+            <Component class="javax.swing.JTextField" name="jTextFieldPrice">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldQuantity1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldPriceActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldFabric1">
+            <Component class="javax.swing.JTextField" name="jTextFieldQuantity">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldFabric1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldQuantityActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldPattern1">
+            <Component class="javax.swing.JTextField" name="jTextFieldFabric">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldFabricActionPerformed"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldPocket1">
+            <Component class="javax.swing.JTextField" name="jTextFieldPattern">
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldBrand1">
+            <Component class="javax.swing.JTextField" name="jTextFieldPocket">
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldGender1">
+            <Component class="javax.swing.JTextField" name="jTextFieldBrand">
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldStyle1">
+            <Component class="javax.swing.JTextField" name="jTextFieldGender">
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldClosureType1">
+            <Component class="javax.swing.JTextField" name="jTextFieldStyle">
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldClosureType">
             </Component>
           </SubComponents>
         </Container>
@@ -1373,12 +1376,12 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="100" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="944" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="100" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="590" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
