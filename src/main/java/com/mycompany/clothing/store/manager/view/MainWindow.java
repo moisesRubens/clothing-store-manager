@@ -1225,8 +1225,18 @@ public class MainWindow extends javax.swing.JFrame {
         jLabelAdicionarCalcaFabric.setText("TECIDO");
 
         buttonCadastrarCalcaSair.setText("Sair");
+        buttonCadastrarCalcaSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCadastrarCalcaSairActionPerformed(evt);
+            }
+        });
 
         buttonCadastrarCalcaVoltar.setText("Voltar");
+        buttonCadastrarCalcaVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCadastrarCalcaVoltarActionPerformed(evt);
+            }
+        });
 
         buttonCadastrarCalca2.setText("Cadastrar Calca");
         buttonCadastrarCalca2.addActionListener(new java.awt.event.ActionListener() {
@@ -1387,20 +1397,20 @@ public class MainWindow extends javax.swing.JFrame {
                     .addComponent(jLabelAdicionarCalcaClosureType, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldAdicionarCalcaClosureType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(PainelAdicionarCalcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelTipoBarra)
+                .addGroup(PainelAdicionarCalcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PainelAdicionarCalcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jCheckBoxTipoBarraReta)
                         .addComponent(jCheckBoxTipoBarraDobrada)
-                        .addComponent(jCheckBoxTipoBarraElastica)))
+                        .addComponent(jCheckBoxTipoBarraElastica))
+                    .addComponent(jLabelTipoBarra))
                 .addGap(18, 18, 18)
-                .addGroup(PainelAdicionarCalcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelTipoCintura)
+                .addGroup(PainelAdicionarCalcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PainelAdicionarCalcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jCheckBoxTipoCinturaBaixa)
                         .addComponent(jCheckBoxTipoCinturaMedia)
                         .addComponent(jCheckBoxTipoCinturaAlta)
-                        .addComponent(jCheckBoxTipoCinturaElastica)))
+                        .addComponent(jCheckBoxTipoCinturaElastica))
+                    .addComponent(jLabelTipoCintura))
                 .addGap(18, 18, 18)
                 .addGroup(PainelAdicionarCalcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabelCalcaTamanho)
@@ -1421,7 +1431,7 @@ public class MainWindow extends javax.swing.JFrame {
         );
 
         getContentPane().add(PainelAdicionarCalca);
-        PainelAdicionarCalca.setBounds(0, 0, 1075, 572);
+        PainelAdicionarCalca.setBounds(0, 0, 1076, 572);
 
         getAccessibleContext().setAccessibleName("mainPanel");
 
@@ -1674,6 +1684,15 @@ public class MainWindow extends javax.swing.JFrame {
             handleException(e);
         }
     }//GEN-LAST:event_buttonCadastrarCalca2ActionPerformed
+
+    private void buttonCadastrarCalcaVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastrarCalcaVoltarActionPerformed
+        CardLayout a = (CardLayout) getContentPane().getLayout();
+        a.show(getContentPane(), "PainelPrincipal");
+    }//GEN-LAST:event_buttonCadastrarCalcaVoltarActionPerformed
+
+    private void buttonCadastrarCalcaSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastrarCalcaSairActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_buttonCadastrarCalcaSairActionPerformed
 
     private void updateQuantityClothings() {
         Integer quantity = clothingController.getQuantity();

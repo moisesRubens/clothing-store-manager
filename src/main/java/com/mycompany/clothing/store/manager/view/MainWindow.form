@@ -1559,23 +1559,23 @@
                       <Component id="jTextFieldAdicionarCalcaClosureType" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabelTipoBarra" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                           <Component id="jCheckBoxTipoBarraReta" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jCheckBoxTipoBarraDobrada" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jCheckBoxTipoBarraElastica" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <Component id="jLabelTipoBarra" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabelTipoCintura" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                           <Component id="jCheckBoxTipoCinturaBaixa" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jCheckBoxTipoCinturaMedia" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jCheckBoxTipoCinturaAlta" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jCheckBoxTipoCinturaElastica" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <Component id="jLabelTipoCintura" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
@@ -1685,11 +1685,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Sair"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCadastrarCalcaSairActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="buttonCadastrarCalcaVoltar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Voltar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCadastrarCalcaVoltarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="buttonCadastrarCalca2">
           <Properties>
