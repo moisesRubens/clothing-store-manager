@@ -7,6 +7,7 @@ package com.mycompany.clothing.store.manager.view;
 import com.mycompany.clothing.store.manager.controller.ClothingController;
 import com.mycompany.clothing.store.manager.domain.Clothing;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingResponseDTO;
+import com.mycompany.clothing.store.manager.domain.dto.PantieRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtResponseDTO;
 import com.mycompany.clothing.store.manager.domain.enums.ClothingPiece;
 import jakarta.persistence.EntityManager;
@@ -114,6 +115,43 @@ public class Table extends javax.swing.JFrame {
                 });
             }
             jTable1.setModel(model);
+        } else if(list.getFirst() instanceof PantieResponseDTO) {
+            model.addColumn("ID");
+            model.addColumn("COR");
+            model.addColumn("VALOR");
+            model.addColumn("QUANTIDADE");
+            model.addColumn("MARCA");
+            model.addColumn("NUMERAÇÃO");
+            model.addColumn("GÊNERO");
+            model.addColumn("TIPO DE FECHAMENTO");
+            model.addColumn("TIPO DE ROUPA");
+            model.addColumn("ESTAMPA");
+            model.addColumn("TECIDO");
+            model.addColumn("QUANTIDADE DE BOLSOS");
+            model.addColumn("COMPRIMENTO");
+            model.addColumn("TIPO DE BARRA");
+            model.addColumn("TIPO DE CINTURA");
+
+            for (ClothingResponseDTO data : list) {
+                PantieResponseDTO pantieData = (PantieResponseDTO) data;
+                model.addRow(new Object[]{
+                    pantieData.id(),
+                    pantieData.color(),
+                    pantieData.price(),
+                    pantieData.quantity(),
+                    pantieData.brand(),
+                    pantieData.size(),
+                    pantieData.gender(),
+                    pantieData.closureType(),
+                    pantieData.clothingType(),
+                    pantieData.pattern(),
+                    pantieData.fabric(),
+                    pantieData.pocket(),
+                    pantieData.length(),
+                    pantieData.hemType()
+                    pantieData.waistType()
+                });
+            }
         }
     }
 

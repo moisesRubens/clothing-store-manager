@@ -2381,20 +2381,55 @@ public class MainWindow extends javax.swing.JFrame {
         String color = jTextFieldConsultCalcaColor.getText();
         String closureType = jTextFieldConsultCalcaClosureType.getText();
         HemType hemType = null;
-        Gender gender = null;
         WaistType waistType = null;
         PantieLengthType length = null;
+        Gender gender = null;
         
-        if (jTextFieldConsultShirtSize.getText().equals("P")) {
-            shirtSize = ShirtSize.SMALL;
-        } else if (jTextFieldConsultShirtSize.getText().equals("M")) {
-            shirtSize = ShirtSize.MEDIUM;
-        } else if (jTextFieldConsultShirtSize.getText().equals("G")) {
-            shirtSize = ShirtSize.LARGE;
-        } else if (!jTextFieldConsultShirtSize.getText().isBlank()) {
-            throw new IllegalArgumentException("INSIRA UM TAMANHO VALIDO");
+        if((jCheckBoxCalcaComprimentoCurto.isSelected() && jCheckBoxCalcaComprimentoNormal.isSelected())
+            || (jCheckBoxCalcaComprimentoCurto.isSelected() && jCheckBoxCalcaComprimentoLongo.isSelected()) 
+                || (jCheckBoxCalcaComprimentoNormal.isSelected() && jCheckBoxCalcaComprimentoLongo.isSelected())) {
+            throw new IllegalArgumentException("Selecione apenas uma opcao de comprimento");
         }
-
+        if((jCheckBoxConsultCalcaTipoBarraDobrada.isSelected() && jCheckBoxConsultCalcaTipoBarraReta.isSelected())
+            || (jCheckBoxConsultCalcaTipoBarraDobrada.isSelected() && jCheckBoxConsultCalcaTipoBarraElastica.isSelected()) 
+            || (jCheckBoxConsultCalcaTipoBarraElastica.isSelected() && jCheckBoxConsultCalcaTipoBarraReta.isSelected())) {
+            throw new IllegalArgumentException("Selecione apenas uma opcao de tipo de barra");
+        }
+        if((jCheckBoxTipoCinturaBaixa.isSelected() && jCheckBoxTipoCinturaMedia.isSelected())
+            || (jCheckBoxTipoCinturaBaixa.isSelected() && jCheckBoxTipoCinturaAlta.isSelected()) 
+                || (jCheckBoxTipoCinturaBaixa.isSelected() && jCheckBoxTipoCinturaElastica.isSelected())
+                || (jCheckBoxTipoCinturaMedia.isSelected() && jCheckBoxTipoCinturaAlta.isSelected()) 
+                || (jCheckBoxTipoCinturaMedia.isSelected() && jCheckBoxTipoCinturaElastica.isSelected())
+                || (jCheckBoxTipoCinturaAlta.isSelected() && jCheckBoxTipoCinturaElastica.isSelected())) {
+            throw new IllegalArgumentException("Selecione apenas uma opcao de cintura");
+        }
+        
+        if (jCheckBoxConsultCalcaTipoBarraReta.isSelected()) {
+            hemType = HemType.STRAIGHT;
+        } else if (jCheckBoxConsultCalcaTipoBarraDobrada.isSelected()) {
+            hemType = HemType.CUFFED;
+        } else if (jCheckBoxConsultCalcaTipoBarraElastica.isSelected()) {
+            hemType = HemType.ELASTIC;
+        }
+        
+        if (jCheckBoxConsultCalcaTipoCinturaBaixa.isSelected()) {
+            waistType = WaistType.LOW;
+        } else if (jCheckBoxConsultCalcaTipoCinturaMedia.isSelected()) {
+            waistType = WaistType.MID;
+        } else if (jCheckBoxConsultCalcaTipoCinturaAlta.isSelected()) {
+            waistType = WaistType.HIGH;
+        } else if(jCheckBoxConsultCalcaTipoCinturaElastica.isSelected()) {
+            waistType = WaistType.ELASTIC;
+        }
+        
+        if (jCheckBoxConsultCalcaComprimentoCurto.isSelected()) {
+            length = PantieLengthType.SHORT;
+        } else if (jCheckBoxConsultCalcaComprimentoNormal.isSelected()) {
+            length = PantieLengthType.REGULAR;
+        } else if (jCheckBoxConsultCalcaComprimentoLongo.isSelected()) {
+            length = PantieLengthType.LONG;
+        }
+        
         if (jTextFieldConsultGender.getText().equals("M")) {
             gender = Gender.MALE;
         } else if (jTextFieldConsultGender.getText().equals("F")) {
@@ -2403,28 +2438,11 @@ public class MainWindow extends javax.swing.JFrame {
             throw new IllegalArgumentException("INSIRA UM GENERO VALIDO");
         }
 
-        if ((jCheckBoxConsultCollarSim.isSelected() && jCheckBoxConsultCollarNao.isSelected())
-                || (jCheckBoxConsultSleeveSim.isSelected() && jCheckBoxConsultSleeveNao.isSelected())) {
-            throw new IllegalArgumentException("INSIRA APENAS UM VALOR PARA GOLA E MANGA");
-        }
-
-        if (jCheckBoxConsultCollarSim.isSelected()) {
-            collar = 1;
-        } else if (jCheckBoxConsultCollarNao.isSelected()) {
-            collar = 0;
-        }
-
-        if (jCheckBoxConsultSleeveSim.isSelected()) {
-            sleeve = 1;
-        } else if (jCheckBoxConsultSleeveNao.isSelected()) {
-            sleeve = 0;
-        }
-
-        ShirtRequestDTO dataShirt = new ShirtRequestDTO(color, price, quantity, fabric, brand, style,
+        PantieRequestDTO pantieData = new PantieRequestDTO(color, quantity, fabric, brand, style,
                 gender, pattern, pocket, closureType, ClothingType.STANDARD,
-                sleeve, collar, shirtSize);
+                hemType, waistType, length, size, price);
 
-        List<ClothingResponseDTO> listSearch = clothingController.consult(dataShirt);
+        List<ClothingResponseDTO> listSearch = clothingController.consult(pantieData);
         Table table = new Table(em);
         table.fillTable(listSearch);
         table.setLocationRelativeTo(null);
