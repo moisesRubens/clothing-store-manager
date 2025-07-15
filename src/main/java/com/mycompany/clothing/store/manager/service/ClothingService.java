@@ -35,8 +35,8 @@ public class ClothingService {
         this.clothingRepository = new ClothingRepository(em);
     }
 
-    private Integer existClothing(ClothingRequestDTO clothing) {
-        return clothingRepository.existClothing(clothing);
+    private Integer existClothing(ClothingRequestDTO data) {
+        return clothingRepository.existClothing(data);
     }
 
     public List<Clothing> getAllClothings(ClothingPiece piece) throws Exception {
@@ -54,14 +54,14 @@ public class ClothingService {
         return list;
     }
 
-    public void register(ClothingRequestDTO clothing) throws Exception {
-        Integer id = existClothing(clothing);
+    public void register(ClothingRequestDTO data) throws Exception {
+        Integer id = existClothing(data);
 
         if (id == -1) {
-            Clothing clothing2 = ClothingMapper.DTOToShirt(clothing);
+            Clothing clothing2 = ClothingMapper.DTOToEntity(data);
             clothingRepository.registerInDatabase(clothing2);
         } else {
-            incrementClothing(id, clothing.quantity());
+            incrementClothing(id, data);
         }
     }
 
@@ -162,11 +162,11 @@ public class ClothingService {
         clothingRepository.updateData(clothing);
     }
 
-    private void incrementClothing(Integer id, Integer quantity) {
-        if (id < 0 || quantity <= 0) {
+    private void incrementClothing(Integer id, ClothingRequestDTO data) {
+        if (id < 0 || data.quantity() <= 0) {
             throw new IllegalArgumentException("PREENCHA CORRETAMENTE OS CAMPOS");
         }
-        clothingRepository.incrementClothing(id, quantity);
+        clothingRepository.incrementClothing(id, data);
     }
 
     public Clothing getById(Integer id) throws Exception {

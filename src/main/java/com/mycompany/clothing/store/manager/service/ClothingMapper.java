@@ -5,8 +5,10 @@
 package com.mycompany.clothing.store.manager.service;
 
 import com.mycompany.clothing.store.manager.domain.Clothing;
+import com.mycompany.clothing.store.manager.domain.Pantie;
 import com.mycompany.clothing.store.manager.domain.Shirt;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
+import com.mycompany.clothing.store.manager.domain.dto.PantieRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtRequestDTO;
 
 /**
@@ -15,15 +17,21 @@ import com.mycompany.clothing.store.manager.domain.dto.ShirtRequestDTO;
  */
 public final class ClothingMapper {
 
-    public static Clothing DTOToShirt(ClothingRequestDTO data) {
+    public static Clothing DTOToEntity(ClothingRequestDTO data) {
         if (data instanceof ShirtRequestDTO shirtData) {
             Shirt shirt = new Shirt(shirtData.color(), shirtData.price(), shirtData.quantity(), shirtData.clothingType(), shirtData.fabric(),
                     shirtData.brand(), shirtData.style(), shirtData.gender(), shirtData.pattern(), shirtData.pocket(),
                     shirtData.closureType(), shirtData.size(), shirtData.sleeve(), shirtData.collar());
 
             return shirt;
+        } else if (data instanceof PantieRequestDTO pantieData) {
+            Pantie pantie = new Pantie(pantieData.hemType(), pantieData.waistType(), pantieData.length(), pantieData.size(), pantieData.color(),
+                    pantieData.price(), pantieData.quantity(), pantieData.clothingType(), pantieData.fabric(), pantieData.brand(), pantieData.style(),
+                    pantieData.gender(), pantieData.pattern(), pantieData.pocket(), pantieData.closureType());
+            
+            return pantie;
         }
-        
+
         return null;
     }
 }

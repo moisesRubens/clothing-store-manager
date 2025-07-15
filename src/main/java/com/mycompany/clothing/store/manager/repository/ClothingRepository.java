@@ -7,12 +7,17 @@ package com.mycompany.clothing.store.manager.repository;
 import com.mycompany.clothing.store.manager.configuration.exception.RoupaJaExistenteException;
 import com.mycompany.clothing.store.manager.configuration.exception.RoupaNaoExistenteException;
 import com.mycompany.clothing.store.manager.domain.Clothing;
+import com.mycompany.clothing.store.manager.domain.Pantie;
 import com.mycompany.clothing.store.manager.domain.Shirt;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
+import com.mycompany.clothing.store.manager.domain.dto.PantieRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtRequestDTO;
 import com.mycompany.clothing.store.manager.domain.enums.ClothingPiece;
 import com.mycompany.clothing.store.manager.domain.enums.Gender;
+import com.mycompany.clothing.store.manager.domain.enums.HemType;
+import com.mycompany.clothing.store.manager.domain.enums.PantieLengthType;
 import com.mycompany.clothing.store.manager.domain.enums.ShirtSize;
+import com.mycompany.clothing.store.manager.domain.enums.WaistType;
 import com.mycompany.clothing.store.manager.service.ClothingMapper;
 import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityManager;
@@ -58,13 +63,18 @@ public class ClothingRepository {
         return list;
     }
 
-    public void incrementClothing(Integer id, Integer quantity) {
+    public void incrementClothing(Integer id, ClothingRequestDTO data) {
         try {
             em.getTransaction().begin();
-            em.createQuery("UPDATE Clothing c SET c.quantity = c.quantity + :quantity WHERE c.id = :id")
-                    .setParameter("quantity", quantity)
+            if(data instanceof ShirtRequestDTO) {
+            em.createQuery("UPDATE Clothing c SET c.quantity = c.quantity + :quantity WHERE c.id = :id", Shirt.class)
+                    .setParameter("quantity", data.quantity())
                     .setParameter("id", id).executeUpdate();
-
+            } else if(data instanceof PantieRequestDTO) {
+                em.createQuery("UPDATE Clothing c SET c.quantity = c.quantity + :quantity WHERE c.id = :id", Pantie.class)
+                    .setParameter("quantity", data.quantity())
+                    .setParameter("id", id).executeUpdate();
+            }
             em.getTransaction().commit();
             em.clear();
         } catch (PersistenceException e) {
@@ -95,13 +105,14 @@ public class ClothingRepository {
             throw e;
         }
     }
-
+    
     public Integer existClothing(ClothingRequestDTO clothing) {
         String queryStr;
-        TypedQuery<Shirt> query;
         Integer id = -1;
-
+        
         if (clothing instanceof ShirtRequestDTO shirt) {
+        TypedQuery<Shirt> query;
+        
             queryStr = "SELECT s FROM Shirt s WHERE s.sleeve = :sleeve"
                     + " AND s.collar = :collar"
                     + " AND s.pocket = :pocket"
@@ -155,7 +166,82 @@ public class ClothingRepository {
             }
 
             if (!query.getResultList().isEmpty()) {
-                System.out.println(query.getResultList().get(0));
+                id = query.getResultList().get(0).getId();
+            }
+        } else if(clothing instanceof PantieRequestDTO pantie) {
+        TypedQuery<Pantie> query;
+            queryStr = "SELECT p FROM Pantie p WHERE p.size = :size"
+                    + " AND p.length = :length"
+                    + " AND p.brand = :brand"
+                    + " AND p.color = :color"
+                    + " AND p.pocket = :pocket"
+                    + " AND p.gender = :gender";
+            
+            if (!isBlank(pantie.fabric())) {
+                queryStr += " AND p.fabric LIKE :fabric";
+            } else {
+                queryStr += " AND p.fabric IS NULL";
+            }
+            if (!isBlank(pantie.style())) {
+                queryStr += " AND p.style LIKE :style";
+            } else {
+                queryStr += " AND p.style IS NULL";
+            }
+            if (!isBlank(pantie.pattern())) {
+                queryStr += " AND p.pattern LIKE :pattern ";
+            } else {
+                queryStr += " AND p.pattern  IS NULL";
+            }
+            if (!isBlank(pantie.closureType())) {
+                queryStr += " AND p.closureType LIKE :closureType ";
+            } else {
+                queryStr += " AND p.closureType  IS NULL";
+            }
+            if (EnumSet.allOf(HemType.class).contains(pantie.hemType())) {
+                queryStr += " AND p.hemType = :hemType";
+            } else {
+                queryStr += " AND p.hemType  IS NULL";
+            }
+            if (EnumSet.allOf(WaistType.class).contains(pantie.waistType())) {
+                queryStr += " AND p.waistType = :waistType";
+            } else {
+                queryStr += " AND p.waistType  IS NULL";
+            }
+            if (EnumSet.allOf(PantieLengthType.class).contains(pantie.length())) {
+                queryStr += " AND p.length = :length";
+            } else {
+                queryStr += " AND p.waistType  IS NULL";
+            }
+            System.out.println("ANTES DO CREATE QUERY");
+            query = em.createQuery(queryStr, Pantie.class);
+                        System.out.println("DEPOIS DO CREATE QUERY");
+
+            query.setParameter("size", pantie.size())
+                    .setParameter("length", pantie.length())
+                    .setParameter("brand", pantie.brand())
+                    .setParameter("color", pantie.color())
+                    .setParameter("gender", pantie.gender())
+                    .setParameter("pocket", pantie.pocket());
+            
+            if (!isBlank(pantie.fabric())) {
+                query.setParameter("fabric", pantie.fabric());
+            }
+            if (!isBlank(pantie.style())) {
+                query.setParameter("style", pantie.style());
+            }
+            if (!isBlank(pantie.pattern())) {
+                query.setParameter("pattern", pantie.pattern());
+            }
+            if (!isBlank(pantie.closureType())) {
+                query.setParameter("closureType", pantie.closureType());
+            }
+            if (pantie.hemType() != null) {
+                query.setParameter("hemType", pantie.hemType());
+            }
+            if (pantie.waistType() != null) {
+                query.setParameter("waistType", pantie.waistType());
+            }
+            if (!query.getResultList().isEmpty()) {
                 id = query.getResultList().get(0).getId();
             }
         }

@@ -32,18 +32,18 @@ public class Pantie extends Clothing {
     
     @Column(name="COMPRIMENTO")
     @Enumerated(EnumType.STRING)
-    PantieLengthType lenght;
+    PantieLengthType length;
     
     @Column(name="TAMANHO")
     Integer size;
    
     public Pantie() {}
 
-    public Pantie(HemType hemType, WaistType waistType, PantieLengthType lenght, Integer size, String color, Double price, Integer quantity, ClothingType clothingType, String fabric, String brand, String style, Gender gender, String pattern, Integer pocket, String closureType) {
+    public Pantie(HemType hemType, WaistType waistType, PantieLengthType length, Integer size, String color, Double price, Integer quantity, ClothingType clothingType, String fabric, String brand, String style, Gender gender, String pattern, Integer pocket, String closureType) {
         super(color, price, quantity, clothingType, fabric, brand, style, gender, pattern, pocket, closureType);
         this.hemType = hemType;
         this.waistType = waistType;
-        this.lenght = lenght;
+        this.length = length;
         this.size = size;
     }
 
@@ -55,8 +55,8 @@ public class Pantie extends Clothing {
         return waistType;
     }
 
-    public PantieLengthType getLenght() {
-        return lenght;
+    public PantieLengthType getLength() {
+        return length;
     }
 
     public Integer getSize() {
@@ -71,8 +71,8 @@ public class Pantie extends Clothing {
         this.waistType = waistType;
     }
 
-    public void setLenght(PantieLengthType lenght) {
-        this.lenght = lenght;
+    public void setLenght(PantieLengthType length) {
+        this.length = length;
     }
 
     public void setSize(Integer size) {

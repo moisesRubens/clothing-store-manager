@@ -1403,54 +1403,113 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabelAdicionarCalcaQuantity" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelAdicionarCalcaBrand" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelAdicionarCalcaGender" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelAdicionarCalcaPocket" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelAdicionarCalcaCor" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="jTextFieldAdicionarCalcaColor" min="-2" pref="256" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
-                          <Component id="jLabelAdicionarCalcaPrice" min="-2" pref="37" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="buttonCadastrarCalcaVoltar" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="buttonCadastrarCalcaSair" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabelAdicionarCalcaQuantity" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelAdicionarCalcaBrand" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelAdicionarCalcaGender" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelAdicionarCalcaPocket" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelAdicionarCalcaCor" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jTextFieldAdicionarCalcaColor" min="-2" pref="256" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+                                          <Component id="jLabelAdicionarCalcaPrice" min="-2" pref="37" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jTextFieldAdicionarCalcaQuantity" alignment="0" min="-2" pref="255" max="-2" attributes="0"/>
+                                              <Component id="jTextFieldAdicionarCalcaBrand" alignment="0" min="-2" pref="255" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jLabelAdicionarCalcaStyle" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabelAdicionarCalcaFabric" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jTextFieldAdicionarCalcaGender" alignment="0" min="-2" pref="255" max="-2" attributes="0"/>
+                                              <Component id="jTextFieldAdicionarCalcaPocket" alignment="0" min="-2" pref="255" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jLabelAdicionarCalcaClosureType" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabelAdicionarCalcaPattern" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Component id="buttonCadastrarCalca2" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jTextFieldAdicionarCalcaClosureType" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="jTextFieldAdicionarCalcaPrice" alignment="0" pref="492" max="32767" attributes="0"/>
+                                      <Component id="jTextFieldAdicionarCalcaPattern" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jTextFieldAdicionarCalcaStyle" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jTextFieldAdicionarCalcaFabric" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTextFieldAdicionarCalcaQuantity" alignment="0" min="-2" pref="255" max="-2" attributes="0"/>
-                              <Component id="jTextFieldAdicionarCalcaBrand" alignment="0" min="-2" pref="255" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="jLabelCalcaComprimento" alignment="0" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabelTipoBarra" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelCalcaTamanho" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelTipoCintura" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabelAdicionarCalcaStyle" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabelAdicionarCalcaFabric" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="jCheckBoxCalcaComprimentoCurto" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="jCheckBoxCalcaComprimentoNormal" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="jCheckBoxCalcaComprimentoLongo" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="jTextFieldCalcaTamanho" min="-2" pref="254" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jCheckBoxTipoBarraReta" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxTipoBarraDobrada" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jCheckBoxTipoCinturaBaixa" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxTipoCinturaMedia" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Component id="jCheckBoxTipoCinturaAlta" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxTipoCinturaElastica" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="jCheckBoxTipoBarraElastica" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTextFieldAdicionarCalcaGender" alignment="0" min="-2" pref="255" max="-2" attributes="0"/>
-                              <Component id="jTextFieldAdicionarCalcaPocket" alignment="0" min="-2" pref="255" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabelAdicionarCalcaClosureType" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabelAdicionarCalcaPattern" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jTextFieldAdicionarCalcaClosureType" alignment="1" max="32767" attributes="0"/>
-                      <Component id="jTextFieldAdicionarCalcaPrice" alignment="0" pref="491" max="32767" attributes="0"/>
-                      <Component id="jTextFieldAdicionarCalcaPattern" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jTextFieldAdicionarCalcaStyle" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jTextFieldAdicionarCalcaFabric" alignment="0" max="32767" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1499,7 +1558,45 @@
                       <Component id="jLabelAdicionarCalcaClosureType" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                       <Component id="jTextFieldAdicionarCalcaClosureType" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="380" max="32767" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabelTipoBarra" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                          <Component id="jCheckBoxTipoBarraReta" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCheckBoxTipoBarraDobrada" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCheckBoxTipoBarraElastica" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabelTipoCintura" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                          <Component id="jCheckBoxTipoCinturaBaixa" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCheckBoxTipoCinturaMedia" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCheckBoxTipoCinturaAlta" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCheckBoxTipoCinturaElastica" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="jLabelCalcaTamanho" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldCalcaTamanho" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabelCalcaComprimento" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxCalcaComprimentoCurto" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxCalcaComprimentoNormal" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxCalcaComprimentoLongo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="74" max="32767" attributes="0"/>
+                  <Component id="buttonCadastrarCalca2" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="buttonCadastrarCalcaSair" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="buttonCadastrarCalcaVoltar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1582,6 +1679,96 @@
         <Component class="javax.swing.JLabel" name="jLabelAdicionarCalcaFabric">
           <Properties>
             <Property name="text" type="java.lang.String" value="TECIDO"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="buttonCadastrarCalcaSair">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Sair"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="buttonCadastrarCalcaVoltar">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Voltar"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="buttonCadastrarCalca2">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cadastrar Calca"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonCadastrarCalca2ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelTipoBarra">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="TIPO DE BARRA"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelTipoCintura">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="TIPO DE CINTURA"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelCalcaTamanho">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="ENUMERA&#xc7;&#xc3;O"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelCalcaComprimento">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="COMPRIMENTO"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxCalcaComprimentoCurto">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="CURTO"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxCalcaComprimentoNormal">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="NORMAL"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxCalcaComprimentoLongo">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="LONGO"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldCalcaTamanho">
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxTipoCinturaBaixa">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="BAIXA"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxTipoCinturaMedia">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="M&#xc9;DIA"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxTipoCinturaAlta">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="ALTA"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxTipoBarraReta">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="RETA"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxTipoBarraDobrada">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="DOBRADA"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxTipoBarraElastica">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="EL&#xc1;STICA"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxTipoCinturaElastica">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="EL&#xc1;STICA"/>
           </Properties>
         </Component>
       </SubComponents>
