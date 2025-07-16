@@ -9,12 +9,16 @@ import com.mycompany.clothing.store.manager.domain.Clothing;
 import com.mycompany.clothing.store.manager.domain.Shirt;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingResponseDTO;
+import com.mycompany.clothing.store.manager.domain.dto.PantieRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtResponseDTO;
 import com.mycompany.clothing.store.manager.domain.enums.ClothingPiece;
 import com.mycompany.clothing.store.manager.domain.enums.ClothingType;
 import com.mycompany.clothing.store.manager.domain.enums.Gender;
+import com.mycompany.clothing.store.manager.domain.enums.HemType;
+import com.mycompany.clothing.store.manager.domain.enums.PantieLengthType;
 import com.mycompany.clothing.store.manager.domain.enums.ShirtSize;
+import com.mycompany.clothing.store.manager.domain.enums.WaistType;
 import com.mycompany.clothing.store.manager.repository.ClothingRepository;
 import jakarta.persistence.EntityManager;
 import java.util.ArrayList;
@@ -76,7 +80,7 @@ public class ClothingService {
         if (data instanceof ShirtRequestDTO shirtData) {
             query += "SELECT s FROM Shirt s WHERE";
 
-            if (!containstAtributes(data)) {
+            if (!containstAtributes(shirtData)) {
                 query += " 1=0";
                 return query;
             }
@@ -122,6 +126,55 @@ public class ClothingService {
                 query += " AND s.gender = :gender";
             }
 
+            return query;
+        } else if(data instanceof PantieRequestDTO dataPantie) {
+            query += "SELECT p FROM Pantie p WHERE";
+
+            if (!containstAtributes(dataPantie)) {
+                query += " 1=0";
+                return query;
+            }
+            query += " 1=1";
+            
+            if (EnumSet.allOf(HemType.class).contains(dataPantie.hemType())) {
+                query += " AND p.hemType = :hemType";
+            }
+            if (EnumSet.allOf(WaistType.class).contains(dataPantie.waistType())) {
+                query += " AND p.waistType = :waistType";
+            }
+            if (EnumSet.allOf(PantieLengthType.class).contains(dataPantie.length())) {
+                query += " AND p.length = :length";
+            }
+            if (EnumSet.allOf(Gender.class).contains(dataPantie.gender())) {
+                query += " AND p.gender = :gender";
+            }
+            if (dataPantie.size() != -1) {
+                query += " AND p.size >= :size";
+            }
+            if (dataPantie.quantity() != -1) {
+                query += " AND p.quantity >= :quantity";
+            }
+            if (dataPantie.pocket() != -1) {
+                query += " AND p.pocket = :pocket";
+            }
+            if (!dataPantie.color().isBlank()) {
+                query += " AND p.color LIKE :color";
+            }
+            if (!dataPantie.fabric().isBlank()) {
+                query += " AND p.fabric LIKE :fabric";
+            }
+            if (!dataPantie.brand().isBlank()) {
+                query += " AND p.brand LIKE :brand";
+            }
+            if (!dataPantie.style().isBlank()) {
+                query += " AND p.style LIKE :style";
+            }
+            if (!dataPantie.pattern().isBlank()) {
+                query += " AND p.pattern LIKE :pattern";
+            }
+            if (!dataPantie.closureType().isBlank()) {
+                query += " AND p.closureType LIKE :closureType";
+            }
             return query;
         }
         return "";

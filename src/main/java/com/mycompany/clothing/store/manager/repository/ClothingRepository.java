@@ -298,6 +298,56 @@ public class ClothingRepository {
             }
 
             list = queryShirt.getResultList();
+        } else if(data instanceof PantieRequestDTO dataPantie) {
+            TypedQuery<Pantie> queryPantie;
+
+            queryPantie = em.createQuery(query, Pantie.class);
+
+            
+            if (EnumSet.allOf(Gender.class).contains(dataPantie.gender())) {
+                queryPantie.setParameter("gender", dataPantie.gender());
+            }
+            if (EnumSet.allOf(HemType.class).contains(dataPantie.hemType())) {
+                queryPantie.setParameter("hemType", dataPantie.hemType());
+            }
+            if (EnumSet.allOf(WaistType.class).contains(dataPantie.waistType())) {
+                queryPantie.setParameter("waistType", dataPantie.waistType());
+            }
+            if (EnumSet.allOf(PantieLengthType.class).contains(dataPantie.length())) {
+                queryPantie.setParameter("length", dataPantie.length());
+            }
+            if (dataPantie.pocket() != -1) {
+                queryPantie.setParameter("pocket", dataPantie.pocket());
+            }
+            if (dataPantie.price() != -1) {
+                queryPantie.setParameter("price", dataPantie.price());
+            }
+            if (dataPantie.quantity() != -1) {
+                queryPantie.setParameter("quantity", dataPantie.quantity());
+            }
+            if (dataPantie.size() != -1) {
+                queryPantie.setParameter("size", dataPantie.size());
+            }
+            if (!dataPantie.fabric().isBlank()) {
+                queryPantie.setParameter("fabric", dataPantie.fabric());
+            }
+            if (!dataPantie.color().isBlank()) {
+                queryPantie.setParameter("color", "%" + dataPantie.color() + "%");
+            }
+            if (!dataPantie.brand().isBlank()) {
+                queryPantie.setParameter("brand", dataPantie.brand());
+            }
+            if (!dataPantie.style().isBlank()) {
+                queryPantie.setParameter("style", dataPantie.style());
+            }
+            if (!dataPantie.pattern().isBlank()) {
+                queryPantie.setParameter("pattern", dataPantie.pattern());
+            }
+            if (!dataPantie.closureType().isBlank()) {
+                queryPantie.setParameter("closureType", dataPantie.closureType());
+            }
+
+            list = queryPantie.getResultList();
         }
 
         if (list == null) {

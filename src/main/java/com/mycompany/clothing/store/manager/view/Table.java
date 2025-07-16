@@ -154,6 +154,7 @@ public class Table extends javax.swing.JFrame {
                     pantieData.waistType()
                 });
             }
+            jTable1.setModel(model);
         }
     }
 

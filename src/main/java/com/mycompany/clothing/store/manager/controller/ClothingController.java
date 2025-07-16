@@ -5,9 +5,12 @@
 package com.mycompany.clothing.store.manager.controller;
 
 import com.mycompany.clothing.store.manager.domain.Clothing;
+import com.mycompany.clothing.store.manager.domain.Pantie;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
 import com.mycompany.clothing.store.manager.domain.Shirt;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingResponseDTO;
+import com.mycompany.clothing.store.manager.domain.dto.PantieRequestDTO;
+import com.mycompany.clothing.store.manager.domain.dto.PantieResponseDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtResponseDTO;
 import com.mycompany.clothing.store.manager.domain.enums.ClothingPiece;
@@ -55,16 +58,24 @@ public class ClothingController {
 
     public List<ClothingResponseDTO> consult(ClothingRequestDTO data) throws Exception {
         List<ClothingResponseDTO> list = new ArrayList<>();
-        List<Clothing> shirts = clothingService.consult(data);
+        List<Clothing> clothings = clothingService.consult(data);
 
         if (data instanceof ShirtRequestDTO) {
-            for (Clothing c : shirts) {
+            for (Clothing c : clothings) {
                 Shirt s = (Shirt)c;
                 list.add(new ShirtResponseDTO(s.getId(), s.getColor(), s.getPrice(), s.getQuantity(),
                         s.getFabric(), s.getBrand(), s.getStyle(), s.getGender(),
                         s.getPattern(), s.getPocket(), s.getClosureType(),
                         s.getClothingType(), s.getSleeve(), s.getCollar(),
                         s.getSize()));
+            }
+            return list;
+        } else if(data instanceof PantieRequestDTO) {
+            for (Clothing c : clothings) {
+                Pantie p = (Pantie)c;
+                list.add(new PantieResponseDTO(p.getId(), p.getColor(), p.getPrice(), p.getQuantity(), 
+                        p.getFabric(), p.getBrand(), p.getStyle(), p.getGender(), p.getPattern(), p.getPocket(),
+                        p.getClosureType(), p.getClothingType(), p.getSize(), p.getLength(), p.getWaistType(), p.getHemType()));
             }
             return list;
         }
