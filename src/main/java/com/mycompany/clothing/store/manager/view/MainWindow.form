@@ -1677,7 +1677,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonConsultarCalca">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Consultar Camisa"/>
+            <Property name="text" type="java.lang.String" value="Consultar Calca"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonConsultarCalcaActionPerformed"/>

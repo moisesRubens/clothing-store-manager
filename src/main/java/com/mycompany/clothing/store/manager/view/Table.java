@@ -14,6 +14,7 @@ import jakarta.persistence.EntityManager;
 import java.awt.CardLayout;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
+import com.mycompany.clothing.store.manager.domain.dto.PantieResponseDTO;
 
 /**
  *
@@ -22,7 +23,8 @@ import javax.swing.table.DefaultTableModel;
 public class Table extends javax.swing.JFrame {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Table.class.getName());
-
+    public EntityManager em;
+    public ClothingController clothingController;
     /**
      * Creates new form Remove
      * @param em
@@ -148,7 +150,7 @@ public class Table extends javax.swing.JFrame {
                     pantieData.fabric(),
                     pantieData.pocket(),
                     pantieData.length(),
-                    pantieData.hemType()
+                    pantieData.hemType(),
                     pantieData.waistType()
                 });
             }
@@ -164,6 +166,5 @@ public class Table extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
-    public EntityManager em;
-    public ClothingController clothingController;
+    
 }

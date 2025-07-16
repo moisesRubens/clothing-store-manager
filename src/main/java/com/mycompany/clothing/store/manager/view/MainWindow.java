@@ -1272,7 +1272,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         jLabelFabric3.setText("TECIDO");
 
-        jButtonConsultarCalca.setText("Consultar Camisa");
+        jButtonConsultarCalca.setText("Consultar Calca");
         jButtonConsultarCalca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonConsultarCalcaActionPerformed(evt);
