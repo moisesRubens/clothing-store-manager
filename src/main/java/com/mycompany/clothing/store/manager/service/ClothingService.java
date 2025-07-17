@@ -70,11 +70,11 @@ public class ClothingService {
     }
 
     public List<Clothing> consult(ClothingRequestDTO data) throws Exception {
-        String query = createQuerry(data);
+        String query = createQuery(data);
         return clothingRepository.consult(data, query);
     }
 
-    private String createQuerry(ClothingRequestDTO data) {
+    private String createQuery(ClothingRequestDTO data) {
         String query = "";
         
         if (data instanceof ShirtRequestDTO shirtData) {

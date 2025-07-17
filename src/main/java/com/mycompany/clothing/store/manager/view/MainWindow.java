@@ -204,6 +204,44 @@ public class MainWindow extends javax.swing.JFrame {
         jButtonRemoveShirtBack = new javax.swing.JButton();
         PainelConsultarPraRemoverCalca = new javax.swing.JPanel();
         PainelRemoverCalca = new javax.swing.JPanel();
+        jButtonRemoverCalca = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jCheckBoxConsultCalcaComprimentoLongo1 = new javax.swing.JCheckBox();
+        jCheckBoxConsultCalcaComprimentoNormal1 = new javax.swing.JCheckBox();
+        jLabelConsultCollar3 = new javax.swing.JLabel();
+        jCheckBoxConsultCalcaComprimentoCurto1 = new javax.swing.JCheckBox();
+        jLabelStyle4 = new javax.swing.JLabel();
+        jLabelConsultCollar4 = new javax.swing.JLabel();
+        jCheckBoxConsultCalcaTipoBarraElastica1 = new javax.swing.JCheckBox();
+        jLabelGender4 = new javax.swing.JLabel();
+        jCheckBoxConsultCalcaTipoCinturaMedia1 = new javax.swing.JCheckBox();
+        jLabelPattern4 = new javax.swing.JLabel();
+        jLabelConsultSleeve2 = new javax.swing.JLabel();
+        jTextFieldConsultCalcaQuantity1 = new javax.swing.JTextField();
+        jLabelPocket4 = new javax.swing.JLabel();
+        jCheckBoxConsultCalcaTipoCinturaAlta1 = new javax.swing.JCheckBox();
+        jTextFieldConsultCalcaFabric1 = new javax.swing.JTextField();
+        jLabelClosureType4 = new javax.swing.JLabel();
+        jTextFieldConsultCalcaPattern1 = new javax.swing.JTextField();
+        jTextFieldConsultCalcaPocket1 = new javax.swing.JTextField();
+        jLabelSize4 = new javax.swing.JLabel();
+        jTextFieldConsultCalcaBrand1 = new javax.swing.JTextField();
+        jTextFieldConsultGender2 = new javax.swing.JTextField();
+        jTextFieldConsultCalcaColor1 = new javax.swing.JTextField();
+        jTextFieldConsultCalcaStyle1 = new javax.swing.JTextField();
+        jTextFieldConsultShirtSize2 = new javax.swing.JTextField();
+        jLabelPrice4 = new javax.swing.JLabel();
+        jTextFieldConsultCalcaPrice1 = new javax.swing.JTextField();
+        jTextFieldConsultCalcaClosureType1 = new javax.swing.JTextField();
+        jCheckBoxConsultCalcaTipoBarraDobrada1 = new javax.swing.JCheckBox();
+        jLabelQuantity3 = new javax.swing.JLabel();
+        jCheckBoxConsultCalcaTipoBarraReta1 = new javax.swing.JCheckBox();
+        jLabelCor4 = new javax.swing.JLabel();
+        jCheckBoxConsultCalcaTipoCinturaBaixa1 = new javax.swing.JCheckBox();
+        jLabelFabric4 = new javax.swing.JLabel();
+        jCheckBoxConsultCalcaTipoCinturaElastica1 = new javax.swing.JCheckBox();
+        jLabelBrand4 = new javax.swing.JLabel();
         PainelAdicionarCalca = new javax.swing.JPanel();
         jTextFieldAdicionarCalcaPattern = new javax.swing.JTextField();
         jLabelAdicionarCalcaBrand = new javax.swing.JLabel();
@@ -1195,19 +1233,304 @@ public class MainWindow extends javax.swing.JFrame {
         getContentPane().add(PainelConsultarPraRemoverCalca);
         PainelConsultarPraRemoverCalca.setBounds(0, 0, 1060, 588);
 
+        PainelRemoverCalca.setBackground(new java.awt.Color(0, 153, 153));
+
+        jButtonRemoverCalca.setText("Remover Calca");
+        jButtonRemoverCalca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRemoverCalcaActionPerformed(evt);
+            }
+        });
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable1);
+
+        jCheckBoxConsultCalcaComprimentoLongo1.setText("LONGO");
+        jCheckBoxConsultCalcaComprimentoLongo1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxConsultCalcaComprimentoLongo1ActionPerformed(evt);
+            }
+        });
+
+        jCheckBoxConsultCalcaComprimentoNormal1.setText("NORMAL");
+        jCheckBoxConsultCalcaComprimentoNormal1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxConsultCalcaComprimentoNormal1ActionPerformed(evt);
+            }
+        });
+
+        jLabelConsultCollar3.setText("TIPO DE BARRA");
+
+        jCheckBoxConsultCalcaComprimentoCurto1.setText("CURTO");
+        jCheckBoxConsultCalcaComprimentoCurto1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxConsultCalcaComprimentoCurto1ActionPerformed(evt);
+            }
+        });
+
+        jLabelStyle4.setText("ESTILO");
+
+        jLabelConsultCollar4.setText("COMPRIMENTO");
+
+        jCheckBoxConsultCalcaTipoBarraElastica1.setText("ELÁSTICA");
+        jCheckBoxConsultCalcaTipoBarraElastica1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxConsultCalcaTipoBarraElastica1ActionPerformed(evt);
+            }
+        });
+
+        jLabelGender4.setText("GENERO");
+
+        jCheckBoxConsultCalcaTipoCinturaMedia1.setText("MÉDIA");
+        jCheckBoxConsultCalcaTipoCinturaMedia1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxConsultCalcaTipoCinturaMedia1ActionPerformed(evt);
+            }
+        });
+
+        jLabelPattern4.setText("ESTAMPA");
+
+        jLabelConsultSleeve2.setText("TIPO DE CINTURA");
+
+        jTextFieldConsultCalcaQuantity1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldConsultCalcaQuantity1ActionPerformed(evt);
+            }
+        });
+
+        jLabelPocket4.setText("BOLSO");
+
+        jCheckBoxConsultCalcaTipoCinturaAlta1.setText("ALTA");
+        jCheckBoxConsultCalcaTipoCinturaAlta1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxConsultCalcaTipoCinturaAlta1ActionPerformed(evt);
+            }
+        });
+
+        jLabelClosureType4.setText("TIPO DE FECHAMENTO");
+
+        jLabelSize4.setText("TAMANHO");
+
+        jTextFieldConsultCalcaBrand1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldConsultCalcaBrand1ActionPerformed(evt);
+            }
+        });
+
+        jTextFieldConsultCalcaColor1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldConsultCalcaColor1ActionPerformed(evt);
+            }
+        });
+
+        jLabelPrice4.setText("PRECO");
+
+        jCheckBoxConsultCalcaTipoBarraDobrada1.setText("DOBRADA");
+        jCheckBoxConsultCalcaTipoBarraDobrada1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxConsultCalcaTipoBarraDobrada1ActionPerformed(evt);
+            }
+        });
+
+        jLabelQuantity3.setText("QUANTIDADE");
+
+        jCheckBoxConsultCalcaTipoBarraReta1.setText("RETA");
+        jCheckBoxConsultCalcaTipoBarraReta1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxConsultCalcaTipoBarraReta1ActionPerformed(evt);
+            }
+        });
+
+        jLabelCor4.setText("COR");
+
+        jCheckBoxConsultCalcaTipoCinturaBaixa1.setText("BAIXA");
+        jCheckBoxConsultCalcaTipoCinturaBaixa1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxConsultCalcaTipoCinturaBaixa1ActionPerformed(evt);
+            }
+        });
+
+        jLabelFabric4.setText("TECIDO");
+
+        jCheckBoxConsultCalcaTipoCinturaElastica1.setText("ELÁSTICA");
+        jCheckBoxConsultCalcaTipoCinturaElastica1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxConsultCalcaTipoCinturaElastica1ActionPerformed(evt);
+            }
+        });
+
+        jLabelBrand4.setText("MARCA");
+
         javax.swing.GroupLayout PainelRemoverCalcaLayout = new javax.swing.GroupLayout(PainelRemoverCalca);
         PainelRemoverCalca.setLayout(PainelRemoverCalcaLayout);
         PainelRemoverCalcaLayout.setHorizontalGroup(
             PainelRemoverCalcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1076, Short.MAX_VALUE)
-        );
-        PainelRemoverCalcaLayout.setVerticalGroup(
-            PainelRemoverCalcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 624, Short.MAX_VALUE)
+            .addGroup(PainelRemoverCalcaLayout.createSequentialGroup()
+                .addGroup(PainelRemoverCalcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PainelRemoverCalcaLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(PainelRemoverCalcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PainelRemoverCalcaLayout.createSequentialGroup()
+                                .addGap(15, 15, 15)
+                                .addGroup(PainelRemoverCalcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(PainelRemoverCalcaLayout.createSequentialGroup()
+                                        .addComponent(jLabelSize4)
+                                        .addGap(64, 64, 64)
+                                        .addComponent(jTextFieldConsultShirtSize2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(PainelRemoverCalcaLayout.createSequentialGroup()
+                                        .addGroup(PainelRemoverCalcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabelFabric4)
+                                            .addComponent(jLabelStyle4)
+                                            .addComponent(jLabelPattern4)
+                                            .addComponent(jLabelClosureType4))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(PainelRemoverCalcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jTextFieldConsultCalcaPattern1)
+                                            .addComponent(jTextFieldConsultCalcaClosureType1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextFieldConsultCalcaColor1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextFieldConsultCalcaStyle1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextFieldConsultCalcaFabric1, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(PainelRemoverCalcaLayout.createSequentialGroup()
+                                        .addGroup(PainelRemoverCalcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabelQuantity3)
+                                            .addComponent(jLabelBrand4)
+                                            .addComponent(jLabelGender4)
+                                            .addComponent(jLabelPocket4)
+                                            .addComponent(jLabelPrice4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(PainelRemoverCalcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jTextFieldConsultGender2, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
+                                            .addComponent(jTextFieldConsultCalcaBrand1, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
+                                            .addComponent(jTextFieldConsultCalcaQuantity1)
+                                            .addComponent(jTextFieldConsultCalcaPocket1)
+                                            .addComponent(jTextFieldConsultCalcaPrice1)))
+                                    .addGroup(PainelRemoverCalcaLayout.createSequentialGroup()
+                                        .addComponent(jLabelConsultCollar4)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jCheckBoxConsultCalcaComprimentoCurto1)
+                                        .addGap(24, 24, 24)
+                                        .addComponent(jCheckBoxConsultCalcaComprimentoNormal1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jCheckBoxConsultCalcaComprimentoLongo1))
+                                    .addGroup(PainelRemoverCalcaLayout.createSequentialGroup()
+                                        .addComponent(jLabelConsultSleeve2)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jCheckBoxConsultCalcaTipoCinturaBaixa1)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jCheckBoxConsultCalcaTipoCinturaMedia1)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jCheckBoxConsultCalcaTipoCinturaAlta1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jCheckBoxConsultCalcaTipoCinturaElastica1))
+                                    .addGroup(PainelRemoverCalcaLayout.createSequentialGroup()
+                                        .addComponent(jLabelConsultCollar3)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jCheckBoxConsultCalcaTipoBarraReta1)
+                                        .addGap(35, 35, 35)
+                                        .addComponent(jCheckBoxConsultCalcaTipoBarraDobrada1)
+                                        .addGap(12, 12, 12)
+                                        .addComponent(jCheckBoxConsultCalcaTipoBarraElastica1))))
+                            .addComponent(jLabelCor4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelRemoverCalcaLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonRemoverCalca)
+                        .addGap(49, 49, 49)))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
+        PainelRemoverCalcaLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jTextFieldConsultCalcaBrand1, jTextFieldConsultCalcaClosureType1, jTextFieldConsultCalcaColor1, jTextFieldConsultCalcaFabric1, jTextFieldConsultCalcaStyle1, jTextFieldConsultGender2, jTextFieldConsultShirtSize2});
+
+        PainelRemoverCalcaLayout.setVerticalGroup(
+            PainelRemoverCalcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelRemoverCalcaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelRemoverCalcaLayout.createSequentialGroup()
+                .addContainerGap(7, Short.MAX_VALUE)
+                .addComponent(jLabelCor4)
+                .addGap(27, 27, 27)
+                .addGroup(PainelRemoverCalcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldConsultCalcaColor1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelFabric4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(PainelRemoverCalcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldConsultCalcaFabric1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelStyle4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(PainelRemoverCalcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldConsultCalcaStyle1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelPattern4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(PainelRemoverCalcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldConsultCalcaPattern1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelClosureType4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTextFieldConsultCalcaClosureType1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(PainelRemoverCalcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelSize4)
+                    .addComponent(jTextFieldConsultShirtSize2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
+                .addGroup(PainelRemoverCalcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelQuantity3)
+                    .addComponent(jTextFieldConsultCalcaQuantity1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(PainelRemoverCalcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelBrand4)
+                    .addComponent(jTextFieldConsultCalcaBrand1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(PainelRemoverCalcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelGender4)
+                    .addComponent(jTextFieldConsultGender2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(PainelRemoverCalcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelPocket4)
+                    .addComponent(jTextFieldConsultCalcaPocket1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(PainelRemoverCalcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelPrice4)
+                    .addComponent(jTextFieldConsultCalcaPrice1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(PainelRemoverCalcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCheckBoxConsultCalcaTipoCinturaElastica1)
+                    .addComponent(jCheckBoxConsultCalcaTipoCinturaAlta1)
+                    .addComponent(jCheckBoxConsultCalcaTipoCinturaMedia1)
+                    .addComponent(jCheckBoxConsultCalcaTipoCinturaBaixa1)
+                    .addComponent(jLabelConsultSleeve2))
+                .addGap(18, 18, 18)
+                .addGroup(PainelRemoverCalcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelConsultCollar4)
+                    .addComponent(jCheckBoxConsultCalcaComprimentoCurto1)
+                    .addComponent(jCheckBoxConsultCalcaComprimentoNormal1)
+                    .addComponent(jCheckBoxConsultCalcaComprimentoLongo1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(PainelRemoverCalcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelConsultCollar3)
+                    .addComponent(jCheckBoxConsultCalcaTipoBarraDobrada1)
+                    .addComponent(jCheckBoxConsultCalcaTipoBarraElastica1)
+                    .addComponent(jCheckBoxConsultCalcaTipoBarraReta1))
+                .addGap(34, 34, 34)
+                .addComponent(jButtonRemoverCalca)
+                .addGap(188, 188, 188))
+        );
+
+        PainelRemoverCalcaLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jTextFieldConsultCalcaPocket1, jTextFieldConsultCalcaPrice1, jTextFieldConsultGender2});
+
         getContentPane().add(PainelRemoverCalca);
-        PainelRemoverCalca.setBounds(0, 0, 1076, 624);
+        PainelRemoverCalca.setBounds(0, 0, 847, 788);
 
         PainelAdicionarCalca.setBackground(new java.awt.Color(0, 153, 153));
 
@@ -2234,6 +2557,62 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBoxConsultCalcaComprimentoCurtoActionPerformed
 
+    private void jCheckBoxConsultCalcaComprimentoLongo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxConsultCalcaComprimentoLongo1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBoxConsultCalcaComprimentoLongo1ActionPerformed
+
+    private void jCheckBoxConsultCalcaComprimentoNormal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxConsultCalcaComprimentoNormal1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBoxConsultCalcaComprimentoNormal1ActionPerformed
+
+    private void jCheckBoxConsultCalcaComprimentoCurto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxConsultCalcaComprimentoCurto1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBoxConsultCalcaComprimentoCurto1ActionPerformed
+
+    private void jCheckBoxConsultCalcaTipoBarraElastica1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxConsultCalcaTipoBarraElastica1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBoxConsultCalcaTipoBarraElastica1ActionPerformed
+
+    private void jCheckBoxConsultCalcaTipoCinturaMedia1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxConsultCalcaTipoCinturaMedia1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBoxConsultCalcaTipoCinturaMedia1ActionPerformed
+
+    private void jTextFieldConsultCalcaQuantity1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldConsultCalcaQuantity1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldConsultCalcaQuantity1ActionPerformed
+
+    private void jCheckBoxConsultCalcaTipoCinturaAlta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxConsultCalcaTipoCinturaAlta1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBoxConsultCalcaTipoCinturaAlta1ActionPerformed
+
+    private void jTextFieldConsultCalcaBrand1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldConsultCalcaBrand1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldConsultCalcaBrand1ActionPerformed
+
+    private void jTextFieldConsultCalcaColor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldConsultCalcaColor1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldConsultCalcaColor1ActionPerformed
+
+    private void jCheckBoxConsultCalcaTipoBarraDobrada1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxConsultCalcaTipoBarraDobrada1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBoxConsultCalcaTipoBarraDobrada1ActionPerformed
+
+    private void jCheckBoxConsultCalcaTipoBarraReta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxConsultCalcaTipoBarraReta1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBoxConsultCalcaTipoBarraReta1ActionPerformed
+
+    private void jCheckBoxConsultCalcaTipoCinturaBaixa1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxConsultCalcaTipoCinturaBaixa1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBoxConsultCalcaTipoCinturaBaixa1ActionPerformed
+
+    private void jCheckBoxConsultCalcaTipoCinturaElastica1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxConsultCalcaTipoCinturaElastica1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBoxConsultCalcaTipoCinturaElastica1ActionPerformed
+
+    private void jButtonRemoverCalcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemoverCalcaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonRemoverCalcaActionPerformed
+
     private void updateQuantityClothings() {
         Integer quantity = clothingController.getQuantity();
     }
@@ -2609,6 +2988,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton jButtonRemoveShirtExit;
     private javax.swing.JButton jButtonRemoveShirtRemove;
     private javax.swing.JButton jButtonRemover;
+    private javax.swing.JButton jButtonRemoverCalca;
     private javax.swing.JButton jButtonSearchShirtBack;
     private javax.swing.JButton jButtonSearchShirtBack1;
     private javax.swing.JButton jButtonSearchShirtExit;
@@ -2620,15 +3000,25 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBoxCalcaComprimentoLongo;
     private javax.swing.JCheckBox jCheckBoxCalcaComprimentoNormal;
     private javax.swing.JCheckBox jCheckBoxConsultCalcaComprimentoCurto;
+    private javax.swing.JCheckBox jCheckBoxConsultCalcaComprimentoCurto1;
     private javax.swing.JCheckBox jCheckBoxConsultCalcaComprimentoLongo;
+    private javax.swing.JCheckBox jCheckBoxConsultCalcaComprimentoLongo1;
     private javax.swing.JCheckBox jCheckBoxConsultCalcaComprimentoNormal;
+    private javax.swing.JCheckBox jCheckBoxConsultCalcaComprimentoNormal1;
     private javax.swing.JCheckBox jCheckBoxConsultCalcaTipoBarraDobrada;
+    private javax.swing.JCheckBox jCheckBoxConsultCalcaTipoBarraDobrada1;
     private javax.swing.JCheckBox jCheckBoxConsultCalcaTipoBarraElastica;
+    private javax.swing.JCheckBox jCheckBoxConsultCalcaTipoBarraElastica1;
     private javax.swing.JCheckBox jCheckBoxConsultCalcaTipoBarraReta;
+    private javax.swing.JCheckBox jCheckBoxConsultCalcaTipoBarraReta1;
     private javax.swing.JCheckBox jCheckBoxConsultCalcaTipoCinturaAlta;
+    private javax.swing.JCheckBox jCheckBoxConsultCalcaTipoCinturaAlta1;
     private javax.swing.JCheckBox jCheckBoxConsultCalcaTipoCinturaBaixa;
+    private javax.swing.JCheckBox jCheckBoxConsultCalcaTipoCinturaBaixa1;
     private javax.swing.JCheckBox jCheckBoxConsultCalcaTipoCinturaElastica;
+    private javax.swing.JCheckBox jCheckBoxConsultCalcaTipoCinturaElastica1;
     private javax.swing.JCheckBox jCheckBoxConsultCalcaTipoCinturaMedia;
+    private javax.swing.JCheckBox jCheckBoxConsultCalcaTipoCinturaMedia1;
     private javax.swing.JCheckBox jCheckBoxConsultCollarNao;
     private javax.swing.JCheckBox jCheckBoxConsultCollarSim;
     private javax.swing.JCheckBox jCheckBoxConsultSleeveNao;
@@ -2672,36 +3062,48 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelBrand1;
     private javax.swing.JLabel jLabelBrand2;
     private javax.swing.JLabel jLabelBrand3;
+    private javax.swing.JLabel jLabelBrand4;
     private javax.swing.JLabel jLabelCalcaComprimento;
     private javax.swing.JLabel jLabelCalcaTamanho;
     private javax.swing.JLabel jLabelClosureType1;
     private javax.swing.JLabel jLabelClosureType2;
     private javax.swing.JLabel jLabelClosureType3;
+    private javax.swing.JLabel jLabelClosureType4;
     private javax.swing.JLabel jLabelConsultCollar;
     private javax.swing.JLabel jLabelConsultCollar1;
     private javax.swing.JLabel jLabelConsultCollar2;
+    private javax.swing.JLabel jLabelConsultCollar3;
+    private javax.swing.JLabel jLabelConsultCollar4;
     private javax.swing.JLabel jLabelConsultSleeve;
     private javax.swing.JLabel jLabelConsultSleeve1;
+    private javax.swing.JLabel jLabelConsultSleeve2;
     private javax.swing.JLabel jLabelCor1;
     private javax.swing.JLabel jLabelCor2;
     private javax.swing.JLabel jLabelCor3;
+    private javax.swing.JLabel jLabelCor4;
     private javax.swing.JLabel jLabelFabric1;
     private javax.swing.JLabel jLabelFabric2;
     private javax.swing.JLabel jLabelFabric3;
+    private javax.swing.JLabel jLabelFabric4;
     private javax.swing.JLabel jLabelGender1;
     private javax.swing.JLabel jLabelGender2;
     private javax.swing.JLabel jLabelGender3;
+    private javax.swing.JLabel jLabelGender4;
     private javax.swing.JLabel jLabelPattern1;
     private javax.swing.JLabel jLabelPattern2;
     private javax.swing.JLabel jLabelPattern3;
+    private javax.swing.JLabel jLabelPattern4;
     private javax.swing.JLabel jLabelPocket1;
     private javax.swing.JLabel jLabelPocket2;
     private javax.swing.JLabel jLabelPocket3;
+    private javax.swing.JLabel jLabelPocket4;
     private javax.swing.JLabel jLabelPrice1;
     private javax.swing.JLabel jLabelPrice2;
     private javax.swing.JLabel jLabelPrice3;
+    private javax.swing.JLabel jLabelPrice4;
     private javax.swing.JLabel jLabelQuantity1;
     private javax.swing.JLabel jLabelQuantity2;
+    private javax.swing.JLabel jLabelQuantity3;
     private javax.swing.JLabel jLabelRemoveCollar;
     private javax.swing.JLabel jLabelRemoveShirtId;
     private javax.swing.JLabel jLabelRemoveShirtQuantity;
@@ -2709,15 +3111,19 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelSize1;
     private javax.swing.JLabel jLabelSize2;
     private javax.swing.JLabel jLabelSize3;
+    private javax.swing.JLabel jLabelSize4;
     private javax.swing.JLabel jLabelStyle1;
     private javax.swing.JLabel jLabelStyle2;
     private javax.swing.JLabel jLabelStyle3;
+    private javax.swing.JLabel jLabelStyle4;
     private javax.swing.JLabel jLabelTipoBarra;
     private javax.swing.JLabel jLabelTipoCintura;
     private javax.swing.JPopupMenu jPopupMenuAdicionar;
     private javax.swing.JPopupMenu jPopupMenuConsultar;
     private javax.swing.JPopupMenu jPopupMenuRemove;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextFieldAdicionarCalcaBrand;
     private javax.swing.JTextField jTextFieldAdicionarCalcaClosureType;
@@ -2743,25 +3149,36 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldCalcaTamanho;
     private javax.swing.JTextField jTextFieldConsultBrand;
     private javax.swing.JTextField jTextFieldConsultCalcaBrand;
+    private javax.swing.JTextField jTextFieldConsultCalcaBrand1;
     private javax.swing.JTextField jTextFieldConsultCalcaClosureType;
+    private javax.swing.JTextField jTextFieldConsultCalcaClosureType1;
     private javax.swing.JTextField jTextFieldConsultCalcaColor;
+    private javax.swing.JTextField jTextFieldConsultCalcaColor1;
     private javax.swing.JTextField jTextFieldConsultCalcaFabric;
+    private javax.swing.JTextField jTextFieldConsultCalcaFabric1;
     private javax.swing.JTextField jTextFieldConsultCalcaPattern;
+    private javax.swing.JTextField jTextFieldConsultCalcaPattern1;
     private javax.swing.JTextField jTextFieldConsultCalcaPocket;
+    private javax.swing.JTextField jTextFieldConsultCalcaPocket1;
     private javax.swing.JTextField jTextFieldConsultCalcaPrice;
+    private javax.swing.JTextField jTextFieldConsultCalcaPrice1;
     private javax.swing.JTextField jTextFieldConsultCalcaQuantity;
+    private javax.swing.JTextField jTextFieldConsultCalcaQuantity1;
     private javax.swing.JTextField jTextFieldConsultCalcaStyle;
+    private javax.swing.JTextField jTextFieldConsultCalcaStyle1;
     private javax.swing.JTextField jTextFieldConsultClosureType;
     private javax.swing.JTextField jTextFieldConsultColor;
     private javax.swing.JTextField jTextFieldConsultFabric;
     private javax.swing.JTextField jTextFieldConsultGender;
     private javax.swing.JTextField jTextFieldConsultGender1;
+    private javax.swing.JTextField jTextFieldConsultGender2;
     private javax.swing.JTextField jTextFieldConsultPattern;
     private javax.swing.JTextField jTextFieldConsultPocket;
     private javax.swing.JTextField jTextFieldConsultPrice;
     private javax.swing.JTextField jTextFieldConsultQuantity;
     private javax.swing.JTextField jTextFieldConsultShirtSize;
     private javax.swing.JTextField jTextFieldConsultShirtSize1;
+    private javax.swing.JTextField jTextFieldConsultShirtSize2;
     private javax.swing.JTextField jTextFieldConsultStyle;
     private javax.swing.JTextField jTextFieldRemoveBrand;
     private javax.swing.JTextField jTextFieldRemoveClosureType;

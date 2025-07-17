@@ -71,7 +71,7 @@ public class Pantie extends Clothing {
         this.waistType = waistType;
     }
 
-    public void setLenght(PantieLengthType length) {
+    public void setLength(PantieLengthType length) {
         this.length = length;
     }
 

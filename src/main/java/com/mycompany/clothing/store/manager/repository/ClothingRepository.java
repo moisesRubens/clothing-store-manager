@@ -313,7 +313,8 @@ public class ClothingRepository {
             if (EnumSet.allOf(WaistType.class).contains(dataPantie.waistType())) {
                 queryPantie.setParameter("waistType", dataPantie.waistType());
             }
-            if (EnumSet.allOf(PantieLengthType.class).contains(dataPantie.length())) {
+            if (EnumSet.allOf(PantieLengthType.class).contains(dataPantie.length())
+                    && query.contains(":length")) {
                 queryPantie.setParameter("length", dataPantie.length());
             }
             if (dataPantie.pocket() != -1) {
