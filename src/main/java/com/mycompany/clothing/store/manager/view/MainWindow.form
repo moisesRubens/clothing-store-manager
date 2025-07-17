@@ -1366,91 +1366,101 @@
               <Group type="102" alignment="0" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                                  <Component id="jLabelConsultCollar4" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jCheckBoxRemoveCalcaComprimentoCurto" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                                  <Component id="jCheckBoxRemoveCalcaComprimentoNormal" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="jCheckBoxRemoveCalcaComprimentoLongo" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabelConsultSleeve2" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="jCheckBoxRemoveCalcaTipoCinturaBaixa" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="jCheckBoxRemoveCalcaTipoCinturaMedia" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="jCheckBoxRemoveCalcaTipoCinturaAlta" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jCheckBoxRemoveCalcaTipoCinturaElastica" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabelConsultCollar3" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="jCheckBoxRemoveCalcaTipoBarraReta" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                                  <Component id="jCheckBoxRemoveCalcaTipoBarraDobrada" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                  <Component id="jCheckBoxRemoveCalcaTipoBarraElastica" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="buttonRemoverCalca" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jLabelSize4" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
-                                          <Component id="jTextFieldConsultShirtSize2" linkSize="13" min="-2" pref="71" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jLabelFabric4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabelStyle4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabelPattern4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabelClosureType4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabelCor4" alignment="1" min="-2" pref="37" max="-2" attributes="0"/>
+                                              <Component id="jLabelFabric4" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabelStyle4" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabelPattern4" alignment="1" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="jTextFieldConsultCalcaPattern1" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="jTextFieldConsultCalcaClosureType1" linkSize="13" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
-                                              <Component id="jTextFieldConsultCalcaColor1" linkSize="13" alignment="0" min="-2" pref="179" max="-2" attributes="0"/>
-                                              <Component id="jTextFieldConsultCalcaStyle1" linkSize="13" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
-                                              <Component id="jTextFieldConsultCalcaFabric1" linkSize="13" alignment="0" min="-2" pref="253" max="-2" attributes="0"/>
-                                          </Group>
+                                          <Component id="jLabelClosureType4" alignment="1" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jLabelQuantity3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabelBrand4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabelGender4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabelPocket4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabelPrice4" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="jTextFieldConsultGender2" linkSize="13" alignment="0" pref="71" max="32767" attributes="0"/>
-                                              <Component id="jTextFieldConsultCalcaBrand1" linkSize="13" alignment="0" pref="71" max="32767" attributes="0"/>
-                                              <Component id="jTextFieldConsultCalcaQuantity1" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="jTextFieldConsultCalcaPocket1" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="jTextFieldConsultCalcaPrice1" alignment="0" max="32767" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jLabelConsultCollar4" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jCheckBoxConsultCalcaComprimentoCurto1" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                                          <Component id="jCheckBoxConsultCalcaComprimentoNormal1" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="jCheckBoxConsultCalcaComprimentoLongo1" min="-2" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jLabelGender4" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabelBrand4" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabelPocket4" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jLabelConsultSleeve2" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jCheckBoxConsultCalcaTipoCinturaBaixa1" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jCheckBoxConsultCalcaTipoCinturaMedia1" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jCheckBoxConsultCalcaTipoCinturaAlta1" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jCheckBoxConsultCalcaTipoCinturaElastica1" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Component id="jLabelPrice4" min="-2" pref="37" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jLabelQuantity3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabelSize4" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
                                       </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jLabelConsultCollar3" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jCheckBoxConsultCalcaTipoBarraReta1" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                                          <Component id="jCheckBoxConsultCalcaTipoBarraDobrada1" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                          <Component id="jCheckBoxConsultCalcaTipoBarraElastica1" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jTextFieldRemoveCalcaColor" linkSize="13" min="-2" pref="179" max="-2" attributes="0"/>
+                                              <Component id="jTextFieldRemoveCalcaFabric" linkSize="13" min="-2" pref="253" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="0" pref="3" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jTextFieldRemoveCalcaPattern" alignment="1" min="-2" pref="253" max="-2" attributes="0"/>
+                                              <Component id="jTextFieldRemoveCalcaStyle" linkSize="13" alignment="1" min="-2" pref="71" max="-2" attributes="0"/>
+                                              <Component id="jTextFieldRemoveCalcaClosureType" linkSize="13" alignment="1" min="-2" pref="71" max="-2" attributes="0"/>
+                                              <Component id="jTextFieldRemoveCalcaSize" linkSize="13" alignment="1" min="-2" pref="71" max="-2" attributes="0"/>
+                                              <Component id="jTextFieldRemoveCalcaBrand" linkSize="13" alignment="1" pref="71" max="32767" attributes="0"/>
+                                              <Component id="jTextFieldRemoveCalcaGender" linkSize="13" alignment="1" pref="71" max="32767" attributes="0"/>
+                                              <Component id="jTextFieldRemoveCalcaPocket" alignment="1" min="-2" pref="253" max="-2" attributes="0"/>
+                                              <Component id="jTextFieldRemoveCalcaPrice" alignment="1" min="-2" pref="253" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
                                   </Group>
                               </Group>
-                              <Component id="jLabelCor4" min="-2" pref="37" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="62" max="32767" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="1" attributes="0">
+                      <Group type="102" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="jButtonRemoverCalca" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                          <Component id="jTextFieldRemoveCalcaQuantity" min="-2" pref="253" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Component id="jScrollPane2" min="-2" pref="361" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="jScrollPane2" pref="585" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -1463,96 +1473,109 @@
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="7" max="32767" attributes="0"/>
-                  <Component id="jLabelCor4" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextFieldConsultCalcaColor1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelFabric4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextFieldConsultCalcaFabric1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelStyle4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextFieldConsultCalcaStyle1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelPattern4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextFieldConsultCalcaPattern1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelClosureType4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jTextFieldConsultCalcaClosureType1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabelSize4" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextFieldConsultShirtSize2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabelQuantity3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextFieldConsultCalcaQuantity1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabelBrand4" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextFieldConsultCalcaBrand1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabelGender4" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextFieldConsultGender2" linkSize="15" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabelPocket4" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextFieldConsultCalcaPocket1" linkSize="15" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabelPrice4" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextFieldConsultCalcaPrice1" linkSize="15" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jCheckBoxConsultCalcaTipoCinturaElastica1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCheckBoxConsultCalcaTipoCinturaAlta1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCheckBoxConsultCalcaTipoCinturaMedia1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCheckBoxConsultCalcaTipoCinturaBaixa1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelConsultSleeve2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jTextFieldRemoveCalcaColor" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelCor4" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabelConsultCollar4" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCheckBoxConsultCalcaComprimentoCurto1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCheckBoxConsultCalcaComprimentoNormal1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCheckBoxConsultCalcaComprimentoLongo1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldRemoveCalcaFabric" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelFabric4" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="jLabelStyle4" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jTextFieldRemoveCalcaStyle" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jTextFieldRemoveCalcaPattern" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelPattern4" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="15" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabelConsultCollar3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCheckBoxConsultCalcaTipoBarraDobrada1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCheckBoxConsultCalcaTipoBarraElastica1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCheckBoxConsultCalcaTipoBarraReta1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldRemoveCalcaClosureType" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelClosureType4" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                  <Component id="jButtonRemoverCalca" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="188" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jTextFieldRemoveCalcaSize" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelSize4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jTextFieldRemoveCalcaQuantity" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelQuantity3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="136" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabelPrice4" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextFieldRemoveCalcaPrice" linkSize="15" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jCheckBoxRemoveCalcaTipoCinturaElastica" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jCheckBoxRemoveCalcaTipoCinturaAlta" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jCheckBoxRemoveCalcaTipoCinturaMedia" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jCheckBoxRemoveCalcaTipoCinturaBaixa" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelConsultSleeve2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabelConsultCollar4" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jCheckBoxRemoveCalcaComprimentoCurto" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jCheckBoxRemoveCalcaComprimentoNormal" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jCheckBoxRemoveCalcaComprimentoLongo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabelConsultCollar3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jCheckBoxRemoveCalcaTipoBarraDobrada" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jCheckBoxRemoveCalcaTipoBarraElastica" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jCheckBoxRemoveCalcaTipoBarraReta" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                          <Component id="buttonRemoverCalca" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jTextFieldRemoveCalcaBrand" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelBrand4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jTextFieldRemoveCalcaGender" linkSize="15" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelGender4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jTextFieldRemoveCalcaPocket" linkSize="15" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelPocket4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <EmptySpace min="-2" pref="179" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="jButtonRemoverCalca">
+        <Component class="javax.swing.JButton" name="buttonRemoverCalca">
           <Properties>
             <Property name="text" type="java.lang.String" value="Remover Calca"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRemoverCalcaActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonRemoverCalcaActionPerformed"/>
           </Events>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane2">
@@ -1573,20 +1596,20 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JCheckBox" name="jCheckBoxConsultCalcaComprimentoLongo1">
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxRemoveCalcaComprimentoLongo">
           <Properties>
             <Property name="text" type="java.lang.String" value="LONGO"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxConsultCalcaComprimentoLongo1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxRemoveCalcaComprimentoLongoActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBoxConsultCalcaComprimentoNormal1">
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxRemoveCalcaComprimentoNormal">
           <Properties>
             <Property name="text" type="java.lang.String" value="NORMAL"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxConsultCalcaComprimentoNormal1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxRemoveCalcaComprimentoNormalActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelConsultCollar3">
@@ -1594,12 +1617,12 @@
             <Property name="text" type="java.lang.String" value="TIPO DE BARRA"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBoxConsultCalcaComprimentoCurto1">
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxRemoveCalcaComprimentoCurto">
           <Properties>
             <Property name="text" type="java.lang.String" value="CURTO"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxConsultCalcaComprimentoCurto1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxRemoveCalcaComprimentoCurtoActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelStyle4">
@@ -1612,12 +1635,12 @@
             <Property name="text" type="java.lang.String" value="COMPRIMENTO"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBoxConsultCalcaTipoBarraElastica1">
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxRemoveCalcaTipoBarraElastica">
           <Properties>
             <Property name="text" type="java.lang.String" value="EL&#xc1;STICA"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxConsultCalcaTipoBarraElastica1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxRemoveCalcaTipoBarraElasticaActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelGender4">
@@ -1625,12 +1648,12 @@
             <Property name="text" type="java.lang.String" value="GENERO"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBoxConsultCalcaTipoCinturaMedia1">
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxRemoveCalcaTipoCinturaMedia">
           <Properties>
             <Property name="text" type="java.lang.String" value="M&#xc9;DIA"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxConsultCalcaTipoCinturaMedia1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxRemoveCalcaTipoCinturaMediaActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelPattern4">
@@ -1643,9 +1666,9 @@
             <Property name="text" type="java.lang.String" value="TIPO DE CINTURA"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldConsultCalcaQuantity1">
+        <Component class="javax.swing.JTextField" name="jTextFieldRemoveCalcaQuantity">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldConsultCalcaQuantity1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldRemoveCalcaQuantityActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelPocket4">
@@ -1653,61 +1676,61 @@
             <Property name="text" type="java.lang.String" value="BOLSO"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBoxConsultCalcaTipoCinturaAlta1">
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxRemoveCalcaTipoCinturaAlta">
           <Properties>
             <Property name="text" type="java.lang.String" value="ALTA"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxConsultCalcaTipoCinturaAlta1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxRemoveCalcaTipoCinturaAltaActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldConsultCalcaFabric1">
+        <Component class="javax.swing.JTextField" name="jTextFieldRemoveCalcaFabric">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelClosureType4">
           <Properties>
             <Property name="text" type="java.lang.String" value="TIPO DE FECHAMENTO"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldConsultCalcaPattern1">
+        <Component class="javax.swing.JTextField" name="jTextFieldRemoveCalcaPattern">
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldConsultCalcaPocket1">
+        <Component class="javax.swing.JTextField" name="jTextFieldRemoveCalcaPocket">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelSize4">
           <Properties>
             <Property name="text" type="java.lang.String" value="TAMANHO"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldConsultCalcaBrand1">
+        <Component class="javax.swing.JTextField" name="jTextFieldRemoveCalcaBrand">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldConsultCalcaBrand1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldRemoveCalcaBrandActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldConsultGender2">
+        <Component class="javax.swing.JTextField" name="jTextFieldRemoveCalcaGender">
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldConsultCalcaColor1">
+        <Component class="javax.swing.JTextField" name="jTextFieldRemoveCalcaColor">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldConsultCalcaColor1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldRemoveCalcaColorActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldConsultCalcaStyle1">
+        <Component class="javax.swing.JTextField" name="jTextFieldRemoveCalcaStyle">
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldConsultShirtSize2">
+        <Component class="javax.swing.JTextField" name="jTextFieldRemoveCalcaSize">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelPrice4">
           <Properties>
             <Property name="text" type="java.lang.String" value="PRECO"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldConsultCalcaPrice1">
+        <Component class="javax.swing.JTextField" name="jTextFieldRemoveCalcaPrice">
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldConsultCalcaClosureType1">
+        <Component class="javax.swing.JTextField" name="jTextFieldRemoveCalcaClosureType">
         </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBoxConsultCalcaTipoBarraDobrada1">
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxRemoveCalcaTipoBarraDobrada">
           <Properties>
             <Property name="text" type="java.lang.String" value="DOBRADA"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxConsultCalcaTipoBarraDobrada1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxRemoveCalcaTipoBarraDobradaActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelQuantity3">
@@ -1715,12 +1738,12 @@
             <Property name="text" type="java.lang.String" value="QUANTIDADE"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBoxConsultCalcaTipoBarraReta1">
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxRemoveCalcaTipoBarraReta">
           <Properties>
             <Property name="text" type="java.lang.String" value="RETA"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxConsultCalcaTipoBarraReta1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxRemoveCalcaTipoBarraRetaActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelCor4">
@@ -1728,12 +1751,12 @@
             <Property name="text" type="java.lang.String" value="COR"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBoxConsultCalcaTipoCinturaBaixa1">
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxRemoveCalcaTipoCinturaBaixa">
           <Properties>
             <Property name="text" type="java.lang.String" value="BAIXA"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxConsultCalcaTipoCinturaBaixa1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxRemoveCalcaTipoCinturaBaixaActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelFabric4">
@@ -1741,12 +1764,12 @@
             <Property name="text" type="java.lang.String" value="TECIDO"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBoxConsultCalcaTipoCinturaElastica1">
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxRemoveCalcaTipoCinturaElastica">
           <Properties>
             <Property name="text" type="java.lang.String" value="EL&#xc1;STICA"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxConsultCalcaTipoCinturaElastica1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxRemoveCalcaTipoCinturaElasticaActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelBrand4">
