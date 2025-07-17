@@ -251,7 +251,7 @@ public class ClothingRepository {
 
     private List<Clothing> consultAux(ClothingRequestDTO data, String query) throws Exception {
         List list = null;
-
+        System.out.println(query);
         if (data instanceof ShirtRequestDTO shirtData) {
             TypedQuery<Shirt> queryShirt;
 
@@ -299,10 +299,11 @@ public class ClothingRepository {
 
             list = queryShirt.getResultList();
         } else if(data instanceof PantieRequestDTO dataPantie) {
+            System.out.println("DATA DE PANTIE: " + dataPantie);
             TypedQuery<Pantie> queryPantie;
 
             queryPantie = em.createQuery(query, Pantie.class);
-
+            
             
             if (EnumSet.allOf(Gender.class).contains(dataPantie.gender())) {
                 queryPantie.setParameter("gender", dataPantie.gender());
@@ -349,6 +350,7 @@ public class ClothingRepository {
             }
 
             list = queryPantie.getResultList();
+            System.out.println("LISTA: " + list);
         }
 
         if (list == null) {

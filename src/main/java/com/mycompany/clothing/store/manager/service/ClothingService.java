@@ -186,16 +186,23 @@ public class ClothingService {
     }
 
     private boolean containstAtributes(ClothingRequestDTO data) {
-        Boolean hasAtribute = false;
+        Boolean hasAtribute = (!data.color().isBlank() || !data.brand().isBlank() || !data.pattern().isBlank()
+                || !data.closureType().isBlank() || !data.fabric().isBlank() || EnumSet.allOf(Gender.class).contains(data.gender())
+                || !data.style().isBlank() || data.pocket() != -1 || data.quantity() != -1 || data.price() != -1);
 
-        if (data instanceof ShirtRequestDTO shirtData) {
-            hasAtribute = (!shirtData.color().isBlank() || !shirtData.brand().isBlank() || !shirtData.pattern().isBlank()
-                    || EnumSet.allOf(ShirtSize.class).contains(shirtData.size()) || !shirtData.closureType().isBlank()
-                    || !shirtData.fabric().isBlank() || EnumSet.allOf(Gender.class).contains(shirtData.gender())
-                    || !shirtData.style().isBlank() || shirtData.collar() != -1 || shirtData.sleeve() != -1
-                    || shirtData.pocket() != -1 || shirtData.quantity() != -1 || shirtData.price() != -1);
+        if (hasAtribute == true) {
+            return hasAtribute;
         }
 
+        switch (data) {
+            case ShirtRequestDTO shirtData -> hasAtribute = (EnumSet.allOf(ShirtSize.class).contains(shirtData.size()) || shirtData.collar() != -1
+                    || shirtData.sleeve() != -1);
+            case PantieRequestDTO pantieData -> hasAtribute = (EnumSet.allOf(HemType.class).contains(pantieData.hemType())
+                    || EnumSet.allOf(WaistType.class).contains(pantieData.waistType())
+                    || EnumSet.allOf(PantieLengthType.class).contains(pantieData.length())
+                    || pantieData.size() != -1);
+            default -> {}
+        }
         return hasAtribute;
     }
 

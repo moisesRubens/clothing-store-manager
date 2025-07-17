@@ -14,6 +14,7 @@ import com.mycompany.clothing.store.manager.domain.enums.Gender;
 public interface ClothingRequestDTO {
     String color();
     Integer quantity();
+    Double price();
     String fabric();
     String brand(); 
     String style();
