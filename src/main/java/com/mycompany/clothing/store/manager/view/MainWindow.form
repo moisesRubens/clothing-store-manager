@@ -1499,7 +1499,6 @@
                           <Component id="jTextFieldAdicionarCalcaPrice" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -1819,19 +1818,17 @@
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" alignment="0" attributes="0">
                                                   <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="jLabelQuantity2" alignment="0" min="-2" max="-2" attributes="0"/>
                                                       <Component id="jLabelBrand3" alignment="0" min="-2" max="-2" attributes="0"/>
                                                       <Component id="jLabelGender3" alignment="0" min="-2" max="-2" attributes="0"/>
                                                       <Component id="jLabelPocket3" alignment="0" min="-2" max="-2" attributes="0"/>
                                                       <Component id="jLabelPrice3" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
                                                       <Component id="jTextFieldConsultCalcaPrice" linkSize="12" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
                                                       <Component id="jTextFieldConsultCalcaPocket" linkSize="12" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
                                                       <Component id="jTextFieldConsultGender1" linkSize="12" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
                                                       <Component id="jTextFieldConsultCalcaBrand" linkSize="12" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
-                                                      <Component id="jTextFieldConsultCalcaQuantity" linkSize="12" alignment="0" min="-2" pref="253" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                               <Group type="102" alignment="0" attributes="0">
@@ -1869,12 +1866,12 @@
                                           <Group type="102" attributes="0">
                                               <Component id="jLabelPocket5" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="32767" attributes="0"/>
-                                              <Component id="jTextFieldConsultCalcaPocket1" min="-2" pref="71" max="-2" attributes="0"/>
+                                              <Component id="jTextFieldConsultCalcaId" min="-2" pref="71" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="jLabelPrice5" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="jTextFieldConsultCalcaPrice1" min="-2" pref="71" max="-2" attributes="0"/>
+                                              <Component id="jTextFieldConsultCalcaQuantity" min="-2" pref="71" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <Component id="jButtonRemoverCalca" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -1895,8 +1892,6 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jTextFieldConsultCalcaColor" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabelCor3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelQuantity2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextFieldConsultCalcaQuantity" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -1958,12 +1953,12 @@
                   <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabelPocket5" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextFieldConsultCalcaPocket1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldConsultCalcaId" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabelPrice5" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextFieldConsultCalcaPrice1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldConsultCalcaQuantity" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jButtonRemoverCalca" min="-2" max="-2" attributes="0"/>
@@ -1978,11 +1973,6 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JTextField" name="jTextFieldConsultCalcaQuantity">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldConsultCalcaQuantityActionPerformed"/>
-          </Events>
-        </Component>
         <Component class="javax.swing.JCheckBox" name="jCheckBoxConsultCalcaTipoCinturaAlta">
           <Properties>
             <Property name="text" type="java.lang.String" value="ALTA"/>
@@ -2012,11 +2002,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldConsultCalcaClosureType">
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabelQuantity2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="QUANTIDADE"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelCor3">
           <Properties>
@@ -2199,7 +2184,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRemoverCalcaActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldConsultCalcaPocket1">
+        <Component class="javax.swing.JTextField" name="jTextFieldConsultCalcaId">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelPocket5">
           <Properties>
@@ -2208,10 +2193,10 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelPrice5">
           <Properties>
-            <Property name="text" type="java.lang.String" value="QUANTITY"/>
+            <Property name="text" type="java.lang.String" value="QUANTIDADE"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldConsultCalcaPrice1">
+        <Component class="javax.swing.JTextField" name="jTextFieldConsultCalcaQuantity">
         </Component>
       </SubComponents>
     </Container>
