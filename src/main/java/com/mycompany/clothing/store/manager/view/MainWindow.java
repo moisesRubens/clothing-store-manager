@@ -37,6 +37,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import java.awt.Image;
 import java.util.ArrayList;
+import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.ImageIcon;
@@ -1417,7 +1418,7 @@ public class MainWindow extends javax.swing.JFrame {
                     .addComponent(jLabelAdicionarCalcaPocket)
                     .addComponent(jLabelAdicionarCalcaClosureType, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldAdicionarCalcaClosureType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 6, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(PainelAdicionarCalcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PainelAdicionarCalcaLayout.createSequentialGroup()
                         .addGap(40, 40, 40)
@@ -1445,11 +1446,9 @@ public class MainWindow extends javax.swing.JFrame {
                             .addComponent(jCheckBoxCalcaComprimentoLongo))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
                         .addComponent(buttonCadastrarCalcaVoltar))
-                    .addGroup(PainelAdicionarCalcaLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(PainelAdicionarCalcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(buttonCadastrarCalca2)
-                            .addComponent(buttonCadastrarCalcaSair))))
+                    .addGroup(PainelAdicionarCalcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(buttonCadastrarCalca2)
+                        .addComponent(buttonCadastrarCalcaSair)))
                 .addContainerGap())
         );
 
@@ -1737,12 +1736,13 @@ public class MainWindow extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jScrollPaneConsultRemoveCalca, javax.swing.GroupLayout.PREFERRED_SIZE, 505, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addGroup(PainelConsultarRemoverCalcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextFieldConsultRemoveCalcaQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelConsultRemoveCalcaQuantity)
-                            .addComponent(jTextFieldConsultRemoveCalcaId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelConsultRemoveCalcaId)
-                            .addComponent(jButtonRemoverCalca)))
+                        .addGroup(PainelConsultarRemoverCalcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonRemoverCalca)
+                            .addGroup(PainelConsultarRemoverCalcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jTextFieldConsultRemoveCalcaQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabelConsultRemoveCalcaQuantity)
+                                .addComponent(jTextFieldConsultRemoveCalcaId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabelConsultRemoveCalcaId))))
                     .addGroup(PainelConsultarRemoverCalcaLayout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addGroup(PainelConsultarRemoverCalcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -2348,8 +2348,11 @@ public class MainWindow extends javax.swing.JFrame {
         try {
             removePantieById();
             updateTable(allClothings, ClothingPiece.PANTIE);
+            CardLayout a = (CardLayout) getContentPane().getLayout();
+            a.show(getContentPane(), "PainelConsultarRemoverCalca");
         } catch(Exception e) {
             handleException(e);
+            System.out.println("DENTRO DO CATCH FINAL");
         }
     }//GEN-LAST:event_jButtonRemoverCalcaActionPerformed
 
@@ -2396,13 +2399,18 @@ public class MainWindow extends javax.swing.JFrame {
                     }
                     case ClothingPiece.PANTIE -> {
                         PantieRequestDTO pantieData = consultarCalca();
+                        System.out.println(pantieData);
                         listSearchToRemove = clothingController.consult(pantieData);
+                        System.out.println("DENTRO DO TRY");
                     }
                 }
             }
         } catch (Exception e) {
-            listSearchToRemove = new ArrayList<>();
+
+            System.out.println("DENTRO DO CATCH");
         } finally {
+
+            System.out.println("DENTRO DO FINALLY");
             fillTable(listSearchToRemove, p);
         }
     }
@@ -2612,11 +2620,11 @@ public class MainWindow extends javax.swing.JFrame {
     public void fillTable(List<ClothingResponseDTO> list, ClothingPiece p) throws Exception {
         DefaultTableModel model = new DefaultTableModel();
         fillTableAux(model, p);
-
+        System.out.println("DETNRO DO FILL TABLE");
         if (list == null) {
             return;
         }
-
+        System.out.println("PASSAMOS DO RETURN");
         if (!list.isEmpty()) {
             switch (p) {
                 case ClothingPiece.SHIRT -> {
@@ -2639,7 +2647,6 @@ public class MainWindow extends javax.swing.JFrame {
                             shirtData.sleeve()
                         });
                     }
-                    jTableRemoverCamisa.setModel(model);
                 }
                 case ClothingPiece.PANTIE -> {
                     for (ClothingResponseDTO data : list) {
@@ -2662,10 +2669,14 @@ public class MainWindow extends javax.swing.JFrame {
                             pantieData.waistType()
                         });
                     }
-                    jTableConsultRemoveCalca.setModel(model);
                 }
             }
-            
+        }
+        
+        if(p.equals(ClothingPiece.SHIRT)) {
+            jTableRemoverCamisa.setModel(model);
+        } else {
+             jTableConsultRemoveCalca.setModel(model);
         }
     }
 
