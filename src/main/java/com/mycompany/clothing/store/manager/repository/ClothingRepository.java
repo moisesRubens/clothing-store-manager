@@ -299,7 +299,6 @@ public class ClothingRepository {
 
             list = queryShirt.getResultList();
         } else if(data instanceof PantieRequestDTO dataPantie) {
-            System.out.println("DATA DE PANTIE: " + dataPantie);
             TypedQuery<Pantie> queryPantie;
 
             queryPantie = em.createQuery(query, Pantie.class);
@@ -350,7 +349,6 @@ public class ClothingRepository {
             }
 
             list = queryPantie.getResultList();
-            System.out.println("LISTA: " + list);
         }
 
         if (list == null) {
@@ -358,6 +356,7 @@ public class ClothingRepository {
         }
 
         if (list.isEmpty()) {
+            System.out.println(list);
             throw new RoupaNaoExistenteException("MODELO DE ROUPA INEXISTENTE");
         }
         return list;

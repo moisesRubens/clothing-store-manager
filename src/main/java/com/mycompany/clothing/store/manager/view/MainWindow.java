@@ -1898,7 +1898,9 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jButtonRemoveSearchShirtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemoveSearchShirtActionPerformed
         try {
-            searchShirtToRemove();
+            ShirtRequestDTO shirtData = searchShirtToRemove();
+            List<ClothingResponseDTO> listSearchToRemove = clothingController.consult(shirtData);
+            fillTable(listSearchToRemove, ClothingPiece.SHIRT);
             allClothings = false;
             CardLayout a = (CardLayout) getContentPane().getLayout();
             a.show(getContentPane(), "PainelRemoveShirt");
@@ -2394,28 +2396,24 @@ public class MainWindow extends javax.swing.JFrame {
             } else {
                 switch (p) {
                     case ClothingPiece.SHIRT -> {
-                        ShirtRequestDTO shirtData = consultarCamisa();
+                        ShirtRequestDTO shirtData = searchShirtToRemove();
                         listSearchToRemove = clothingController.consult(shirtData);
                     }
                     case ClothingPiece.PANTIE -> {
                         PantieRequestDTO pantieData = consultarCalca();
                         System.out.println(pantieData);
                         listSearchToRemove = clothingController.consult(pantieData);
-                        System.out.println("DENTRO DO TRY");
                     }
                 }
             }
         } catch (Exception e) {
-
-            System.out.println("DENTRO DO CATCH");
+            
         } finally {
-
-            System.out.println("DENTRO DO FINALLY");
             fillTable(listSearchToRemove, p);
         }
     }
 
-    private void searchShirtToRemove() throws Exception {
+    private ShirtRequestDTO searchShirtToRemove() throws Exception {
         Integer collar = -1;
         Integer sleeve = -1;
         Integer quantity = -1;
@@ -2465,12 +2463,9 @@ public class MainWindow extends javax.swing.JFrame {
             sleeve = 0;
         }
 
-        ShirtRequestDTO dataShirt = new ShirtRequestDTO(color, price, quantity, fabric, brand, style,
+        return new ShirtRequestDTO(color, price, quantity, fabric, brand, style,
                 gender, pattern, pocket, closureType, ClothingType.STANDARD,
                 sleeve, collar, shirtSize);
-
-        List<ClothingResponseDTO> listSearchToRemove = clothingController.consult(dataShirt);
-        fillTable(listSearchToRemove, ClothingPiece.SHIRT);
     }
 
     private PantieRequestDTO consultarCalca() throws Exception {
@@ -2620,11 +2615,11 @@ public class MainWindow extends javax.swing.JFrame {
     public void fillTable(List<ClothingResponseDTO> list, ClothingPiece p) throws Exception {
         DefaultTableModel model = new DefaultTableModel();
         fillTableAux(model, p);
-        System.out.println("DETNRO DO FILL TABLE");
+        
         if (list == null) {
             return;
         }
-        System.out.println("PASSAMOS DO RETURN");
+        
         if (!list.isEmpty()) {
             switch (p) {
                 case ClothingPiece.SHIRT -> {

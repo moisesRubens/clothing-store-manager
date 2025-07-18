@@ -186,14 +186,17 @@ public class ClothingService {
     }
 
     private boolean containstAtributes(ClothingRequestDTO data) {
+        System.out.println(data);
+        
         Boolean hasAtribute = (!data.color().isBlank() || !data.brand().isBlank() || !data.pattern().isBlank()
                 || !data.closureType().isBlank() || !data.fabric().isBlank() || EnumSet.allOf(Gender.class).contains(data.gender())
                 || !data.style().isBlank() || data.pocket() != -1 || data.quantity() != -1 || data.price() != -1);
 
         if (hasAtribute == true) {
+            System.out.println("DETNRO DO TRUE");
             return hasAtribute;
         }
-
+        System.out.println("DETNRO DO FALSE");
         switch (data) {
             case ShirtRequestDTO shirtData -> hasAtribute = (EnumSet.allOf(ShirtSize.class).contains(shirtData.size()) || shirtData.collar() != -1
                     || shirtData.sleeve() != -1);
@@ -214,7 +217,9 @@ public class ClothingService {
         if (id < 0 || quantity <= 0) {
             throw new IllegalArgumentException("INSIRA UM ID VALIDO");
         }
+        
         Clothing clothing = getClothingById(id);
+        System.out.println("DENTRO DE DECREMENT: "+clothing );
         if (clothing.getQuantity() < quantity) {
             throw new IllegalStateException("QUANTIDADE INSUFICIENTE DE UNIDADES DESTE MODELO");
         }
