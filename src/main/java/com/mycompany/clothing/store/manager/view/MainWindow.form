@@ -20,6 +20,16 @@
         <Property name="useNullLayout" type="boolean" value="true"/>
       </Layout>
     </Container>
+    <Component class="javax.swing.JLabel" name="jLabel6">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel6"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel7">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabel7"/>
+      </Properties>
+    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
@@ -1764,229 +1774,215 @@
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="jButtonSearchShirtExit1" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jLabelConsultCollar1" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jCheckBoxConsultCalcaTipoBarraReta" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                                          <Component id="jCheckBoxConsultCalcaTipoBarraDobrada" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                          <Component id="jCheckBoxConsultCalcaTipoBarraElastica" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      </Group>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                              <Component id="jLabelCor3" min="-2" pref="37" max="-2" attributes="0"/>
-                                              <Component id="jLabelStyle3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabelPattern3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabelFabric3" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jLabelSize3" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
-                                              <Component id="jTextFieldConsultShirtSize1" linkSize="12" min="-2" pref="71" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jLabelClosureType3" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="jTextFieldConsultCalcaPattern" linkSize="12" alignment="0" pref="253" max="32767" attributes="0"/>
-                                                  <Component id="jTextFieldConsultCalcaClosureType" linkSize="12" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
-                                                  <Component id="jTextFieldConsultCalcaColor" linkSize="12" alignment="0" min="-2" pref="179" max="-2" attributes="0"/>
-                                                  <Component id="jTextFieldConsultCalcaStyle" linkSize="12" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
-                                                  <Component id="jTextFieldConsultCalcaFabric" linkSize="12" alignment="0" max="32767" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                      </Group>
-                                      <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="1" attributes="0">
-                                              <Group type="102" attributes="0">
-                                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                                  <Component id="jLabelBrand3" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Group type="103" groupAlignment="1" attributes="0">
-                                                      <Component id="jLabelPrice3" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
-                                                      <Component id="jLabelPocket3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jLabelGender3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace max="32767" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jTextFieldConsultCalcaPrice" linkSize="12" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
-                                              <Component id="jTextFieldConsultCalcaPocket" linkSize="12" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
-                                              <Component id="jTextFieldConsultGender1" linkSize="12" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
-                                              <Component id="jTextFieldConsultCalcaBrand" linkSize="12" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jLabelConsultSleeve1" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jCheckBoxConsultCalcaTipoCinturaBaixa" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jCheckBoxConsultCalcaTipoCinturaMedia" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jCheckBoxConsultCalcaTipoCinturaAlta" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="jCheckBoxConsultCalcaTipoCinturaElastica" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="1" attributes="0">
-                                              <Component id="jButtonConsultarCalca" min="-2" max="-2" attributes="0"/>
-                                              <Group type="102" attributes="0">
-                                                  <Component id="jLabelConsultCollar2" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="jCheckBoxConsultCalcaComprimentoCurto" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" attributes="0">
-                                                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                                                  <Component id="jCheckBoxConsultCalcaComprimentoNormal" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="jCheckBoxConsultCalcaComprimentoLongo" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-                                                  <Component id="jButton2" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                          </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jScrollPaneConsultRemoveCalca" pref="509" max="32767" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <Component id="jLabelConsultRemoveCalcaId" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldConsultRemoveCalcaId" min="-2" pref="71" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                                  <Component id="jLabelConsultRemoveCalcaQuantity" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelConsultSleeve1" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldConsultRemoveCalcaQuantity" min="-2" pref="71" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="jButtonRemoverCalca" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jCheckBoxConsultCalcaTipoCinturaBaixa" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="jCheckBoxConsultCalcaTipoCinturaMedia" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="jCheckBoxConsultCalcaTipoCinturaAlta" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="jCheckBoxConsultCalcaTipoCinturaElastica" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="jButtonConsultarCalca" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Component id="jLabelConsultCollar2" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxConsultCalcaComprimentoCurto" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxConsultCalcaComprimentoNormal" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxConsultCalcaComprimentoLongo" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                                          <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
                           </Group>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jLabelConsultCollar1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jCheckBoxConsultCalcaTipoBarraReta" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                          <Component id="jCheckBoxConsultCalcaTipoBarraDobrada" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                          <Component id="jCheckBoxConsultCalcaTipoBarraElastica" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="jLabelCor3" min="-2" pref="37" max="-2" attributes="0"/>
+                              <Component id="jLabelStyle3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelPattern3" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelFabric3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabelSize3" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                              <Component id="jTextFieldConsultShirtSize1" linkSize="12" min="-2" pref="71" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabelClosureType3" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jTextFieldConsultCalcaPattern" linkSize="12" alignment="0" pref="253" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldConsultCalcaClosureType" linkSize="12" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldConsultCalcaColor" linkSize="12" alignment="0" min="-2" pref="179" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldConsultCalcaStyle" linkSize="12" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldConsultCalcaFabric" linkSize="12" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <Component id="jLabelBrand3" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="jLabelPrice3" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
+                                      <Component id="jLabelPocket3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelGender3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jTextFieldConsultCalcaPrice" linkSize="12" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
+                              <Component id="jTextFieldConsultCalcaPocket" linkSize="12" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
+                              <Component id="jTextFieldConsultGender1" linkSize="12" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
+                              <Component id="jTextFieldConsultCalcaBrand" linkSize="12" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <EmptySpace pref="161" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="jLabelRemoverCalcaId" min="-2" pref="37" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="jTextFieldRemoverCalcaId" min="-2" pref="71" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="jLabelRemoverCalcaQuantity" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jTextFieldRemoverCalcaQuantity" min="-2" pref="71" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Component id="jButtonRemoverCalca" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="217" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPaneConsultRemoveCalca" min="-2" pref="505" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jButtonRemoverCalca" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jTextFieldConsultRemoveCalcaQuantity" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelConsultRemoveCalcaQuantity" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldConsultRemoveCalcaId" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelConsultRemoveCalcaId" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jTextFieldConsultCalcaColor" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabelCor3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabelFabric3" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextFieldConsultCalcaFabric" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabelStyle3" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextFieldConsultCalcaStyle" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabelPattern3" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextFieldConsultCalcaPattern" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabelClosureType3" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextFieldConsultCalcaClosureType" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTextFieldConsultShirtSize1" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabelSize3" alignment="1" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jTextFieldConsultCalcaBrand" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabelBrand3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jTextFieldConsultGender1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabelGender3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="jTextFieldConsultCalcaPocket" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabelPocket3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jTextFieldConsultCalcaPrice" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabelPrice3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabelConsultCollar1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jCheckBoxConsultCalcaTipoBarraDobrada" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jCheckBoxConsultCalcaTipoBarraElastica" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jCheckBoxConsultCalcaTipoBarraReta" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jCheckBoxConsultCalcaTipoCinturaElastica" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jCheckBoxConsultCalcaTipoCinturaAlta" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jCheckBoxConsultCalcaTipoCinturaMedia" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jCheckBoxConsultCalcaTipoCinturaBaixa" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabelConsultSleeve1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabelConsultCollar2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jCheckBoxConsultCalcaComprimentoCurto" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jCheckBoxConsultCalcaComprimentoNormal" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jCheckBoxConsultCalcaComprimentoLongo" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jButtonConsultarCalca" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jTextFieldConsultCalcaColor" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelCor3" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="37" max="32767" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabelFabric3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldConsultCalcaFabric" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelRemoverCalcaQuantity" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldRemoverCalcaQuantity" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabelStyle3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldConsultCalcaStyle" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelRemoverCalcaId" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldRemoverCalcaId" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabelPattern3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldConsultCalcaPattern" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonRemoverCalca" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabelClosureType3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldConsultCalcaClosureType" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jTextFieldConsultShirtSize1" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelSize3" alignment="1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jTextFieldConsultCalcaBrand" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelBrand3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jTextFieldConsultGender1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelGender3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="jTextFieldConsultCalcaPocket" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelPocket3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jTextFieldConsultCalcaPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelPrice3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabelConsultCollar1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxConsultCalcaTipoBarraDobrada" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxConsultCalcaTipoBarraElastica" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxConsultCalcaTipoBarraReta" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jCheckBoxConsultCalcaTipoCinturaElastica" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxConsultCalcaTipoCinturaAlta" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxConsultCalcaTipoCinturaMedia" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxConsultCalcaTipoCinturaBaixa" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelConsultSleeve1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabelConsultCollar2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxConsultCalcaComprimentoCurto" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxConsultCalcaComprimentoNormal" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxConsultCalcaComprimentoLongo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jButtonConsultarCalca" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="65" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jButtonSearchShirtBack1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButtonSearchShirtExit1" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -2204,45 +2200,21 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Remover Calca"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRemoverCalcaActionPerformed"/>
-          </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldConsultRemoveCalcaId">
+        <Component class="javax.swing.JTextField" name="jTextFieldRemoverCalcaId">
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabelConsultRemoveCalcaId">
+        <Component class="javax.swing.JTextField" name="jTextFieldRemoverCalcaQuantity">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelRemoverCalcaId">
           <Properties>
             <Property name="text" type="java.lang.String" value="ID"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabelConsultRemoveCalcaQuantity">
+        <Component class="javax.swing.JLabel" name="jLabelRemoverCalcaQuantity">
           <Properties>
             <Property name="text" type="java.lang.String" value="QUANTIDADE"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldConsultRemoveCalcaQuantity">
-        </Component>
-        <Container class="javax.swing.JScrollPane" name="jScrollPaneConsultRemoveCalca">
-          <Properties>
-            <Property name="name" type="java.lang.String" value="jTableConsultRemoveCalca" noResource="true"/>
-          </Properties>
-
-          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-          <SubComponents>
-            <Component class="javax.swing.JTable" name="jTableConsultRemoveCalca">
-              <Properties>
-                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="4" rowCount="4">
-                    <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                    <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                    <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                    <Column editable="true" title="Title 4" type="java.lang.Object"/>
-                  </Table>
-                </Property>
-              </Properties>
-            </Component>
-          </SubComponents>
-        </Container>
       </SubComponents>
     </Container>
   </SubComponents>
