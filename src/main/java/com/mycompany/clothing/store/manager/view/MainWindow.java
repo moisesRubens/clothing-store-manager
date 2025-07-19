@@ -1158,9 +1158,9 @@ public class MainWindow extends javax.swing.JFrame {
                     .addGroup(PainelRemoveShirtLayout.createSequentialGroup()
                         .addGap(73, 73, 73)
                         .addComponent(jButtonRemoveShirtRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 908, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(21, 21, 21))
             .addGroup(PainelRemoveShirtLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButtonRemoveShirtBack)
@@ -1199,7 +1199,7 @@ public class MainWindow extends javax.swing.JFrame {
         PainelRemoveShirtLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButtonRemoveShirtExit, jButtonRemoveShirtRemove});
 
         getContentPane().add(PainelRemoveShirt);
-        PainelRemoveShirt.setBounds(1071, 1065, 1154, 548);
+        PainelRemoveShirt.setBounds(1071, 1065, 1165, 548);
 
         PainelAdicionarCalca.setBackground(new java.awt.Color(0, 153, 153));
         PainelAdicionarCalca.setName("PainelAdicionarCalca"); // NOI18N
@@ -1772,6 +1772,7 @@ public class MainWindow extends javax.swing.JFrame {
         getContentPane().add(PainelConsultarRemoverCalca);
         PainelConsultarRemoverCalca.setBounds(0, 0, 938, 618);
 
+        PainelRemoverCalca.setBackground(new java.awt.Color(0, 153, 153));
         PainelRemoverCalca.setName("PainelRemoverCalca"); // NOI18N
 
         jTableRemoverCalca.setModel(new javax.swing.table.DefaultTableModel(
@@ -1804,18 +1805,18 @@ public class MainWindow extends javax.swing.JFrame {
             PainelRemoverCalcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PainelRemoverCalcaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(PainelRemoverCalcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PainelRemoverCalcaLayout.createSequentialGroup()
-                        .addComponent(jLabelRemoverCalcaId, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextFieldRemoverCalcaId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PainelRemoverCalcaLayout.createSequentialGroup()
+                .addGroup(PainelRemoverCalcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonRemoverCalca, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PainelRemoverCalcaLayout.createSequentialGroup()
                         .addComponent(jLabelRemoverCalcaQuantity)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextFieldRemoverCalcaQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButtonRemoverCalca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(107, 107, 107)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 801, Short.MAX_VALUE)
+                        .addComponent(jTextFieldRemoverCalcaQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PainelRemoverCalcaLayout.createSequentialGroup()
+                        .addComponent(jLabelRemoverCalcaId, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50)
+                        .addComponent(jTextFieldRemoverCalcaId, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 858, Short.MAX_VALUE)
                 .addContainerGap())
         );
         PainelRemoverCalcaLayout.setVerticalGroup(
@@ -1839,7 +1840,7 @@ public class MainWindow extends javax.swing.JFrame {
         );
 
         getContentPane().add(PainelRemoverCalca);
-        PainelRemoverCalca.setBounds(0, 0, 1070, 635);
+        PainelRemoverCalca.setBounds(0, 0, 1071, 635);
 
         getAccessibleContext().setAccessibleName("mainPanel");
 
@@ -2372,8 +2373,10 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jButtonRemoverCalcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemoverCalcaActionPerformed
         try {
-            PantieRequestDTO pantieData = consultarCalca();
-            List<ClothingResponseDTO> list = clothingController.consult(pantieData);
+            removePantieById();
+            updateTable(allClothings, ClothingPiece.PANTIE);
+            CardLayout a = (CardLayout) getContentPane().getLayout();
+            a.show(getContentPane(), "PainelRemoverCalca");
         } catch(Exception e) {
             handleException(e);
         }
