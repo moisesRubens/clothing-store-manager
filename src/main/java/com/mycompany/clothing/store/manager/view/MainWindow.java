@@ -77,6 +77,7 @@ public class MainWindow extends javax.swing.JFrame {
         getContentPane().add(PainelAdicionarCalca, "PainelAdicionarCalca");
         getContentPane().add(PainelConsultarRemoverCalca, "PainelConsultarRemoverCalca");
         getContentPane().add(PainelRemoverCalca, "PainelRemoverCalca");
+        getContentPane().add(PanelAddPantie, "PanelAddPantie");
         updateQuantityClothings();
     }
 
@@ -2111,12 +2112,12 @@ public class MainWindow extends javax.swing.JFrame {
                     .addComponent(jCheckBoxAddPantieWaistTypeLow)
                     .addComponent(jCheckBoxAddPantieWaistTypeElastic))
                 .addGap(18, 18, 18)
-                .addGroup(PanelAddPantieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelAddPantiePrice3)
+                .addGroup(PanelAddPantieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelAddPantieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jCheckBoxAddPantieSideTypeMid)
                         .addComponent(jCheckBoxAddPantieSideTypeWide)
-                        .addComponent(jCheckBoxAddPantieSideTypeThin)))
+                        .addComponent(jCheckBoxAddPantieSideTypeThin))
+                    .addComponent(jLabelAddPantiePrice3))
                 .addGap(18, 18, 18)
                 .addGroup(PanelAddPantieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
@@ -2667,10 +2668,16 @@ public class MainWindow extends javax.swing.JFrame {
             PantRequestDTO pantieData = consultarCalca();
             List<ClothingResponseDTO> listSearch = clothingController.consult(pantieData);
             allClothings = false;
-            Table table = new Table(em);
-            table.fillTable(listSearch, ClothingPiece.PANT);
-            table.setLocationRelativeTo(null);
-            table.setVisible(true);
+            if (f.equals(Function.SEARCH)) {
+                Table table = new Table(em);
+                table.fillTable(listSearch, ClothingPiece.PANT);
+                table.setLocationRelativeTo(null);
+                table.setVisible(true);
+            } else {
+                fillTable(listSearch, ClothingPiece.PANT);
+                CardLayout a = (CardLayout) getContentPane().getLayout();
+                a.show(getContentPane(), "PainelRemoverCalca");
+            }
         } catch (Exception e) {
             handleException(e);
         }
