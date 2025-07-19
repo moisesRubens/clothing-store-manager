@@ -94,6 +94,7 @@ public class MainWindow extends javax.swing.JFrame {
         jPopupMenuRemove = new javax.swing.JPopupMenu();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jPopupMenuAddStyle = new javax.swing.JPopupMenu();
         PainelPrincipal = new javax.swing.JPanel();
         jButtonConsultar = new javax.swing.JButton();
         jButtonRemover = new javax.swing.JButton();
@@ -292,6 +293,39 @@ public class MainWindow extends javax.swing.JFrame {
         jLabelRemoverCalcaId = new javax.swing.JLabel();
         jButtonRemoverCalcaSair = new javax.swing.JButton();
         jButtonRemoverCalcaVoltar = new javax.swing.JButton();
+        PanelAddPantie = new javax.swing.JPanel();
+        jButtonAddPantieExit = new javax.swing.JButton();
+        jButtonAddPantie = new javax.swing.JButton();
+        jButtonAddPantieBack = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabelAddPantiePrice = new javax.swing.JLabel();
+        jLabelAddPantiePrice1 = new javax.swing.JLabel();
+        jLabelAddPantiePrice3 = new javax.swing.JLabel();
+        jTextFieldAddPantieQuantity = new javax.swing.JTextField();
+        jTextFieldAddPantieColor = new javax.swing.JTextField();
+        jTextFieldAddPantiePrice = new javax.swing.JTextField();
+        jTextFieldAddPantieFabric = new javax.swing.JTextField();
+        jTextFieldAddPantiePattern = new javax.swing.JTextField();
+        jTextFieldAddPantieSize = new javax.swing.JTextField();
+        jTextFieldAddPantieBrand = new javax.swing.JTextField();
+        jCheckBoxAddPantieWaistTypeMid = new javax.swing.JCheckBox();
+        jCheckBoxAddPantieWaistTypeHigh = new javax.swing.JCheckBox();
+        jCheckBoxAddPantieWaistTypeLow = new javax.swing.JCheckBox();
+        jCheckBoxAddPantieWaistTypeElastic = new javax.swing.JCheckBox();
+        jCheckBoxAddPantieLingingTypeMicrofiber = new javax.swing.JCheckBox();
+        jCheckBoxAddPantieLingingTypeViscose = new javax.swing.JCheckBox();
+        jCheckBoxAddPantieLingingTypeCotton = new javax.swing.JCheckBox();
+        jCheckBoxAddPantieLingingTypePolyester = new javax.swing.JCheckBox();
+        jCheckBoxAddPantieSideTypeMid = new javax.swing.JCheckBox();
+        jCheckBoxAddPantieSideTypeWide = new javax.swing.JCheckBox();
+        jCheckBoxAddPantieSideTypeThin = new javax.swing.JCheckBox();
+        jButtonAddPantieStyle = new javax.swing.JButton();
 
         jLabel6.setText("jLabel6");
 
@@ -1866,7 +1900,242 @@ public class MainWindow extends javax.swing.JFrame {
         );
 
         getContentPane().add(PainelRemoverCalca);
-        PainelRemoverCalca.setBounds(0, 0, 1070, 635);
+        PainelRemoverCalca.setBounds(0, 0, 1069, 635);
+
+        PanelAddPantie.setBackground(new java.awt.Color(0, 153, 153));
+
+        jButtonAddPantieExit.setText("Sair");
+
+        jButtonAddPantie.setText("Adicionar Calcinha");
+
+        jButtonAddPantieBack.setText("Voltar");
+        jButtonAddPantieBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddPantieBackActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("COR");
+
+        jLabel8.setText("TAMANHO");
+
+        jLabel9.setText("QUANTIDADE");
+
+        jLabel10.setText("MARCA");
+
+        jLabel11.setText("TECIDO");
+
+        jLabel12.setText("TIPO DE FORRO");
+
+        jLabel13.setText("ESTAMPA");
+
+        jLabelAddPantiePrice.setText("PREÇO");
+
+        jLabelAddPantiePrice1.setText("TIPO DE CINTURA");
+
+        jLabelAddPantiePrice3.setText("TIPO DE LATERAL");
+
+        jTextFieldAddPantieQuantity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldAddPantieQuantityActionPerformed(evt);
+            }
+        });
+
+        jTextFieldAddPantieColor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldAddPantieColorActionPerformed(evt);
+            }
+        });
+
+        jTextFieldAddPantiePrice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldAddPantiePriceActionPerformed(evt);
+            }
+        });
+
+        jTextFieldAddPantieFabric.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldAddPantieFabricActionPerformed(evt);
+            }
+        });
+
+        jTextFieldAddPantiePattern.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldAddPantiePatternActionPerformed(evt);
+            }
+        });
+
+        jTextFieldAddPantieSize.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldAddPantieSizeActionPerformed(evt);
+            }
+        });
+
+        jTextFieldAddPantieBrand.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldAddPantieBrandActionPerformed(evt);
+            }
+        });
+
+        jCheckBoxAddPantieWaistTypeMid.setText("MÉDIA");
+
+        jCheckBoxAddPantieWaistTypeHigh.setText("ALTA");
+
+        jCheckBoxAddPantieWaistTypeLow.setText("BAIXA");
+
+        jCheckBoxAddPantieWaistTypeElastic.setText("ELÁSTICA");
+
+        jCheckBoxAddPantieLingingTypeMicrofiber.setText("MICROFIBRA");
+
+        jCheckBoxAddPantieLingingTypeViscose.setText("VISCOSE");
+
+        jCheckBoxAddPantieLingingTypeCotton.setText("ALGODÃO");
+
+        jCheckBoxAddPantieLingingTypePolyester.setText("POLIESTER");
+
+        jCheckBoxAddPantieSideTypeMid.setText("MÉDIA");
+
+        jCheckBoxAddPantieSideTypeWide.setText("LARGA");
+
+        jCheckBoxAddPantieSideTypeThin.setText("FINA");
+
+        jButtonAddPantieStyle.setText("MODELO");
+        jButtonAddPantieStyle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddPantieStyleActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PanelAddPantieLayout = new javax.swing.GroupLayout(PanelAddPantie);
+        PanelAddPantie.setLayout(PanelAddPantieLayout);
+        PanelAddPantieLayout.setHorizontalGroup(
+            PanelAddPantieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelAddPantieLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PanelAddPantieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelAddPantieLayout.createSequentialGroup()
+                        .addComponent(jButtonAddPantieBack)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 360, Short.MAX_VALUE)
+                        .addComponent(jButtonAddPantie, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(343, 343, 343)
+                        .addComponent(jButtonAddPantieExit))
+                    .addGroup(PanelAddPantieLayout.createSequentialGroup()
+                        .addGroup(PanelAddPantieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PanelAddPantieLayout.createSequentialGroup()
+                                .addGroup(PanelAddPantieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(53, 53, 53)
+                                .addGroup(PanelAddPantieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldAddPantieSize, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldAddPantieBrand, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldAddPantieColor, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(PanelAddPantieLayout.createSequentialGroup()
+                                .addGroup(PanelAddPantieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelAddPantiePrice, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel11)
+                                    .addComponent(jLabelAddPantiePrice1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelAddPantiePrice3)
+                                    .addComponent(jLabel12))
+                                .addGap(18, 18, 18)
+                                .addGroup(PanelAddPantieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldAddPantieFabric, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldAddPantiePattern, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldAddPantiePrice, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldAddPantieQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(PanelAddPantieLayout.createSequentialGroup()
+                                        .addComponent(jCheckBoxAddPantieWaistTypeLow)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jCheckBoxAddPantieWaistTypeMid)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jCheckBoxAddPantieWaistTypeHigh)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jCheckBoxAddPantieWaistTypeElastic))
+                                    .addGroup(PanelAddPantieLayout.createSequentialGroup()
+                                        .addComponent(jCheckBoxAddPantieLingingTypeCotton)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jCheckBoxAddPantieLingingTypeMicrofiber)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jCheckBoxAddPantieLingingTypeViscose)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jCheckBoxAddPantieLingingTypePolyester))
+                                    .addGroup(PanelAddPantieLayout.createSequentialGroup()
+                                        .addComponent(jCheckBoxAddPantieSideTypeThin)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jCheckBoxAddPantieSideTypeMid)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jCheckBoxAddPantieSideTypeWide))))
+                            .addComponent(jButtonAddPantieStyle))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        PanelAddPantieLayout.setVerticalGroup(
+            PanelAddPantieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelAddPantieLayout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addGroup(PanelAddPantieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jTextFieldAddPantieColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(PanelAddPantieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(jTextFieldAddPantieSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(PanelAddPantieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(jTextFieldAddPantieBrand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(PanelAddPantieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(jTextFieldAddPantieQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(PanelAddPantieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelAddPantiePrice)
+                    .addComponent(jTextFieldAddPantiePrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(PanelAddPantieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(jTextFieldAddPantiePattern, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(PanelAddPantieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(jTextFieldAddPantieFabric, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(PanelAddPantieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelAddPantiePrice1)
+                    .addComponent(jCheckBoxAddPantieWaistTypeMid)
+                    .addComponent(jCheckBoxAddPantieWaistTypeHigh)
+                    .addComponent(jCheckBoxAddPantieWaistTypeLow)
+                    .addComponent(jCheckBoxAddPantieWaistTypeElastic))
+                .addGap(18, 18, 18)
+                .addGroup(PanelAddPantieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelAddPantiePrice3)
+                    .addGroup(PanelAddPantieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jCheckBoxAddPantieSideTypeMid)
+                        .addComponent(jCheckBoxAddPantieSideTypeWide)
+                        .addComponent(jCheckBoxAddPantieSideTypeThin)))
+                .addGap(18, 18, 18)
+                .addGroup(PanelAddPantieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(jCheckBoxAddPantieLingingTypeMicrofiber)
+                    .addComponent(jCheckBoxAddPantieLingingTypeViscose)
+                    .addComponent(jCheckBoxAddPantieLingingTypePolyester)
+                    .addComponent(jCheckBoxAddPantieLingingTypeCotton))
+                .addGap(18, 18, 18)
+                .addComponent(jButtonAddPantieStyle)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, Short.MAX_VALUE)
+                .addGroup(PanelAddPantieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonAddPantieBack)
+                    .addComponent(jButtonAddPantieExit)
+                    .addComponent(jButtonAddPantie))
+                .addContainerGap())
+        );
+
+        getContentPane().add(PanelAddPantie);
+        PanelAddPantie.setBounds(0, 0, 989, 632);
 
         getAccessibleContext().setAccessibleName("mainPanel");
 
@@ -2435,6 +2704,42 @@ public class MainWindow extends javax.swing.JFrame {
         a.show(getContentPane(), "PainelConsultarRemoverCalca");
     }//GEN-LAST:event_jButtonRemoverCalcaVoltarActionPerformed
 
+    private void jButtonAddPantieBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddPantieBackActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonAddPantieBackActionPerformed
+
+    private void jTextFieldAddPantieQuantityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAddPantieQuantityActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldAddPantieQuantityActionPerformed
+
+    private void jTextFieldAddPantieColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAddPantieColorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldAddPantieColorActionPerformed
+
+    private void jTextFieldAddPantiePriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAddPantiePriceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldAddPantiePriceActionPerformed
+
+    private void jTextFieldAddPantieFabricActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAddPantieFabricActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldAddPantieFabricActionPerformed
+
+    private void jTextFieldAddPantiePatternActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAddPantiePatternActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldAddPantiePatternActionPerformed
+
+    private void jTextFieldAddPantieSizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAddPantieSizeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldAddPantieSizeActionPerformed
+
+    private void jTextFieldAddPantieBrandActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAddPantieBrandActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldAddPantieBrandActionPerformed
+
+    private void jButtonAddPantieStyleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddPantieStyleActionPerformed
+        jPopupMenuAddStyle.show(jButtonConsultar, 0, jButtonConsultar.getHeight());
+    }//GEN-LAST:event_jButtonAddPantieStyleActionPerformed
+
     private void updateQuantityClothings() {
         Integer quantity = clothingController.getQuantity();
     }
@@ -2792,12 +3097,17 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel PainelRemoveShirt;
     private javax.swing.JPanel PainelRemoverCalca;
     private javax.swing.JPanel PainelSearchToRemoveShirt;
+    private javax.swing.JPanel PanelAddPantie;
     private javax.swing.JButton buttonCadastrarCalca2;
     private javax.swing.JButton buttonCadastrarCalcaSair;
     private javax.swing.JButton buttonCadastrarCalcaVoltar;
     private javax.swing.JButton buttonViewAll;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButtonAddPantie;
+    private javax.swing.JButton jButtonAddPantieBack;
+    private javax.swing.JButton jButtonAddPantieExit;
+    private javax.swing.JButton jButtonAddPantieStyle;
     private javax.swing.JButton jButtonAdicionar;
     private javax.swing.JButton jButtonAdicionarCamisa;
     private javax.swing.JButton jButtonAdicionarCamisaBack;
@@ -2820,6 +3130,17 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton jButtonSearchShirtExit;
     private javax.swing.JButton jButtonSearchShirtExit1;
     private javax.swing.JButton jButtonSearchToRemoveShirtBack;
+    private javax.swing.JCheckBox jCheckBoxAddPantieLingingTypeCotton;
+    private javax.swing.JCheckBox jCheckBoxAddPantieLingingTypeMicrofiber;
+    private javax.swing.JCheckBox jCheckBoxAddPantieLingingTypePolyester;
+    private javax.swing.JCheckBox jCheckBoxAddPantieLingingTypeViscose;
+    private javax.swing.JCheckBox jCheckBoxAddPantieSideTypeMid;
+    private javax.swing.JCheckBox jCheckBoxAddPantieSideTypeThin;
+    private javax.swing.JCheckBox jCheckBoxAddPantieSideTypeWide;
+    private javax.swing.JCheckBox jCheckBoxAddPantieWaistTypeElastic;
+    private javax.swing.JCheckBox jCheckBoxAddPantieWaistTypeHigh;
+    private javax.swing.JCheckBox jCheckBoxAddPantieWaistTypeLow;
+    private javax.swing.JCheckBox jCheckBoxAddPantieWaistTypeMid;
     private javax.swing.JCheckBox jCheckBoxAdicionarCamisaCollar;
     private javax.swing.JCheckBox jCheckBoxAdicionarCamisaSleeve;
     private javax.swing.JCheckBox jCheckBoxCalcaComprimentoCurto;
@@ -2851,11 +3172,21 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBoxTipoCinturaElastica;
     private javax.swing.JCheckBox jCheckBoxTipoCinturaMedia;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelAddPantiePrice;
+    private javax.swing.JLabel jLabelAddPantiePrice1;
+    private javax.swing.JLabel jLabelAddPantiePrice3;
     private javax.swing.JLabel jLabelAdicionarCalcaBrand;
     private javax.swing.JLabel jLabelAdicionarCalcaClosureType;
     private javax.swing.JLabel jLabelAdicionarCalcaCor;
@@ -2923,6 +3254,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelStyle3;
     private javax.swing.JLabel jLabelTipoBarra;
     private javax.swing.JLabel jLabelTipoCintura;
+    private javax.swing.JPopupMenu jPopupMenuAddStyle;
     private javax.swing.JPopupMenu jPopupMenuAdicionar;
     private javax.swing.JPopupMenu jPopupMenuConsultar;
     private javax.swing.JPopupMenu jPopupMenuRemove;
@@ -2930,6 +3262,13 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTableRemoverCalca;
     private javax.swing.JTable jTableRemoverCamisa;
+    private javax.swing.JTextField jTextFieldAddPantieBrand;
+    private javax.swing.JTextField jTextFieldAddPantieColor;
+    private javax.swing.JTextField jTextFieldAddPantieFabric;
+    private javax.swing.JTextField jTextFieldAddPantiePattern;
+    private javax.swing.JTextField jTextFieldAddPantiePrice;
+    private javax.swing.JTextField jTextFieldAddPantieQuantity;
+    private javax.swing.JTextField jTextFieldAddPantieSize;
     private javax.swing.JTextField jTextFieldAdicionarCalcaBrand;
     private javax.swing.JTextField jTextFieldAdicionarCalcaClosureType;
     private javax.swing.JTextField jTextFieldAdicionarCalcaColor;
