@@ -5,12 +5,12 @@
 package com.mycompany.clothing.store.manager.controller;
 
 import com.mycompany.clothing.store.manager.domain.Clothing;
-import com.mycompany.clothing.store.manager.domain.Pantie;
+import com.mycompany.clothing.store.manager.domain.Pant;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
 import com.mycompany.clothing.store.manager.domain.Shirt;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingResponseDTO;
-import com.mycompany.clothing.store.manager.domain.dto.PantieRequestDTO;
-import com.mycompany.clothing.store.manager.domain.dto.PantieResponseDTO;
+import com.mycompany.clothing.store.manager.domain.dto.PantRequestDTO;
+import com.mycompany.clothing.store.manager.domain.dto.PantResponseDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtResponseDTO;
 import com.mycompany.clothing.store.manager.domain.enums.ClothingPiece;
@@ -52,6 +52,14 @@ public class ClothingController {
                         shirt.getClosureType(), shirt.getClothingType(), shirt.getSleeve(), shirt.getCollar(), shirt.getSize()));
             }
             return listResult;
+        } else if (piece.equals(ClothingPiece.PANT)) {
+            for (Clothing c : list) {
+                Pant pant = (Pant) c;
+                listResult.add(new PantResponseDTO(pant.getId(), pant.getColor(), pant.getPrice(), pant.getQuantity(), pant.getFabric(),
+                        pant.getFabric(), pant.getStyle(), pant.getGender(), pant.getPattern(), pant.getPocket(),
+                        pant.getClosureType(), pant.getClothingType(), pant.getSize(), pant.getLength(), pant.getWaistType(), pant.getHemType()));
+            }
+            return listResult;
         }
         return null;
     }
@@ -70,10 +78,10 @@ public class ClothingController {
                         s.getSize()));
             }
             return list;
-        } else if(data instanceof PantieRequestDTO) {
+        } else if(data instanceof PantRequestDTO) {
             for (Clothing c : clothings) {
-                Pantie p = (Pantie)c;
-                list.add(new PantieResponseDTO(p.getId(), p.getColor(), p.getPrice(), p.getQuantity(), 
+                Pant p = (Pant)c;
+                list.add(new PantResponseDTO(p.getId(), p.getColor(), p.getPrice(), p.getQuantity(), 
                         p.getFabric(), p.getBrand(), p.getStyle(), p.getGender(), p.getPattern(), p.getPocket(),
                         p.getClosureType(), p.getClothingType(), p.getSize(), p.getLength(), p.getWaistType(), p.getHemType()));
             }

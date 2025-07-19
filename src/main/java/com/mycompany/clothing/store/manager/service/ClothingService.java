@@ -9,7 +9,7 @@ import com.mycompany.clothing.store.manager.domain.Clothing;
 import com.mycompany.clothing.store.manager.domain.Shirt;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingResponseDTO;
-import com.mycompany.clothing.store.manager.domain.dto.PantieRequestDTO;
+import com.mycompany.clothing.store.manager.domain.dto.PantRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtResponseDTO;
 import com.mycompany.clothing.store.manager.domain.enums.ClothingPiece;
@@ -49,6 +49,8 @@ public class ClothingService {
         
         if(piece.equals(ClothingPiece.SHIRT)) {
             query += "SELECT s FROM Shirt s";
+        } else if (piece.equals(ClothingPiece.PANT)) {
+            query += "SELECT p FROM Pant p";
         }
         
         list = clothingRepository.getAll(query);
@@ -127,8 +129,8 @@ public class ClothingService {
             }
 
             return query;
-        } else if(data instanceof PantieRequestDTO dataPantie) {
-            query += "SELECT p FROM Pantie p WHERE";
+        } else if(data instanceof PantRequestDTO dataPantie) {
+            query += "SELECT p FROM Pant p WHERE";
 
             if (!containstAtributes(dataPantie)) {
                 query += " 1=0";
@@ -200,7 +202,7 @@ public class ClothingService {
         switch (data) {
             case ShirtRequestDTO shirtData -> hasAtribute = (EnumSet.allOf(ShirtSize.class).contains(shirtData.size()) || shirtData.collar() != -1
                     || shirtData.sleeve() != -1);
-            case PantieRequestDTO pantieData -> hasAtribute = (EnumSet.allOf(HemType.class).contains(pantieData.hemType())
+            case PantRequestDTO pantieData -> hasAtribute = (EnumSet.allOf(HemType.class).contains(pantieData.hemType())
                     || EnumSet.allOf(WaistType.class).contains(pantieData.waistType())
                     || EnumSet.allOf(PantieLengthType.class).contains(pantieData.length())
                     || pantieData.size() != -1);

@@ -12,8 +12,8 @@ import com.mycompany.clothing.store.manager.domain.Clothing;
 import com.mycompany.clothing.store.manager.domain.Shirt;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingResponseDTO;
-import com.mycompany.clothing.store.manager.domain.dto.PantieRequestDTO;
-import com.mycompany.clothing.store.manager.domain.dto.PantieResponseDTO;
+import com.mycompany.clothing.store.manager.domain.dto.PantRequestDTO;
+import com.mycompany.clothing.store.manager.domain.dto.PantResponseDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtResponseDTO;
 import com.mycompany.clothing.store.manager.domain.enums.ClothingPiece;
@@ -290,6 +290,8 @@ public class MainWindow extends javax.swing.JFrame {
         jTextFieldRemoverCalcaId = new javax.swing.JTextField();
         jLabelRemoverCalcaQuantity = new javax.swing.JLabel();
         jLabelRemoverCalcaId = new javax.swing.JLabel();
+        jButtonRemoverCalcaSair = new javax.swing.JButton();
+        jButtonRemoverCalcaVoltar = new javax.swing.JButton();
 
         jLabel6.setText("jLabel6");
 
@@ -1199,7 +1201,7 @@ public class MainWindow extends javax.swing.JFrame {
         PainelRemoveShirtLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButtonRemoveShirtExit, jButtonRemoveShirtRemove});
 
         getContentPane().add(PainelRemoveShirt);
-        PainelRemoveShirt.setBounds(1071, 1065, 1165, 548);
+        PainelRemoveShirt.setBounds(1071, 1065, 1164, 548);
 
         PainelAdicionarCalca.setBackground(new java.awt.Color(0, 153, 153));
         PainelAdicionarCalca.setName("PainelAdicionarCalca"); // NOI18N
@@ -1799,6 +1801,20 @@ public class MainWindow extends javax.swing.JFrame {
 
         jLabelRemoverCalcaId.setText("ID");
 
+        jButtonRemoverCalcaSair.setText("Sair");
+        jButtonRemoverCalcaSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRemoverCalcaSairActionPerformed(evt);
+            }
+        });
+
+        jButtonRemoverCalcaVoltar.setText("Voltar");
+        jButtonRemoverCalcaVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRemoverCalcaVoltarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PainelRemoverCalcaLayout = new javax.swing.GroupLayout(PainelRemoverCalca);
         PainelRemoverCalca.setLayout(PainelRemoverCalcaLayout);
         PainelRemoverCalcaLayout.setHorizontalGroup(
@@ -1806,41 +1822,51 @@ public class MainWindow extends javax.swing.JFrame {
             .addGroup(PainelRemoverCalcaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(PainelRemoverCalcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonRemoverCalca, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(PainelRemoverCalcaLayout.createSequentialGroup()
-                        .addComponent(jLabelRemoverCalcaQuantity)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextFieldRemoverCalcaQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PainelRemoverCalcaLayout.createSequentialGroup()
-                        .addComponent(jLabelRemoverCalcaId, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(50, 50, 50)
-                        .addComponent(jTextFieldRemoverCalcaId, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 858, Short.MAX_VALUE)
+                        .addGroup(PainelRemoverCalcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButtonRemoverCalca, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(PainelRemoverCalcaLayout.createSequentialGroup()
+                                .addComponent(jLabelRemoverCalcaQuantity)
+                                .addGap(56, 56, 56)
+                                .addComponent(jTextFieldRemoverCalcaQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(PainelRemoverCalcaLayout.createSequentialGroup()
+                                .addComponent(jLabelRemoverCalcaId, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jTextFieldRemoverCalcaId, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 726, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelRemoverCalcaLayout.createSequentialGroup()
+                        .addComponent(jButtonRemoverCalcaVoltar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonRemoverCalcaSair)))
                 .addContainerGap())
         );
         PainelRemoverCalcaLayout.setVerticalGroup(
             PainelRemoverCalcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PainelRemoverCalcaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2)
-                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PainelRemoverCalcaLayout.createSequentialGroup()
-                .addContainerGap(144, Short.MAX_VALUE)
-                .addGroup(PainelRemoverCalcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelRemoverCalcaQuantity, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextFieldRemoverCalcaQuantity, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                .addContainerGap(147, Short.MAX_VALUE)
+                .addGroup(PainelRemoverCalcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelRemoverCalcaQuantity)
+                    .addComponent(jTextFieldRemoverCalcaQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
                 .addGroup(PainelRemoverCalcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelRemoverCalcaId)
                     .addComponent(jTextFieldRemoverCalcaId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(33, 33, 33)
                 .addComponent(jButtonRemoverCalca)
                 .addGap(363, 363, 363))
+            .addGroup(PainelRemoverCalcaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PainelRemoverCalcaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonRemoverCalcaSair)
+                    .addComponent(jButtonRemoverCalcaVoltar))
+                .addContainerGap())
         );
 
         getContentPane().add(PainelRemoverCalca);
-        PainelRemoverCalca.setBounds(0, 0, 1071, 635);
+        PainelRemoverCalca.setBounds(0, 0, 1070, 635);
 
         getAccessibleContext().setAccessibleName("mainPanel");
 
@@ -1887,6 +1913,7 @@ public class MainWindow extends javax.swing.JFrame {
                     jLabelRemoverCalcaId.setVisible(false);
                     jTextFieldRemoverCalcaQuantity.setVisible(false);
                     jLabelRemoverCalcaQuantity.setVisible(false);
+                    f = Function.SEARCH;
                 }
                 default -> {
                     painel = "PainelConsultarRemoverCalca";
@@ -1895,6 +1922,7 @@ public class MainWindow extends javax.swing.JFrame {
                     jLabelRemoverCalcaId.setVisible(true);
                     jTextFieldRemoverCalcaQuantity.setVisible(true);
                     jLabelRemoverCalcaQuantity.setVisible(true);
+                    f = Function.REMOVE;
                 }
             }
             a.show(getContentPane(), painel);
@@ -2221,7 +2249,7 @@ public class MainWindow extends javax.swing.JFrame {
                 throw new IllegalArgumentException("INSIRA UM GENERO");
         }
 
-        PantieRequestDTO pantieData = new PantieRequestDTO(color, quantity, fabric, brand, style, gender, pattern, pocket, closureType,
+        PantRequestDTO pantieData = new PantRequestDTO(color, quantity, fabric, brand, style, gender, pattern, pocket, closureType,
                 ClothingType.STANDARD, hemType, waistType, lenght, size, price);
         clothingController.registerClothing(pantieData);
     }
@@ -2329,7 +2357,22 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldConsultCalcaColorActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        try {
+            allClothings = true;
+            List<ClothingResponseDTO> list = clothingController.viewAll(ClothingPiece.PANT);
+            if (f.equals(Function.REMOVE)) {
+                fillTable(list, ClothingPiece.PANT);
+                CardLayout a = (CardLayout) getContentPane().getLayout();
+                a.show(getContentPane(), "PainelRemoverCalca");
+            } else {
+                Table table = new Table(em);
+                table.fillTable(list, ClothingPiece.PANT);
+                table.setLocationRelativeTo(null);
+                table.setVisible(true);
+            }
+        } catch (Exception e) {
+            handleException(e);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButtonSearchShirtBack1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchShirtBack1ActionPerformed
@@ -2352,12 +2395,13 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jButtonConsultarCalcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsultarCalcaActionPerformed
         try {
-            PantieRequestDTO pantieData = consultarCalca();
+            PantRequestDTO pantieData = consultarCalca();
             List<ClothingResponseDTO> listSearch = clothingController.consult(pantieData);
             allClothings = false;
-            fillTable(listSearch, ClothingPiece.PANTIE);
-            CardLayout a = (CardLayout) getContentPane().getLayout();
-            a.show(getContentPane(), "PainelRemoverCalca");
+            Table table = new Table(em);
+            table.fillTable(listSearch, ClothingPiece.PANT);
+            table.setLocationRelativeTo(null);
+            table.setVisible(true);
         } catch (Exception e) {
             handleException(e);
         }
@@ -2374,13 +2418,22 @@ public class MainWindow extends javax.swing.JFrame {
     private void jButtonRemoverCalcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemoverCalcaActionPerformed
         try {
             removePantieById();
-            updateTable(allClothings, ClothingPiece.PANTIE);
+            updateTable(allClothings, ClothingPiece.PANT);
             CardLayout a = (CardLayout) getContentPane().getLayout();
             a.show(getContentPane(), "PainelRemoverCalca");
         } catch(Exception e) {
             handleException(e);
         }
     }//GEN-LAST:event_jButtonRemoverCalcaActionPerformed
+
+    private void jButtonRemoverCalcaSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemoverCalcaSairActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jButtonRemoverCalcaSairActionPerformed
+
+    private void jButtonRemoverCalcaVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemoverCalcaVoltarActionPerformed
+        CardLayout a = (CardLayout) getContentPane().getLayout();
+        a.show(getContentPane(), "PainelConsultarRemoverCalca");
+    }//GEN-LAST:event_jButtonRemoverCalcaVoltarActionPerformed
 
     private void updateQuantityClothings() {
         Integer quantity = clothingController.getQuantity();
@@ -2423,9 +2476,8 @@ public class MainWindow extends javax.swing.JFrame {
                         ShirtRequestDTO shirtData = searchShirtToRemove();
                         listSearchToRemove = clothingController.consult(shirtData);
                     }
-                    case ClothingPiece.PANTIE -> {
-                        PantieRequestDTO pantieData = consultarCalca();
-                        System.out.println(pantieData);
+                    case ClothingPiece.PANT -> {
+                        PantRequestDTO pantieData = consultarCalca();
                         listSearchToRemove = clothingController.consult(pantieData);
                     }
                 }
@@ -2492,7 +2544,7 @@ public class MainWindow extends javax.swing.JFrame {
                 sleeve, collar, shirtSize);
     }
 
-    private PantieRequestDTO consultarCalca() throws Exception {
+    private PantRequestDTO consultarCalca() throws Exception {
         Integer size = -1;
         Integer pocket = (jTextFieldConsultCalcaPocket.getText().isBlank()) ? -1 : Integer.valueOf(jTextFieldConsultCalcaPocket.getText());
         Integer quantity = (jTextFieldRemoverCalcaQuantity.getText().isBlank()) ? -1 : Integer.valueOf(jTextFieldRemoverCalcaQuantity.getText());
@@ -2561,7 +2613,7 @@ public class MainWindow extends javax.swing.JFrame {
             throw new IllegalArgumentException("INSIRA UM GENERO VALIDO");
         }
 
-        PantieRequestDTO pantieData = new PantieRequestDTO(color, quantity, fabric, brand, style,
+        PantRequestDTO pantieData = new PantRequestDTO(color, quantity, fabric, brand, style,
                 gender, pattern, pocket, closureType, ClothingType.STANDARD,
                 hemType, waistType, length, size, price);
 
@@ -2667,9 +2719,9 @@ public class MainWindow extends javax.swing.JFrame {
                         });
                     }
                 }
-                case ClothingPiece.PANTIE -> {
+                case ClothingPiece.PANT -> {
                     for (ClothingResponseDTO data : list) {
-                        PantieResponseDTO pantieData = (PantieResponseDTO) data;
+                        PantResponseDTO pantieData = (PantResponseDTO) data;
                         model.addRow(new Object[]{
                             pantieData.id(),
                             pantieData.color(),
@@ -2689,12 +2741,13 @@ public class MainWindow extends javax.swing.JFrame {
                         });
                     }
                 }
+
             }
         }
         
         if(p.equals(ClothingPiece.SHIRT)) {
             jTableRemoverCamisa.setModel(model);
-        } else {
+        } else if(p.equals(ClothingPiece.PANT)) {
             jTableRemoverCalca.setModel(model);
         }
     }
@@ -2718,7 +2771,7 @@ public class MainWindow extends javax.swing.JFrame {
                 model.addColumn("GOLA");
                 model.addColumn("MANGA");
             }
-            case ClothingPiece.PANTIE -> {
+            case ClothingPiece.PANT -> {
                 model.addColumn("NUMERAÇÃO");
                 model.addColumn("COMPRIMENTO");
                 model.addColumn("TIPO DE BARRA");
@@ -2760,6 +2813,8 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton jButtonRemoveShirtRemove;
     private javax.swing.JButton jButtonRemover;
     private javax.swing.JButton jButtonRemoverCalca;
+    private javax.swing.JButton jButtonRemoverCalcaSair;
+    private javax.swing.JButton jButtonRemoverCalcaVoltar;
     private javax.swing.JButton jButtonSearchShirtBack;
     private javax.swing.JButton jButtonSearchShirtBack1;
     private javax.swing.JButton jButtonSearchShirtExit;
@@ -2937,5 +2992,5 @@ public class MainWindow extends javax.swing.JFrame {
     public EntityManager em;
     public ClothingController clothingController;
     private Boolean allClothings = false;
-    Boolean remove;
+    private Function f;
 }

@@ -5,10 +5,10 @@
 package com.mycompany.clothing.store.manager.service;
 
 import com.mycompany.clothing.store.manager.domain.Clothing;
-import com.mycompany.clothing.store.manager.domain.Pantie;
+import com.mycompany.clothing.store.manager.domain.Pant;
 import com.mycompany.clothing.store.manager.domain.Shirt;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
-import com.mycompany.clothing.store.manager.domain.dto.PantieRequestDTO;
+import com.mycompany.clothing.store.manager.domain.dto.PantRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtRequestDTO;
 
 /**
@@ -26,8 +26,8 @@ public final class ClothingMapper {
                 
                 return shirt;
             }
-            case PantieRequestDTO pantieData -> {
-                Pantie pantie = new Pantie(pantieData.hemType(), pantieData.waistType(), pantieData.length(), pantieData.size(), pantieData.color(),
+            case PantRequestDTO pantieData -> {
+                Pant pantie = new Pant(pantieData.hemType(), pantieData.waistType(), pantieData.length(), pantieData.size(), pantieData.color(),
                         pantieData.price(), pantieData.quantity(), pantieData.clothingType(), pantieData.fabric(), pantieData.brand(), pantieData.style(),
                         pantieData.gender(), pantieData.pattern(), pantieData.pocket(), pantieData.closureType());
                 

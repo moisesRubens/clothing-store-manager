@@ -7,10 +7,10 @@ package com.mycompany.clothing.store.manager.repository;
 import com.mycompany.clothing.store.manager.configuration.exception.RoupaJaExistenteException;
 import com.mycompany.clothing.store.manager.configuration.exception.RoupaNaoExistenteException;
 import com.mycompany.clothing.store.manager.domain.Clothing;
-import com.mycompany.clothing.store.manager.domain.Pantie;
+import com.mycompany.clothing.store.manager.domain.Pant;
 import com.mycompany.clothing.store.manager.domain.Shirt;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
-import com.mycompany.clothing.store.manager.domain.dto.PantieRequestDTO;
+import com.mycompany.clothing.store.manager.domain.dto.PantRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtRequestDTO;
 import com.mycompany.clothing.store.manager.domain.enums.ClothingPiece;
 import com.mycompany.clothing.store.manager.domain.enums.Gender;
@@ -70,8 +70,8 @@ public class ClothingRepository {
             em.createQuery("UPDATE Clothing c SET c.quantity = c.quantity + :quantity WHERE c.id = :id", Shirt.class)
                     .setParameter("quantity", data.quantity())
                     .setParameter("id", id).executeUpdate();
-            } else if(data instanceof PantieRequestDTO) {
-                em.createQuery("UPDATE Clothing c SET c.quantity = c.quantity + :quantity WHERE c.id = :id", Pantie.class)
+            } else if(data instanceof PantRequestDTO) {
+                em.createQuery("UPDATE Clothing c SET c.quantity = c.quantity + :quantity WHERE c.id = :id", Pant.class)
                     .setParameter("quantity", data.quantity())
                     .setParameter("id", id).executeUpdate();
             }
@@ -168,9 +168,9 @@ public class ClothingRepository {
             if (!query.getResultList().isEmpty()) {
                 id = query.getResultList().get(0).getId();
             }
-        } else if(clothing instanceof PantieRequestDTO pantie) {
-        TypedQuery<Pantie> query;
-            queryStr = "SELECT p FROM Pantie p WHERE p.size = :size"
+        } else if(clothing instanceof PantRequestDTO pantie) {
+        TypedQuery<Pant> query;
+            queryStr = "SELECT p FROM Pant p WHERE p.size = :size"
                     + " AND p.length = :length"
                     + " AND p.brand = :brand"
                     + " AND p.color = :color"
@@ -212,9 +212,7 @@ public class ClothingRepository {
             } else {
                 queryStr += " AND p.waistType  IS NULL";
             }
-            System.out.println("ANTES DO CREATE QUERY");
-            query = em.createQuery(queryStr, Pantie.class);
-                        System.out.println("DEPOIS DO CREATE QUERY");
+            query = em.createQuery(queryStr, Pant.class);
 
             query.setParameter("size", pantie.size())
                     .setParameter("length", pantie.length())
@@ -298,10 +296,10 @@ public class ClothingRepository {
             }
 
             list = queryShirt.getResultList();
-        } else if(data instanceof PantieRequestDTO dataPantie) {
-            TypedQuery<Pantie> queryPantie;
+        } else if(data instanceof PantRequestDTO dataPantie) {
+            TypedQuery<Pant> queryPantie;
 
-            queryPantie = em.createQuery(query, Pantie.class);
+            queryPantie = em.createQuery(query, Pant.class);
             
             
             if (EnumSet.allOf(Gender.class).contains(dataPantie.gender())) {

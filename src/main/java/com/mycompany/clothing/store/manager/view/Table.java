@@ -7,14 +7,13 @@ package com.mycompany.clothing.store.manager.view;
 import com.mycompany.clothing.store.manager.controller.ClothingController;
 import com.mycompany.clothing.store.manager.domain.Clothing;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingResponseDTO;
-import com.mycompany.clothing.store.manager.domain.dto.PantieRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtResponseDTO;
 import com.mycompany.clothing.store.manager.domain.enums.ClothingPiece;
 import jakarta.persistence.EntityManager;
 import java.awt.CardLayout;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
-import com.mycompany.clothing.store.manager.domain.dto.PantieResponseDTO;
+import com.mycompany.clothing.store.manager.domain.dto.PantResponseDTO;
 
 /**
  *
@@ -109,9 +108,9 @@ public class Table extends javax.swing.JFrame {
                         });
                     }
                 }
-                case ClothingPiece.PANTIE -> {
+                case ClothingPiece.PANT -> {
                     for (ClothingResponseDTO data : list) {
-                        PantieResponseDTO pantieData = (PantieResponseDTO) data;
+                        PantResponseDTO pantieData = (PantResponseDTO) data;
                         model.addRow(new Object[]{
                             pantieData.id(),
                             pantieData.color(),
@@ -131,6 +130,7 @@ public class Table extends javax.swing.JFrame {
                         });
                     }
                 }
+
             }
             
         }
@@ -156,7 +156,7 @@ public class Table extends javax.swing.JFrame {
                 model.addColumn("GOLA");
                 model.addColumn("MANGA");
             }
-            case ClothingPiece.PANTIE -> {
+            case ClothingPiece.PANT -> {
                 model.addColumn("NUMERAÇÃO");
                 model.addColumn("COMPRIMENTO");
                 model.addColumn("TIPO DE BARRA");

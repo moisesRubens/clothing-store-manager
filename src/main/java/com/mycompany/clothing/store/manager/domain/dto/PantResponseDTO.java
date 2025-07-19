@@ -15,7 +15,7 @@ import com.mycompany.clothing.store.manager.domain.enums.WaistType;
  *
  * @author moise
  */
-public record PantieResponseDTO(Integer id, String color, Double price, Integer quantity, String fabric,
+public record PantResponseDTO(Integer id, String color, Double price, Integer quantity, String fabric,
                               String brand, String style, Gender gender, String pattern, 
                               Integer pocket, String closureType, ClothingType clothingType,
                               Integer size, PantieLengthType length, WaistType waistType, HemType hemType) implements ClothingResponseDTO {

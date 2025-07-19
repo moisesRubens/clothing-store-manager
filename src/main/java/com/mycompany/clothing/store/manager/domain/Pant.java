@@ -21,7 +21,7 @@ import jakarta.persistence.Table;
  */
 @Entity
 @Table(name="CALCA")
-public class Pantie extends Clothing {
+public class Pant extends Clothing {
     @Column(name="TIPO_BARRA", nullable=true)
     @Enumerated(EnumType.STRING)
     HemType hemType;
@@ -37,9 +37,9 @@ public class Pantie extends Clothing {
     @Column(name="TAMANHO")
     Integer size;
    
-    public Pantie() {}
+    public Pant() {}
 
-    public Pantie(HemType hemType, WaistType waistType, PantieLengthType length, Integer size, String color, Double price, Integer quantity, ClothingType clothingType, String fabric, String brand, String style, Gender gender, String pattern, Integer pocket, String closureType) {
+    public Pant(HemType hemType, WaistType waistType, PantieLengthType length, Integer size, String color, Double price, Integer quantity, ClothingType clothingType, String fabric, String brand, String style, Gender gender, String pattern, Integer pocket, String closureType) {
         super(color, price, quantity, clothingType, fabric, brand, style, gender, pattern, pocket, closureType);
         this.hemType = hemType;
         this.waistType = waistType;

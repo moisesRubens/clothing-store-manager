@@ -14,7 +14,7 @@ import com.mycompany.clothing.store.manager.domain.enums.WaistType;
  *
  * @author moise
  */
-public record PantieRequestDTO(String color, Integer quantity, String fabric,
+public record PantRequestDTO(String color, Integer quantity, String fabric,
     String brand, String style, Gender gender,
     String pattern, Integer pocket,  String closureType,
     ClothingType clothingType, HemType hemType, WaistType waistType, PantieLengthType length, Integer size, Double price) implements ClothingRequestDTO {
