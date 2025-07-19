@@ -4,11 +4,17 @@
  */
 package com.mycompany.clothing.store.manager.domain;
 
+import com.mycompany.clothing.store.manager.domain.enums.ClothingType;
+import com.mycompany.clothing.store.manager.domain.enums.Gender;
+import com.mycompany.clothing.store.manager.domain.enums.LiningType;
+import com.mycompany.clothing.store.manager.domain.enums.SideType;
+import com.mycompany.clothing.store.manager.domain.enums.WaistType;
+
 /**
  *
  * @author moise
  */
-public class Pantie {
+public class Pantie extends Clothing {
 
     public enum PantyStyle {
         THONG,
@@ -19,5 +25,54 @@ public class Pantie {
         BOYSHORT,
         RETRO
     }
+    
+    private Character size;
+    private LiningType liningType;
+    private SideType sideType;
+    private WaistType waistType;
 
+    public Pantie(Character size, LiningType liningType, SideType sideType, WaistType waistType, String color, Double price, Integer quantity, ClothingType clothingType, String fabric, String brand, String style, Gender gender, String pattern, Integer pocket, String closureType) {
+        super(color, price, quantity, clothingType, fabric, brand, style, gender, pattern, pocket, closureType);
+        this.size = size;
+        this.liningType = liningType;
+        this.sideType = sideType;
+        this.waistType = waistType;
+    }
+
+    public Pantie() {}
+    
+    public Character getSize() {
+        return size;
+    }
+
+    public void setSize(Character size) {
+        this.size = size;
+    }
+
+    public LiningType getLiningType() {
+        return liningType;
+    }
+
+    public void setLiningType(LiningType liningType) {
+        this.liningType = liningType;
+    }
+
+    public SideType getSideType() {
+        return sideType;
+    }
+
+    public void setSideType(SideType sideType) {
+        this.sideType = sideType;
+    }
+
+    public WaistType getWaistType() {
+        return waistType;
+    }
+
+    public void setWaistType(WaistType waistType) {
+        this.waistType = waistType;
+    }
+    
+    
+    
 }
