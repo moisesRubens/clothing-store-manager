@@ -31,8 +31,8 @@ public class Pantie extends Clothing {
     private SideType sideType;
     private WaistType waistType;
 
-    public Pantie(Character size, LiningType liningType, SideType sideType, WaistType waistType, String color, Double price, Integer quantity, ClothingType clothingType, String fabric, String brand, String style, Gender gender, String pattern, Integer pocket, String closureType) {
-        super(color, price, quantity, clothingType, fabric, brand, style, gender, pattern, pocket, closureType);
+    public Pantie(Character size, LiningType liningType, SideType sideType, WaistType waistType, String color, Double price, Integer quantity, ClothingType clothingType, String fabric, String brand, String style, Gender gender, String pattern) {
+        super(color, price, quantity, clothingType, fabric, brand, style, gender, pattern);
         this.size = size;
         this.liningType = liningType;
         this.sideType = sideType;
@@ -40,6 +40,11 @@ public class Pantie extends Clothing {
     }
 
     public Pantie() {}
+
+    @Override
+    public String toString() {
+        return super.toString() + "Pantie{" + "size=" + size + ", liningType=" + liningType + ", sideType=" + sideType + ", waistType=" + waistType + '}';
+    }
     
     public Character getSize() {
         return size;

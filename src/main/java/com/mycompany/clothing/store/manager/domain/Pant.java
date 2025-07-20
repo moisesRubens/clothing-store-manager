@@ -36,15 +36,28 @@ public class Pant extends Clothing {
     
     @Column(name="TAMANHO")
     Integer size;
+    
+    @Column(name="QUANT_BOLSOS", nullable=true)
+    Integer pocket;
+    
+    @Column(name="TIPO_FECHAMENTO", nullable=true)
+    String closureType;
    
     public Pant() {}
 
     public Pant(HemType hemType, WaistType waistType, PantieLengthType length, Integer size, String color, Double price, Integer quantity, ClothingType clothingType, String fabric, String brand, String style, Gender gender, String pattern, Integer pocket, String closureType) {
-        super(color, price, quantity, clothingType, fabric, brand, style, gender, pattern, pocket, closureType);
+        super(color, price, quantity, clothingType, fabric, brand, style, gender, pattern);
         this.hemType = hemType;
         this.waistType = waistType;
         this.length = length;
         this.size = size;
+        this.pocket = pocket;
+        this.closureType = closureType;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "Pant{" + "hemType=" + hemType + ", waistType=" + waistType + ", length=" + length + ", size=" + size + ", pocket=" + pocket + ", closureType=" + closureType + '}';
     }
 
     public HemType getHemType() {
@@ -78,6 +91,23 @@ public class Pant extends Clothing {
     public void setSize(Integer size) {
         this.size = size;
     }
+
+    public Integer getPocket() {
+        return pocket;
+    }
+
+    public void setPocket(Integer pocket) {
+        this.pocket = pocket;
+    }
+
+    public String getClosureType() {
+        return closureType;
+    }
+
+    public void setClosureType(String closureType) {
+        this.closureType = closureType;
+    }
+    
     
     
 }

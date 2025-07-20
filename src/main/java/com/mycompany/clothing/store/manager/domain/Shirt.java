@@ -30,20 +30,44 @@ public class Shirt extends Clothing {
     @Enumerated(EnumType.STRING)
     @Column(name="TAMANHO")
     ShirtSize size;
+    
+    @Column(name="QUANT_BOLSOS", nullable=true)
+    Integer pocket;
+    
+    @Column(name="TIPO_FECHAMENTO", nullable=true)
+    String closureType;
 
     public Shirt() {}
 
     public Shirt(String color, Double price, Integer quantity, ClothingType clothingType, String fabric, String brand,
                  String style, Gender gender, String pattern, Integer pocket, String closureType, ShirtSize size, Integer sleeve, Integer collar) {
-        super(color, price, quantity, clothingType, fabric, brand, style, gender, pattern, pocket, closureType);
+        super(color, price, quantity, clothingType, fabric, brand, style, gender, pattern);
         this.size = size;
         this.sleeve = sleeve;
         this.collar = collar;
+        this.pocket = pocket;
+        this.closureType = closureType;
     }
-    
+
     @Override
     public String toString() {
-        return super.toString() + " Shirt{" + "sleeve=" + sleeve + ", collar=" + collar + ", size=" + size + '}';
+        return super.toString() + "Shirt{" + "sleeve=" + sleeve + ", collar=" + collar + ", size=" + size + ", pocket=" + pocket + ", closureType=" + closureType + '}';
+    }
+    
+    public Integer getPocket() {
+        return pocket;
+    }
+
+    public void setPocket(Integer pocket) {
+        this.pocket = pocket;
+    }
+
+    public String getClosureType() {
+        return closureType;
+    }
+
+    public void setClosureType(String closureType) {
+        this.closureType = closureType;
     }
     
     public Integer getSleeve() {

@@ -191,21 +191,20 @@ public class ClothingService {
         System.out.println(data);
         
         Boolean hasAtribute = (!data.color().isBlank() || !data.brand().isBlank() || !data.pattern().isBlank()
-                || !data.closureType().isBlank() || !data.fabric().isBlank() || EnumSet.allOf(Gender.class).contains(data.gender())
-                || !data.style().isBlank() || data.pocket() != -1 || data.quantity() != -1 || data.price() != -1);
+                || !data.fabric().isBlank() || EnumSet.allOf(Gender.class).contains(data.gender())
+                || !data.style().isBlank() || data.quantity() != -1 || data.price() != -1);
 
         if (hasAtribute == true) {
-            System.out.println("DETNRO DO TRUE");
             return hasAtribute;
         }
-        System.out.println("DETNRO DO FALSE");
+        
         switch (data) {
             case ShirtRequestDTO shirtData -> hasAtribute = (EnumSet.allOf(ShirtSize.class).contains(shirtData.size()) || shirtData.collar() != -1
-                    || shirtData.sleeve() != -1);
+                    || shirtData.sleeve() != -1 || !shirtData.closureType().isBlank() || shirtData.pocket() != -1 );
             case PantRequestDTO pantieData -> hasAtribute = (EnumSet.allOf(HemType.class).contains(pantieData.hemType())
                     || EnumSet.allOf(WaistType.class).contains(pantieData.waistType())
                     || EnumSet.allOf(PantieLengthType.class).contains(pantieData.length())
-                    || pantieData.size() != -1);
+                    || pantieData.size() != -1 || !pantieData.closureType().isBlank() || pantieData.pocket() != -1 );
             default -> {}
         }
         return hasAtribute;

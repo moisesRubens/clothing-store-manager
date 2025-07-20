@@ -20,7 +20,5 @@ public interface ClothingResponseDTO {
     String style();
     Gender gender();
     String pattern();
-    Integer pocket();
-    String closureType();
     ClothingType clothingType(); 
 }

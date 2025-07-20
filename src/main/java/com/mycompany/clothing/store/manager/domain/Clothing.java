@@ -55,19 +55,13 @@ public abstract class Clothing {
     @Column(name="ESTAMPA", nullable=true)
     String pattern;
     
-    @Column(name="QUANT_BOLSOS", nullable=true)
-    Integer pocket;
-    
-    @Column(name="TIPO_FECHAMENTO", nullable=true)
-    String closureType;
-    
     @Enumerated(EnumType.STRING)
     @Column(name="TIPO_ROUPA")
     ClothingType clothingType;
 
     public Clothing() {}
 
-    public Clothing(String color, Double price, Integer quantity, ClothingType clothingType, String fabric, String brand, String style, Gender gender, String pattern, Integer pocket, String closureType) {
+    public Clothing(String color, Double price, Integer quantity, ClothingType clothingType, String fabric, String brand, String style, Gender gender, String pattern) {
         this.color = color;
         this.price = price;
         this.quantity = quantity;
@@ -77,13 +71,11 @@ public abstract class Clothing {
         this.fabric = fabric;
         this.style = style;
         this.pattern = pattern;
-        this.pocket = pocket;
-        this.closureType = closureType;
     }
 
     @Override
     public String toString() {
-        return "Clothing{" + "id=" + id + ", color=" + color + ", price=" + price + ", quantity=" + quantity + ", fabric=" + fabric + ", brand=" + brand + ", style=" + style + ", gender=" + gender + ", pattern=" + pattern + ", pocket=" + pocket + ", closureType=" + closureType + ", clothingType=" + clothingType + '}';
+        return "Clothing{" + "id=" + id + ", color=" + color + ", price=" + price + ", quantity=" + quantity + ", fabric=" + fabric + ", brand=" + brand + ", style=" + style + ", gender=" + gender + ", pattern=" + pattern + ", clothingType=" + clothingType + '}';
     }
     
     public Integer getId() {
@@ -153,23 +145,6 @@ public abstract class Clothing {
     public void setPattern(String pattern) {
         this.pattern = pattern;
     }
-
-    public Integer getPocket() {
-        return pocket;
-    }
-
-    public void setPocket(Integer pocket) {
-        this.pocket = pocket;
-    }
-
-    public String getClosureType() {
-        return closureType;
-    }
-
-    public void setClosureType(String closureType) {
-        this.closureType = closureType;
-    }
-
     public ClothingType getClothingType() {
         return clothingType;
     }
