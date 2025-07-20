@@ -354,7 +354,6 @@ public class ClothingRepository {
         }
 
         if (list.isEmpty()) {
-            System.out.println(list);
             throw new RoupaNaoExistenteException("MODELO DE ROUPA INEXISTENTE");
         }
         return list;

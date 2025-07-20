@@ -3020,14 +3020,14 @@ public class MainWindow extends javax.swing.JFrame {
                             shirtData.quantity(),
                             shirtData.brand(),
                             shirtData.gender(),
-                            shirtData.closureType(),
                             shirtData.clothingType(),
                             shirtData.pattern(),
                             shirtData.fabric(),
-                            shirtData.pocket(),
                             shirtData.size(),
                             shirtData.collar(),
-                            shirtData.sleeve()
+                            shirtData.sleeve(),
+                            shirtData.closureType(),
+                            shirtData.pocket()
                         });
                     }
                 }
@@ -3041,15 +3041,15 @@ public class MainWindow extends javax.swing.JFrame {
                             pantieData.quantity(),
                             pantieData.brand(),
                             pantieData.gender(),
-                            pantieData.closureType(),
                             pantieData.clothingType(),
                             pantieData.pattern(),
                             pantieData.fabric(),
-                            pantieData.pocket(),
                             pantieData.size(),
                             pantieData.length(),
                             pantieData.hemType(),
-                            pantieData.waistType()
+                            pantieData.waistType(),
+                            pantieData.closureType(),
+                            pantieData.pocket()
                         });
                     }
                 }
@@ -3071,23 +3071,25 @@ public class MainWindow extends javax.swing.JFrame {
         model.addColumn("QUANTIDADE");
         model.addColumn("MARCA");
         model.addColumn("GENERO");
-        model.addColumn("TIPO DE FECHAMENTO");
         model.addColumn("TIPO DE ROUPA");
         model.addColumn("ESTAMPA");
         model.addColumn("TECIDO");
-        model.addColumn("QUANTIDADE DE BOLSOS");
-        
+
         switch (p) {
             case ClothingPiece.SHIRT -> {
                 model.addColumn("TAMANHO");
                 model.addColumn("GOLA");
                 model.addColumn("MANGA");
+                model.addColumn("TIPO DE FECHAMENTO");
+                model.addColumn("QUANTIDADE DE BOLSOS");
             }
             case ClothingPiece.PANT -> {
                 model.addColumn("NUMERAÇÃO");
                 model.addColumn("COMPRIMENTO");
                 model.addColumn("TIPO DE BARRA");
                 model.addColumn("TIPO DE CINTURA");
+                model.addColumn("TIPO DE FECHAMENTO");
+                model.addColumn("QUANTIDADE DE BOLSOS");
             }
         }
     }

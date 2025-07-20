@@ -220,7 +220,6 @@ public class ClothingService {
         }
         
         Clothing clothing = getClothingById(id);
-        System.out.println("DENTRO DE DECREMENT: "+clothing );
         if (clothing.getQuantity() < quantity) {
             throw new IllegalStateException("QUANTIDADE INSUFICIENTE DE UNIDADES DESTE MODELO");
         }
