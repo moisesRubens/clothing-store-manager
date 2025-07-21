@@ -2366,9 +2366,27 @@
                                       <Component id="jLabelAddPantiePrice1" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
                                       <Component id="jLabelAddPantiePrice3" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jCheckBoxAddPantieStyleTraditional" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxAddPantieStyleThong" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxAddPantieStyleTanga" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxAddPantieStyleBikini" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="jCheckBoxAddPantieStyleRetro" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jCheckBoxAddPantieStyleHighWaist" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxAddPantieStyleSeamless" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxAddPantieStyleBoyShort" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                       <Component id="jTextFieldAddPantieFabric" min="-2" pref="71" max="-2" attributes="0"/>
                                       <Component id="jTextFieldAddPantiePattern" min="-2" pref="71" max="-2" attributes="0"/>
                                       <Component id="jTextFieldAddPantiePrice" min="-2" pref="71" max="-2" attributes="0"/>
@@ -2400,7 +2418,6 @@
                                       </Group>
                                   </Group>
                               </Group>
-                              <Component id="jButtonAddPantieStyle" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
@@ -2472,9 +2489,27 @@
                       <Component id="jCheckBoxAddPantieLingingTypePolyester" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jCheckBoxAddPantieLingingTypeCotton" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jButtonAddPantieStyle" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="148" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jCheckBoxAddPantieStyleThong" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jCheckBoxAddPantieStyleTanga" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jCheckBoxAddPantieStyleTraditional" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jCheckBoxAddPantieStyleBikini" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jCheckBoxAddPantieStyleSeamless" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jCheckBoxAddPantieStyleBoyShort" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jCheckBoxAddPantieStyleHighWaist" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jCheckBoxAddPantieStyleRetro" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace pref="46" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jButtonAddPantieBack" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButtonAddPantieExit" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -2495,6 +2530,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Adicionar Calcinha"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAddPantieActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonAddPantieBack">
           <Properties>
@@ -2644,13 +2682,51 @@
             <Property name="text" type="java.lang.String" value="FINA"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButtonAddPantieStyle">
+        <Component class="javax.swing.JLabel" name="jLabel14">
           <Properties>
             <Property name="text" type="java.lang.String" value="MODELO"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAddPantieStyleActionPerformed"/>
-          </Events>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxAddPantieStyleBoyShort">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="SHORTINHO"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxAddPantieStyleHighWaist">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="CINTURA ALTA"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxAddPantieStyleThong">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="FIO DENTAL"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxAddPantieStyleTanga">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="TANGA"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxAddPantieStyleTraditional">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="TRADICIONAL"/>
+            <Property name="name" type="java.lang.String" value="" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxAddPantieStyleBikini">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="BIQUINI"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxAddPantieStyleRetro">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="RETR&#xd4;"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxAddPantieStyleSeamless">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="SEM COSTURA"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

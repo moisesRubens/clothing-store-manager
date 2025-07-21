@@ -9,11 +9,13 @@ import com.mycompany.clothing.store.manager.configuration.exception.RoupaJaExist
 import com.mycompany.clothing.store.manager.configuration.exception.RoupaNaoExistenteException;
 import com.mycompany.clothing.store.manager.controller.ClothingController;
 import com.mycompany.clothing.store.manager.domain.Clothing;
+import com.mycompany.clothing.store.manager.domain.Pantie.PantieStyle;
 import com.mycompany.clothing.store.manager.domain.Shirt;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingResponseDTO;
 import com.mycompany.clothing.store.manager.domain.dto.PantRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.PantResponseDTO;
+import com.mycompany.clothing.store.manager.domain.dto.PantieRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtResponseDTO;
 import com.mycompany.clothing.store.manager.domain.enums.ClothingPiece;
@@ -66,6 +68,8 @@ public class MainWindow extends javax.swing.JFrame {
         configurarPopupMenu(jPopupMenuAdicionar, Function.ADD);
         configurarPopupMenu(jPopupMenuConsultar, Function.SEARCH);
         configurarPopupMenu(jPopupMenuRemove, Function.REMOVE);
+        
+        
 
         getContentPane().setLayout(new CardLayout());
 
@@ -326,7 +330,15 @@ public class MainWindow extends javax.swing.JFrame {
         jCheckBoxAddPantieSideTypeMid = new javax.swing.JCheckBox();
         jCheckBoxAddPantieSideTypeWide = new javax.swing.JCheckBox();
         jCheckBoxAddPantieSideTypeThin = new javax.swing.JCheckBox();
-        jButtonAddPantieStyle = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
+        jCheckBoxAddPantieStyleBoyShort = new javax.swing.JCheckBox();
+        jCheckBoxAddPantieStyleHighWaist = new javax.swing.JCheckBox();
+        jCheckBoxAddPantieStyleThong = new javax.swing.JCheckBox();
+        jCheckBoxAddPantieStyleTanga = new javax.swing.JCheckBox();
+        jCheckBoxAddPantieStyleTraditional = new javax.swing.JCheckBox();
+        jCheckBoxAddPantieStyleBikini = new javax.swing.JCheckBox();
+        jCheckBoxAddPantieStyleRetro = new javax.swing.JCheckBox();
+        jCheckBoxAddPantieStyleSeamless = new javax.swing.JCheckBox();
 
         jLabel6.setText("jLabel6");
 
@@ -1908,6 +1920,11 @@ public class MainWindow extends javax.swing.JFrame {
         jButtonAddPantieExit.setText("Sair");
 
         jButtonAddPantie.setText("Adicionar Calcinha");
+        jButtonAddPantie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddPantieActionPerformed(evt);
+            }
+        });
 
         jButtonAddPantieBack.setText("Voltar");
         jButtonAddPantieBack.addActionListener(new java.awt.event.ActionListener() {
@@ -2000,12 +2017,24 @@ public class MainWindow extends javax.swing.JFrame {
 
         jCheckBoxAddPantieSideTypeThin.setText("FINA");
 
-        jButtonAddPantieStyle.setText("MODELO");
-        jButtonAddPantieStyle.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAddPantieStyleActionPerformed(evt);
-            }
-        });
+        jLabel14.setText("MODELO");
+
+        jCheckBoxAddPantieStyleBoyShort.setText("SHORTINHO");
+
+        jCheckBoxAddPantieStyleHighWaist.setText("CINTURA ALTA");
+
+        jCheckBoxAddPantieStyleThong.setText("FIO DENTAL");
+
+        jCheckBoxAddPantieStyleTanga.setText("TANGA");
+
+        jCheckBoxAddPantieStyleTraditional.setText("TRADICIONAL");
+        jCheckBoxAddPantieStyleTraditional.setName(""); // NOI18N
+
+        jCheckBoxAddPantieStyleBikini.setText("BIQUINI");
+
+        jCheckBoxAddPantieStyleRetro.setText("RETRÔ");
+
+        jCheckBoxAddPantieStyleSeamless.setText("SEM COSTURA");
 
         javax.swing.GroupLayout PanelAddPantieLayout = new javax.swing.GroupLayout(PanelAddPantie);
         PanelAddPantie.setLayout(PanelAddPantieLayout);
@@ -2040,9 +2069,25 @@ public class MainWindow extends javax.swing.JFrame {
                                     .addComponent(jLabel11)
                                     .addComponent(jLabelAddPantiePrice1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabelAddPantiePrice3)
-                                    .addComponent(jLabel12))
+                                    .addComponent(jLabel12)
+                                    .addComponent(jLabel14))
                                 .addGap(18, 18, 18)
                                 .addGroup(PanelAddPantieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(PanelAddPantieLayout.createSequentialGroup()
+                                        .addComponent(jCheckBoxAddPantieStyleTraditional)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jCheckBoxAddPantieStyleThong)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jCheckBoxAddPantieStyleTanga)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jCheckBoxAddPantieStyleBikini))
+                                    .addComponent(jCheckBoxAddPantieStyleRetro)
+                                    .addGroup(PanelAddPantieLayout.createSequentialGroup()
+                                        .addComponent(jCheckBoxAddPantieStyleHighWaist)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jCheckBoxAddPantieStyleSeamless)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jCheckBoxAddPantieStyleBoyShort))
                                     .addComponent(jTextFieldAddPantieFabric, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextFieldAddPantiePattern, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextFieldAddPantiePrice, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2068,8 +2113,7 @@ public class MainWindow extends javax.swing.JFrame {
                                         .addGap(18, 18, 18)
                                         .addComponent(jCheckBoxAddPantieSideTypeMid)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jCheckBoxAddPantieSideTypeWide))))
-                            .addComponent(jButtonAddPantieStyle))
+                                        .addComponent(jCheckBoxAddPantieSideTypeWide)))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -2125,9 +2169,23 @@ public class MainWindow extends javax.swing.JFrame {
                     .addComponent(jCheckBoxAddPantieLingingTypeViscose)
                     .addComponent(jCheckBoxAddPantieLingingTypePolyester)
                     .addComponent(jCheckBoxAddPantieLingingTypeCotton))
-                .addGap(18, 18, 18)
-                .addComponent(jButtonAddPantieStyle)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, Short.MAX_VALUE)
+                .addGap(47, 47, 47)
+                .addGroup(PanelAddPantieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel14)
+                    .addGroup(PanelAddPantieLayout.createSequentialGroup()
+                        .addGroup(PanelAddPantieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jCheckBoxAddPantieStyleThong)
+                            .addComponent(jCheckBoxAddPantieStyleTanga)
+                            .addComponent(jCheckBoxAddPantieStyleTraditional)
+                            .addComponent(jCheckBoxAddPantieStyleBikini))
+                        .addGap(18, 18, 18)
+                        .addGroup(PanelAddPantieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jCheckBoxAddPantieStyleSeamless)
+                            .addComponent(jCheckBoxAddPantieStyleBoyShort)
+                            .addComponent(jCheckBoxAddPantieStyleHighWaist))
+                        .addGap(18, 18, 18)
+                        .addComponent(jCheckBoxAddPantieStyleRetro)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addGroup(PanelAddPantieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonAddPantieBack)
                     .addComponent(jButtonAddPantieExit)
@@ -2200,7 +2258,12 @@ public class MainWindow extends javax.swing.JFrame {
 
     }
 
+    @FunctionalInterface
+    interface OnStyleSelected {
+        void apply(PantieStyle style);
+    }
 
+    
     private void jCheckBoxConsultCollarSimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxConsultCollarSimActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBoxConsultCollarSimActionPerformed
@@ -2743,10 +2806,10 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldAddPantieBrandActionPerformed
 
-    private void jButtonAddPantieStyleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddPantieStyleActionPerformed
-        jPopupMenuAddStyle.show(jButtonConsultar, 0, jButtonConsultar.getHeight());
-    }//GEN-LAST:event_jButtonAddPantieStyleActionPerformed
-
+    private void jButtonAddPantieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddPantieActionPerformed
+        
+    }//GEN-LAST:event_jButtonAddPantieActionPerformed
+    
     private void updateQuantityClothings() {
         Integer quantity = clothingController.getQuantity();
     }
@@ -3116,7 +3179,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton jButtonAddPantie;
     private javax.swing.JButton jButtonAddPantieBack;
     private javax.swing.JButton jButtonAddPantieExit;
-    private javax.swing.JButton jButtonAddPantieStyle;
     private javax.swing.JButton jButtonAdicionar;
     private javax.swing.JButton jButtonAdicionarCamisa;
     private javax.swing.JButton jButtonAdicionarCamisaBack;
@@ -3146,6 +3208,14 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBoxAddPantieSideTypeMid;
     private javax.swing.JCheckBox jCheckBoxAddPantieSideTypeThin;
     private javax.swing.JCheckBox jCheckBoxAddPantieSideTypeWide;
+    private javax.swing.JCheckBox jCheckBoxAddPantieStyleBikini;
+    private javax.swing.JCheckBox jCheckBoxAddPantieStyleBoyShort;
+    private javax.swing.JCheckBox jCheckBoxAddPantieStyleHighWaist;
+    private javax.swing.JCheckBox jCheckBoxAddPantieStyleRetro;
+    private javax.swing.JCheckBox jCheckBoxAddPantieStyleSeamless;
+    private javax.swing.JCheckBox jCheckBoxAddPantieStyleTanga;
+    private javax.swing.JCheckBox jCheckBoxAddPantieStyleThong;
+    private javax.swing.JCheckBox jCheckBoxAddPantieStyleTraditional;
     private javax.swing.JCheckBox jCheckBoxAddPantieWaistTypeElastic;
     private javax.swing.JCheckBox jCheckBoxAddPantieWaistTypeHigh;
     private javax.swing.JCheckBox jCheckBoxAddPantieWaistTypeLow;
@@ -3185,6 +3255,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

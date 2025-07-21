@@ -45,9 +45,6 @@ public abstract class Clothing {
     @Column(name="MARCA")
     String brand;
     
-    @Column(name="MODELO", nullable=true)
-    String style;
-    
     @Enumerated(EnumType.STRING)
     @Column(name="GENERO")
     Gender gender;
@@ -61,7 +58,7 @@ public abstract class Clothing {
 
     public Clothing() {}
 
-    public Clothing(String color, Double price, Integer quantity, ClothingType clothingType, String fabric, String brand, String style, Gender gender, String pattern) {
+    public Clothing(String color, Double price, Integer quantity, ClothingType clothingType, String fabric, String brand, Gender gender, String pattern) {
         this.color = color;
         this.price = price;
         this.quantity = quantity;
@@ -69,13 +66,12 @@ public abstract class Clothing {
         this.gender = gender;
         this.clothingType = clothingType;
         this.fabric = fabric;
-        this.style = style;
         this.pattern = pattern;
     }
 
     @Override
     public String toString() {
-        return "Clothing{" + "id=" + id + ", color=" + color + ", price=" + price + ", quantity=" + quantity + ", fabric=" + fabric + ", brand=" + brand + ", style=" + style + ", gender=" + gender + ", pattern=" + pattern + ", clothingType=" + clothingType + '}';
+        return "Clothing{" + "id=" + id + ", color=" + color + ", price=" + price + ", quantity=" + quantity + ", fabric=" + fabric + ", brand=" + brand + ", gender=" + gender + ", pattern=" + pattern + ", clothingType=" + clothingType + '}';
     }
     
     public Integer getId() {
@@ -120,14 +116,6 @@ public abstract class Clothing {
 
     public void setBrand(String brand) {
         this.brand = brand;
-    }
-
-    public String getStyle() {
-        return style;
-    }
-
-    public void setStyle(String style) {
-        this.style = style;
     }
 
     public Gender getGender() {

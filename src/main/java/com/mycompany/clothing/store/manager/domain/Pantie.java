@@ -9,6 +9,7 @@ import com.mycompany.clothing.store.manager.domain.enums.Gender;
 import com.mycompany.clothing.store.manager.domain.enums.LiningType;
 import com.mycompany.clothing.store.manager.domain.enums.SideType;
 import com.mycompany.clothing.store.manager.domain.enums.WaistType;
+import jakarta.persistence.Column;
 
 /**
  *
@@ -16,7 +17,8 @@ import com.mycompany.clothing.store.manager.domain.enums.WaistType;
  */
 public class Pantie extends Clothing {
 
-    public enum PantyStyle {
+    public enum PantieStyle {
+        TRADITIONAL, 
         THONG,
         TANGA,
         BIKINI,
@@ -30,13 +32,17 @@ public class Pantie extends Clothing {
     private LiningType liningType;
     private SideType sideType;
     private WaistType waistType;
+    
+    @Column(name="MODELO", nullable=true)
+    PantieStyle style;
 
-    public Pantie(Character size, LiningType liningType, SideType sideType, WaistType waistType, String color, Double price, Integer quantity, ClothingType clothingType, String fabric, String brand, String style, Gender gender, String pattern) {
-        super(color, price, quantity, clothingType, fabric, brand, style, gender, pattern);
+    public Pantie(Character size, LiningType liningType, SideType sideType, WaistType waistType, String color, Double price, Integer quantity, ClothingType clothingType, String fabric, String brand, Gender gender, String pattern, PantieStyle style) {
+        super(color, price, quantity, clothingType, fabric, brand, gender, pattern);
         this.size = size;
         this.liningType = liningType;
         this.sideType = sideType;
         this.waistType = waistType;
+        this.style = style;
     }
 
     public Pantie() {}
@@ -44,6 +50,14 @@ public class Pantie extends Clothing {
     @Override
     public String toString() {
         return super.toString() + "Pantie{" + "size=" + size + ", liningType=" + liningType + ", sideType=" + sideType + ", waistType=" + waistType + '}';
+    }
+
+    public PantieStyle getStyle() {
+        return style;
+    }
+
+    public void setStyle(PantieStyle style) {
+        this.style = style;
     }
     
     public Character getSize() {
