@@ -64,8 +64,8 @@ public class ClothingService {
         Integer id = existClothing(data);
 
         if (id == -1) {
-            Clothing clothing2 = ClothingMapper.DTOToEntity(data);
-            clothingRepository.registerInDatabase(clothing2);
+            Clothing clothing = ClothingMapper.DTOToEntity(data);
+            clothingRepository.registerInDatabase(clothing);
         } else {
             incrementClothing(id, data);
         }

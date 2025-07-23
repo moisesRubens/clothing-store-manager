@@ -15,6 +15,7 @@ import java.util.List;
  */
 public interface IClothingService {
     void addClothing(ClothingRequestDTO clothing);
+    void incrementClothing(Integer id, Integer quantity);
     void deleteById(Integer id);
     List<ClothingResponseDTO> getAllClothings();
 }
