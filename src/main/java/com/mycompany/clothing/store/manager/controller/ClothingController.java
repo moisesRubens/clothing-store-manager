@@ -17,7 +17,7 @@ import com.mycompany.clothing.store.manager.domain.enums.ClothingPiece;
 import com.mycompany.clothing.store.manager.domain.enums.ClothingType;
 import com.mycompany.clothing.store.manager.domain.enums.Gender;
 import com.mycompany.clothing.store.manager.domain.enums.ShirtSize;
-import com.mycompany.clothing.store.manager.service.ClothingService;
+import com.mycompany.clothing.store.manager.service.ClothingAntigo;
 import jakarta.persistence.EntityManager;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,12 +28,12 @@ import java.util.List;
  */
 public class ClothingController {
 
-    private final ClothingService clothingService;
+    private final ClothingAntigo clothingService;
     private final EntityManager em;
 
     public ClothingController(EntityManager em) {
         this.em = em;
-        this.clothingService = new ClothingService(em);
+        this.clothingService = new ClothingAntigo(em);
     }
 
     public void registerClothing(ClothingRequestDTO data) throws Exception {
