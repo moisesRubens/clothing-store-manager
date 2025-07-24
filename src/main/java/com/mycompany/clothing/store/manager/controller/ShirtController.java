@@ -5,10 +5,9 @@
 package com.mycompany.clothing.store.manager.controller;
 
 import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
-import com.mycompany.clothing.store.manager.domain.dto.ClothingResponseDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtResponseDTO;
-import com.mycompany.clothing.store.manager.service.IClothingService;
+import com.mycompany.clothing.store.manager.service.ClothingService;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,16 +16,16 @@ import java.util.stream.Collectors;
  * @author moise
  */
 public class ShirtController implements IClothingController {
-    private IClothingService shirtService;
+    private ClothingService shirtService;
 
-    public ShirtController(IClothingService shirtService) {
+    public ShirtController(ClothingService shirtService) {
         this.shirtService = shirtService;
     }
     
     @Override
-    public void createClothing(ClothingRequestDTO clothingData) {
+    public void createClothing(ClothingRequestDTO clothingData) throws Exception {
         if(clothingData instanceof ShirtRequestDTO shirtData) {
-            shirtService.addClothing(shirtData);
+            shirtService.createClothing(shirtData);
         }
     }
 

@@ -21,17 +21,17 @@ public abstract class ClothingService {
         this.clothingRepository = clothingRepository;
     }
     
-    abstract void removeClothingById(Integer id);
+    public abstract void removeClothingById(Integer id);
     
-    abstract List<ClothingResponseDTO> getAllClothings();
+    public abstract List<ClothingResponseDTO> getAllClothings();
     
-    abstract Clothing createClothing(ClothingRequestDTO dto);
+    public  abstract Clothing createClothing(ClothingRequestDTO dto);
     
     public Integer getClothingId(Clothing clothing, String query) throws Exception {
         return null;
     }
     
-    void incrementClothing(Integer id, Integer quantity) {
+    public void incrementClothing(Integer id, Integer quantity) {
         clothingRepository.updateQuantityClothing(id, quantity);
     }
 }

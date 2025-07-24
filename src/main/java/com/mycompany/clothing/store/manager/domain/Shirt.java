@@ -12,6 +12,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Table;
+import java.util.EnumSet;
 
 /**
  *
@@ -57,6 +58,8 @@ public class Shirt extends Clothing {
     public String toString() {
         return super.toString() + "Shirt{" + "sleeve=" + sleeve + ", collar=" + collar + ", size=" + size + ", pocket=" + pocket + ", closureType=" + closureType + ", style=" + style + '}';
     }
+    
+    
     
     public Integer getPocket() {
         return pocket;
@@ -105,4 +108,58 @@ public class Shirt extends Clothing {
     public void setStyle(String style) {
         this.style = style;
     }
+
+    @Override
+    public String createQuery( ) {
+        
+        String query = "SELECT s FROM Shirt s WHERE";
+
+        if (!containsAttribute(shirt)) {
+            query += " 1=0";
+            return query;
+        }
+
+        query += " 1=1";
+        if (this.getSleeve() != -1) {
+            query += " AND s.sleeve <= :sleeve";
+        }
+        if (this.getCollar() != -1) {
+            query += " AND s.collar <= :collar";
+        }
+        if (this.getPrice() != -1) {
+            query += " AND s.price <= :price";
+        }
+        if (this.getQuantity() != -1) {
+            query += " AND s.quantity >= :quantity";
+        }
+        if (this.getPocket() != -1) {
+            query += " AND s.pocket = :pocket";
+        }
+        if (!this.getColor().isBlank()) {
+            query += " AND s.color LIKE :color";
+        }
+        if (!this.getFabric().isBlank()) {
+            query += " AND s.fabric LIKE :fabric";
+        }
+        if (!this.getBrand().isBlank()) {
+            query += " AND s.brand LIKE :brand";
+        }
+        if (!this.getStyle().isBlank()) {
+            query += " AND s.style LIKE :style";
+        }
+        if (!this.getPattern().isBlank()) {
+            query += " AND s.pattern LIKE :pattern";
+        }
+        if (!this.getClosureType().isBlank()) {
+            query += " AND s.closureType LIKE :closureType";
+        }
+        if (EnumSet.allOf(ShirtSize.class).contains(this.getSize())) {
+            query += " AND s.size = :size";
+        }
+        if (EnumSet.allOf(Gender.class).contains(this.getGender())) {
+            query += " AND s.gender = :gender";
+        }
+        return query;
+    }
+    
 }

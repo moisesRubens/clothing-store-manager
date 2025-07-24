@@ -13,7 +13,7 @@ import java.util.List;
  * @author moise
  */
 public interface IClothingController {
-    void createClothing(ClothingRequestDTO clothingData);
+    void createClothing(ClothingRequestDTO clothingData) throws Exception;
     void deleteClothingById(Integer id);
     List<? extends ClothingResponseDTO> getAllClothing();
 }

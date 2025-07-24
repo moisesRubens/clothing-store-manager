@@ -26,7 +26,6 @@ public class ShirtRepository extends ClothingRepository {
 
     @Override
     public Integer existsClothing(Clothing clothing, String query) throws Exception {
-        em.getTransaction().begin();
         Integer id = -1;
         try {
             TypedQuery<Shirt> queryShirt;
@@ -36,7 +35,7 @@ public class ShirtRepository extends ClothingRepository {
                     .setParameter("color", shirt.getColor())
                     .setParameter("brand", shirt.getBrand())
                     .setParameter("size", shirt.getSize())
-                    .setParameter("price", query)
+                    .setParameter("price", shirt.getPrice())
                     .setParameter("sleeve", shirt.getSleeve())
                     .setParameter("collar", shirt.getCollar())
                     .setParameter("pocket", shirt.getPocket());
@@ -59,8 +58,7 @@ public class ShirtRepository extends ClothingRepository {
             }
         } catch (Exception e) {
             handleException(e);
-        } finally {
-            return id;
         }
+        return id;
     }
 }
