@@ -25,13 +25,13 @@ public class ShirtController implements IClothingController {
     @Override
     public void createClothing(ClothingRequestDTO clothingData) throws Exception {
         if(clothingData instanceof ShirtRequestDTO shirtData) {
-            shirtService.createClothing(shirtData);
+            shirtService.registerClothing(shirtData);
         }
     }
 
     @Override
     public void deleteClothingById(Integer id) {
-        shirtService.deleteById(id);
+        
     }
 
     @Override

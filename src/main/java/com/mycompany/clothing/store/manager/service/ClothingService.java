@@ -25,7 +25,7 @@ public abstract class ClothingService {
     
     public abstract List<ClothingResponseDTO> getAllClothings();
     
-    public  abstract Clothing createClothing(ClothingRequestDTO dto);
+    public  abstract void registerClothing(ClothingRequestDTO dto) throws Exception;
     
     public Integer getClothingId(Clothing clothing, String query) throws Exception {
         return null;

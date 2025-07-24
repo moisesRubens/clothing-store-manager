@@ -114,7 +114,7 @@ public class Shirt extends Clothing {
         
         String query = "SELECT s FROM Shirt s WHERE";
 
-        if (!containsAttribute(shirt)) {
+        if (!containsAttribute()) {
             query += " 1=0";
             return query;
         }
@@ -162,4 +162,12 @@ public class Shirt extends Clothing {
         return query;
     }
     
+    @Override
+    public Boolean containsAttribute() {
+        return (!this.getColor().isBlank() || !this.getBrand().isBlank() || !this.getPattern().isBlank()
+                || !this.getFabric().isBlank() || EnumSet.allOf(Gender.class).contains(this.getGender())
+                || !this.getStyle().isBlank() || this.getQuantity() != -1 || this.getPrice() != -1
+                || EnumSet.allOf(ShirtSize.class).contains(this.getSize()) || this.getCollar() != -1
+                || this.getSleeve() != -1 || !this.getClosureType().isBlank() || this.getPocket() != -1);
+    }
 }

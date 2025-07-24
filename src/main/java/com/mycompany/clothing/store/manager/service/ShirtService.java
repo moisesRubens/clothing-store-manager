@@ -31,16 +31,7 @@ public class ShirtService extends ClothingService {
     }
 
     @Override
-    public Shirt createClothing(ClothingRequestDTO clothingData) {
-        ShirtRequestDTO shirtData = (ShirtRequestDTO) clothingData;
-
-        return new Shirt(shirtData.color(), shirtData.price(), shirtData.quantity(),
-                shirtData.clothingType(), shirtData.fabric(), shirtData.brand(),
-                shirtData.style(), shirtData.gender(), shirtData.pattern(), shirtData.pocket(),
-                shirtData.closureType(), shirtData.size(), shirtData.sleeve(), shirtData.collar());
-    }
-
-    void addShirtInDatabase(ClothingRequestDTO clothingData) throws Exception {
+    public void registerClothing(ClothingRequestDTO clothingData) throws Exception {
         Clothing clothing = shirtFactory.createClothing(clothingData);
         String query = clothing.createQuery();
         Integer id = clothingRepository.existsClothing(clothing, query);
@@ -60,13 +51,5 @@ public class ShirtService extends ClothingService {
     @Override
     public List<ClothingResponseDTO> getAllClothings() {
         return null;
-    }
-
-    private Boolean containsAttribute(Shirt data) {
-        return (!data.getColor().isBlank() || !data.getBrand().isBlank() || !data.getPattern().isBlank()
-                || !data.getFabric().isBlank() || EnumSet.allOf(Gender.class).contains(data.getGender())
-                || !data.getStyle().isBlank() || data.getQuantity() != -1 || data.getPrice() != -1
-                || EnumSet.allOf(ShirtSize.class).contains(data.getSize()) || data.getCollar() != -1
-                || data.getSleeve() != -1 || !data.getClosureType().isBlank() || data.getPocket() != -1);
     }
 }

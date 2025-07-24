@@ -76,6 +76,8 @@ public abstract class Clothing {
     
     public abstract String createQuery();
     
+    protected abstract Boolean containsAttribute();
+    
     public Integer getId() {
         return id;
     }
