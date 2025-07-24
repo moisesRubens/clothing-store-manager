@@ -21,7 +21,7 @@ public abstract class ClothingService {
         this.clothingRepository = clothingRepository;
     }
     
-    abstract void removeClothing(Integer id);
+    abstract void removeClothingById(Integer id);
     
     abstract List<ClothingResponseDTO> getAllClothings();
     

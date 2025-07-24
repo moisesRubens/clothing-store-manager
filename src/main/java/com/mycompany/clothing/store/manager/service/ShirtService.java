@@ -5,6 +5,7 @@
 package com.mycompany.clothing.store.manager.service;
 
 import com.mycompany.clothing.store.manager.domain.Clothing;
+import com.mycompany.clothing.store.manager.domain.Shirt;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingResponseDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtRequestDTO;
@@ -18,98 +19,101 @@ import java.util.List;
  *
  * @author moise
  */
-public class ShirtService implements IClothingService{
-    private IClothingRepository shirtRepository;
+public class ShirtService extends ClothingService {
 
     public ShirtService(IClothingRepository shirtRepository) {
-        this.shirtRepository = shirtRepository;
-    }
-    
-    @Override
-    public void addClothing(ClothingRequestDTO clothingData) {
-        ShirtRequestDTO shirtData = (ShirtRequestDTO) clothingData;
-        String query = createQuery(shirtData);
-        Integer id = shirtRepository.existsClothing(query);
-        
-        if(id != -1) {
-            Clothing clothing = ClothingMapper.DTOToEntity(clothingData);
-            shirtRepository.saveClothing(clothing);
-        } else {
-            incrementClothing(id , clothingData.quantity());
-        }
-    }
-    
-    @Override
-    public void incrementClothing(Integer id, Integer quantity) {
-        shirtRepository.updateQuantityClothing(id, quantity);
+        super(shirtRepository);
+        this.clothingRepository = shirtRepository;
     }
 
     @Override
-    public void deleteById(Integer id) {
-        
+    public Clothing createClothing(ClothingRequestDTO clothingData) {
+        //usa os dados do dto pra instaciar shirt
+        return new Shirt();
+    }
+
+    void addShirtInDatabase(Shirt shirt) {
+        String query = createQuery(shirt);
+        Integer id = clothingRepository.existsClothing(query);
+
+        if (id == -1) {
+            clothingRepository.saveClothing(shirt);
+        } else {
+            incrementClothing(id, shirt.getQuantity());
+        }
+    }
+
+    @Override
+    public void incrementClothing(Integer id, Integer quantity) {
+        clothingRepository.updateQuantityClothing(id, quantity);
+    }
+
+    @Override
+    public void removeClothingById(Integer id) {
+
     }
 
     @Override
     public List<ClothingResponseDTO> getAllClothings() {
         return null;
     }
-    
-    private String createQuery(ShirtRequestDTO shirtData) {
+
+    private String createQuery(Shirt shirt) {
         String query = "SELECT s FROM Shirt s WHERE";
 
-        if (!containsAttribute(shirtData)) {
+        if (!containsAttribute(shirt)) {
             query += " 1=0";
             return query;
         }
 
         query += " 1=1";
-        if (shirtData.sleeve() != -1) {
+        if (shirt.getSleeve() != -1) {
             query += " AND s.sleeve <= :sleeve";
         }
-        if (shirtData.collar() != -1) {
+        if (shirt.getCollar() != -1) {
             query += " AND s.collar <= :collar";
         }
-        if (shirtData.price() != -1) {
+        if (shirt.getPrice() != -1) {
             query += " AND s.price <= :price";
         }
-        if (shirtData.quantity() != -1) {
+        if (shirt.getQuantity() != -1) {
             query += " AND s.quantity >= :quantity";
         }
-        if (shirtData.pocket() != -1) {
+        if (shirt.getPocket() != -1) {
             query += " AND s.pocket = :pocket";
         }
-        if (!shirtData.color().isBlank()) {
+        if (!shirt.getColor().isBlank()) {
             query += " AND s.color LIKE :color";
         }
-        if (!shirtData.fabric().isBlank()) {
+        if (!shirt.getFabric().isBlank()) {
             query += " AND s.fabric LIKE :fabric";
         }
-        if (!shirtData.brand().isBlank()) {
+        if (!shirt.getBrand().isBlank()) {
             query += " AND s.brand LIKE :brand";
         }
-        if (!shirtData.style().isBlank()) {
+        if (!shirt.getStyle().isBlank()) {
             query += " AND s.style LIKE :style";
         }
-        if (!shirtData.pattern().isBlank()) {
+        if (!shirt.getPattern().isBlank()) {
             query += " AND s.pattern LIKE :pattern";
         }
-        if (!shirtData.closureType().isBlank()) {
+        if (!shirt.getClosureType().isBlank()) {
             query += " AND s.closureType LIKE :closureType";
         }
-        if (EnumSet.allOf(ShirtSize.class).contains(shirtData.size())) {
+        if (EnumSet.allOf(ShirtSize.class).contains(shirt.getSize())) {
             query += " AND s.size = :size";
         }
-        if (EnumSet.allOf(Gender.class).contains(shirtData.gender())) {
+        if (EnumSet.allOf(Gender.class).contains(shirt.getGender())) {
             query += " AND s.gender = :gender";
         }
         return query;
     }
 
-    private Boolean containsAttribute(ShirtRequestDTO data) {
-        return (!data.color().isBlank() || !data.brand().isBlank() || !data.pattern().isBlank()
-                || !data.fabric().isBlank() || EnumSet.allOf(Gender.class).contains(data.gender())
-                || !data.style().isBlank() || data.quantity() != -1 || data.price() != -1 
-                || EnumSet.allOf(ShirtSize.class).contains(data.size()) || data.collar() != -1
-                || data.sleeve() != -1 || !data.closureType().isBlank() || data.pocket() != -1 );
+    private Boolean containsAttribute(Shirt data) {
+        return (!data.getColor().isBlank() || !data.getBrand().isBlank() || !data.getPattern().isBlank()
+                || !data.getFabric().isBlank() || EnumSet.allOf(Gender.class).contains(data.getGender())
+                || !data.getStyle().isBlank() || data.getQuantity() != -1 || data.getPrice() != -1
+                || EnumSet.allOf(ShirtSize.class).contains(data.getSize()) || data.getCollar() != -1
+                || data.getSleeve() != -1 || !data.getClosureType().isBlank() || data.getPocket() != -1);
     }
 }
