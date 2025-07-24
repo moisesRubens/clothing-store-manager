@@ -7,7 +7,7 @@ package com.mycompany.clothing.store.manager.service;
 import com.mycompany.clothing.store.manager.domain.Clothing;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingResponseDTO;
-import com.mycompany.clothing.store.manager.repository.IClothingRepository;
+import com.mycompany.clothing.store.manager.repository.ClothingRepository;
 import java.util.List;
 
 /**
@@ -15,9 +15,9 @@ import java.util.List;
  * @author moise
  */
 public abstract class ClothingService {
-    IClothingRepository clothingRepository;
+    ClothingRepository clothingRepository;
 
-    public ClothingService(IClothingRepository clothingRepository) {
+    public ClothingService(ClothingRepository clothingRepository) {
         this.clothingRepository = clothingRepository;
     }
     
@@ -27,11 +27,11 @@ public abstract class ClothingService {
     
     abstract Clothing createClothing(ClothingRequestDTO dto);
     
-    Integer getClothingId(String query) {
-        return clothingRepository.existsClothing(query);
+    public Integer getClothingId(Clothing clothing, String query) throws Exception {
+        return null;
     }
     
     void incrementClothing(Integer id, Integer quantity) {
-        
+        clothingRepository.updateQuantityClothing(id, quantity);
     }
 }

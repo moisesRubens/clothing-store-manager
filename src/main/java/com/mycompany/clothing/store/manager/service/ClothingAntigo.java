@@ -19,7 +19,7 @@ import com.mycompany.clothing.store.manager.domain.enums.HemType;
 import com.mycompany.clothing.store.manager.domain.enums.PantieLengthType;
 import com.mycompany.clothing.store.manager.domain.enums.ShirtSize;
 import com.mycompany.clothing.store.manager.domain.enums.WaistType;
-import com.mycompany.clothing.store.manager.repository.ClothingRepository;
+import com.mycompany.clothing.store.manager.repository.ClothingRepository2;
 import jakarta.persistence.EntityManager;
 import java.util.ArrayList;
 import java.util.EnumSet;
@@ -32,11 +32,11 @@ import java.util.List;
 public class ClothingAntigo {
 
     private final EntityManager em;
-    private final ClothingRepository clothingRepository;
+    private final ClothingRepository2 clothingRepository;
 
     public ClothingAntigo(EntityManager em) {
         this.em = em;
-        this.clothingRepository = new ClothingRepository(em);
+        this.clothingRepository = new ClothingRepository2(em);
     }
 
     private Integer existClothing(ClothingRequestDTO data) {

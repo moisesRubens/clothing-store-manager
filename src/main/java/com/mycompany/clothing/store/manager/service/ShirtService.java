@@ -11,7 +11,7 @@ import com.mycompany.clothing.store.manager.domain.dto.ClothingResponseDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtRequestDTO;
 import com.mycompany.clothing.store.manager.domain.enums.Gender;
 import com.mycompany.clothing.store.manager.domain.enums.ShirtSize;
-import com.mycompany.clothing.store.manager.repository.IClothingRepository;
+import com.mycompany.clothing.store.manager.repository.ClothingRepository;
 import java.util.EnumSet;
 import java.util.List;
 
@@ -21,31 +21,30 @@ import java.util.List;
  */
 public class ShirtService extends ClothingService {
 
-    public ShirtService(IClothingRepository shirtRepository) {
+    public ShirtService(ClothingRepository shirtRepository) {
         super(shirtRepository);
-        this.clothingRepository = shirtRepository;
     }
 
     @Override
-    public Clothing createClothing(ClothingRequestDTO clothingData) {
-        //usa os dados do dto pra instaciar shirt
-        return new Shirt();
+    Clothing createClothing(ClothingRequestDTO clothingData) {
+        ShirtRequestDTO shirtData = (ShirtRequestDTO) clothingData;
+
+        return new Shirt(shirtData.color(), shirtData.price(), shirtData.quantity(),
+                shirtData.clothingType(), shirtData.fabric(), shirtData.brand(),
+                shirtData.style(), shirtData.gender(), shirtData.pattern(), shirtData.pocket(),
+                shirtData.closureType(), shirtData.size(), shirtData.sleeve(), shirtData.collar());
     }
 
-    void addShirtInDatabase(Shirt shirt) {
+    void addShirtInDatabase(ClothingRequestDTO clothingData) throws Exception {
+        Shirt shirt = (Shirt) createClothing(clothingData);
         String query = createQuery(shirt);
-        Integer id = clothingRepository.existsClothing(query);
+        Integer id = clothingRepository.existsClothing(shirt, query);
 
         if (id == -1) {
             clothingRepository.saveClothing(shirt);
         } else {
             incrementClothing(id, shirt.getQuantity());
         }
-    }
-
-    @Override
-    public void incrementClothing(Integer id, Integer quantity) {
-        clothingRepository.updateQuantityClothing(id, quantity);
     }
 
     @Override
