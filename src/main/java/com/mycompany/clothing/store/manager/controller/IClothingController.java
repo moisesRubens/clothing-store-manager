@@ -15,5 +15,5 @@ import java.util.List;
 public interface IClothingController {
     void createClothing(ClothingRequestDTO clothingData) throws Exception;
     void deleteClothingById(Integer id);
-    List<? extends ClothingResponseDTO> getAllClothing();
+    <T extends ClothingResponseDTO> List<T> getAllClothing() throws Exception;
 }

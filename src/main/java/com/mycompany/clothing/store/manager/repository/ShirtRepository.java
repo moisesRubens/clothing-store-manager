@@ -8,6 +8,8 @@ import com.mycompany.clothing.store.manager.domain.Clothing;
 import com.mycompany.clothing.store.manager.domain.Shirt;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -60,5 +62,11 @@ public class ShirtRepository extends ClothingRepository {
             handleException(e);
         }
         return id;
+    }
+
+    @Override
+    public List<Clothing> getAllClothing() throws Exception {
+        return new ArrayList<>(
+                em.createQuery("SELECT s FROM Shirt s", Shirt.class).getResultList());
     }
 }

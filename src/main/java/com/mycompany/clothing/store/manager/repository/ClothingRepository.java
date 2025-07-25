@@ -6,6 +6,7 @@ package com.mycompany.clothing.store.manager.repository;
 
 import com.mycompany.clothing.store.manager.domain.Clothing;
 import jakarta.persistence.EntityManager;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -15,7 +16,7 @@ import java.util.logging.Logger;
  */
 public abstract class ClothingRepository {
     EntityManager em;
-    private static final Logger logger = Logger.getLogger(ClothingRepository2.class.getName());
+    private static final Logger logger = Logger.getLogger(ClothingRepository.class.getName());
     
     public ClothingRepository(EntityManager em) {
         this.em = em;
@@ -35,6 +36,8 @@ public abstract class ClothingRepository {
         }
         
     }
+    
+    public abstract List<Clothing> getAllClothing() throws Exception;
     
     public void updateQuantityClothing(Integer id, Integer quantity) {
         try {

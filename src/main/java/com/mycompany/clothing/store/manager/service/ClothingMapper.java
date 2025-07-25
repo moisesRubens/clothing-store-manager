@@ -8,6 +8,7 @@ import com.mycompany.clothing.store.manager.domain.Clothing;
 import com.mycompany.clothing.store.manager.domain.Pant;
 import com.mycompany.clothing.store.manager.domain.Shirt;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
+import com.mycompany.clothing.store.manager.domain.dto.ClothingResponseDTO;
 import com.mycompany.clothing.store.manager.domain.dto.PantRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtRequestDTO;
 
@@ -15,7 +16,7 @@ import com.mycompany.clothing.store.manager.domain.dto.ShirtRequestDTO;
  *
  * @author moise
  */
-public final class ClothingMapper {
+public abstract class ClothingMapper {
 
     public static Clothing DTOToEntity(ClothingRequestDTO data) {
         switch (data) {
@@ -38,4 +39,6 @@ public final class ClothingMapper {
             }
         }
     }
+    
+    public abstract ClothingResponseDTO EntityToDTO(Clothing clothing);
 }

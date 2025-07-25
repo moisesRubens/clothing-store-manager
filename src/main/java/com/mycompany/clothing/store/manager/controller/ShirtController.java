@@ -4,10 +4,13 @@
  */
 package com.mycompany.clothing.store.manager.controller;
 
+import com.mycompany.clothing.store.manager.domain.Clothing;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
+import com.mycompany.clothing.store.manager.domain.dto.ClothingResponseDTO;
+import com.mycompany.clothing.store.manager.domain.dto.PantieResponseDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtResponseDTO;
-import com.mycompany.clothing.store.manager.service.ClothingService;
+import com.mycompany.clothing.store.manager.service.IClothingService;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -16,9 +19,9 @@ import java.util.stream.Collectors;
  * @author moise
  */
 public class ShirtController implements IClothingController {
-    private ClothingService shirtService;
+    private IClothingService shirtService;
 
-    public ShirtController(ClothingService shirtService) {
+    public ShirtController(IClothingService shirtService) {
         this.shirtService = shirtService;
     }
     
@@ -35,9 +38,8 @@ public class ShirtController implements IClothingController {
     }
 
     @Override
-    public List<ShirtResponseDTO> getAllClothing() {
-        return shirtService.getAllClothings().stream().map(dto -> (ShirtResponseDTO) dto)
-                .collect(Collectors.toList());
+    public List<ShirtResponseDTO> getAllClothing() throws Exception {
+        return shirtService.getAllClothings();
     }
     
 }
