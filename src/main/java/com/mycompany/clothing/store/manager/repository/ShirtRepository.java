@@ -28,11 +28,11 @@ public class ShirtRepository extends ClothingRepository {
     public Shirt getClothingById(Integer id) throws Exception {
         try {
             return (Shirt) em.createQuery("SELECT s FROM Shirt s WHERE s.id = :id")
-                .setParameter("id", id).getSingleResult();
-        } catch(NoResultException e) {
+                    .setParameter("id", id).getSingleResult();
+        } catch (NoResultException e) {
             handleException(e);
             throw new RoupaNaoExistenteException("Erro ao consultar roupa. Roupa inexistente");
-        } catch(Exception e) {
+        } catch (Exception e) {
             handleException(e);
             throw e;
         }
@@ -80,5 +80,21 @@ public class ShirtRepository extends ClothingRepository {
     public List<Clothing> getAllClothing() throws Exception {
         return new ArrayList<>(
                 em.createQuery("SELECT s FROM Shirt s", Shirt.class).getResultList());
+    }
+
+    @Override
+    public List<Clothing> getClothings(Clothing clothing) throws Exception {
+        try {
+            String query = clothing.createQuery();
+            List<Clothing> clothings = em.createNamedQuery(query).getResultList();
+
+            if (clothings.isEmpty()) {
+                throw new RoupaNaoExistenteException("Não há roupas a com estas caracteristicas");
+            }
+            return clothings;
+        } catch (Exception e) {
+            handleException(e);
+            throw e;
+        }
     }
 }

@@ -46,5 +46,9 @@ public class ShirtController implements IClothingController {
     public ShirtResponseDTO consultClothingById(Integer id) throws Exception{
         return (ShirtResponseDTO) shirtService.getClothingById(id);
     }
-    
+
+    @Override
+    public List<ShirtResponseDTO> consultClothings(ClothingRequestDTO dto) throws Exception {
+        return shirtService.getClothings(dto);
+    }
 }

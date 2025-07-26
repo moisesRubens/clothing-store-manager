@@ -13,8 +13,14 @@ import java.util.List;
  * @author moise
  */
 public interface IClothingController {
+    
     public void createClothing(ClothingRequestDTO clothingData) throws Exception;
+    
     public void deleteClothingById(Integer id);
+    
     public <T extends ClothingResponseDTO> List<T> getAllClothing() throws Exception;
-    <T extends ClothingResponseDTO> T consultClothingById(Integer id) throws Exception;
+    
+    public <T extends ClothingResponseDTO> T consultClothingById(Integer id) throws Exception;
+    
+    public <T extends ClothingResponseDTO> List<T> consultClothings(ClothingRequestDTO dto) throws Exception;
 }

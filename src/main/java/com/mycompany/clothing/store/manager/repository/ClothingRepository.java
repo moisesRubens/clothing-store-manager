@@ -55,6 +55,8 @@ public abstract class ClothingRepository {
     
     public abstract List<Clothing> getAllClothing() throws Exception;
     
+    public abstract List<Clothing> getClothings(Clothing clothing) throws Exception;
+    
     public void updateQuantityClothing(Integer id, Integer quantity) {
         try {
             em.getTransaction().begin();

@@ -1,8 +1,8 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package factory;
+package com.mycompany.clothing.store.manager.factory;
 
 import com.mycompany.clothing.store.manager.domain.Clothing;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
@@ -11,6 +11,6 @@ import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
  *
  * @author moise
  */
-public interface IClothingFactory {
-    Clothing createClothing(ClothingRequestDTO dto);
+public abstract class ClothingFactory {
+    public abstract Clothing createClothing(ClothingRequestDTO dto);
 }

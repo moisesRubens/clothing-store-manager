@@ -15,6 +15,7 @@ import java.util.List;
  * @author moise
  */
 public interface IClothingService {
+    
     void registerClothing(ClothingRequestDTO dto) throws Exception;
 
     void incrementClothing(Integer id, Integer quantity);
@@ -22,6 +23,8 @@ public interface IClothingService {
     void removeClothingModelById(Integer id) throws Exception;
 
     <T extends ClothingResponseDTO> List<T> getAllClothings() throws Exception;
+    
+    <T extends ClothingResponseDTO> List<T> getClothings(ClothingRequestDTO dto) throws Exception;
 
     ClothingResponseDTO getClothingById(Integer id) throws Exception;
 }

@@ -4,19 +4,13 @@
  */
 package com.mycompany.clothing.store.manager.service;
 
+import com.mycompany.clothing.store.manager.service.mapper.ClothingMapper;
 import com.mycompany.clothing.store.manager.domain.Clothing;
-import com.mycompany.clothing.store.manager.domain.Shirt;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingResponseDTO;
-import com.mycompany.clothing.store.manager.domain.dto.ShirtRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtResponseDTO;
-import com.mycompany.clothing.store.manager.domain.enums.Gender;
-import com.mycompany.clothing.store.manager.domain.enums.ShirtSize;
 import com.mycompany.clothing.store.manager.repository.ClothingRepository;
-import factory.ClothingFactory;
-import factory.IClothingFactory;
-import java.util.ArrayList;
-import java.util.EnumSet;
+import com.mycompany.clothing.store.manager.factory.IClothingFactory;
 import java.util.List;
 
 /**
@@ -24,7 +18,7 @@ import java.util.List;
  * @author moise
  */
 public class ShirtService implements IClothingService {
-
+    
     private IClothingFactory shirtFactory;
     private ClothingRepository shirtRepository;
     private ClothingMapper shirtMapper;
@@ -61,12 +55,20 @@ public class ShirtService implements IClothingService {
     @Override
     public ShirtResponseDTO getClothingById(Integer id) throws Exception {
         Clothing clothing = shirtRepository.getClothingById(id);
-        return (ShirtResponseDTO) shirtMapper.EntityToDTO(clothing);
+        return (ShirtResponseDTO) shirtMapper.EntityToResponseDTO(clothing);
     }
 
     @Override
     public List<ShirtResponseDTO> getAllClothings() throws Exception {
         return shirtRepository.getAllClothing().stream()
-                .map(clothing -> (ShirtResponseDTO) shirtMapper.EntityToDTO(clothing)).toList();
+                .map(clothing -> (ShirtResponseDTO) shirtMapper.EntityToResponseDTO(clothing)).toList();
+    }
+
+    @Override
+    public List<ShirtResponseDTO> getClothings(ClothingRequestDTO dto) throws Exception {
+        Clothing clothing = shirtMapper.RequestDTOToEntity(dto);
+        
+        return shirtRepository.getClothings(clothing).stream()
+                .map(c -> (ShirtResponseDTO) shirtMapper.EntityToResponseDTO(c)).toList();
     }
 }

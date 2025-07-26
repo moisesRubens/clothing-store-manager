@@ -18,7 +18,7 @@ import com.mycompany.clothing.store.manager.domain.enums.HemType;
 import com.mycompany.clothing.store.manager.domain.enums.PantieLengthType;
 import com.mycompany.clothing.store.manager.domain.enums.ShirtSize;
 import com.mycompany.clothing.store.manager.domain.enums.WaistType;
-import com.mycompany.clothing.store.manager.service.ClothingMapper;
+import com.mycompany.clothing.store.manager.service.mapper.ClothingMapper;
 import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
