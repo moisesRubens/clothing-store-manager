@@ -4,9 +4,12 @@
  */
 package com.mycompany.clothing.store.manager.repository;
 
+import com.mycompany.clothing.store.manager.configuration.exception.RoupaNaoExistenteException;
 import com.mycompany.clothing.store.manager.domain.Clothing;
 import com.mycompany.clothing.store.manager.domain.Shirt;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
+import jakarta.persistence.PersistenceException;
 import jakarta.persistence.TypedQuery;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,8 +25,17 @@ public class ShirtRepository extends ClothingRepository {
     }
 
     @Override
-    public Clothing getClothingById(Integer id) {
-        return null;
+    public Shirt getClothingById(Integer id) throws Exception {
+        try {
+            return (Shirt) em.createQuery("SELECT s FROM Shirt s WHERE s.id = :id")
+                .setParameter("id", id).getSingleResult();
+        } catch(NoResultException e) {
+            handleException(e);
+            throw new RoupaNaoExistenteException("Erro ao consultar roupa. Roupa inexistente");
+        } catch(Exception e) {
+            handleException(e);
+            throw e;
+        }
     }
 
     @Override

@@ -19,9 +19,9 @@ public interface IClothingService {
 
     void incrementClothing(Integer id, Integer quantity);
 
-    void removeClothingModelById(Integer id);
+    void removeClothingModelById(Integer id) throws Exception;
 
     <T extends ClothingResponseDTO> List<T> getAllClothings() throws Exception;
 
-    Clothing getClothingById(Clothing clothing, String query) throws Exception;
+    ClothingResponseDTO getClothingById(Integer id) throws Exception;
 }

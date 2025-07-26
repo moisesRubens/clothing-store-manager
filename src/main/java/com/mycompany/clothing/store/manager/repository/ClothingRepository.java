@@ -4,8 +4,10 @@
  */
 package com.mycompany.clothing.store.manager.repository;
 
+import com.mycompany.clothing.store.manager.configuration.exception.RoupaNaoExistenteException;
 import com.mycompany.clothing.store.manager.domain.Clothing;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,7 +26,7 @@ public abstract class ClothingRepository {
     
     public abstract Integer existsClothing(Clothing clothing, String query) throws Exception;
     
-    abstract Clothing getClothingById(Integer id);
+    public abstract Clothing getClothingById(Integer id) throws Exception;
     
     public void saveClothing(Clothing clothing) {
         em.getTransaction().begin();
@@ -35,6 +37,20 @@ public abstract class ClothingRepository {
             handleException(e);
         }
         
+    }
+    
+    public void removeClothingById(Integer id) throws Exception {
+        em.getTransaction().begin();
+        try {
+            em.createQuery("DELETE FROM Clothing c WHERE c.id = :id")
+                .setParameter("id", id).executeUpdate();
+            em.getTransaction().commit();
+        } catch(IllegalStateException e) {
+            handleException(e);
+            throw new RoupaNaoExistenteException("Erro ao remover roupa. Roupa inexistente");
+        } catch(Exception e) {
+            handleException(e);
+        }
     }
     
     public abstract List<Clothing> getAllClothing() throws Exception;

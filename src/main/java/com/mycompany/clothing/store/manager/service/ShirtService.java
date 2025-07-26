@@ -24,10 +24,11 @@ import java.util.List;
  * @author moise
  */
 public class ShirtService implements IClothingService {
+
     private IClothingFactory shirtFactory;
     private ClothingRepository shirtRepository;
     private ClothingMapper shirtMapper;
-    
+
     public ShirtService(ClothingRepository shirtRepository, IClothingFactory clothingFactory, ClothingMapper clothingMapper) {
         this.shirtRepository = shirtRepository;
         this.shirtFactory = clothingFactory;
@@ -51,15 +52,16 @@ public class ShirtService implements IClothingService {
     public void incrementClothing(Integer id, Integer quantity) {
         shirtRepository.updateQuantityClothing(id, quantity);
     }
-    
+
     @Override
-    public void removeClothingModelById(Integer id) {
-        
+    public void removeClothingModelById(Integer id) throws Exception {
+        shirtRepository.removeClothingById(id);
     }
 
     @Override
-    public Clothing getClothingById(Clothing clothing, String query) throws Exception {
-        return null;
+    public ShirtResponseDTO getClothingById(Integer id) throws Exception {
+        Clothing clothing = shirtRepository.getClothingById(id);
+        return (ShirtResponseDTO) shirtMapper.EntityToDTO(clothing);
     }
 
     @Override
