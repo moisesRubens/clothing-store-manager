@@ -16,7 +16,9 @@ public interface IClothingController {
     
     public void createClothing(ClothingRequestDTO clothingData) throws Exception;
     
-    public void deleteClothingById(Integer id);
+    public void deleteClothingModelById(Integer id);
+    
+    public void removeClothingUnitsById(Integer id, Integer quantity) throws Exception;
     
     public <T extends ClothingResponseDTO> List<T> getAllClothing() throws Exception;
     

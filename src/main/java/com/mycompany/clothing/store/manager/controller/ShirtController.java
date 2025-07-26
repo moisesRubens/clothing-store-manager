@@ -4,15 +4,11 @@
  */
 package com.mycompany.clothing.store.manager.controller;
 
-import com.mycompany.clothing.store.manager.domain.Clothing;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
-import com.mycompany.clothing.store.manager.domain.dto.ClothingResponseDTO;
-import com.mycompany.clothing.store.manager.domain.dto.PantieResponseDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtResponseDTO;
 import com.mycompany.clothing.store.manager.service.IClothingService;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  *
@@ -33,11 +29,6 @@ public class ShirtController implements IClothingController {
     }
 
     @Override
-    public void deleteClothingById(Integer id) {
-        
-    }
-
-    @Override
     public List<ShirtResponseDTO> getAllClothing() throws Exception {
         return shirtService.getAllClothings();
     }
@@ -50,5 +41,15 @@ public class ShirtController implements IClothingController {
     @Override
     public List<ShirtResponseDTO> consultClothings(ClothingRequestDTO dto) throws Exception {
         return shirtService.getClothings(dto);
+    }
+
+    @Override
+    public void deleteClothingModelById(Integer id) {
+        
+    }
+
+    @Override
+    public void removeClothingUnitsById(Integer id, Integer quantity) throws Exception {
+        
     }
 }

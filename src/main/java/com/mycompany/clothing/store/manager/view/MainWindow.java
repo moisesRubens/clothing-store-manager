@@ -7,7 +7,7 @@ package com.mycompany.clothing.store.manager.view;
 import com.google.protobuf.LazyStringArrayList;
 import com.mycompany.clothing.store.manager.configuration.exception.RoupaJaExistenteException;
 import com.mycompany.clothing.store.manager.configuration.exception.RoupaNaoExistenteException;
-import com.mycompany.clothing.store.manager.controller.ClothingController;
+import com.mycompany.clothing.store.manager.controller.IClothingController;
 import com.mycompany.clothing.store.manager.domain.Clothing;
 import com.mycompany.clothing.store.manager.domain.Pantie.PantieStyle;
 import com.mycompany.clothing.store.manager.domain.Shirt;
@@ -61,15 +61,13 @@ public class MainWindow extends javax.swing.JFrame {
     /**
      * Creates new form MainWindow
      */
-    public MainWindow(EntityManager em) {
+    public MainWindow(EntityManager em, IClothingController clothingController) {
         this.em = em;
-        this.clothingController = new ClothingController(em);
+        this.clothingController = clothingController;
         initComponents();
         configurarPopupMenu(jPopupMenuAdicionar, Function.ADD);
         configurarPopupMenu(jPopupMenuConsultar, Function.SEARCH);
         configurarPopupMenu(jPopupMenuRemove, Function.REMOVE);
-        
-        
 
         getContentPane().setLayout(new CardLayout());
 
@@ -2137,12 +2135,13 @@ public class MainWindow extends javax.swing.JFrame {
             PanelAddPantieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelAddPantieLayout.createSequentialGroup()
                 .addGap(38, 38, 38)
-                .addGroup(PanelAddPantieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jTextFieldAddPantieColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(PanelAddPantieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelAddPantieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel15)
-                        .addComponent(jTextFieldAddPantieGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jTextFieldAddPantieGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanelAddPantieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel5)
+                        .addComponent(jTextFieldAddPantieColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(PanelAddPantieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
@@ -2252,7 +2251,8 @@ public class MainWindow extends javax.swing.JFrame {
             String painel = "";
 
             switch (function) {
-                case ADD -> painel = "PainelAdicionarCalca";
+                case ADD ->
+                    painel = "PainelAdicionarCalca";
                 case SEARCH -> {
                     painel = "PainelConsultarRemoverCalca";
                     jButtonRemoverCalca.setVisible(false);
@@ -2279,10 +2279,11 @@ public class MainWindow extends javax.swing.JFrame {
 
     @FunctionalInterface
     interface OnStyleSelected {
+
         void apply(PantieStyle style);
     }
 
-    
+
     private void jCheckBoxConsultCollarSimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxConsultCollarSimActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBoxConsultCollarSimActionPerformed
@@ -2302,7 +2303,7 @@ public class MainWindow extends javax.swing.JFrame {
     private void jButtonRemoveSearchShirtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemoveSearchShirtActionPerformed
         try {
             ShirtRequestDTO shirtData = searchShirtToRemove();
-            List<ClothingResponseDTO> listSearchToRemove = clothingController.consult(shirtData);
+            List<ClothingResponseDTO> listSearchToRemove = clothingController.consultClothings(shirtData);
             fillTable(listSearchToRemove, ClothingPiece.SHIRT);
             allClothings = false;
             CardLayout a = (CardLayout) getContentPane().getLayout();
@@ -2412,7 +2413,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void buttonViewAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonViewAllActionPerformed
         try {
-            List<ClothingResponseDTO> list = clothingController.viewAll(ClothingPiece.SHIRT);
+            List<ClothingResponseDTO> list = clothingController.getAllClothing();
             fillTable(list, ClothingPiece.SHIRT);
             allClothings = true;
             CardLayout a = (CardLayout) getContentPane().getLayout();
@@ -2458,7 +2459,7 @@ public class MainWindow extends javax.swing.JFrame {
         jCheckBoxAdicionarCamisaCollar.setSelected(false);
         jCheckBoxAdicionarCamisaSleeve.setSelected(false);
     }
-    
+
     private void jButtonAdicionarCamisaExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarCamisaExitActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButtonAdicionarCamisaExitActionPerformed
@@ -2520,7 +2521,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         ShirtRequestDTO shirtData = new ShirtRequestDTO(color, price, quantity, fabric, brand, style, gender, pattern, pocket, closureType,
                 ClothingType.STANDARD, sleeve, collar, size);
-        clothingController.registerClothing(shirtData);
+        clothingController.createClothing(shirtData);
     }
 
     private void addPantie() throws Exception {
@@ -2603,7 +2604,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         PantRequestDTO pantieData = new PantRequestDTO(color, quantity, fabric, brand, style, gender, pattern, pocket, closureType,
                 ClothingType.STANDARD, hemType, waistType, lenght, size, price);
-        clothingController.registerClothing(pantieData);
+        clothingController.createClothing(pantieData);
     }
 
     private void jTextFieldAdicionarCamisaFabricActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAdicionarCamisaFabricActionPerformed
@@ -2671,7 +2672,7 @@ public class MainWindow extends javax.swing.JFrame {
         jCheckBoxConsultCalcaTipoCinturaAlta.setSelected(false);
         jCheckBoxConsultCalcaTipoCinturaElastica.setSelected(false);
     }
-    
+
     private void PainelSearchToRemoveShirtAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_PainelSearchToRemoveShirtAncestorAdded
         // TODO add your handling code here:
     }//GEN-LAST:event_PainelSearchToRemoveShirtAncestorAdded
@@ -2711,7 +2712,7 @@ public class MainWindow extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try {
             allClothings = true;
-            List<ClothingResponseDTO> list = clothingController.viewAll(ClothingPiece.PANT);
+            List<ClothingResponseDTO> list = clothingController.getAllClothing();
             if (f.equals(Function.REMOVE)) {
                 fillTable(list, ClothingPiece.PANT);
                 CardLayout a = (CardLayout) getContentPane().getLayout();
@@ -2748,7 +2749,7 @@ public class MainWindow extends javax.swing.JFrame {
     private void jButtonConsultarCalcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsultarCalcaActionPerformed
         try {
             PantRequestDTO pantieData = consultarCalca();
-            List<ClothingResponseDTO> listSearch = clothingController.consult(pantieData);
+            List<ClothingResponseDTO> listSearch = clothingController.consultClothings(pantieData);
             allClothings = false;
             if (f.equals(Function.SEARCH)) {
                 Table table = new Table(em);
@@ -2779,7 +2780,7 @@ public class MainWindow extends javax.swing.JFrame {
             updateTable(allClothings, ClothingPiece.PANT);
             CardLayout a = (CardLayout) getContentPane().getLayout();
             a.show(getContentPane(), "PainelRemoverCalca");
-        } catch(Exception e) {
+        } catch (Exception e) {
             handleException(e);
         }
     }//GEN-LAST:event_jButtonRemoverCalcaActionPerformed
@@ -2829,31 +2830,31 @@ public class MainWindow extends javax.swing.JFrame {
         try {
             Double price = Double.valueOf(jTextFieldAddPantiePrice.getText());
             PantieStyle style;
-            Gender gender = (jTextFieldAddPantieGender.getText().equals(Gender.MALE))?Gender.MALE : Gender.FEMALE;
-            
-            if(jCheckBoxAddPantieStyleTraditional.isSelected()) {
+            Gender gender = (jTextFieldAddPantieGender.getText().equals(Gender.MALE)) ? Gender.MALE : Gender.FEMALE;
+
+            if (jCheckBoxAddPantieStyleTraditional.isSelected()) {
                 style = PantieStyle.TRADITIONAL;
-            }else if(jCheckBoxAddPantieStyleBikini.isSelected()) {
+            } else if (jCheckBoxAddPantieStyleBikini.isSelected()) {
                 style = PantieStyle.BIKINI;
-            } else if(jCheckBoxAddPantieStyleBoyShort.isSelected()) {
+            } else if (jCheckBoxAddPantieStyleBoyShort.isSelected()) {
                 style = PantieStyle.BOYSHORT;
-            } else if(jCheckBoxAddPantieStyleHighWaist.isSelected()) {
+            } else if (jCheckBoxAddPantieStyleHighWaist.isSelected()) {
                 style = PantieStyle.HIGH_WAIST;
-            } else if(jCheckBoxAddPantieStyleRetro.isSelected()) {
+            } else if (jCheckBoxAddPantieStyleRetro.isSelected()) {
                 style = PantieStyle.RETRO;
-            }else if(jCheckBoxAddPantieStyleSeamless.isSelected()) {
+            } else if (jCheckBoxAddPantieStyleSeamless.isSelected()) {
                 style = PantieStyle.SEAMLESS;
-            }else if(jCheckBoxAddPantieStyleTanga.isSelected()) {
+            } else if (jCheckBoxAddPantieStyleTanga.isSelected()) {
                 style = PantieStyle.TANGA;
-            }else if(jCheckBoxAddPantieStyleThong.isSelected()) {
+            } else if (jCheckBoxAddPantieStyleThong.isSelected()) {
                 style = PantieStyle.THONG;
             }
-            
-            PantieRequestDTO pantieData = new PantieRequestDTO(jTextFieldAddPantieColor.getText(), jTextFieldAddPantieQuantity.getText(), price, 
-            jTextFieldAddPantieFabric.getText(), jTextFieldAddPantieBrand.getText(), style, gender, jTextFieldAddPantiePattern.getText(),
-            jTextFieldAddPantieC.getText());
-            clothingController.registerClothing(pantieData);
-        } catch(Exception e) {
+
+            PantieRequestDTO pantieData = new PantieRequestDTO(jTextFieldAddPantieColor.getText(), jTextFieldAddPantieQuantity.getText(), price,
+                    jTextFieldAddPantieFabric.getText(), jTextFieldAddPantieBrand.getText(), style, gender, jTextFieldAddPantiePattern.getText(),
+                    jTextFieldAddPantieC.getText());
+            clothingController.createClothing(pantieData);
+        } catch (Exception e) {
             handleException(e);
         }
     }//GEN-LAST:event_jButtonAddPantieActionPerformed
@@ -2861,16 +2862,13 @@ public class MainWindow extends javax.swing.JFrame {
     private void jTextFieldAddPantieGenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAddPantieGenderActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldAddPantieGenderActionPerformed
-    
-    private void updateQuantityClothings() {
-        Integer quantity = clothingController.getQuantity();
-    }
 
     private void removeShirtById() throws Exception {
         try {
             Integer id = Integer.valueOf(jTextFieldRemoveShirtid.getText());
             Integer quantity = Integer.valueOf(jTextFieldRemoveShirtQuantity.getText());
-            clothingController.decrementClothing(id, quantity);
+            //decrementar a quantidade de roupas
+            clothingController.removeClothingById(id, quantity);
             JOptionPane.showMessageDialog(this, "REMOÇÃO EFETUADA", "RESULTADO", JOptionPane.INFORMATION_MESSAGE);
         } catch (IllegalArgumentException | IllegalStateException | RoupaNaoExistenteException e) {
             JOptionPane.showMessageDialog(this, e.getMessage(), "RESULTADO", JOptionPane.INFORMATION_MESSAGE);
@@ -2878,12 +2876,13 @@ public class MainWindow extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "FALHA NO SISTEMA", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
     }
-    
+
     private void removePantieById() throws Exception {
         try {
             Integer id = Integer.valueOf(jTextFieldRemoverCalcaId.getText());
             Integer quantity = Integer.valueOf(jTextFieldRemoverCalcaQuantity.getText());
-            clothingController.decrementClothing(id, quantity);
+            //decrementar a quantidade de roupas
+            clothingController.removeClothingById(id, quantity);
             JOptionPane.showMessageDialog(this, "REMOÇÃO EFETUADA", "RESULTADO", JOptionPane.INFORMATION_MESSAGE);
         } catch (IllegalArgumentException | IllegalStateException | RoupaNaoExistenteException e) {
             JOptionPane.showMessageDialog(this, e.getMessage(), "RESULTADO", JOptionPane.INFORMATION_MESSAGE);
@@ -2896,12 +2895,12 @@ public class MainWindow extends javax.swing.JFrame {
         List<ClothingResponseDTO> listSearchToRemove = new ArrayList<>();
         try {
             if (allClothings == true) {
-                listSearchToRemove = clothingController.viewAll(ClothingPiece.SHIRT);
+                listSearchToRemove = clothingController.getAllClothing();
             } else {
                 switch (p) {
                     case ClothingPiece.SHIRT -> {
                         ShirtRequestDTO shirtData = searchShirtToRemove();
-                        listSearchToRemove = clothingController.consult(shirtData);
+                        listSearchToRemove = clothingController.consultClothings(shirtData);
                     }
                     case ClothingPiece.PANT -> {
                         PantRequestDTO pantieData = consultarCalca();
@@ -2910,7 +2909,7 @@ public class MainWindow extends javax.swing.JFrame {
                 }
             }
         } catch (Exception e) {
-            
+
         } finally {
             fillTable(listSearchToRemove, p);
         }
@@ -3101,12 +3100,12 @@ public class MainWindow extends javax.swing.JFrame {
                 gender, pattern, pocket, closureType, ClothingType.STANDARD,
                 sleeve, collar, shirtSize);
 
-        List<ClothingResponseDTO> listSearch = clothingController.consult(dataShirt);
+        List<ClothingResponseDTO> listSearch = clothingController.consultClothings(dataShirt);
         Table table = new Table(em);
         table.fillTable(listSearch, ClothingPiece.SHIRT);
         table.setLocationRelativeTo(null);
         table.setVisible(true);
-        
+
         return dataShirt;
     }
 
@@ -3118,11 +3117,11 @@ public class MainWindow extends javax.swing.JFrame {
     public void fillTable(List<ClothingResponseDTO> list, ClothingPiece p) throws Exception {
         DefaultTableModel model = new DefaultTableModel();
         fillTableAux(model, p);
-        
+
         if (list == null) {
             return;
         }
-        
+
         if (!list.isEmpty()) {
             switch (p) {
                 case ClothingPiece.SHIRT -> {
@@ -3171,10 +3170,10 @@ public class MainWindow extends javax.swing.JFrame {
 
             }
         }
-        
-        if(p.equals(ClothingPiece.SHIRT)) {
+
+        if (p.equals(ClothingPiece.SHIRT)) {
             jTableRemoverCamisa.setModel(model);
-        } else if(p.equals(ClothingPiece.PANT)) {
+        } else if (p.equals(ClothingPiece.PANT)) {
             jTableRemoverCalca.setModel(model);
         }
     }
@@ -3463,7 +3462,7 @@ public class MainWindow extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     private ClothingRequestDTO data;
     public EntityManager em;
-    public ClothingController clothingController;
+    public IClothingController clothingController;
     private Boolean allClothings = false;
     private Function f;
 }
