@@ -7,6 +7,8 @@ package com.mycompany.clothing.store.manager.controller;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingResponseDTO;
 import com.mycompany.clothing.store.manager.domain.dto.PantRequestDTO;
+import com.mycompany.clothing.store.manager.domain.dto.PantResponseDTO;
+import com.mycompany.clothing.store.manager.service.ClothingService;
 import com.mycompany.clothing.store.manager.service.IClothingService;
 import java.util.List;
 
@@ -16,9 +18,9 @@ import java.util.List;
  */
 public class PantController implements IClothingController {
 
-    private IClothingService pantService;
+    private ClothingService pantService;
 
-    public PantController(IClothingService pantService) {
+    public PantController(ClothingService pantService) {
         this.pantService = pantService;
     }
     
@@ -31,7 +33,7 @@ public class PantController implements IClothingController {
 
     @Override
     public void deleteClothingModelById(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        
     }
 
     @Override
@@ -40,8 +42,8 @@ public class PantController implements IClothingController {
     }
 
     @Override
-    public <T extends ClothingResponseDTO> List<T> getAllClothing() throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public List<PantResponseDTO> getAllClothings() throws Exception {
+        return pantService.getAllClothings();
     }
 
     @Override
@@ -51,7 +53,7 @@ public class PantController implements IClothingController {
 
     @Override
     public <T extends ClothingResponseDTO> List<T> consultClothings(ClothingRequestDTO dto) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return pantService.getClothings(dto);
     }
     
 }

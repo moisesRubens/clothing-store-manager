@@ -5,8 +5,14 @@
 package com.mycompany.clothing.store.manager.service;
 
 import com.mycompany.clothing.store.manager.domain.Clothing;
+import com.mycompany.clothing.store.manager.domain.IClothingFactory;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingResponseDTO;
+import com.mycompany.clothing.store.manager.domain.dto.PantResponseDTO;
+import com.mycompany.clothing.store.manager.domain.dto.ShirtResponseDTO;
+import com.mycompany.clothing.store.manager.domain.enums.ClothingType;
+import com.mycompany.clothing.store.manager.domain.enums.Gender;
+import com.mycompany.clothing.store.manager.domain.enums.ShirtSize;
 import com.mycompany.clothing.store.manager.repository.ClothingRepository;
 import com.mycompany.clothing.store.manager.service.mapper.ClothingMapper;
 import java.util.List;
@@ -15,24 +21,20 @@ import java.util.List;
  *
  * @author moise
  */
-public class PantService implements IClothingService {
+public class PantService extends ClothingService {
 
-    private ClothingRepository pantRepository;
-    private ClothingMapper pantMapper;
-
-    public PantService(ClothingRepository pantRepository, ClothingMapper pantMapper) {
-        this.pantRepository = pantRepository;
-        this.pantMapper = pantMapper;
+    public PantService(ClothingRepository clothingRepository, IClothingFactory clothingFactory, ClothingMapper clothingMapper) {
+        super(clothingRepository, clothingFactory, clothingMapper);
     }
     
     @Override
     public void registerClothing(ClothingRequestDTO dto) throws Exception {
-        Clothing pant = pantMapper.RequestDTOToEntity(dto);
+        Clothing pant = clothingMapper.RequestDTOToEntity(dto);
         String query = pant.createQuery();
-        Integer id = pantRepository.getClothingId(pant, query);
+        Integer id = clothingRepository.getClothingId(pant, query);
         
         if(id != -1) {
-            pantRepository.saveClothing(pant);
+            clothingRepository.saveClothing(pant);
         } else {
             incrementClothing(id, pant.getId());
         }
@@ -40,7 +42,7 @@ public class PantService implements IClothingService {
 
     @Override
     public void incrementClothing(Integer id, Integer quantity) {
-        pantRepository.updateQuantityClothing(id, quantity);
+        clothingRepository.updateQuantityClothing(id, quantity);
     }
 
     @Override
@@ -49,13 +51,17 @@ public class PantService implements IClothingService {
     }
 
     @Override
-    public <T extends ClothingResponseDTO> List<T> getAllClothings() throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public List<PantResponseDTO> getAllClothings() throws Exception {
+        return clothingRepository.getAllClothing().stream().map(
+            clothing -> (PantResponseDTO) clothingMapper.EntityToResponseDTO(clothing)).toList();
     }
 
     @Override
-    public <T extends ClothingResponseDTO> List<T> getClothings(ClothingRequestDTO dto) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public List<PantResponseDTO> getClothings(ClothingRequestDTO dto) throws Exception {
+        Clothing clothing = clothingMapper.RequestDTOToEntity(dto);
+
+        return clothingRepository.getClothings(clothing).stream()
+                .map(c -> (PantResponseDTO) clothingMapper.EntityToResponseDTO(c)).toList();
     }
 
     @Override

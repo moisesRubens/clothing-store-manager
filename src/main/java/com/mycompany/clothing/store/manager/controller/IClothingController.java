@@ -20,7 +20,7 @@ public interface IClothingController {
     
     public void removeClothingUnitsById(Integer id, Integer quantity) throws Exception;
     
-    public <T extends ClothingResponseDTO> List<T> getAllClothing() throws Exception;
+    public <T extends ClothingResponseDTO> List<T> getAllClothings() throws Exception;
     
     public <T extends ClothingResponseDTO> T consultClothingById(Integer id) throws Exception;
     

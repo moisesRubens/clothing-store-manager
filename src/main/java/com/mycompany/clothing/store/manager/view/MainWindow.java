@@ -47,8 +47,8 @@ public class MainWindow extends javax.swing.JFrame {
     /**
      * Creates new form MainWindow
      */
-    public MainWindow(IClothingController clothingController) {
-        this.shirtController = clothingController;
+    public MainWindow(IClothingController... clothingControllers) {
+        this.clothingControllers = clothingControllers;
         initComponents();
         configurarPopupMenu(jPopupMenuAdicionar, Function.ADD);
         configurarPopupMenu(jPopupMenuConsultar, Function.SEARCH);
@@ -3445,7 +3445,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldRemoverCalcaQuantity;
     // End of variables declaration//GEN-END:variables
     private ClothingRequestDTO data;
-    public IClothingController shirtController;
+    public IClothingController[] clothingControllers;
     private Boolean allClothings = false;
     private Function f;
 }

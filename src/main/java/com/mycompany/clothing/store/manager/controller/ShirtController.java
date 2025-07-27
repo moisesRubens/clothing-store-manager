@@ -30,7 +30,7 @@ public class ShirtController implements IClothingController {
     }
 
     @Override
-    public List<ShirtResponseDTO> getAllClothing() throws Exception {
+    public List<ShirtResponseDTO> getAllClothings() throws Exception {
         return shirtService.getAllClothings();
     }
 
