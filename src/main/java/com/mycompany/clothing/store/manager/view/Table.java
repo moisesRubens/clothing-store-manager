@@ -4,13 +4,10 @@
  */
 package com.mycompany.clothing.store.manager.view;
 
-import com.mycompany.clothing.store.manager.controller.ClothingController;
-import com.mycompany.clothing.store.manager.domain.Clothing;
+import com.mycompany.clothing.store.manager.controller.IClothingController;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingResponseDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtResponseDTO;
 import com.mycompany.clothing.store.manager.domain.enums.ClothingPiece;
-import jakarta.persistence.EntityManager;
-import java.awt.CardLayout;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import com.mycompany.clothing.store.manager.domain.dto.PantResponseDTO;
@@ -22,16 +19,14 @@ import com.mycompany.clothing.store.manager.domain.dto.PantResponseDTO;
 public class Table extends javax.swing.JFrame {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Table.class.getName());
-    public EntityManager em;
-    public ClothingController clothingController;
+    public IClothingController clothingController;
     /**
      * Creates new form Remove
      * @param em
      */
-    public Table(EntityManager em) {
+    public Table(IClothingController shirtController) {
         initComponents();
-        this.em = em;
-        this.clothingController = new ClothingController(em);
+        this.clothingController = shirtController;
     }
 
     /**
@@ -166,7 +161,11 @@ public class Table extends javax.swing.JFrame {
     }
     
     public void viewAllClothing(ClothingPiece piece) throws Exception {
-        List<ClothingResponseDTO> list = clothingController.viewAll(piece);
+        List<ClothingResponseDTO> list = null;
+        
+        if(piece.equals(ClothingPiece.SHIRT)) {
+            list = clothingController.getAllClothing();
+        }
         fillTable(list, piece);
     }
 

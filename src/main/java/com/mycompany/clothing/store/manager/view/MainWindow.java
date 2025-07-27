@@ -4,13 +4,9 @@
  */
 package com.mycompany.clothing.store.manager.view;
 
-import com.google.protobuf.LazyStringArrayList;
-import com.mycompany.clothing.store.manager.configuration.exception.RoupaJaExistenteException;
 import com.mycompany.clothing.store.manager.configuration.exception.RoupaNaoExistenteException;
 import com.mycompany.clothing.store.manager.controller.IClothingController;
-import com.mycompany.clothing.store.manager.domain.Clothing;
 import com.mycompany.clothing.store.manager.domain.Pantie.PantieStyle;
-import com.mycompany.clothing.store.manager.domain.Shirt;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingResponseDTO;
 import com.mycompany.clothing.store.manager.domain.dto.PantRequestDTO;
@@ -25,24 +21,14 @@ import com.mycompany.clothing.store.manager.domain.enums.HemType;
 import com.mycompany.clothing.store.manager.domain.enums.PantieLengthType;
 import com.mycompany.clothing.store.manager.domain.enums.ShirtSize;
 import com.mycompany.clothing.store.manager.domain.enums.WaistType;
-import jakarta.persistence.EntityManager;
 import java.awt.CardLayout;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPopupMenu;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import java.awt.Image;
-import java.util.ArrayList;
-import java.util.EnumSet;
-import java.util.HashMap;
-import java.util.Map;
-import javax.swing.ImageIcon;
 
 /**
  *
@@ -61,8 +47,7 @@ public class MainWindow extends javax.swing.JFrame {
     /**
      * Creates new form MainWindow
      */
-    public MainWindow(EntityManager em, IClothingController clothingController) {
-        this.em = em;
+    public MainWindow(IClothingController clothingController) {
         this.clothingController = clothingController;
         initComponents();
         configurarPopupMenu(jPopupMenuAdicionar, Function.ADD);
@@ -80,7 +65,6 @@ public class MainWindow extends javax.swing.JFrame {
         getContentPane().add(PainelConsultarRemoverCalca, "PainelConsultarRemoverCalca");
         getContentPane().add(PainelRemoverCalca, "PainelRemoverCalca");
         getContentPane().add(PanelAddPantie, "PanelAddPantie");
-        updateQuantityClothings();
     }
 
     /**
@@ -2427,7 +2411,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
-            Table table = new Table(em);
+            Table table = new Table(clothingController);
             table.viewAllClothing(ClothingPiece.SHIRT);
             table.setLocationRelativeTo(null);
             table.setVisible(true);
@@ -2718,7 +2702,7 @@ public class MainWindow extends javax.swing.JFrame {
                 CardLayout a = (CardLayout) getContentPane().getLayout();
                 a.show(getContentPane(), "PainelRemoverCalca");
             } else {
-                Table table = new Table(em);
+                Table table = new Table(clothingController);
                 table.fillTable(list, ClothingPiece.PANT);
                 table.setLocationRelativeTo(null);
                 table.setVisible(true);
@@ -2752,7 +2736,7 @@ public class MainWindow extends javax.swing.JFrame {
             List<ClothingResponseDTO> listSearch = clothingController.consultClothings(pantieData);
             allClothings = false;
             if (f.equals(Function.SEARCH)) {
-                Table table = new Table(em);
+                Table table = new Table(clothingController);
                 table.fillTable(listSearch, ClothingPiece.PANT);
                 table.setLocationRelativeTo(null);
                 table.setVisible(true);
@@ -2882,7 +2866,7 @@ public class MainWindow extends javax.swing.JFrame {
             Integer id = Integer.valueOf(jTextFieldRemoverCalcaId.getText());
             Integer quantity = Integer.valueOf(jTextFieldRemoverCalcaQuantity.getText());
             //decrementar a quantidade de roupas
-            clothingController.removeClothingById(id, quantity);
+            clothingController.removeClothingUnitsById(id, quantity);
             JOptionPane.showMessageDialog(this, "REMOÇÃO EFETUADA", "RESULTADO", JOptionPane.INFORMATION_MESSAGE);
         } catch (IllegalArgumentException | IllegalStateException | RoupaNaoExistenteException e) {
             JOptionPane.showMessageDialog(this, e.getMessage(), "RESULTADO", JOptionPane.INFORMATION_MESSAGE);
@@ -3101,7 +3085,7 @@ public class MainWindow extends javax.swing.JFrame {
                 sleeve, collar, shirtSize);
 
         List<ClothingResponseDTO> listSearch = clothingController.consultClothings(dataShirt);
-        Table table = new Table(em);
+        Table table = new Table(clothingController);
         table.fillTable(listSearch, ClothingPiece.SHIRT);
         table.setLocationRelativeTo(null);
         table.setVisible(true);
@@ -3461,7 +3445,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldRemoverCalcaQuantity;
     // End of variables declaration//GEN-END:variables
     private ClothingRequestDTO data;
-    public EntityManager em;
     public IClothingController clothingController;
     private Boolean allClothings = false;
     private Function f;

@@ -1,5 +1,13 @@
 package main;
 
+import com.mycompany.clothing.store.manager.controller.IClothingController;
+import com.mycompany.clothing.store.manager.controller.ShirtController;
+import com.mycompany.clothing.store.manager.factory.ShirtFactory;
+import com.mycompany.clothing.store.manager.repository.ClothingRepository;
+import com.mycompany.clothing.store.manager.repository.ShirtRepository;
+import com.mycompany.clothing.store.manager.service.IClothingService;
+import com.mycompany.clothing.store.manager.service.ShirtService;
+import com.mycompany.clothing.store.manager.service.mapper.ShirtMapper;
 import com.mycompany.clothing.store.manager.view.MainWindow;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -27,8 +35,11 @@ public class Main {
 
         emf = Persistence.createEntityManagerFactory("meuPU");
         em = emf.createEntityManager();
+        ClothingRepository shirtRepository = new ShirtRepository(em);
+        IClothingService shirtService = new ShirtService(shirtRepository, new ShirtFactory(), new ShirtMapper());
+        IClothingController shirtController = new ShirtController(shirtService);
 
-        MainWindow window = new MainWindow(em);
+        MainWindow window = new MainWindow(shirtController);
         window.pack(); 
         window.setSize(800, 600);
         window.setLocationRelativeTo(null);
