@@ -24,7 +24,7 @@ public abstract class ClothingRepository {
         this.em = em;
     }
     
-    public abstract Integer existsClothing(Clothing clothing, String query) throws Exception;
+    public abstract Integer getClothingId(Clothing clothing, String query) throws Exception;
     
     public abstract Clothing getClothingById(Integer id) throws Exception;
     
@@ -36,7 +36,6 @@ public abstract class ClothingRepository {
         } catch(Exception e) {
             handleException(e);
         }
-        
     }
     
     public void removeClothingById(Integer id) throws Exception {

@@ -15,7 +15,7 @@ import com.mycompany.clothing.store.manager.domain.dto.ShirtRequestDTO;
 import com.mycompany.clothing.store.manager.domain.enums.ClothingPiece;
 import com.mycompany.clothing.store.manager.domain.enums.Gender;
 import com.mycompany.clothing.store.manager.domain.enums.HemType;
-import com.mycompany.clothing.store.manager.domain.enums.PantieLengthType;
+import com.mycompany.clothing.store.manager.domain.enums.PantLengthType;
 import com.mycompany.clothing.store.manager.domain.enums.ShirtSize;
 import com.mycompany.clothing.store.manager.domain.enums.WaistType;
 import com.mycompany.clothing.store.manager.service.mapper.ClothingMapper;
@@ -207,7 +207,7 @@ public class ClothingRepository2 {
             } else {
                 queryStr += " AND p.waistType  IS NULL";
             }
-            if (EnumSet.allOf(PantieLengthType.class).contains(pantie.length())) {
+            if (EnumSet.allOf(PantLengthType.class).contains(pantie.length())) {
                 queryStr += " AND p.length = :length";
             } else {
                 queryStr += " AND p.waistType  IS NULL";
@@ -311,7 +311,7 @@ public class ClothingRepository2 {
             if (EnumSet.allOf(WaistType.class).contains(dataPantie.waistType())) {
                 queryPantie.setParameter("waistType", dataPantie.waistType());
             }
-            if (EnumSet.allOf(PantieLengthType.class).contains(dataPantie.length())
+            if (EnumSet.allOf(PantLengthType.class).contains(dataPantie.length())
                     && query.contains(":length")) {
                 queryPantie.setParameter("length", dataPantie.length());
             }

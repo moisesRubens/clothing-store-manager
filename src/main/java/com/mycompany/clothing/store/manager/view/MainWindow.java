@@ -18,7 +18,7 @@ import com.mycompany.clothing.store.manager.domain.enums.ClothingPiece;
 import com.mycompany.clothing.store.manager.domain.enums.ClothingType;
 import com.mycompany.clothing.store.manager.domain.enums.Gender;
 import com.mycompany.clothing.store.manager.domain.enums.HemType;
-import com.mycompany.clothing.store.manager.domain.enums.PantieLengthType;
+import com.mycompany.clothing.store.manager.domain.enums.PantLengthType;
 import com.mycompany.clothing.store.manager.domain.enums.ShirtSize;
 import com.mycompany.clothing.store.manager.domain.enums.WaistType;
 import java.awt.CardLayout;
@@ -48,7 +48,7 @@ public class MainWindow extends javax.swing.JFrame {
      * Creates new form MainWindow
      */
     public MainWindow(IClothingController clothingController) {
-        this.clothingController = clothingController;
+        this.shirtController = clothingController;
         initComponents();
         configurarPopupMenu(jPopupMenuAdicionar, Function.ADD);
         configurarPopupMenu(jPopupMenuConsultar, Function.SEARCH);
@@ -2287,7 +2287,7 @@ public class MainWindow extends javax.swing.JFrame {
     private void jButtonRemoveSearchShirtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemoveSearchShirtActionPerformed
         try {
             ShirtRequestDTO shirtData = searchShirtToRemove();
-            List<ClothingResponseDTO> listSearchToRemove = clothingController.consultClothings(shirtData);
+            List<ClothingResponseDTO> listSearchToRemove = shirtController.consultClothings(shirtData);
             fillTable(listSearchToRemove, ClothingPiece.SHIRT);
             allClothings = false;
             CardLayout a = (CardLayout) getContentPane().getLayout();
@@ -2397,7 +2397,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void buttonViewAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonViewAllActionPerformed
         try {
-            List<ClothingResponseDTO> list = clothingController.getAllClothing();
+            List<ClothingResponseDTO> list = shirtController.getAllClothing();
             fillTable(list, ClothingPiece.SHIRT);
             allClothings = true;
             CardLayout a = (CardLayout) getContentPane().getLayout();
@@ -2411,7 +2411,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
-            Table table = new Table(clothingController);
+            Table table = new Table(shirtController);
             table.viewAllClothing(ClothingPiece.SHIRT);
             table.setLocationRelativeTo(null);
             table.setVisible(true);
@@ -2505,7 +2505,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         ShirtRequestDTO shirtData = new ShirtRequestDTO(color, price, quantity, fabric, brand, style, gender, pattern, pocket, closureType,
                 ClothingType.STANDARD, sleeve, collar, size);
-        clothingController.createClothing(shirtData);
+        shirtController.createClothing(shirtData);
     }
 
     private void addPantie() throws Exception {
@@ -2514,7 +2514,7 @@ public class MainWindow extends javax.swing.JFrame {
         Integer size = Integer.valueOf(jTextFieldCalcaTamanho.getText());
         HemType hemType = null;
         WaistType waistType = null;
-        PantieLengthType lenght = null;
+        PantLengthType lenght = null;
         Double price = Double.valueOf(jTextFieldAdicionarCalcaPrice.getText());
         String brand = jTextFieldAdicionarCalcaBrand.getText();
         String color = jTextFieldAdicionarCalcaColor.getText();
@@ -2570,11 +2570,11 @@ public class MainWindow extends javax.swing.JFrame {
         }
 
         if (jCheckBoxCalcaComprimentoCurto.isSelected()) {
-            lenght = PantieLengthType.SHORT;
+            lenght = PantLengthType.SHORT;
         } else if (jCheckBoxCalcaComprimentoLongo.isSelected()) {
-            lenght = PantieLengthType.LONG;
+            lenght = PantLengthType.LONG;
         } else if (jCheckBoxCalcaComprimentoNormal.isSelected()) {
-            lenght = PantieLengthType.REGULAR;
+            lenght = PantLengthType.REGULAR;
         }
 
         switch (jTextFieldAdicionarCalcaGender.getText().charAt(0)) {
@@ -2967,7 +2967,7 @@ public class MainWindow extends javax.swing.JFrame {
         String closureType = jTextFieldConsultCalcaClosureType.getText();
         HemType hemType = null;
         WaistType waistType = null;
-        PantieLengthType length = null;
+        PantLengthType length = null;
         Gender gender = null;
 
         if ((jCheckBoxCalcaComprimentoCurto.isSelected() && jCheckBoxCalcaComprimentoNormal.isSelected())
@@ -3008,11 +3008,11 @@ public class MainWindow extends javax.swing.JFrame {
         }
 
         if (jCheckBoxConsultCalcaComprimentoCurto.isSelected()) {
-            length = PantieLengthType.SHORT;
+            length = PantLengthType.SHORT;
         } else if (jCheckBoxConsultCalcaComprimentoNormal.isSelected()) {
-            length = PantieLengthType.REGULAR;
+            length = PantLengthType.REGULAR;
         } else if (jCheckBoxConsultCalcaComprimentoLongo.isSelected()) {
-            length = PantieLengthType.LONG;
+            length = PantLengthType.LONG;
         }
 
         if (jTextFieldConsultGender.getText().equals("M")) {
@@ -3445,7 +3445,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldRemoverCalcaQuantity;
     // End of variables declaration//GEN-END:variables
     private ClothingRequestDTO data;
-    public IClothingController clothingController;
+    public IClothingController shirtController;
     private Boolean allClothings = false;
     private Function f;
 }

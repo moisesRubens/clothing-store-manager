@@ -33,7 +33,7 @@ public class ShirtService implements IClothingService {
     public void registerClothing(ClothingRequestDTO clothingData) throws Exception {
         Clothing clothing = shirtFactory.createClothing(clothingData);
         String query = clothing.createQuery();
-        Integer id = shirtRepository.existsClothing(clothing, query);
+        Integer id = shirtRepository.getClothingId(clothing, query);
 
         if (id == -1) {
             shirtRepository.saveClothing(clothing);
