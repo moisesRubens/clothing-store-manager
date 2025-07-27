@@ -10,33 +10,27 @@ import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingResponseDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtResponseDTO;
 import com.mycompany.clothing.store.manager.repository.ClothingRepository;
-import com.mycompany.clothing.store.manager.factory.IClothingFactory;
+import com.mycompany.clothing.store.manager.domain.IClothingFactory;
 import java.util.List;
 
 /**
  *
  * @author moise
  */
-public class ShirtService implements IClothingService {
-    
-    private IClothingFactory shirtFactory;
-    private ClothingRepository shirtRepository;
-    private ClothingMapper shirtMapper;
+public class ShirtService extends ClothingService {
 
-    public ShirtService(ClothingRepository shirtRepository, IClothingFactory clothingFactory, ClothingMapper clothingMapper) {
-        this.shirtRepository = shirtRepository;
-        this.shirtFactory = clothingFactory;
-        this.shirtMapper = clothingMapper;
+    public ShirtService(ClothingRepository shirtRepository, IClothingFactory shirtFactory, ClothingMapper shirtMapper) {
+        super(shirtRepository, shirtFactory, shirtMapper);
     }
 
     @Override
     public void registerClothing(ClothingRequestDTO clothingData) throws Exception {
-        Clothing clothing = shirtFactory.createClothing(clothingData);
+        Clothing clothing = clothingFactory.createClothing(clothingData);
         String query = clothing.createQuery();
-        Integer id = shirtRepository.getClothingId(clothing, query);
+        Integer id = clothingRepository.getClothingId(clothing, query);
 
         if (id == -1) {
-            shirtRepository.saveClothing(clothing);
+            clothingRepository.saveClothing(clothing);
         } else {
             incrementClothing(id, clothing.getQuantity());
         }
@@ -44,31 +38,31 @@ public class ShirtService implements IClothingService {
 
     @Override
     public void incrementClothing(Integer id, Integer quantity) {
-        shirtRepository.updateQuantityClothing(id, quantity);
+        clothingRepository.updateQuantityClothing(id, quantity);
     }
 
     @Override
     public void removeClothingModelById(Integer id) throws Exception {
-        shirtRepository.removeClothingById(id);
+        clothingRepository.removeClothingById(id);
     }
 
     @Override
     public ShirtResponseDTO getClothingById(Integer id) throws Exception {
-        Clothing clothing = shirtRepository.getClothingById(id);
-        return (ShirtResponseDTO) shirtMapper.EntityToResponseDTO(clothing);
+        Clothing clothing = clothingRepository.getClothingById(id);
+        return (ShirtResponseDTO) clothingMapper.EntityToResponseDTO(clothing);
     }
 
     @Override
     public List<ShirtResponseDTO> getAllClothings() throws Exception {
-        return shirtRepository.getAllClothing().stream()
-                .map(clothing -> (ShirtResponseDTO) shirtMapper.EntityToResponseDTO(clothing)).toList();
+        return clothingRepository.getAllClothing().stream()
+                .map(clothing -> (ShirtResponseDTO) clothingMapper.EntityToResponseDTO(clothing)).toList();
     }
 
     @Override
     public List<ShirtResponseDTO> getClothings(ClothingRequestDTO dto) throws Exception {
-        Clothing clothing = shirtMapper.RequestDTOToEntity(dto);
-        
-        return shirtRepository.getClothings(clothing).stream()
-                .map(c -> (ShirtResponseDTO) shirtMapper.EntityToResponseDTO(c)).toList();
+        Clothing clothing = clothingMapper.RequestDTOToEntity(dto);
+
+        return clothingRepository.getClothings(clothing).stream()
+                .map(c -> (ShirtResponseDTO) clothingMapper.EntityToResponseDTO(c)).toList();
     }
 }

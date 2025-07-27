@@ -39,7 +39,7 @@ public class ShirtRepository extends ClothingRepository {
     }
 
     @Override
-    public Integer existsClothing(Clothing clothing, String query) throws Exception {
+    public Integer getClothingId(Clothing clothing, String query) throws Exception {
         Integer id = -1;
         try {
             TypedQuery<Shirt> queryShirt;

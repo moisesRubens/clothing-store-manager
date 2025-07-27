@@ -2,11 +2,15 @@ package main;
 
 import com.mycompany.clothing.store.manager.controller.IClothingController;
 import com.mycompany.clothing.store.manager.controller.ShirtController;
-import com.mycompany.clothing.store.manager.factory.ShirtFactory;
+import com.mycompany.clothing.store.manager.factory.ClothingComponentFactory;
+import com.mycompany.clothing.store.manager.domain.IClothingFactory;
+import com.mycompany.clothing.store.manager.domain.ShirtFactory;
 import com.mycompany.clothing.store.manager.repository.ClothingRepository;
 import com.mycompany.clothing.store.manager.repository.ShirtRepository;
+import com.mycompany.clothing.store.manager.service.ClothingService;
 import com.mycompany.clothing.store.manager.service.IClothingService;
 import com.mycompany.clothing.store.manager.service.ShirtService;
+import com.mycompany.clothing.store.manager.service.mapper.ClothingMapper;
 import com.mycompany.clothing.store.manager.service.mapper.ShirtMapper;
 import com.mycompany.clothing.store.manager.view.MainWindow;
 import jakarta.persistence.EntityManager;
@@ -16,6 +20,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import com.mycompany.clothing.store.manager.factory.ShirtComponentFactory;
 
 public class Main {
     private EntityManagerFactory emf;
@@ -35,9 +40,13 @@ public class Main {
 
         emf = Persistence.createEntityManagerFactory("meuPU");
         em = emf.createEntityManager();
-        ClothingRepository shirtRepository = new ShirtRepository(em);
-        IClothingService shirtService = new ShirtService(shirtRepository, new ShirtFactory(), new ShirtMapper());
-        IClothingController shirtController = new ShirtController(shirtService);
+        ShirtComponentFactory shirtAbstractFactory = new ClothingComponentFactory();
+        
+        ClothingRepository shirtRepository = shirtAbstractFactory.createRepository(em);
+        IClothingFactory shirtFactory = shirtAbstractFactory.createClothingFactory();
+        ClothingMapper shirtMapper = shirtAbstractFactory.createClothingMapper();
+        ClothingService shirtService = shirtAbstractFactory.createService(shirtRepository, shirtFactory, shirtMapper);
+        IClothingController shirtController = shirtAbstractFactory.createController(shirtService); 
 
         MainWindow window = new MainWindow(shirtController);
         window.pack(); 

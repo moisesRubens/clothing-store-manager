@@ -7,6 +7,7 @@ package com.mycompany.clothing.store.manager.controller;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtResponseDTO;
+import com.mycompany.clothing.store.manager.service.ClothingService;
 import com.mycompany.clothing.store.manager.service.IClothingService;
 import java.util.List;
 
@@ -15,9 +16,9 @@ import java.util.List;
  * @author moise
  */
 public class ShirtController implements IClothingController {
-    private IClothingService shirtService;
+    private ClothingService shirtService;
 
-    public ShirtController(IClothingService shirtService) {
+    public ShirtController(ClothingService shirtService) {
         this.shirtService = shirtService;
     }
     
