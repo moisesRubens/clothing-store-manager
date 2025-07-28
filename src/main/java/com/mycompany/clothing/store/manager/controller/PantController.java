@@ -9,7 +9,6 @@ import com.mycompany.clothing.store.manager.domain.dto.ClothingResponseDTO;
 import com.mycompany.clothing.store.manager.domain.dto.PantRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.PantResponseDTO;
 import com.mycompany.clothing.store.manager.service.ClothingService;
-import com.mycompany.clothing.store.manager.service.IClothingService;
 import java.util.List;
 
 /**

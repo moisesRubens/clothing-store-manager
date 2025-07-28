@@ -8,7 +8,6 @@ import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtResponseDTO;
 import com.mycompany.clothing.store.manager.service.ClothingService;
-import com.mycompany.clothing.store.manager.service.IClothingService;
 import java.util.List;
 
 /**

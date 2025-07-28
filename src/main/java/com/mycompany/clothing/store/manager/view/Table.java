@@ -164,7 +164,6 @@ public class Table extends javax.swing.JFrame {
         List<ClothingResponseDTO> list = null;
         
         if(piece.equals(ClothingPiece.SHIRT)) {
-            list = clothingController.getAllClothing();
         }
         fillTable(list, piece);
     }

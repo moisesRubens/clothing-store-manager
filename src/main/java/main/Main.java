@@ -8,7 +8,6 @@ import com.mycompany.clothing.store.manager.domain.ShirtFactory;
 import com.mycompany.clothing.store.manager.repository.ClothingRepository;
 import com.mycompany.clothing.store.manager.repository.ShirtRepository;
 import com.mycompany.clothing.store.manager.service.ClothingService;
-import com.mycompany.clothing.store.manager.service.IClothingService;
 import com.mycompany.clothing.store.manager.service.ShirtService;
 import com.mycompany.clothing.store.manager.service.mapper.ClothingMapper;
 import com.mycompany.clothing.store.manager.service.mapper.ShirtMapper;

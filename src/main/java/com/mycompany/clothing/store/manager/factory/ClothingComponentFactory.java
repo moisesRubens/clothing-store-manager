@@ -10,7 +10,6 @@ import com.mycompany.clothing.store.manager.domain.Clothing;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
 import com.mycompany.clothing.store.manager.repository.ClothingRepository;
 import com.mycompany.clothing.store.manager.service.ClothingService;
-import com.mycompany.clothing.store.manager.service.IClothingService;
 import com.mycompany.clothing.store.manager.service.mapper.ClothingMapper;
 import jakarta.persistence.EntityManager;
 
