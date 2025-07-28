@@ -22,6 +22,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import com.mycompany.clothing.store.manager.factory.ClothingComponentFactory;
 import com.mycompany.clothing.store.manager.factory.PantComponentFactory;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Main {
     private EntityManagerFactory emf;
@@ -53,10 +55,14 @@ public class Main {
         ClothingRepository pantRepository = pantAbstractFactory.createRepository(em);
         IClothingFactory pantFactory = pantAbstractFactory.createClothingFactory();
         ClothingMapper pantMapper = pantAbstractFactory.createClothingMapper();
-        ClothingService pantService = pantAbstractFactory.createService(shirtRepository, shirtFactory, shirtMapper);
-        IClothingController pantController = pantAbstractFactory.createController(shirtService); 
+        ClothingService pantService = pantAbstractFactory.createService(pantRepository, pantFactory, pantMapper);
+        IClothingController pantController = pantAbstractFactory.createController(pantService); 
 
-        MainWindow window = new MainWindow(shirtController, pantController);
+        Map<String, IClothingController> mapController = new HashMap<>();
+        mapController.put("shirtController", shirtController);
+        mapController.put("pantController", pantController);
+        
+        MainWindow window = new MainWindow(mapController);
         window.pack(); 
         window.setSize(800, 600);
         window.setLocationRelativeTo(null);

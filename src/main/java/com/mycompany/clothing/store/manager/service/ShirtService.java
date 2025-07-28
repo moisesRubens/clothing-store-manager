@@ -32,12 +32,12 @@ public class ShirtService extends ClothingService {
         if (id == -1) {
             clothingRepository.saveClothing(clothing);
         } else {
-            incrementClothing(id, clothing.getQuantity());
+            removeClothingUnitsById(id, clothing.getQuantity());
         }
     }
 
     @Override
-    public void incrementClothing(Integer id, Integer quantity) {
+    public void removeClothingUnitsById(Integer id, Integer quantity) {
         clothingRepository.updateQuantityClothing(id, quantity);
     }
 

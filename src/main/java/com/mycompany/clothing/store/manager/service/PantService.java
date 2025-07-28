@@ -36,12 +36,12 @@ public class PantService extends ClothingService {
         if(id != -1) {
             clothingRepository.saveClothing(pant);
         } else {
-            incrementClothing(id, pant.getId());
+            removeClothingUnitsById(id, pant.getId());
         }
     }
 
     @Override
-    public void incrementClothing(Integer id, Integer quantity) {
+    public void removeClothingUnitsById(Integer id, Integer quantity) {
         clothingRepository.updateQuantityClothing(id, quantity);
     }
 
@@ -65,8 +65,9 @@ public class PantService extends ClothingService {
     }
 
     @Override
-    public ClothingResponseDTO getClothingById(Integer id) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public PantResponseDTO getClothingById(Integer id) throws Exception {
+        Clothing clothing = clothingRepository.getClothingById(id);
+        return (PantResponseDTO) clothingMapper.EntityToResponseDTO(clothing);
     }
     
 }

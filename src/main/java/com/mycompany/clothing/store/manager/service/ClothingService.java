@@ -29,7 +29,7 @@ public abstract class ClothingService {
 
     public abstract void registerClothing(ClothingRequestDTO dto) throws Exception;
 
-    public abstract void incrementClothing(Integer id, Integer quantity);
+    public abstract void removeClothingUnitsById(Integer id, Integer quantity);
 
     public abstract void removeClothingModelById(Integer id) throws Exception;
 

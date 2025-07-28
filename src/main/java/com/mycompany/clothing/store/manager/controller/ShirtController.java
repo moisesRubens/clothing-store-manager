@@ -45,12 +45,12 @@ public class ShirtController implements IClothingController {
     }
 
     @Override
-    public void deleteClothingModelById(Integer id) {
-        
+    public void deleteClothingModelById(Integer id) throws Exception {
+        shirtService.removeClothingModelById(id);
     }
 
     @Override
     public void removeClothingUnitsById(Integer id, Integer quantity) throws Exception {
-        
+        shirtService.removeClothingUnitsById(id, quantity);
     }
 }

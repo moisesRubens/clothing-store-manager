@@ -14,15 +14,15 @@ import java.util.List;
  */
 public interface IClothingController {
     
-    public void createClothing(ClothingRequestDTO clothingData) throws Exception;
+    void createClothing(ClothingRequestDTO clothingData) throws Exception;
     
-    public void deleteClothingModelById(Integer id);
+    void deleteClothingModelById(Integer id) throws Exception;
     
-    public void removeClothingUnitsById(Integer id, Integer quantity) throws Exception;
+    void removeClothingUnitsById(Integer id, Integer quantity) throws Exception;
     
-    public <T extends ClothingResponseDTO> List<T> getAllClothings() throws Exception;
+    ClothingResponseDTO consultClothingById(Integer id) throws Exception;   
     
-    public <T extends ClothingResponseDTO> T consultClothingById(Integer id) throws Exception;
+    <T extends ClothingResponseDTO> List<T> getAllClothings() throws Exception;
     
-    public <T extends ClothingResponseDTO> List<T> consultClothings(ClothingRequestDTO dto) throws Exception;
+    <T extends ClothingResponseDTO> List<T> consultClothings(ClothingRequestDTO dto) throws Exception;
 }

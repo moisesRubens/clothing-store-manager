@@ -32,13 +32,13 @@ public class PantController implements IClothingController {
     }
 
     @Override
-    public void deleteClothingModelById(Integer id) {
-        
+    public void deleteClothingModelById(Integer id) throws Exception {
+        pantService.removeClothingModelById(id);
     }
 
     @Override
     public void removeClothingUnitsById(Integer id, Integer quantity) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        pantService.removeClothingUnitsById(id, quantity);
     }
 
     @Override
@@ -47,8 +47,8 @@ public class PantController implements IClothingController {
     }
 
     @Override
-    public <T extends ClothingResponseDTO> T consultClothingById(Integer id) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public PantResponseDTO consultClothingById(Integer id) throws Exception {
+        return (PantResponseDTO) pantService.getClothingById(id);
     }
 
     @Override
