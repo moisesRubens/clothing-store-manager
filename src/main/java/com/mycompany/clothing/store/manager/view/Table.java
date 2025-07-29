@@ -5,6 +5,7 @@
 package com.mycompany.clothing.store.manager.view;
 
 import com.mycompany.clothing.store.manager.controller.IClothingController;
+import com.mycompany.clothing.store.manager.domain.Clothing;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingResponseDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtResponseDTO;
 import com.mycompany.clothing.store.manager.domain.enums.ClothingPiece;
@@ -160,7 +161,7 @@ public class Table extends javax.swing.JFrame {
         }
     }
     
-    public void viewAllClothing(ClothingPiece piece) throws Exception {
+    public void viewAllClothing(ClothingPiece piece, List<ClothingResponseDTO> clothings) throws Exception {
         List<ClothingResponseDTO> list = null;
         
         if(piece.equals(ClothingPiece.SHIRT)) {

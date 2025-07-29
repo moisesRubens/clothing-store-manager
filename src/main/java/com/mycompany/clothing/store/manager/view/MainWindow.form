@@ -631,7 +631,7 @@
                                       <Component id="jTextFieldConsultQuantity" linkSize="3" min="-2" pref="253" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Component id="jButton1" linkSize="10" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButtonGetAllShirts" linkSize="10" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -699,7 +699,7 @@
                   </Group>
                   <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jButton1" linkSize="11" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonGetAllShirts" linkSize="11" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButtonConsultarCamisa1" linkSize="11" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="145" max="32767" attributes="0"/>
@@ -865,12 +865,12 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSearchShirtBackActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="jButtonGetAllShirts">
           <Properties>
             <Property name="text" type="java.lang.String" value="Consultar Lista"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonGetAllShirtsActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
