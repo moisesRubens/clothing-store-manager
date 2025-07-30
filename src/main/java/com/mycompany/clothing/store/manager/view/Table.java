@@ -21,8 +21,10 @@ public class Table extends javax.swing.JFrame {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Table.class.getName());
     public IClothingController clothingController;
+
     /**
      * Creates new form Remove
+     *
      * @param em
      */
     public Table(IClothingController shirtController) {
@@ -76,11 +78,11 @@ public class Table extends javax.swing.JFrame {
     public void fillTable(List<ClothingResponseDTO> list, ClothingPiece p) {
         DefaultTableModel model = new DefaultTableModel();
         fillTableAux(model, p);
-        
-        if(list == null) {
+
+        if (list == null) {
             return;
         }
-            
+
         if (!list.isEmpty()) {
             switch (p) {
                 case ClothingPiece.SHIRT -> {
@@ -128,7 +130,7 @@ public class Table extends javax.swing.JFrame {
                 }
 
             }
-            
+
         }
         jTable1.setModel(model);
     }
@@ -144,27 +146,28 @@ public class Table extends javax.swing.JFrame {
         model.addColumn("TIPO DE ROUPA");
         model.addColumn("ESTAMPA");
         model.addColumn("TECIDO");
-        model.addColumn("QUANTIDADE DE BOLSOS");
-        
+
         switch (p) {
             case ClothingPiece.SHIRT -> {
                 model.addColumn("TAMANHO");
                 model.addColumn("GOLA");
                 model.addColumn("MANGA");
+                model.addColumn("QUANTIDADE DE BOLSOS");
             }
             case ClothingPiece.PANT -> {
                 model.addColumn("NUMERAÇÃO");
                 model.addColumn("COMPRIMENTO");
                 model.addColumn("TIPO DE BARRA");
                 model.addColumn("TIPO DE CINTURA");
+                model.addColumn("QUANTIDADE DE BOLSOS");
             }
         }
     }
-    
+
     public void viewAllClothing(ClothingPiece piece, List<ClothingResponseDTO> clothings) throws Exception {
         List<ClothingResponseDTO> list = null;
-        
-        if(piece.equals(ClothingPiece.SHIRT)) {
+
+        if (piece.equals(ClothingPiece.SHIRT)) {
         }
         fillTable(list, piece);
     }
@@ -173,5 +176,5 @@ public class Table extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
-    
+
 }

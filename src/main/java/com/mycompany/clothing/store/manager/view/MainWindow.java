@@ -2280,7 +2280,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jButtonConsultarCamisa1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsultarCamisa1ActionPerformed
         try {
-            consultarCamisa("shirtController");
+            consultarCamisa();
         } catch (Exception e) {
             handleException(e);
         }
@@ -2289,7 +2289,7 @@ public class MainWindow extends javax.swing.JFrame {
     private void jButtonRemoveSearchShirtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemoveSearchShirtActionPerformed
         try {
             ShirtRequestDTO shirtData = searchShirtToRemove();
-            List<ClothingResponseDTO> listSearchToRemove = shirtController.consultClothings(shirtData);
+            List<ClothingResponseDTO> listSearchToRemove = controllers.get("shirtController").consultClothings(shirtData);
             fillTable(listSearchToRemove, ClothingPiece.SHIRT);
             allClothings = false;
             CardLayout a = (CardLayout) getContentPane().getLayout();
@@ -2465,14 +2465,15 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jButtonAdicionarCamisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarCamisaActionPerformed
         try {
-            addShirt("shirtController");
+            addShirt();
             JOptionPane.showMessageDialog(this, "ROUPA CADASTRADA", "RESULTADO", JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception e) {
             handleException(e);
+            JOptionPane.showMessageDialog(this, "ERRO AO CADASTRADAR", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButtonAdicionarCamisaActionPerformed
 
-    private void addShirt(String controllerKey) throws Exception {
+    private void addShirt() throws Exception {
         Integer quantity = Integer.valueOf(jTextFieldAdicionarCamisaQuantity.getText());
         Integer pocket = (jTextFieldAdicionarCamisaPocket.getText().isBlank()) ? 0 : Integer.valueOf(jTextFieldAdicionarCamisaPocket.getText());
         Integer sleeve = (jCheckBoxAdicionarCamisaSleeve.isSelected()) ? 1 : 0;
@@ -2513,10 +2514,10 @@ public class MainWindow extends javax.swing.JFrame {
 
         ShirtRequestDTO shirtData = new ShirtRequestDTO(color, price, quantity, fabric, brand, style, gender, pattern, pocket, closureType,
                 ClothingType.STANDARD, sleeve, collar, size);
-        controllers.get(controllerKey).createClothing(shirtData);
+        controllers.get("shirtController").createClothing(shirtData);
     }
 
-    private void addPant(String controllerKey) throws Exception {
+    private void addPant() throws Exception {
         Integer quantity = Integer.valueOf(jTextFieldAdicionarCalcaQuantity.getText());
         Integer pocket = (jTextFieldAdicionarCalcaPocket.getText().isBlank()) ? 0 : Integer.valueOf(jTextFieldAdicionarCalcaPocket.getText());
         Integer size = Integer.valueOf(jTextFieldCalcaTamanho.getText());
@@ -2596,7 +2597,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         PantRequestDTO pantieData = new PantRequestDTO(color, quantity, fabric, brand, style, gender, pattern, pocket, closureType,
                 ClothingType.STANDARD, hemType, waistType, lenght, size, price);
-        controllers.get(controllerKey).createClothing(pantieData);
+        controllers.get("pantController").createClothing(pantieData);
     }
 
     private void jTextFieldAdicionarCamisaFabricActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAdicionarCamisaFabricActionPerformed
@@ -2625,10 +2626,11 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void buttonCadastrarCalca2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastrarCalca2ActionPerformed
         try {
-            addPant("pantController");
+            addPant();
             JOptionPane.showMessageDialog(this, "ROUPA CADASTRADA", "RESULTADO", JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception e) {
             handleException(e);
+            JOptionPane.showMessageDialog(this, "ERRO AO CADASTRADAR ROUPA", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_buttonCadastrarCalca2ActionPerformed
 
@@ -2820,8 +2822,10 @@ public class MainWindow extends javax.swing.JFrame {
     private void jButtonAddPantieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddPantieActionPerformed
         try {
             addPantie("pantieController");
+            JOptionPane.showMessageDialog(this, "CALCINHA CADASTRADA", "RESULTADO", JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception e) {
             handleException(e);
+            JOptionPane.showMessageDialog(this, "ERRO AO CADASTRAR CALCINHA", "ERRO", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButtonAddPantieActionPerformed
 
@@ -3021,7 +3025,7 @@ public class MainWindow extends javax.swing.JFrame {
         return pantieData;
     }
 
-    private ShirtRequestDTO consultarCamisa(String controllerKey) throws Exception {
+    private ShirtRequestDTO consultarCamisa() throws Exception {
         Integer collar = -1;
         Integer sleeve = -1;
         Integer pocket = (jTextFieldConsultPocket.getText().isBlank()) ? -1 : Integer.valueOf(jTextFieldConsultPocket.getText());
@@ -3075,8 +3079,8 @@ public class MainWindow extends javax.swing.JFrame {
                 gender, pattern, pocket, closureType, ClothingType.STANDARD,
                 sleeve, collar, shirtSize);
 
-        List<ClothingResponseDTO> listSearch = controllers.get(controllerKey).consultClothings(dataShirt);
-        Table table = new Table(controllers.get(controllerKey));
+        List<ClothingResponseDTO> listSearch = controllers.get("shirtController").consultClothings(dataShirt);
+        Table table = new Table(controllers.get("shirtController"));
         table.fillTable(listSearch, ClothingPiece.SHIRT);
         table.setLocationRelativeTo(null);
         table.setVisible(true);
