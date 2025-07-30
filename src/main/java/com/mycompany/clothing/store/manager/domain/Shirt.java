@@ -121,10 +121,10 @@ public class Shirt extends Clothing {
 
         query += " 1=1";
         if (this.getSleeve() != -1) {
-            query += " AND s.sleeve <= :sleeve";
+            query += " AND s.sleeve = :sleeve";
         }
         if (this.getCollar() != -1) {
-            query += " AND s.collar <= :collar";
+            query += " AND s.collar = :collar";
         }
         if (this.getPrice() != -1) {
             query += " AND s.price <= :price";
@@ -135,22 +135,22 @@ public class Shirt extends Clothing {
         if (this.getPocket() != -1) {
             query += " AND s.pocket = :pocket";
         }
-        if (this.getColor() != null) {
+        if (this.getColor() != null && !this.getColor().isBlank()) {
             query += " AND s.color LIKE :color";
         }
-        if (this.getFabric() != null) {
+        if (this.getFabric() != null && !this.getFabric().isBlank()) {
             query += " AND s.fabric LIKE :fabric";
         }
-        if (this.getBrand() != null) {
+        if (this.getBrand() != null && !this.getBrand().isBlank()) {
             query += " AND s.brand LIKE :brand";
         }
-        if (this.getStyle() != null) {
+        if (this.getStyle() != null && !this.getStyle().isBlank()) {
             query += " AND s.style LIKE :style";
         }
-        if (this.getPattern() != null) {
+        if (this.getPattern() != null && !this.getPattern().isBlank()) {
             query += " AND s.pattern LIKE :pattern";
         }
-        if (this.getClosureType() != null) {
+        if (this.getClosureType() != null && !this.getClosureType().isBlank()) {
             query += " AND s.closureType LIKE :closureType";
         }
         if (EnumSet.allOf(ShirtSize.class).contains(this.getSize())) {

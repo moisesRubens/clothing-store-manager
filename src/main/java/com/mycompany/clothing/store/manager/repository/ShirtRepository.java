@@ -90,6 +90,7 @@ public class ShirtRepository extends ClothingRepository {
         try {
             Shirt shirt = (Shirt) clothing;
             String query = clothing.createQuery();
+            System.out.println(query);
             TypedQuery<Shirt> shirtQuery;
             
             System.out.println(shirt);
