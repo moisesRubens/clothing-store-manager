@@ -7,11 +7,14 @@ package com.mycompany.clothing.store.manager.repository;
 import com.mycompany.clothing.store.manager.configuration.exception.RoupaNaoExistenteException;
 import com.mycompany.clothing.store.manager.domain.Clothing;
 import com.mycompany.clothing.store.manager.domain.Shirt;
+import com.mycompany.clothing.store.manager.domain.enums.ShirtSize;
+import com.mycompany.clothing.store.manager.service.mapper.ShirtMapper;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.PersistenceException;
 import jakarta.persistence.TypedQuery;
 import java.util.ArrayList;
+import java.util.EnumSet;
 import java.util.List;
 
 /**
@@ -85,13 +88,48 @@ public class ShirtRepository extends ClothingRepository {
     @Override
     public List<Clothing> getClothings(Clothing clothing) throws Exception {
         try {
+            Shirt shirt = (Shirt) clothing;
             String query = clothing.createQuery();
-            List<Clothing> clothings = em.createNamedQuery(query).getResultList();
+            TypedQuery<Shirt> shirtQuery;
+            
+            System.out.println(shirt);
+            shirtQuery = em.createQuery(query, Shirt.class);
 
-            if (clothings.isEmpty()) {
-                throw new RoupaNaoExistenteException("Não há roupas a com estas caracteristicas");
+            if (!isBlank(shirt.getColor())) {
+                shirtQuery.setParameter("color", shirt.getColor());
             }
-            return clothings;
+            if (!isBlank(shirt.getBrand())) {
+                shirtQuery.setParameter("brand", shirt.getBrand());
+            }
+            if (EnumSet.allOf(ShirtSize.class).contains(shirt.getSize())) {
+                shirtQuery.setParameter("size", shirt.getSize());
+            }
+            if(shirt.getPrice() != -1) {
+                shirtQuery.setParameter("price", shirt.getPrice());
+            }
+            if (shirt.getSleeve() != -1) {
+                shirtQuery.setParameter("sleeve", shirt.getSleeve());
+            }
+            if (shirt.getCollar() != -1) {
+                shirtQuery.setParameter("collar", shirt.getCollar());
+            }
+            if(shirt.getPocket() != -1) {
+                shirtQuery.setParameter("pocket", shirt.getPocket());
+            }
+            if (!isBlank(shirt.getFabric())) {
+                shirtQuery.setParameter("fabric", shirt.getFabric());
+            }
+            if (!isBlank(shirt.getStyle())) {
+                shirtQuery.setParameter("style", shirt.getStyle());
+            }
+            if (!isBlank(shirt.getPattern())) {
+                shirtQuery.setParameter("pattern", shirt.getPattern());
+            }
+            if (!isBlank(shirt.getClosureType())) {
+                shirtQuery.setParameter("closureType", shirt.getClosureType());
+            }
+            
+            return new ArrayList<Clothing>(shirtQuery.getResultList());
         } catch (Exception e) {
             handleException(e);
             throw e;

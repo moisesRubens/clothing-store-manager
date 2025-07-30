@@ -2705,13 +2705,13 @@ public class MainWindow extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try {
             allClothings = true;
-            List<ClothingResponseDTO> list = pantController.getAllClothings();
+            List<ClothingResponseDTO> list = controllers.get("pantController").getAllClothings();
             if (f.equals(Function.REMOVE)) {
                 fillTable(list, ClothingPiece.PANT);
                 CardLayout a = (CardLayout) getContentPane().getLayout();
                 a.show(getContentPane(), "PainelRemoverCalca");
             } else {
-                Table table = new Table(pantController);
+                Table table = new Table(controllers.get("pantController"));
                 table.fillTable(list, ClothingPiece.PANT);
                 table.setLocationRelativeTo(null);
                 table.setVisible(true);
@@ -2742,10 +2742,10 @@ public class MainWindow extends javax.swing.JFrame {
     private void jButtonConsultarCalcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsultarCalcaActionPerformed
         try {
             PantRequestDTO pantieData = consultarCalca();
-            List<ClothingResponseDTO> listSearch = pantController.consultClothings(pantieData);
+            List<ClothingResponseDTO> listSearch = controllers.get("pantController").consultClothings(pantieData);
             allClothings = false;
             if (f.equals(Function.SEARCH)) {
-                Table table = new Table(pantController);
+                Table table = new Table(controllers.get("pantController"));
                 table.fillTable(listSearch, ClothingPiece.PANT);
                 table.setLocationRelativeTo(null);
                 table.setVisible(true);
@@ -2847,7 +2847,7 @@ public class MainWindow extends javax.swing.JFrame {
             Integer id = Integer.valueOf(jTextFieldRemoveShirtid.getText());
             Integer quantity = Integer.valueOf(jTextFieldRemoveShirtQuantity.getText());
             //decrementar a quantidade de roupas
-            shirtController.removeClothingUnitsById(id, quantity);
+            controllers.get("shirtController").removeClothingUnitsById(id, quantity);
             JOptionPane.showMessageDialog(this, "REMOÇÃO EFETUADA", "RESULTADO", JOptionPane.INFORMATION_MESSAGE);
         } catch (IllegalArgumentException | IllegalStateException | RoupaNaoExistenteException e) {
             JOptionPane.showMessageDialog(this, e.getMessage(), "RESULTADO", JOptionPane.INFORMATION_MESSAGE);
@@ -2861,7 +2861,7 @@ public class MainWindow extends javax.swing.JFrame {
             Integer id = Integer.valueOf(jTextFieldRemoverCalcaId.getText());
             Integer quantity = Integer.valueOf(jTextFieldRemoverCalcaQuantity.getText());
             //decrementar a quantidade de roupas
-            pantController.removeClothingUnitsById(id, quantity);
+            controllers.get("pantController").removeClothingUnitsById(id, quantity);
             JOptionPane.showMessageDialog(this, "REMOÇÃO EFETUADA", "RESULTADO", JOptionPane.INFORMATION_MESSAGE);
         } catch (IllegalArgumentException | IllegalStateException | RoupaNaoExistenteException e) {
             JOptionPane.showMessageDialog(this, e.getMessage(), "RESULTADO", JOptionPane.INFORMATION_MESSAGE);
@@ -2874,16 +2874,16 @@ public class MainWindow extends javax.swing.JFrame {
         List<ClothingResponseDTO> listSearchToRemove = new ArrayList<>();
         try {
             if (allClothings == true) {
-                listSearchToRemove = shirtController.getAllClothings();
+                listSearchToRemove = controllers.get("shirtController").getAllClothings();
             } else {
                 switch (p) {
                     case ClothingPiece.SHIRT -> {
                         ShirtRequestDTO shirtData = searchShirtToRemove();
-                        listSearchToRemove = shirtController.consultClothings(shirtData);
+                        listSearchToRemove = controllers.get("shirtController").consultClothings(shirtData);
                     }
                     case ClothingPiece.PANT -> {
                         PantRequestDTO pantieData = consultarCalca();
-                        listSearchToRemove = pantController.consultClothings(pantieData);
+                        listSearchToRemove = controllers.get("pantController").consultClothings(pantieData);
                     }
                 }
             }
