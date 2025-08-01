@@ -135,22 +135,22 @@ public class Shirt extends Clothing {
         if (this.getPocket() != -1) {
             query += " AND s.pocket = :pocket";
         }
-        if (this.getColor() != null && !this.getColor().isBlank()) {
+        if (!this.getColor().isBlank()) {
             query += " AND s.color LIKE :color";
         }
-        if (this.getFabric() != null && !this.getFabric().isBlank()) {
+        if (!this.getFabric().isBlank()) {
             query += " AND s.fabric LIKE :fabric";
         }
-        if (this.getBrand() != null && !this.getBrand().isBlank()) {
+        if (!this.getBrand().isBlank()) {
             query += " AND s.brand LIKE :brand";
         }
-        if (this.getStyle() != null && !this.getStyle().isBlank()) {
+        if (!this.getStyle().isBlank()) {
             query += " AND s.style LIKE :style";
         }
-        if (this.getPattern() != null && !this.getPattern().isBlank()) {
+        if (!this.getPattern().isBlank()) {
             query += " AND s.pattern LIKE :pattern";
         }
-        if (this.getClosureType() != null && !this.getClosureType().isBlank()) {
+        if (!this.getClosureType().isBlank()) {
             query += " AND s.closureType LIKE :closureType";
         }
         if (EnumSet.allOf(ShirtSize.class).contains(this.getSize())) {

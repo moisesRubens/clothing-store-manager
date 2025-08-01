@@ -1,87 +1,38 @@
-package main;
-
+import com.mycompany.clothing.store.manager.configuration.SpringConfig;
 import com.mycompany.clothing.store.manager.controller.IClothingController;
-import com.mycompany.clothing.store.manager.controller.ShirtController;
+import com.mycompany.clothing.store.manager.factory.PantComponentFactory;
 import com.mycompany.clothing.store.manager.factory.ShirtComponentFactory;
-import com.mycompany.clothing.store.manager.domain.IClothingFactory;
-import com.mycompany.clothing.store.manager.domain.ShirtFactory;
-import com.mycompany.clothing.store.manager.repository.ClothingRepository;
-import com.mycompany.clothing.store.manager.repository.ShirtRepository;
-import com.mycompany.clothing.store.manager.service.ClothingService;
 import com.mycompany.clothing.store.manager.service.ShirtService;
-import com.mycompany.clothing.store.manager.service.mapper.ClothingMapper;
-import com.mycompany.clothing.store.manager.service.mapper.ShirtMapper;
-import com.mycompany.clothing.store.manager.view.MainWindow;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Persistence;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import com.mycompany.clothing.store.manager.factory.ClothingComponentFactory;
-import com.mycompany.clothing.store.manager.factory.PantComponentFactory;
 import java.util.HashMap;
 import java.util.Map;
+import javax.swing.UIManager;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class Main {
-    private EntityManagerFactory emf;
-    private EntityManager em;
-
-    public void initialize() {
+    public static void main(String[] args) {
+        // Configura Look and Feel Nimbus
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
 
-        emf = Persistence.createEntityManagerFactory("meuPU");
-        em = emf.createEntityManager();
-        
-        ClothingComponentFactory shirtAbstractFactory = new ShirtComponentFactory();
-        ClothingRepository shirtRepository = shirtAbstractFactory.createRepository(em);
-        IClothingFactory shirtFactory = shirtAbstractFactory.createClothingFactory();
-        ClothingMapper shirtMapper = shirtAbstractFactory.createClothingMapper();
-        ClothingService shirtService = shirtAbstractFactory.createService(shirtRepository, shirtFactory, shirtMapper);
-        IClothingController shirtController = shirtAbstractFactory.createController(shirtService); 
-        
-        ClothingComponentFactory pantAbstractFactory = new PantComponentFactory();
-        ClothingRepository pantRepository = pantAbstractFactory.createRepository(em);
-        IClothingFactory pantFactory = pantAbstractFactory.createClothingFactory();
-        ClothingMapper pantMapper = pantAbstractFactory.createClothingMapper();
-        ClothingService pantService = pantAbstractFactory.createService(pantRepository, pantFactory, pantMapper);
-        IClothingController pantController = pantAbstractFactory.createController(pantService); 
+        // Inicia contexto Spring
+        ConfigurableApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
 
-        Map<String, IClothingController> mapController = new HashMap<>();
-        mapController.put("shirtController", shirtController);
-        mapController.put("pantController", pantController);
-        
-        MainWindow window = new MainWindow(mapController);
-        window.pack(); 
-        window.setSize(800, 600);
-        window.setLocationRelativeTo(null);
-        window.setVisible(true);
+        // Pega o service gerenciado pelo Spring
+        ShirtService shirtService = context.getBean(ShirtService.class);
 
-        window.addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                if (em.isOpen()) {
-                    em.close();
-                }
-                if (emf.isOpen()) {
-                    emf.close();
-                }
-                System.exit(0);
-            }
-        });
-    }
+        // Pega as factories para criar controllers
+        ShirtComponentFactory shirtFactory = context.getBean(ShirtComponentFactory.class);
 
-    public static void main(String[] args) {
-        new Main().initialize();
-    }
-}
+        // Cria controllers passando os services (injeção manual aqui via factory)
+        IClothingController shirtController = shirtFactory.createController(shirtService);

@@ -12,12 +12,12 @@ import com.mycompany.clothing.store.manager.domain.Shirt;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtRequestDTO;
 import com.mycompany.clothing.store.manager.repository.ClothingRepository;
-import com.mycompany.clothing.store.manager.repository.ShirtRepository;
 import com.mycompany.clothing.store.manager.service.ClothingService;
 import com.mycompany.clothing.store.manager.service.ShirtService;
 import com.mycompany.clothing.store.manager.service.mapper.ClothingMapper;
 import com.mycompany.clothing.store.manager.service.mapper.ShirtMapper;
 import jakarta.persistence.EntityManager;
+import com.mycompany.clothing.store.manager.repository.IShirtRepository;
 
 /**
  *
@@ -36,8 +36,8 @@ public class ShirtComponentFactory implements ClothingComponentFactory {
     }
     
     @Override
-    public ShirtRepository createRepository(EntityManager em) {
-        return new ShirtRepository(em);
+    public IShirtRepository createRepository(EntityManager em) {
+        return new IShirtRepository(em);
     }
 
     @Override
