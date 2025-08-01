@@ -19,6 +19,7 @@ import org.springframework.data.repository.query.Param;
  *
  * @author moise
  */
+
 public interface IShirtRepository extends JpaRepository<Shirt, Integer> {
 
     @Query("""

@@ -2289,7 +2289,7 @@ public class MainWindow extends javax.swing.JFrame {
     private void jButtonRemoveSearchShirtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemoveSearchShirtActionPerformed
         try {
             ShirtRequestDTO shirtData = searchShirtToRemove();
-            List<ClothingResponseDTO> listSearchToRemove = controllers.get("shirtController").consultClothings(shirtData);
+            List<ClothingResponseDTO> listSearchToRemove = controllers.get("shirtController").getClothingsList(shirtData);
             fillTable(listSearchToRemove, ClothingPiece.SHIRT);
             allClothings = false;
             CardLayout a = (CardLayout) getContentPane().getLayout();
@@ -2398,8 +2398,8 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldConsultBrandActionPerformed
 
     private void buttonViewAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonViewAllActionPerformed
-        try {
-            List<ClothingResponseDTO> list = getAllClothings("shirtController");
+/*        try {
+           List<ClothingResponseDTO> list = getAllClothings("shirtController");
             fillTable(list, ClothingPiece.SHIRT);
             allClothings = true;
             CardLayout a = (CardLayout) getContentPane().getLayout();
@@ -2408,11 +2408,11 @@ public class MainWindow extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "NÃO HÁ ROUPAS PARA REMOVER", "LISTA VAZIA", JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "OCORREU UM ERRO", "FALHA NO SISTEMA", JOptionPane.ERROR_MESSAGE);
-        }
+        }*/
     }//GEN-LAST:event_buttonViewAllActionPerformed
 
     private void jButtonGetAllShirtsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGetAllShirtsActionPerformed
-        try {
+        /*try {
             List<ClothingResponseDTO> list = getAllClothings("shirtController");
             Table table = new Table(controllers.get("shirtController"));
             table.viewAllClothing(ClothingPiece.SHIRT, list);
@@ -2422,12 +2422,12 @@ public class MainWindow extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "NÃO HÁ ROUPAS PARA CONSULTAR", "LISTA VAZIA", JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "OCORREU UM ERRO", "FALHA NO SISTEMA", JOptionPane.ERROR_MESSAGE);
-        }
+        }*/
     }//GEN-LAST:event_jButtonGetAllShirtsActionPerformed
     
-    private List<ClothingResponseDTO> getAllClothings(String controllerKey) throws Exception {
+    /*private List<ClothingResponseDTO> getAllClothings(String controllerKey) throws Exception {
         return controllers.get(controllerKey).getAllClothings();
-    }
+    }*/
     
     private void jButtonAdicionarCamisaBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarCamisaBackActionPerformed
         CardLayout a = (CardLayout) getContentPane().getLayout();
@@ -2703,7 +2703,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldConsultCalcaColorActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        try {
+        /*try {
             allClothings = true;
             List<ClothingResponseDTO> list = controllers.get("pantController").getAllClothings();
             if (f.equals(Function.REMOVE)) {
@@ -2718,7 +2718,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         } catch (Exception e) {
             handleException(e);
-        }
+        }*/
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButtonSearchShirtBack1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchShirtBack1ActionPerformed
@@ -2740,7 +2740,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBoxConsultCalcaTipoBarraElasticaActionPerformed
 
     private void jButtonConsultarCalcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsultarCalcaActionPerformed
-        try {
+        /*try {
             PantRequestDTO pantieData = consultarCalca();
             List<ClothingResponseDTO> listSearch = controllers.get("pantController").consultClothings(pantieData);
             allClothings = false;
@@ -2756,7 +2756,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         } catch (Exception e) {
             handleException(e);
-        }
+        }*/
     }//GEN-LAST:event_jButtonConsultarCalcaActionPerformed
 
     private void jTextFieldConsultCalcaBrandActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldConsultCalcaBrandActionPerformed
@@ -2857,7 +2857,7 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     private void removePantieById() throws Exception {
-        try {
+       /* try {
             Integer id = Integer.valueOf(jTextFieldRemoverCalcaId.getText());
             Integer quantity = Integer.valueOf(jTextFieldRemoverCalcaQuantity.getText());
             //decrementar a quantidade de roupas
@@ -2867,11 +2867,11 @@ public class MainWindow extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, e.getMessage(), "RESULTADO", JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "FALHA NO SISTEMA", "ERRO", JOptionPane.ERROR_MESSAGE);
-        }
+        }*/
     }
 
     private void updateTable(Boolean allClothings, ClothingPiece p) throws Exception {
-        List<ClothingResponseDTO> listSearchToRemove = new ArrayList<>();
+        /*List<ClothingResponseDTO> listSearchToRemove = new ArrayList<>();
         try {
             if (allClothings == true) {
                 listSearchToRemove = controllers.get("shirtController").getAllClothings();
@@ -2891,7 +2891,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         } finally {
             fillTable(listSearchToRemove, p);
-        }
+        }*/
     }
 
     private ShirtRequestDTO searchShirtToRemove() throws Exception {
@@ -3079,7 +3079,7 @@ public class MainWindow extends javax.swing.JFrame {
                 gender, pattern, pocket, closureType, ClothingType.STANDARD,
                 sleeve, collar, shirtSize);
 
-        List<ClothingResponseDTO> listSearch = controllers.get("shirtController").consultClothings(dataShirt);
+        List<ClothingResponseDTO> listSearch = controllers.get("shirtController").getClothingsList(dataShirt);
         Table table = new Table(controllers.get("shirtController"));
         table.fillTable(listSearch, ClothingPiece.SHIRT);
         table.setLocationRelativeTo(null);

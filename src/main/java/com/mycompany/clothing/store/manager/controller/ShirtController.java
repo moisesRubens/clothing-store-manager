@@ -9,12 +9,14 @@ import com.mycompany.clothing.store.manager.domain.dto.ClothingResponseDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtRequestDTO;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import service.IClothingService;
 
 /**
  *
  * @author moise
  */
+@Controller
 public class ShirtController implements IClothingController {
 
     @Autowired

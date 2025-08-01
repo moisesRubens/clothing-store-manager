@@ -1,15 +1,15 @@
+package com.mycompany.clothing.store.manager.main;
+
 import com.mycompany.clothing.store.manager.configuration.SpringConfig;
 import com.mycompany.clothing.store.manager.controller.IClothingController;
-import com.mycompany.clothing.store.manager.factory.PantComponentFactory;
-import com.mycompany.clothing.store.manager.factory.ShirtComponentFactory;
-import com.mycompany.clothing.store.manager.service.ShirtService;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+import com.mycompany.clothing.store.manager.controller.ShirtController;
+import com.mycompany.clothing.store.manager.view.MainWindow;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.UIManager;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import service.ShirtService;
 
 public class Main {
     public static void main(String[] args) {
@@ -30,9 +30,19 @@ public class Main {
 
         // Pega o service gerenciado pelo Spring
         ShirtService shirtService = context.getBean(ShirtService.class);
+        ShirtController shirtController = context.getBean(ShirtController.class);
+        Map controllers = new HashMap<String, IClothingController>();
+        
+        MainWindow window = new MainWindow(controllers);
+        controllers.put("shirtController", shirtController);
+        window.setVisible(true);
 
-        // Pega as factories para criar controllers
-        ShirtComponentFactory shirtFactory = context.getBean(ShirtComponentFactory.class);
-
-        // Cria controllers passando os services (injeção manual aqui via factory)
-        IClothingController shirtController = shirtFactory.createController(shirtService);
+        // Fecha o contexto Spring ao fechar a janela
+        window.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent e) {
+                context.close();
+            }
+        });
+    }
+}
