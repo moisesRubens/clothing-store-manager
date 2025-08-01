@@ -2847,7 +2847,7 @@ public class MainWindow extends javax.swing.JFrame {
             Integer id = Integer.valueOf(jTextFieldRemoveShirtid.getText());
             Integer quantity = Integer.valueOf(jTextFieldRemoveShirtQuantity.getText());
             //decrementar a quantidade de roupas
-            controllers.get("shirtController").removeClothingUnitsById(id, quantity);
+            controllers.get("shirtController").decrementClothing(id, quantity);
             JOptionPane.showMessageDialog(this, "REMOÇÃO EFETUADA", "RESULTADO", JOptionPane.INFORMATION_MESSAGE);
         } catch (IllegalArgumentException | IllegalStateException | RoupaNaoExistenteException e) {
             JOptionPane.showMessageDialog(this, e.getMessage(), "RESULTADO", JOptionPane.INFORMATION_MESSAGE);

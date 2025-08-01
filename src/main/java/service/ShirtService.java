@@ -32,11 +32,11 @@ public class ShirtService implements IClothingService {
 
     @Override
     public void registerClothing(ClothingRequestDTO dto) throws Exception {
-        
+
         if (!(dto instanceof ShirtRequestDTO)) {
             throw new IllegalArgumentException("Passe um ShirtResponseDTO");
         }
-        
+
         ShirtRequestDTO shirtDTO = (ShirtRequestDTO) dto;
         Shirt shirt = (Shirt) shirtMapper.RequestDTOToEntity(shirtDTO);
         Optional<Shirt> found = shirtRepository.findExistingShirt(shirt.getColor(), shirt.getClothingType(), shirt.getFabric(),
@@ -48,6 +48,24 @@ public class ShirtService implements IClothingService {
             foundShirt.setQuantity(foundShirt.getQuantity() + shirt.getQuantity());
             shirtRepository.save(foundShirt);
         } else {
+            shirtRepository.save(shirt);
+        }
+    }
+
+    @Override
+    public void decrementClothing(Integer id, Integer quantity) throws Exception {
+        Shirt shirt = shirtRepository.findById(id)
+            .orElseThrow(() -> new IllegalArgumentException("Camisa com ID " + id + " não encontrada"));
+        Integer newQuantity = shirt.getQuantity() - quantity;
+        
+        if(newQuantity < 0) {
+            throw new IllegalStateException("Quantidade insuficiente para a remoção deste modelo de camisa");
+        }
+        
+        if(newQuantity == 0) {
+            shirtRepository.delete(shirt);
+        } else {
+            shirt.setQuantity(newQuantity);
             shirtRepository.save(shirt);
         }
     }

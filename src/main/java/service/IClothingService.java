@@ -13,4 +13,6 @@ import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
 public interface IClothingService {
     
     void registerClothing(ClothingRequestDTO dto) throws Exception;
+    
+    void decrementClothing(Integer id, Integer quantity) throws Exception;
 }
