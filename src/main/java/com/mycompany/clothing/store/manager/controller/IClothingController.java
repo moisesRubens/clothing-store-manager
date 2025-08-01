@@ -16,13 +16,15 @@ public interface IClothingController {
     
     void createClothing(ClothingRequestDTO clothingData) throws Exception;
     
-    void deleteClothingModelById(Integer id) throws Exception;
+    ClothingResponseDTO consultClothing(Integer id) throws Exception;
     
-    void removeClothingUnitsById(Integer id, Integer quantity) throws Exception;
+    List<ClothingResponseDTO> getClothingsList(ClothingRequestDTO dto) throws Exception;
     
-    ClothingResponseDTO consultClothingById(Integer id) throws Exception;   
+    void incrementClothing(Integer id, Integer quantity) throws Exception;
     
-    <T extends ClothingResponseDTO> List<T> getAllClothings() throws Exception;
+    void decrementClothing(Integer id, Integer quantity) throws Exception;
     
-    <T extends ClothingResponseDTO> List<T> consultClothings(ClothingRequestDTO dto) throws Exception;
+    void deleteClothing(Integer id) throws Exception;
+    
+    void deleteClothingsList(ClothingRequestDTO dto) throws Exception;
 }

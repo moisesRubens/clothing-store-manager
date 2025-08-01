@@ -2469,7 +2469,7 @@ public class MainWindow extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "ROUPA CADASTRADA", "RESULTADO", JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception e) {
             handleException(e);
-            JOptionPane.showMessageDialog(this, "ERRO AO CADASTRADAR", "ERRO", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButtonAdicionarCamisaActionPerformed
 

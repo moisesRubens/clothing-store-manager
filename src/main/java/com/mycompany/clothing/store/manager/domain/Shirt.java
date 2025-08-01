@@ -12,6 +12,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 import java.util.EnumSet;
 
 /**
@@ -19,26 +20,29 @@ import java.util.EnumSet;
  * @author moise
  */
 @Entity
-@Table(name="CAMISA")
+@Table(name = "shirt", uniqueConstraints = @UniqueConstraint(columnNames = {
+    "color", "clothingType", "fabric", "brand", "style",
+    "gender", "pattern", "pocket", "closureType",
+    "size", "sleeve", "collar"
+}))
 public class Shirt extends Clothing {
     
-    @Column(name="MANGA", nullable=true)
+    @Column(nullable=true)
     Integer sleeve;
     
-    @Column(name="GOLA", nullable=true)
+    @Column(nullable=true)
     Integer collar;
     
     @Enumerated(EnumType.STRING)
-    @Column(name="TAMANHO")
     ShirtSize size;
     
-    @Column(name="QUANT_BOLSOS", nullable=true)
+    @Column(nullable=true)
     Integer pocket;
     
-    @Column(name="TIPO_FECHAMENTO", nullable=true)
+    @Column(nullable=true)
     String closureType;
     
-    @Column(name="MODELO", nullable=true)
+    @Column(nullable=true)
     String style;
 
     public Shirt() {}

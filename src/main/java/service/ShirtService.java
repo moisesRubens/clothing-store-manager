@@ -1,0 +1,54 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package service;
+
+import com.mycompany.clothing.store.manager.domain.Clothing;
+import com.mycompany.clothing.store.manager.domain.Shirt;
+import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
+import com.mycompany.clothing.store.manager.domain.dto.ShirtRequestDTO;
+import com.mycompany.clothing.store.manager.domain.enums.ClothingType;
+import com.mycompany.clothing.store.manager.domain.enums.Gender;
+import com.mycompany.clothing.store.manager.domain.enums.ShirtSize;
+import com.mycompany.clothing.store.manager.repository.IShirtRepository;
+import com.mycompany.clothing.store.manager.service.mapper.ClothingMapper;
+import java.util.List;
+import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+/**
+ *
+ * @author moise
+ */
+@Service
+public class ShirtService implements IClothingService {
+
+    @Autowired
+    private IShirtRepository shirtRepository;
+    @Autowired
+    private ClothingMapper shirtMapper;
+
+    @Override
+    public void registerClothing(ClothingRequestDTO dto) throws Exception {
+        
+        if (!(dto instanceof ShirtRequestDTO)) {
+            throw new IllegalArgumentException("Passe um ShirtResponseDTO");
+        }
+        
+        ShirtRequestDTO shirtDTO = (ShirtRequestDTO) dto;
+        Shirt shirt = (Shirt) shirtMapper.RequestDTOToEntity(shirtDTO);
+        Optional<Shirt> found = shirtRepository.findExistingShirt(shirt.getColor(), shirt.getClothingType(), shirt.getFabric(),
+                shirt.getBrand(), shirt.getStyle(), shirt.getGender(), shirt.getPattern(), shirt.getPocket(),
+                shirt.getClosureType(), shirt.getSize(), shirt.getSleeve(), shirt.getCollar());
+
+        if (found.isPresent()) {
+            Shirt foundShirt = found.get();
+            foundShirt.setQuantity(foundShirt.getQuantity() + shirt.getQuantity());
+            shirtRepository.save(foundShirt);
+        } else {
+            shirtRepository.save(shirt);
+        }
+    }
+}

@@ -5,51 +5,56 @@
 package com.mycompany.clothing.store.manager.controller;
 
 import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
+import com.mycompany.clothing.store.manager.domain.dto.ClothingResponseDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtRequestDTO;
-import com.mycompany.clothing.store.manager.domain.dto.ShirtResponseDTO;
-import com.mycompany.clothing.store.manager.service.ClothingService;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import service.IClothingService;
 
 /**
  *
  * @author moise
  */
 public class ShirtController implements IClothingController {
-    private ClothingService shirtService;
 
-    public ShirtController(ClothingService shirtService) {
-        this.shirtService = shirtService;
-    }
-    
+    @Autowired
+    private IClothingService shirtService;
+
     @Override
     public void createClothing(ClothingRequestDTO clothingData) throws Exception {
-        if(clothingData instanceof ShirtRequestDTO shirtData) {
-            shirtService.registerClothing(shirtData);
+        if (!(clothingData instanceof ShirtRequestDTO)) {
+            throw new IllegalArgumentException("Passe ShirtResponseDTO");
         }
+        shirtService.registerClothing(clothingData);
     }
 
     @Override
-    public List<ShirtResponseDTO> getAllClothings() throws Exception {
-        return shirtService.getAllClothings();
+    public ClothingResponseDTO consultClothing(Integer id) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public ShirtResponseDTO consultClothingById(Integer id) throws Exception{
-        return (ShirtResponseDTO) shirtService.getClothingById(id);
+    public List<ClothingResponseDTO> getClothingsList(ClothingRequestDTO dto) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public List<ShirtResponseDTO> consultClothings(ClothingRequestDTO dto) throws Exception {
-        return shirtService.getClothings(dto);
+    public void incrementClothing(Integer id, Integer quantity) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public void deleteClothingModelById(Integer id) throws Exception {
-        shirtService.removeClothingModelById(id);
+    public void decrementClothing(Integer id, Integer quantity) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public void removeClothingUnitsById(Integer id, Integer quantity) throws Exception {
-        shirtService.removeClothingUnitsById(id, quantity);
+    public void deleteClothing(Integer id) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void deleteClothingsList(ClothingRequestDTO dto) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
