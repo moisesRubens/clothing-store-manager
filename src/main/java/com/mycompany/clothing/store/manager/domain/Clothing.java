@@ -7,6 +7,7 @@ package com.mycompany.clothing.store.manager.domain;
 import com.mycompany.clothing.store.manager.domain.enums.ClothingType;
 import com.mycompany.clothing.store.manager.domain.enums.Gender;
 import jakarta.persistence.Column;
+import jakarta.persistence.DiscriminatorColumn;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -16,47 +17,48 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 
 /**
  *
  * @author moise
  */
 @Entity
-@Table(name="ROUPA")
-@Inheritance(strategy = InheritanceType.JOINED)
+@Table(name = "ROUPA", uniqueConstraints = @UniqueConstraint(columnNames = {
+    "color", "clothingType", "fabric", "brand", "style",
+    "gender", "pattern", "pocket", "closureType",
+    "size", "sleeve", "collar"
+}))
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "DTYPE")
 public abstract class Clothing {
-    
-    @Id 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)       
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
-    
-    @Column(name="COR")
+
     String color;
-    
-    @Column(name="PRECO")
+
     Double price;
-    
-    @Column(name="QUANTIDADE")
+
     Integer quantity;
-    
-    @Column(name="TECIDO", nullable=true)
+
+    @Column(nullable = true)
     String fabric;
-    
-    @Column(name="MARCA")
+
     String brand;
-    
+
     @Enumerated(EnumType.STRING)
-    @Column(name="GENERO")
     Gender gender;
-    
-    @Column(name="ESTAMPA", nullable=true)
+
+    @Column(nullable = true)
     String pattern;
-    
+
     @Enumerated(EnumType.STRING)
-    @Column(name="TIPO_ROUPA")
     ClothingType clothingType;
 
-    public Clothing() {}
+    public Clothing() {
+    }
 
     public Clothing(String color, Double price, Integer quantity, ClothingType clothingType, String fabric, String brand, Gender gender, String pattern) {
         this.color = color;
@@ -73,11 +75,11 @@ public abstract class Clothing {
     public String toString() {
         return "Clothing{" + "id=" + id + ", color=" + color + ", price=" + price + ", quantity=" + quantity + ", fabric=" + fabric + ", brand=" + brand + ", gender=" + gender + ", pattern=" + pattern + ", clothingType=" + clothingType + '}';
     }
-    
+
     public abstract String createQuery();
-    
+
     protected abstract Boolean containsAttribute();
-    
+
     public Integer getId() {
         return id;
     }
@@ -137,11 +139,12 @@ public abstract class Clothing {
     public void setPattern(String pattern) {
         this.pattern = pattern;
     }
+
     public ClothingType getClothingType() {
         return clothingType;
     }
 
     public void setClothingType(ClothingType clothingType) {
         this.clothingType = clothingType;
-    }   
+    }
 }

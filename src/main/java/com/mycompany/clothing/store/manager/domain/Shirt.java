@@ -20,11 +20,6 @@ import java.util.EnumSet;
  * @author moise
  */
 @Entity
-@Table(name = "shirt", uniqueConstraints = @UniqueConstraint(columnNames = {
-    "color", "clothingType", "fabric", "brand", "style",
-    "gender", "pattern", "pocket", "closureType",
-    "size", "sleeve", "collar"
-}))
 public class Shirt extends Clothing {
     
     @Column(nullable=true)

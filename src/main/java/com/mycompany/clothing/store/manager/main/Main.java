@@ -9,7 +9,7 @@ import java.util.Map;
 import javax.swing.UIManager;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import service.ShirtService;
+import com.mycompany.clothing.store.manager.service.ShirtService;
 
 public class Main {
     public static void main(String[] args) {

@@ -10,7 +10,7 @@ import com.mycompany.clothing.store.manager.domain.dto.ShirtRequestDTO;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import service.IClothingService;
+import com.mycompany.clothing.store.manager.service.IClothingService;
 
 /**
  *
