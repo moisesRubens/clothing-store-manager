@@ -25,12 +25,9 @@ import jakarta.persistence.UniqueConstraint;
  */
 @Entity
 @Table(name = "ROUPA", uniqueConstraints = @UniqueConstraint(columnNames = {
-    "color", "clothingType", "fabric", "brand", "style",
-    "gender", "pattern", "pocket", "closureType",
-    "size", "sleeve", "collar"
+    "color", "clothingType", "fabric", "brand", "gender", "pattern"
 }))
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "DTYPE")
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Clothing {
 
     @Id
