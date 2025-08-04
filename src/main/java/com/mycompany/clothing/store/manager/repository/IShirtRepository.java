@@ -12,6 +12,7 @@ import com.mycompany.clothing.store.manager.domain.enums.ShirtSize;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
@@ -19,8 +20,7 @@ import org.springframework.data.repository.query.Param;
  *
  * @author moise
  */
-
-public interface IShirtRepository extends JpaRepository<Shirt, Integer> {
+public interface IShirtRepository extends JpaRepository<Shirt, Integer>, JpaSpecificationExecutor<Shirt> {
 
     @Query("""
     select s.id from Shirt s where s.color = :color and
@@ -36,31 +36,6 @@ public interface IShirtRepository extends JpaRepository<Shirt, Integer> {
             @Param("closureType") String closureType, @Param("size") ShirtSize size,
             @Param("sleeve") Integer sleeve, @Param("collar") Integer collar
     );
-
-    @Query("""
-    SELECT s FROM Shirt s
-    WHERE (:color IS NULL OR s.color = :color)
-    AND (:price IS NULL OR s.price = :price)
-    AND (:quantity IS NULL OR s.quantity = :quantity)
-    AND (:clothingType IS NULL OR s.clothingType = :clothingType)
-    AND (:fabric IS NULL OR s.fabric = :fabric)
-    AND (:brand IS NULL OR s.brand = :brand)
-    AND (:style IS NULL OR s.style = :style)
-    AND (:gender IS NULL OR s.gender = :gender)
-    AND (:pattern IS NULL OR s.pattern = :pattern)
-    AND (:pocket IS NULL OR s.pocket = :pocket)
-    AND (:closureType IS NULL OR s.closureType = :closureType)
-    AND (:size IS NULL OR s.size = :size)
-    AND (:sleeve IS NULL OR s.sleeve = :sleeve)
-    AND (:collar IS NULL OR s.collar = :collar)
-    """)
-    List<Shirt> findClothings(@Param("color") String color, @Param("price") Double price,
-            @Param("quantity") Integer quantity, @Param("clothingType") ClothingType clothingType,
-            @Param("fabric") String fabric, @Param("brand") String brand,
-            @Param("style") String style, @Param("gender") Gender gender,
-            @Param("pattern") String pattern, @Param("pocket") Integer pocket,
-            @Param("closureType") String closureType, @Param("size") ShirtSize size,
-            @Param("sleeve") Integer sleeve, @Param("collar") Integer collar);
 
     @Query("""
     SELECT s FROM Shirt s

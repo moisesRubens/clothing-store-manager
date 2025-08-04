@@ -77,6 +77,7 @@ public class Table extends javax.swing.JFrame {
 
     public void fillTable(List<ClothingResponseDTO> list, ClothingPiece p) {
         DefaultTableModel model = new DefaultTableModel();
+                        System.out.println(list);
         fillTableAux(model, p);
 
         if (list == null) {
@@ -162,14 +163,6 @@ public class Table extends javax.swing.JFrame {
                 model.addColumn("QUANTIDADE DE BOLSOS");
             }
         }
-    }
-
-    public void viewAllClothing(ClothingPiece piece, List<ClothingResponseDTO> clothings) throws Exception {
-        List<ClothingResponseDTO> list = null;
-
-        if (piece.equals(ClothingPiece.SHIRT)) {
-        }
-        fillTable(list, piece);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

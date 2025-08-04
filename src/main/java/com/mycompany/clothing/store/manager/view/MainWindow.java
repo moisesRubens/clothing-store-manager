@@ -2398,7 +2398,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldConsultBrandActionPerformed
 
     private void buttonViewAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonViewAllActionPerformed
-/*        try {
+        /*        try {
            List<ClothingResponseDTO> list = getAllClothings("shirtController");
             fillTable(list, ClothingPiece.SHIRT);
             allClothings = true;
@@ -2412,23 +2412,23 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonViewAllActionPerformed
 
     private void jButtonGetAllShirtsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGetAllShirtsActionPerformed
-        /*try {
-            List<ClothingResponseDTO> list = getAllClothings("shirtController");
+        try {
+            List<ClothingResponseDTO> list = controllers.get("shirtController").getAllClothings();
             Table table = new Table(controllers.get("shirtController"));
-            table.viewAllClothing(ClothingPiece.SHIRT, list);
+            table.fillTable(list, ClothingPiece.SHIRT);
             table.setLocationRelativeTo(null);
             table.setVisible(true);
         } catch (RoupaNaoExistenteException e) {
             JOptionPane.showMessageDialog(this, "NÃO HÁ ROUPAS PARA CONSULTAR", "LISTA VAZIA", JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "OCORREU UM ERRO", "FALHA NO SISTEMA", JOptionPane.ERROR_MESSAGE);
-        }*/
+        }
     }//GEN-LAST:event_jButtonGetAllShirtsActionPerformed
-    
+
     /*private List<ClothingResponseDTO> getAllClothings(String controllerKey) throws Exception {
         return controllers.get(controllerKey).getAllClothings();
     }*/
-    
+
     private void jButtonAdicionarCamisaBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarCamisaBackActionPerformed
         CardLayout a = (CardLayout) getContentPane().getLayout();
         a.show(getContentPane(), "PainelPrincipal");
@@ -2487,7 +2487,7 @@ public class MainWindow extends javax.swing.JFrame {
         String closureType = (jTextFieldAdicionarCamisaClosureType.getText().isEmpty() || jTextFieldAdicionarCamisaClosureType.getText().isBlank()) ? null : jTextFieldAdicionarCamisaClosureType.getText();
         Gender gender;
         ShirtSize size;
-        
+
         if (color.isBlank() || brand.isBlank()) {
             throw new IllegalArgumentException("INSIRA DADOS NOS CAMPOS");
         }
@@ -2500,7 +2500,7 @@ public class MainWindow extends javax.swing.JFrame {
             default ->
                 throw new IllegalArgumentException("INSIRA UM GENERO");
         }
-        
+
         switch (jTextFieldAdicionarCamisaSize.getText().charAt(0)) {
             case 'P' ->
                 size = ShirtSize.SMALL;
@@ -2830,10 +2830,10 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAddPantieActionPerformed
 
     private void addPantie(String controllerKey) {
-        
+
         //controllers.get(controllerKey).createClothing(null);
     }
-    
+
     private void jTextFieldAddPantieGenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAddPantieGenderActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldAddPantieGenderActionPerformed
@@ -2857,7 +2857,7 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     private void removePantieById() throws Exception {
-       /* try {
+        /* try {
             Integer id = Integer.valueOf(jTextFieldRemoverCalcaId.getText());
             Integer quantity = Integer.valueOf(jTextFieldRemoverCalcaQuantity.getText());
             //decrementar a quantidade de roupas
@@ -3080,6 +3080,8 @@ public class MainWindow extends javax.swing.JFrame {
                 sleeve, collar, shirtSize);
 
         List<ClothingResponseDTO> listSearch = controllers.get("shirtController").getClothingsList(dataShirt);
+
+        System.out.println(listSearch);
         Table table = new Table(controllers.get("shirtController"));
         table.fillTable(listSearch, ClothingPiece.SHIRT);
         table.setLocationRelativeTo(null);

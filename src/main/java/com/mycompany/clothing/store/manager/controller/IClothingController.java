@@ -18,7 +18,9 @@ public interface IClothingController {
     
     ClothingResponseDTO consultClothing(Integer id) throws Exception;
     
-    List<ClothingResponseDTO> getClothingsList(ClothingRequestDTO dto) throws Exception;
+    <T extends ClothingResponseDTO> List<T> getAllClothings() throws Exception;
+    
+    <T extends ClothingResponseDTO> List<T> getClothingsList(ClothingRequestDTO dto) throws Exception;
     
     void incrementClothing(Integer id, Integer quantity) throws Exception;
     

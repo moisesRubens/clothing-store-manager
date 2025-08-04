@@ -7,13 +7,17 @@ package com.mycompany.clothing.store.manager.service;
 import com.mycompany.clothing.store.manager.domain.Clothing;
 import com.mycompany.clothing.store.manager.domain.Shirt;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
+import com.mycompany.clothing.store.manager.domain.dto.ClothingResponseDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtRequestDTO;
+import com.mycompany.clothing.store.manager.domain.dto.ShirtResponseDTO;
 import com.mycompany.clothing.store.manager.domain.enums.ClothingType;
 import com.mycompany.clothing.store.manager.domain.enums.Gender;
 import com.mycompany.clothing.store.manager.domain.enums.ShirtSize;
 import com.mycompany.clothing.store.manager.repository.IShirtRepository;
+import com.mycompany.clothing.store.manager.repository.ShirtSpecification;
 import com.mycompany.clothing.store.manager.service.mapper.ClothingMapper;
 import java.util.List;
+import static java.util.Locale.filter;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -55,18 +59,37 @@ public class ShirtService implements IClothingService {
     @Override
     public void decrementClothing(Integer id, Integer quantity) throws Exception {
         Shirt shirt = shirtRepository.findById(id)
-            .orElseThrow(() -> new IllegalArgumentException("Camisa com ID " + id + " não encontrada"));
+                .orElseThrow(() -> new IllegalArgumentException("Camisa com ID " + id + " não encontrada"));
         Integer newQuantity = shirt.getQuantity() - quantity;
-        
-        if(newQuantity < 0) {
+
+        if (newQuantity < 0) {
             throw new IllegalStateException("Quantidade insuficiente para a remoção deste modelo de camisa");
         }
-        
-        if(newQuantity == 0) {
+
+        if (newQuantity == 0) {
             shirtRepository.delete(shirt);
         } else {
             shirt.setQuantity(newQuantity);
             shirtRepository.save(shirt);
         }
+    }
+
+    @Override
+    public List<ShirtResponseDTO> getListClothings(ClothingRequestDTO dto) {
+        
+        ShirtRequestDTO shirtDTO = (ShirtRequestDTO) dto;
+        Shirt shirtFilter = (Shirt) shirtMapper.RequestDTOToEntity(shirtDTO);
+        List<Shirt> filteredShirts = shirtRepository.findAll(ShirtSpecification.withFilters(shirtFilter));
+
+        return filteredShirts.stream()
+                .map(shirt -> (ShirtResponseDTO) shirtMapper.EntityToResponseDTO(shirt))
+                .toList();
+    }
+
+    @Override
+    public List<ShirtResponseDTO> getAllClothings() {
+        return shirtRepository.findAll().stream()
+                .map(shirt -> (ShirtResponseDTO) shirtMapper.EntityToResponseDTO(shirt))
+                .toList();
     }
 }

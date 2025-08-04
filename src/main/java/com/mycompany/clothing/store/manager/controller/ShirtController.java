@@ -4,13 +4,16 @@
  */
 package com.mycompany.clothing.store.manager.controller;
 
+import com.mycompany.clothing.store.manager.domain.Shirt;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingResponseDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtRequestDTO;
+import com.mycompany.clothing.store.manager.domain.dto.ShirtResponseDTO;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import com.mycompany.clothing.store.manager.service.IClothingService;
+import java.util.ArrayList;
 
 /**
  *
@@ -37,7 +40,7 @@ public class ShirtController implements IClothingController {
 
     @Override
     public List<ClothingResponseDTO> getClothingsList(ClothingRequestDTO dto) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return shirtService.getListClothings(dto);
     }
 
     @Override
@@ -58,5 +61,10 @@ public class ShirtController implements IClothingController {
     @Override
     public void deleteClothingsList(ClothingRequestDTO dto) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public <T extends ClothingResponseDTO> List<T> getAllClothings() throws Exception {
+        return shirtService.getAllClothings();
     }
 }
