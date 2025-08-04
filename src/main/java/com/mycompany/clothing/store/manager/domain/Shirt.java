@@ -22,22 +22,23 @@ import java.util.EnumSet;
 @Entity
 public class Shirt extends Clothing {
     
-    @Column(nullable=true)
+    @Column(name="MANGA", nullable=true)
     Integer sleeve;
     
-    @Column(nullable=true)
+    @Column(name="GOLA", nullable=true)
     Integer collar;
     
     @Enumerated(EnumType.STRING)
+    @Column(name="TAMANHO")
     ShirtSize size;
     
-    @Column(nullable=true)
+    @Column(name="QUANT_BOLSOS", nullable=true)
     Integer pocket;
     
-    @Column(nullable=true)
+    @Column(name="TIPO_FECHAMENTO", nullable=true)
     String closureType;
     
-    @Column(nullable=true)
+    @Column(name="ESTILO", nullable=true)
     String style;
 
     public Shirt() {}

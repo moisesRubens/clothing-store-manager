@@ -24,33 +24,38 @@ import jakarta.persistence.UniqueConstraint;
  * @author moise
  */
 @Entity
-@Table(name = "ROUPA", uniqueConstraints = @UniqueConstraint(columnNames = {
-    "color", "clothingType", "fabric", "brand", "gender", "pattern"
-}))
+@Table(name = "ROUPA")
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Clothing {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="ID")
     Integer id;
 
+    @Column(name="COR")
     String color;
 
+    @Column(name="VALOR")
     Double price;
 
+    @Column(name="QUANTIDADE")
     Integer quantity;
 
-    @Column(nullable = true)
+    @Column(name="TECIDO", nullable = true)
     String fabric;
 
+    @Column(name="MARCA")
     String brand;
 
+    @Column(name="GENERO")
     @Enumerated(EnumType.STRING)
     Gender gender;
 
-    @Column(nullable = true)
+    @Column(name="ESTAMPA", nullable = true)
     String pattern;
 
+    @Column(name="TIPO DE ROUPA")
     @Enumerated(EnumType.STRING)
     ClothingType clothingType;
 
