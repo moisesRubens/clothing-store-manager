@@ -4,33 +4,30 @@
  */
 package com.mycompany.clothing.store.manager.controller;
 
-import com.mycompany.clothing.store.manager.domain.Shirt;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingResponseDTO;
-import com.mycompany.clothing.store.manager.domain.dto.ShirtRequestDTO;
-import com.mycompany.clothing.store.manager.domain.dto.ShirtResponseDTO;
+import com.mycompany.clothing.store.manager.domain.dto.PantRequestDTO;
+import com.mycompany.clothing.store.manager.service.IClothingService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import com.mycompany.clothing.store.manager.service.IClothingService;
-import java.util.ArrayList;
 
 /**
  *
  * @author moise
  */
 @Controller
-public class ShirtController implements IClothingController {
+public class PantController implements IClothingController {
 
     @Autowired
-    private IClothingService shirtService;
+    private IClothingService pantService;
 
     @Override
     public void createClothing(ClothingRequestDTO clothingData) throws Exception {
-        if (!(clothingData instanceof ShirtRequestDTO)) {
-            throw new IllegalArgumentException("Forneça dados corretos para a criação de uma camisa");
-        }
-        shirtService.registerClothing(clothingData);
+        if (!(clothingData instanceof PantRequestDTO pantDTO)) {
+            throw new IllegalArgumentException("Forneça dados corretos para a criação de uma calça");
+        } 
+        pantService.registerClothing(clothingData);
     }
 
     @Override
@@ -39,8 +36,13 @@ public class ShirtController implements IClothingController {
     }
 
     @Override
-    public List<ClothingResponseDTO> getClothingsList(ClothingRequestDTO dto) throws Exception {
-        return shirtService.getListClothings(dto);
+    public <T extends ClothingResponseDTO> List<T> getAllClothings() throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public <T extends ClothingResponseDTO> List<T> getClothingsList(ClothingRequestDTO dto) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
@@ -50,7 +52,7 @@ public class ShirtController implements IClothingController {
 
     @Override
     public void decrementClothing(Integer id, Integer quantity) throws Exception {
-        shirtService.decrementClothing(id, quantity);
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
@@ -63,8 +65,4 @@ public class ShirtController implements IClothingController {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    @Override
-    public <T extends ClothingResponseDTO> List<T> getAllClothings() throws Exception {
-        return shirtService.getAllClothings();
-    }
 }

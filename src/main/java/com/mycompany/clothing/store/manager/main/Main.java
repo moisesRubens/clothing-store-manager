@@ -2,7 +2,9 @@ package com.mycompany.clothing.store.manager.main;
 
 import com.mycompany.clothing.store.manager.configuration.SpringConfig;
 import com.mycompany.clothing.store.manager.controller.IClothingController;
+import com.mycompany.clothing.store.manager.controller.PantController;
 import com.mycompany.clothing.store.manager.controller.ShirtController;
+import com.mycompany.clothing.store.manager.service.PantService;
 import com.mycompany.clothing.store.manager.view.MainWindow;
 import java.util.HashMap;
 import java.util.Map;
@@ -31,10 +33,15 @@ public class Main {
         // Pega o service gerenciado pelo Spring
         ShirtService shirtService = context.getBean(ShirtService.class);
         ShirtController shirtController = context.getBean(ShirtController.class);
+        
+        PantService pantService = context.getBean(PantService.class);
+        PantController pantController = context.getBean(PantController.class);
+        
         Map controllers = new HashMap<String, IClothingController>();
+        controllers.put("shirtController", shirtController);
+        controllers.put("pantController", pantController);
         
         MainWindow window = new MainWindow(controllers);
-        controllers.put("shirtController", shirtController);
         window.setVisible(true);
 
         // Fecha o contexto Spring ao fechar a janela

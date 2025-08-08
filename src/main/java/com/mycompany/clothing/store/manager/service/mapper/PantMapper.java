@@ -10,11 +10,13 @@ import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingResponseDTO;
 import com.mycompany.clothing.store.manager.domain.dto.PantRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.PantResponseDTO;
+import org.springframework.stereotype.Component;
 
 /**
  *
  * @author moise
  */
+@Component
 public class PantMapper extends ClothingMapper {
 
     @Override

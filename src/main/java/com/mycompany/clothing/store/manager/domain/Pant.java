@@ -22,7 +22,6 @@ import java.util.EnumSet;
  * @author moise
  */
 @Entity
-@Table(name="CALCA")
 public class Pant extends Clothing {
     @Column(name="TIPO_BARRA", nullable=true)
     @Enumerated(EnumType.STRING)
