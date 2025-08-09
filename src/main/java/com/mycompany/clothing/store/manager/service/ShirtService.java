@@ -64,9 +64,7 @@ public class ShirtService implements IClothingService {
 
         if (newQuantity < 0) {
             throw new IllegalStateException("Quantidade insuficiente para a remoção deste modelo de camisa");
-        }
-
-        if (newQuantity == 0) {
+        } else if (newQuantity == 0) {
             shirtRepository.delete(shirt);
         } else {
             shirt.setQuantity(newQuantity);

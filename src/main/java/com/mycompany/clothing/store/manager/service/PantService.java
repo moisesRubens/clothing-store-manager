@@ -55,7 +55,18 @@ public class PantService implements IClothingService {
 
     @Override
     public void decrementClothing(Integer id, Integer quantity) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        Pant pant = pantRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Calca com id:"+id+" não encontrada para a remoção"));
+        
+        Integer newQuantity = pant.getQuantity() - quantity;
+        if (newQuantity < 0) {
+            throw new IllegalStateException("Quantidade insuficiente para a remoção do modelo de calça: "+id);
+        } else if (newQuantity == 0) {
+            pantRepository.delete(pant);
+        } else {
+            pant.setQuantity(newQuantity);
+            pantRepository.save(pant);
+        }
     }
 
     @Override

@@ -2840,7 +2840,6 @@ public class MainWindow extends javax.swing.JFrame {
         try {
             Integer id = Integer.valueOf(jTextFieldRemoveShirtid.getText());
             Integer quantity = Integer.valueOf(jTextFieldRemoveShirtQuantity.getText());
-            //decrementar a quantidade de roupas
             controllers.get("shirtController").decrementClothing(id, quantity);
             JOptionPane.showMessageDialog(this, "REMOÇÃO EFETUADA", "RESULTADO", JOptionPane.INFORMATION_MESSAGE);
         } catch (IllegalArgumentException | IllegalStateException | RoupaNaoExistenteException e) {
@@ -2851,17 +2850,16 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     private void removePantieById() throws Exception {
-        /* try {
+        try {
             Integer id = Integer.valueOf(jTextFieldRemoverCalcaId.getText());
             Integer quantity = Integer.valueOf(jTextFieldRemoverCalcaQuantity.getText());
-            //decrementar a quantidade de roupas
-            controllers.get("pantController").removeClothingUnitsById(id, quantity);
+            controllers.get("pantController").decrementClothing(id, quantity);
             JOptionPane.showMessageDialog(this, "REMOÇÃO EFETUADA", "RESULTADO", JOptionPane.INFORMATION_MESSAGE);
         } catch (IllegalArgumentException | IllegalStateException | RoupaNaoExistenteException e) {
             JOptionPane.showMessageDialog(this, e.getMessage(), "RESULTADO", JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "FALHA NO SISTEMA", "ERRO", JOptionPane.ERROR_MESSAGE);
-        }*/
+        }
     }
 
     private void updateTable(Boolean allClothings, ClothingPiece p) throws Exception {

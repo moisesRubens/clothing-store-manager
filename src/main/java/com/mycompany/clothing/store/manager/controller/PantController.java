@@ -52,7 +52,7 @@ public class PantController implements IClothingController {
 
     @Override
     public void decrementClothing(Integer id, Integer quantity) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        pantService.decrementClothing(id, quantity); 
     }
 
     @Override
