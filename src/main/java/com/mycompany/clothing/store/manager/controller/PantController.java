@@ -7,6 +7,7 @@ package com.mycompany.clothing.store.manager.controller;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingResponseDTO;
 import com.mycompany.clothing.store.manager.domain.dto.PantRequestDTO;
+import com.mycompany.clothing.store.manager.domain.dto.PantResponseDTO;
 import com.mycompany.clothing.store.manager.service.IClothingService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,8 +42,8 @@ public class PantController implements IClothingController {
     }
 
     @Override
-    public <T extends ClothingResponseDTO> List<T> getClothingsList(ClothingRequestDTO dto) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public List<PantResponseDTO> getClothingsList(ClothingRequestDTO dto) throws Exception {
+        return pantService.getListClothings(dto);
     }
 
     @Override

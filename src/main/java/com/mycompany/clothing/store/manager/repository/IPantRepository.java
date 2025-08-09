@@ -14,6 +14,7 @@ import com.mycompany.clothing.store.manager.domain.enums.ShirtSize;
 import com.mycompany.clothing.store.manager.domain.enums.WaistType;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
@@ -21,7 +22,7 @@ import org.springframework.data.repository.query.Param;
  *
  * @author moise
  */
-public interface IPantRepository extends JpaRepository<Pant, Integer> {
+public interface IPantRepository extends JpaRepository<Pant, Integer>, JpaSpecificationExecutor<Pant> {
     
     @Query("""
     select p.id from Pant p where p.color = :color and

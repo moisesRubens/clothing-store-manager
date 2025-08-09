@@ -2734,9 +2734,9 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBoxConsultCalcaTipoBarraElasticaActionPerformed
 
     private void jButtonConsultarCalcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsultarCalcaActionPerformed
-        /*try {
-            PantRequestDTO pantieData = consultarCalca();
-            List<ClothingResponseDTO> listSearch = controllers.get("pantController").consultClothings(pantieData);
+        try {
+            PantRequestDTO pantData = consultarCalca();
+            List<ClothingResponseDTO> listSearch = controllers.get("pantController").getClothingsList(pantData);
             allClothings = false;
             if (f.equals(Function.SEARCH)) {
                 Table table = new Table(controllers.get("pantController"));
@@ -2750,7 +2750,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         } catch (Exception e) {
             handleException(e);
-        }*/
+        }
     }//GEN-LAST:event_jButtonConsultarCalcaActionPerformed
 
     private void jTextFieldConsultCalcaBrandActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldConsultCalcaBrandActionPerformed

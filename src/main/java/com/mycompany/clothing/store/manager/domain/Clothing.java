@@ -78,10 +78,6 @@ public abstract class Clothing {
         return "Clothing{" + "id=" + id + ", color=" + color + ", price=" + price + ", quantity=" + quantity + ", fabric=" + fabric + ", brand=" + brand + ", gender=" + gender + ", pattern=" + pattern + ", clothingType=" + clothingType + '}';
     }
 
-    public abstract String createQuery();
-
-    protected abstract Boolean containsAttribute();
-
     public Integer getId() {
         return id;
     }

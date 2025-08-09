@@ -16,6 +16,7 @@ import com.mycompany.clothing.store.manager.domain.enums.ShirtSize;
 import com.mycompany.clothing.store.manager.repository.IShirtRepository;
 import com.mycompany.clothing.store.manager.repository.ShirtSpecification;
 import com.mycompany.clothing.store.manager.service.mapper.ClothingMapper;
+import com.mycompany.clothing.store.manager.service.mapper.ShirtMapper;
 import java.util.List;
 import static java.util.Locale.filter;
 import java.util.Optional;
@@ -29,11 +30,17 @@ import org.springframework.stereotype.Service;
 @Service
 public class ShirtService implements IClothingService {
 
-    @Autowired
     private IShirtRepository shirtRepository;
-    @Autowired
     private ClothingMapper shirtMapper;
 
+    @Autowired
+    public ShirtService(IShirtRepository shirtRepository, ShirtMapper shirtMapper) {
+        this.shirtRepository = shirtRepository;
+        this.shirtMapper = shirtMapper;
+    }
+
+    
+    
     @Override
     public void registerClothing(ClothingRequestDTO dto) throws Exception {
 

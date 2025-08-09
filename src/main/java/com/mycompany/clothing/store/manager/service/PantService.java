@@ -9,12 +9,16 @@ import com.mycompany.clothing.store.manager.domain.Shirt;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingResponseDTO;
 import com.mycompany.clothing.store.manager.domain.dto.PantRequestDTO;
+import com.mycompany.clothing.store.manager.domain.dto.PantResponseDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtRequestDTO;
+import com.mycompany.clothing.store.manager.domain.dto.ShirtResponseDTO;
 import com.mycompany.clothing.store.manager.domain.enums.ClothingType;
 import com.mycompany.clothing.store.manager.domain.enums.Gender;
 import com.mycompany.clothing.store.manager.domain.enums.PantLengthType;
 import com.mycompany.clothing.store.manager.repository.IPantRepository;
 import com.mycompany.clothing.store.manager.repository.IShirtRepository;
+import com.mycompany.clothing.store.manager.repository.PantSpecification;
+import com.mycompany.clothing.store.manager.repository.ShirtSpecification;
 import com.mycompany.clothing.store.manager.service.mapper.ClothingMapper;
 import com.mycompany.clothing.store.manager.service.mapper.PantMapper;
 import java.util.List;
@@ -30,10 +34,16 @@ import org.springframework.stereotype.Service;
 @Service
 public class PantService implements IClothingService {
 
-    @Autowired
     private IPantRepository pantRepository;
+    private ClothingMapper pantMapper;
+
     @Autowired
-    private PantMapper pantMapper;
+    public PantService(IPantRepository pantRepository, PantMapper pantMapper) {
+        this.pantRepository = pantRepository;
+        this.pantMapper = pantMapper;
+    }
+    
+    
 
     @Override
     public void registerClothing(ClothingRequestDTO dto) throws Exception {
@@ -75,8 +85,15 @@ public class PantService implements IClothingService {
     }
 
     @Override
-    public <T extends ClothingResponseDTO> List<T> getListClothings(ClothingRequestDTO dto) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public List<PantResponseDTO> getListClothings(ClothingRequestDTO dto) {
+        PantRequestDTO pantDTO = (PantRequestDTO) dto;
+        Pant pantFilter = (Pant) pantMapper.RequestDTOToEntity(pantDTO);
+        List<Pant> filteredPants = pantRepository.findAll(PantSpecification.withFilters(pantFilter));
+        
+        System.out.println(filteredPants);
+        return filteredPants.stream()
+                .map(pant -> (PantResponseDTO) pantMapper.EntityToResponseDTO(pant))
+                .toList();
     }
     
 }
