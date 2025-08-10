@@ -20,22 +20,24 @@ import org.springframework.stereotype.Component;
 public class PantMapper extends ClothingMapper {
 
     @Override
-    public PantResponseDTO EntityToResponseDTO(Clothing clothing) {
-        Pant pant = (Pant) clothing;
-
+    public PantResponseDTO EntityToResponseDTO(Clothing clothing) throws Exception {
+        if(clothing instanceof Pant pant) {
         return new PantResponseDTO(pant.getId(), pant.getColor(), pant.getPrice(), pant.getQuantity(), pant.getFabric(),
                 pant.getBrand(), pant.getStyle(), pant.getGender(), pant.getPattern(), pant.getPocket(),
                 pant.getClosureType(), pant.getClothingType(), pant.getSize(), pant.getLength(), pant.getWaistType(),
                 pant.getHemType());
+        }
+        throw new IllegalArgumentException("Passe no parâmetro uma instância de Pant");
     }
 
     @Override
-    public Pant RequestDTOToEntity(ClothingRequestDTO dto) {
-        PantRequestDTO pantData = (PantRequestDTO) dto;
-
-        return new Pant(pantData.hemType(), pantData.waistType(), pantData.length(), pantData.size(),
-                pantData.color(), pantData.price(), pantData.quantity(), pantData.clothingType(), pantData.fabric(),
-                pantData.brand(), pantData.style(), pantData.gender(), pantData.pattern(), pantData.pocket(), pantData.closureType());
+    public Pant RequestDTOToEntity(ClothingRequestDTO dto) throws Exception {
+        if (dto instanceof PantRequestDTO pantData) {
+            return new Pant(pantData.hemType(), pantData.waistType(), pantData.length(), pantData.size(),
+                    pantData.color(), pantData.price(), pantData.quantity(), pantData.clothingType(), pantData.fabric(),
+                    pantData.brand(), pantData.style(), pantData.gender(), pantData.pattern(), pantData.pocket(), pantData.closureType());
+        }
+        throw new IllegalArgumentException("Passe no parâmetro uma instância de PantRequestDTO");
     }
 
 }

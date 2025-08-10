@@ -2697,7 +2697,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldConsultCalcaColorActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        /*try {
+        try {
             allClothings = true;
             List<ClothingResponseDTO> list = controllers.get("pantController").getAllClothings();
             if (f.equals(Function.REMOVE)) {
@@ -2712,7 +2712,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         } catch (Exception e) {
             handleException(e);
-        }*/
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButtonSearchShirtBack1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchShirtBack1ActionPerformed

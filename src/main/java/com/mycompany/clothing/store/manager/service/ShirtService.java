@@ -17,6 +17,7 @@ import com.mycompany.clothing.store.manager.repository.IShirtRepository;
 import com.mycompany.clothing.store.manager.repository.ShirtSpecification;
 import com.mycompany.clothing.store.manager.service.mapper.ClothingMapper;
 import com.mycompany.clothing.store.manager.service.mapper.ShirtMapper;
+import java.util.ArrayList;
 import java.util.List;
 import static java.util.Locale.filter;
 import java.util.Optional;
@@ -78,22 +79,25 @@ public class ShirtService implements IClothingService {
     }
 
     @Override
-    public List<ShirtResponseDTO> getListClothings(ClothingRequestDTO dto) {
-        
-        ShirtRequestDTO shirtDTO = (ShirtRequestDTO) dto;
-        Shirt shirtFilter = (Shirt) shirtMapper.RequestDTOToEntity(shirtDTO);
-        System.out.println(shirtFilter);
+    public List<ShirtResponseDTO> getListClothings(ClothingRequestDTO dto) throws Exception {
+        Shirt shirtFilter = shirtMapper.RequestDTOToEntity(dto);
         List<Shirt> filteredShirts = shirtRepository.findAll(ShirtSpecification.withFilters(shirtFilter));
-
-        return filteredShirts.stream()
-                .map(shirt -> (ShirtResponseDTO) shirtMapper.EntityToResponseDTO(shirt))
-                .toList();
-    }
+        List<ShirtResponseDTO> list = new ArrayList<>();
+        
+        for(Shirt shirt: filteredShirts) {
+            list.add(shirtMapper.EntityToResponseDTO(shirt));
+        }
+        return list;
+    } 
 
     @Override
-    public List<ShirtResponseDTO> getAllClothings() {
-        return shirtRepository.findAll().stream()
-                .map(shirt -> (ShirtResponseDTO) shirtMapper.EntityToResponseDTO(shirt))
-                .toList();
+    public List<ShirtResponseDTO> getAllClothings() throws Exception {
+        List<ShirtResponseDTO> list = new ArrayList<>();
+        List<Shirt> shirts = shirtRepository.findAll();
+        
+        for(Shirt shirt : shirts) {
+            list.add(shirtMapper.EntityToResponseDTO(shirt));
+        }
+        return list;
     }
 }

@@ -18,7 +18,7 @@ import com.mycompany.clothing.store.manager.domain.dto.ShirtRequestDTO;
  */
 public abstract class ClothingMapper {
     
-    public abstract ClothingResponseDTO EntityToResponseDTO(Clothing clothing);
+    public abstract <T extends ClothingResponseDTO> T EntityToResponseDTO(Clothing clothing) throws Exception;
     
-    public abstract Clothing RequestDTOToEntity(ClothingRequestDTO dto);
+    public abstract <T extends Clothing> T RequestDTOToEntity(ClothingRequestDTO dto) throws Exception;
 }

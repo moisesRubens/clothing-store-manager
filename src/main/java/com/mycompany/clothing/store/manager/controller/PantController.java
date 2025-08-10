@@ -37,8 +37,8 @@ public class PantController implements IClothingController {
     }
 
     @Override
-    public <T extends ClothingResponseDTO> List<T> getAllClothings() throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public List<PantResponseDTO> getAllClothings() throws Exception {
+        return pantService.getAllClothings();
     }
 
     @Override

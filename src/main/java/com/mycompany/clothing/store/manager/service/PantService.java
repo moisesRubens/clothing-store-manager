@@ -21,6 +21,7 @@ import com.mycompany.clothing.store.manager.repository.PantSpecification;
 import com.mycompany.clothing.store.manager.repository.ShirtSpecification;
 import com.mycompany.clothing.store.manager.service.mapper.ClothingMapper;
 import com.mycompany.clothing.store.manager.service.mapper.PantMapper;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -80,19 +81,26 @@ public class PantService implements IClothingService {
     }
 
     @Override
-    public <T extends ClothingResponseDTO> List<T> getAllClothings() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public List<PantResponseDTO> getAllClothings() throws Exception {
+        List<PantResponseDTO> list = new ArrayList<>();
+        List<Pant> pants = pantRepository.findAll();
+                
+        for(Pant pant: pants) {
+            list.add(pantMapper.EntityToResponseDTO(pant));
+        }
+        return list;
     }
 
     @Override
-    public List<PantResponseDTO> getListClothings(ClothingRequestDTO dto) {
-        PantRequestDTO pantDTO = (PantRequestDTO) dto;
-        Pant pantFilter = (Pant) pantMapper.RequestDTOToEntity(pantDTO);
-        System.out.println(pantFilter);
+    public List<PantResponseDTO> getListClothings(ClothingRequestDTO dto) throws Exception {
+        Pant pantFilter = pantMapper.RequestDTOToEntity(dto);
         List<Pant> filteredPants = pantRepository.findAll(PantSpecification.withFilters(pantFilter));
-        return filteredPants.stream()
-                .map(pant -> (PantResponseDTO) pantMapper.EntityToResponseDTO(pant))
-                .toList();
+        List<PantResponseDTO> list = new ArrayList<>();
+        
+        for(Pant pant: filteredPants) {
+            list.add(pantMapper.EntityToResponseDTO(pant));
+        }
+        return list;
     }
     
 }

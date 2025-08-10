@@ -19,7 +19,7 @@ public interface IClothingService {
     
     void decrementClothing(Integer id, Integer quantity) throws Exception;
     
-    <T extends ClothingResponseDTO> List<T> getAllClothings();
+    <T extends ClothingResponseDTO> List<T> getAllClothings() throws Exception;
     
-    <T extends ClothingResponseDTO> List<T> getListClothings(ClothingRequestDTO dto);
+    <T extends ClothingResponseDTO> List<T> getListClothings(ClothingRequestDTO dto) throws Exception;
 }

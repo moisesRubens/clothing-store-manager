@@ -17,26 +17,27 @@ import org.springframework.stereotype.Component;
  *
  * @author moise
  */
-
 @Component
 public class ShirtMapper extends ClothingMapper {
 
     @Override
-    public ClothingResponseDTO EntityToResponseDTO(Clothing clothing) {
-        Shirt shirt = (Shirt) clothing;
-        
-        return new ShirtResponseDTO(shirt.getId(), shirt.getColor(), shirt.getPrice(), shirt.getQuantity(), shirt.getFabric(),
-                        shirt.getBrand(), shirt.getStyle(), shirt.getGender(), shirt.getPattern(), shirt.getPocket(),
-                        shirt.getClosureType(), shirt.getClothingType(), shirt.getSleeve(), shirt.getCollar(), shirt.getSize());
+    public ClothingResponseDTO EntityToResponseDTO(Clothing clothing) throws Exception {
+        if (clothing instanceof Shirt shirt) {
+            return new ShirtResponseDTO(shirt.getId(), shirt.getColor(), shirt.getPrice(), shirt.getQuantity(), shirt.getFabric(),
+                    shirt.getBrand(), shirt.getStyle(), shirt.getGender(), shirt.getPattern(), shirt.getPocket(),
+                    shirt.getClosureType(), shirt.getClothingType(), shirt.getSleeve(), shirt.getCollar(), shirt.getSize());
+        }
+        throw new IllegalArgumentException("Passe uma instância Shirt");
     }
 
     @Override
-    public Shirt RequestDTOToEntity(ClothingRequestDTO dto) {
-        ShirtRequestDTO shirtDTO = (ShirtRequestDTO) dto;
-        
-        return new Shirt(shirtDTO.color(), shirtDTO.price(), shirtDTO.quantity(),
-                shirtDTO.clothingType(), shirtDTO.fabric(), shirtDTO.brand(), shirtDTO.style(),
-                shirtDTO.gender(), shirtDTO.pattern(), shirtDTO.pocket(), shirtDTO.closureType(),
-                shirtDTO.size(), shirtDTO.sleeve(), shirtDTO.collar());
+    public Shirt RequestDTOToEntity(ClothingRequestDTO dto) throws Exception {
+        if (dto instanceof ShirtRequestDTO shirtDTO) {
+            return new Shirt(shirtDTO.color(), shirtDTO.price(), shirtDTO.quantity(),
+                    shirtDTO.clothingType(), shirtDTO.fabric(), shirtDTO.brand(), shirtDTO.style(),
+                    shirtDTO.gender(), shirtDTO.pattern(), shirtDTO.pocket(), shirtDTO.closureType(),
+                    shirtDTO.size(), shirtDTO.sleeve(), shirtDTO.collar());
+        }
+        throw new IllegalArgumentException("Passe uma instância ShirtRequestDTO");
     }
 }
