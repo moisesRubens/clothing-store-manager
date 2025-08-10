@@ -2863,26 +2863,32 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     private void updateTable(Boolean allClothings, ClothingPiece p) throws Exception {
-        List<ClothingResponseDTO> listSearchToRemove = new ArrayList<>();
+        List<ClothingResponseDTO> list = new ArrayList<>();
+        IClothingController controller = null;
+        
+        switch(p) {
+            case ClothingPiece.SHIRT -> controller = controllers.get("shirtController");
+            case ClothingPiece.PANT -> controller = controllers.get("pantController");
+        } 
         try {
             if (allClothings == true) {
-                listSearchToRemove = controllers.get("shirtController").getAllClothings();
+                list = controller.getAllClothings();
             } else {
                 switch (p) {
                     case ClothingPiece.SHIRT -> {
                         ShirtRequestDTO shirtData = searchShirtToRemove();
-                        listSearchToRemove = controllers.get("shirtController").getClothingsList(shirtData);
+                        list = controllers.get("shirtController").getClothingsList(shirtData);
                     }
                     case ClothingPiece.PANT -> {
                         PantRequestDTO pantieData = consultarCalca();
-                        listSearchToRemove = controllers.get("pantController").getClothingsList(pantieData);
+                        list = controllers.get("pantController").getClothingsList(pantieData);
                     }
                 }
             }
         } catch (Exception e) {
-
+            handleException(e);
         } finally {
-            fillTable(listSearchToRemove, p);
+            fillTable(list, p);
         }
     }
 
