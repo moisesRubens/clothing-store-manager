@@ -38,8 +38,6 @@ public class ShirtService implements IClothingService {
         this.shirtRepository = shirtRepository;
         this.shirtMapper = shirtMapper;
     }
-
-    
     
     @Override
     public void registerClothing(ClothingRequestDTO dto) throws Exception {
@@ -84,6 +82,7 @@ public class ShirtService implements IClothingService {
         
         ShirtRequestDTO shirtDTO = (ShirtRequestDTO) dto;
         Shirt shirtFilter = (Shirt) shirtMapper.RequestDTOToEntity(shirtDTO);
+        System.out.println(shirtFilter);
         List<Shirt> filteredShirts = shirtRepository.findAll(ShirtSpecification.withFilters(shirtFilter));
 
         return filteredShirts.stream()

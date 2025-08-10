@@ -69,7 +69,7 @@ public class PantSpecification {
                 predicates.add(builder.like(root.get("closureType"), "%" + filter.getClosureType() + "%"));
             }
 
-            if (filter.getSize() != null) {
+            if (filter.getSize() != null && filter.getSize() != -1) {
                 predicates.add(builder.equal(root.get("size"), filter.getSize()));
             }
 

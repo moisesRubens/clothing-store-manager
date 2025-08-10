@@ -88,9 +88,8 @@ public class PantService implements IClothingService {
     public List<PantResponseDTO> getListClothings(ClothingRequestDTO dto) {
         PantRequestDTO pantDTO = (PantRequestDTO) dto;
         Pant pantFilter = (Pant) pantMapper.RequestDTOToEntity(pantDTO);
+        System.out.println(pantFilter);
         List<Pant> filteredPants = pantRepository.findAll(PantSpecification.withFilters(pantFilter));
-        
-        System.out.println(filteredPants);
         return filteredPants.stream()
                 .map(pant -> (PantResponseDTO) pantMapper.EntityToResponseDTO(pant))
                 .toList();
