@@ -44,11 +44,6 @@ public class ShirtController implements IClothingController {
     }
 
     @Override
-    public void incrementClothing(Integer id, Integer quantity) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
     public void decrementClothing(Integer id, Integer quantity) throws Exception {
         shirtService.decrementClothing(id, quantity);
     }

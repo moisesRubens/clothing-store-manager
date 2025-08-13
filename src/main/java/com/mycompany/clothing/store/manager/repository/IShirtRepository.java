@@ -8,7 +8,7 @@ import com.mycompany.clothing.store.manager.domain.Clothing;
 import com.mycompany.clothing.store.manager.domain.Shirt;
 import com.mycompany.clothing.store.manager.domain.enums.ClothingType;
 import com.mycompany.clothing.store.manager.domain.enums.Gender;
-import com.mycompany.clothing.store.manager.domain.enums.ShirtSize;
+import com.mycompany.clothing.store.manager.domain.enums.Size;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -33,7 +33,7 @@ public interface IShirtRepository extends JpaRepository<Shirt, Integer>, JpaSpec
             @Param("fabric") String fabric, @Param("brand") String brand,
             @Param("style") String style, @Param("gender") Gender gender,
             @Param("pattern") String pattern, @Param("pocket") Integer pocket,
-            @Param("closureType") String closureType, @Param("size") ShirtSize size,
+            @Param("closureType") String closureType, @Param("size") Size size,
             @Param("sleeve") Integer sleeve, @Param("collar") Integer collar
     );
 
@@ -62,7 +62,7 @@ public interface IShirtRepository extends JpaRepository<Shirt, Integer>, JpaSpec
             @Param("pattern") String pattern,
             @Param("pocket") Integer pocket,
             @Param("closureType") String closureType,
-            @Param("size") ShirtSize size,
+            @Param("size") Size size,
             @Param("sleeve") Integer sleeve,
             @Param("collar") Integer collar
     );

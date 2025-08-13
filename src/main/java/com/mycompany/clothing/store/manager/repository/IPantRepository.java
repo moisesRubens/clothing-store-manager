@@ -10,7 +10,7 @@ import com.mycompany.clothing.store.manager.domain.enums.ClothingType;
 import com.mycompany.clothing.store.manager.domain.enums.Gender;
 import com.mycompany.clothing.store.manager.domain.enums.HemType;
 import com.mycompany.clothing.store.manager.domain.enums.PantLengthType;
-import com.mycompany.clothing.store.manager.domain.enums.ShirtSize;
+import com.mycompany.clothing.store.manager.domain.enums.Size;
 import com.mycompany.clothing.store.manager.domain.enums.WaistType;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;

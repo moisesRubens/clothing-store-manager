@@ -18,7 +18,7 @@ import com.mycompany.clothing.store.manager.domain.enums.ClothingType;
 import com.mycompany.clothing.store.manager.domain.enums.Gender;
 import com.mycompany.clothing.store.manager.domain.enums.HemType;
 import com.mycompany.clothing.store.manager.domain.enums.PantLengthType;
-import com.mycompany.clothing.store.manager.domain.enums.ShirtSize;
+import com.mycompany.clothing.store.manager.domain.enums.Size;
 import com.mycompany.clothing.store.manager.domain.enums.WaistType;
 import java.awt.CardLayout;
 import java.util.ArrayList;
@@ -2480,7 +2480,7 @@ public class MainWindow extends javax.swing.JFrame {
         String pattern = (jTextFieldAdicionarCamisaPattern.getText().isEmpty() || jTextFieldAdicionarCamisaPattern.getText().isBlank()) ? null : jTextFieldAdicionarCamisaPattern.getText();
         String closureType = (jTextFieldAdicionarCamisaClosureType.getText().isEmpty() || jTextFieldAdicionarCamisaClosureType.getText().isBlank()) ? null : jTextFieldAdicionarCamisaClosureType.getText();
         Gender gender;
-        ShirtSize size;
+        Size size;
 
         if (color.isBlank() || brand.isBlank()) {
             throw new IllegalArgumentException("INSIRA DADOS NOS CAMPOS");
@@ -2497,11 +2497,11 @@ public class MainWindow extends javax.swing.JFrame {
 
         switch (jTextFieldAdicionarCamisaSize.getText().charAt(0)) {
             case 'P' ->
-                size = ShirtSize.SMALL;
+                size = Size.SMALL;
             case 'M' ->
-                size = ShirtSize.MEDIUM;
+                size = Size.MEDIUM;
             case 'G' ->
-                size = ShirtSize.LARGE;
+                size = Size.LARGE;
             default ->
                 throw new IllegalArgumentException("INSIRA UM TAMANHO VALIDO");
         }
@@ -2904,15 +2904,15 @@ public class MainWindow extends javax.swing.JFrame {
         String fabric = jTextFieldRemoveFabric.getText();
         String color = jTextFieldRemoveColor.getText();
         String closureType = jTextFieldRemoveClosureType.getText();
-        ShirtSize shirtSize = null;
+        Size shirtSize = null;
         Gender gender = null;
 
         if (jTextFieldRemoveSize.getText().equals("P")) {
-            shirtSize = ShirtSize.SMALL;
+            shirtSize = Size.SMALL;
         } else if (jTextFieldRemoveSize.getText().equals("M")) {
-            shirtSize = ShirtSize.MEDIUM;
+            shirtSize = Size.MEDIUM;
         } else if (jTextFieldRemoveSize.getText().equals("G")) {
-            shirtSize = ShirtSize.LARGE;
+            shirtSize = Size.LARGE;
         } else if (!jTextFieldRemoveSize.getText().isEmpty() || !jTextFieldRemoveSize.getText().isBlank()) {
             throw new IllegalArgumentException("INSIRA UM TAMANHO VALIDO");
         }
@@ -3035,15 +3035,15 @@ public class MainWindow extends javax.swing.JFrame {
         String fabric = jTextFieldConsultFabric.getText();
         String color = jTextFieldConsultColor.getText();
         String closureType = jTextFieldConsultClosureType.getText();
-        ShirtSize shirtSize = null;
+        Size shirtSize = null;
         Gender gender = null;
 
         if (jTextFieldConsultShirtSize.getText().equals("P")) {
-            shirtSize = ShirtSize.SMALL;
+            shirtSize = Size.SMALL;
         } else if (jTextFieldConsultShirtSize.getText().equals("M")) {
-            shirtSize = ShirtSize.MEDIUM;
+            shirtSize = Size.MEDIUM;
         } else if (jTextFieldConsultShirtSize.getText().equals("G")) {
-            shirtSize = ShirtSize.LARGE;
+            shirtSize = Size.LARGE;
         } else if (!jTextFieldConsultShirtSize.getText().isBlank()) {
             throw new IllegalArgumentException("INSIRA UM TAMANHO VALIDO");
         }

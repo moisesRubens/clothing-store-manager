@@ -6,7 +6,7 @@ package com.mycompany.clothing.store.manager.domain;
 
 import com.mycompany.clothing.store.manager.domain.enums.ClothingType;
 import com.mycompany.clothing.store.manager.domain.enums.Gender;
-import com.mycompany.clothing.store.manager.domain.enums.ShirtSize;
+import com.mycompany.clothing.store.manager.domain.enums.Size;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -30,7 +30,7 @@ public class Shirt extends Clothing {
     
     @Enumerated(EnumType.STRING)
     @Column(name="TAMANHO")
-    ShirtSize size;
+    Size size;
     
     @Column(name="QUANT_BOLSOS", nullable=true)
     Integer pocket;
@@ -44,7 +44,7 @@ public class Shirt extends Clothing {
     public Shirt() {}
 
     public Shirt(String color, Double price, Integer quantity, ClothingType clothingType, String fabric, String brand,
-                 String style, Gender gender, String pattern, Integer pocket, String closureType, ShirtSize size, Integer sleeve, Integer collar) {
+                 String style, Gender gender, String pattern, Integer pocket, String closureType, Size size, Integer sleeve, Integer collar) {
         super(color, price, quantity, clothingType, fabric, brand, gender, pattern);
         this.size = size;
         this.sleeve = sleeve;
@@ -93,11 +93,11 @@ public class Shirt extends Clothing {
         this.collar = collar;
     }
 
-    public ShirtSize getSize() {
+    public Size getSize() {
         return size;
     }
 
-    public void setSize(ShirtSize size) {
+    public void setSize(Size size) {
         this.size = size;
     }
 

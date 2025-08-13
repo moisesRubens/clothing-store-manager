@@ -6,49 +6,50 @@ package com.mycompany.clothing.store.manager.controller;
 
 import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingResponseDTO;
-import com.mycompany.clothing.store.manager.domain.dto.PantRequestDTO;
-import com.mycompany.clothing.store.manager.domain.dto.PantResponseDTO;
+import com.mycompany.clothing.store.manager.domain.dto.PantieRequestDTO;
+import com.mycompany.clothing.store.manager.domain.dto.PantieResponseDTO;
 import com.mycompany.clothing.store.manager.service.IClothingService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 
 /**
  *
  * @author moise
  */
-@Controller
-public class PantController implements IClothingController {
-
+public class PantieController implements IClothingController {
+    
     @Autowired
-    private IClothingService pantService;
-
+    private IClothingService pantieService;
+    
     @Override
     public void createClothing(ClothingRequestDTO clothingData) throws Exception {
-        if (!(clothingData instanceof PantRequestDTO pantDTO)) {
-            throw new IllegalArgumentException("Forneça dados corretos para a criação de uma calça");
-        } 
-        pantService.registerClothing(clothingData);
+        if(!(clothingData instanceof PantieRequestDTO)) {
+            throw new IllegalArgumentException("Passe um PantieRequestDTO");
+        }
+        pantieService.registerClothing(clothingData);
     }
 
     @Override
-    public ClothingResponseDTO consultClothing(Integer id) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public List<PantieResponseDTO> getAllClothings() throws Exception {
+        return pantieService.getAllClothings();
     }
 
     @Override
-    public List<PantResponseDTO> getAllClothings() throws Exception {
-        return pantService.getAllClothings();
-    }
-
-    @Override
-    public List<PantResponseDTO> getClothingsList(ClothingRequestDTO dto) throws Exception {
-        return pantService.getListClothings(dto);
+    public List<PantieResponseDTO> getClothingsList(ClothingRequestDTO dto) throws Exception {
+        if(!(dto instanceof PantieRequestDTO)) {
+            throw new IllegalArgumentException("Passe um PantieResponseDTO");
+        }
+        return pantieService.getListClothings(dto);
     }
 
     @Override
     public void decrementClothing(Integer id, Integer quantity) throws Exception {
-        pantService.decrementClothing(id, quantity); 
+        pantieService.decrementClothing(id, quantity);
+    }
+    
+    @Override
+    public ClothingResponseDTO consultClothing(Integer id) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
@@ -60,5 +61,5 @@ public class PantController implements IClothingController {
     public void deleteClothingsList(ClothingRequestDTO dto) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-
+    
 }

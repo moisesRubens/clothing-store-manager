@@ -6,7 +6,7 @@ package com.mycompany.clothing.store.manager.domain.dto;
 
 import com.mycompany.clothing.store.manager.domain.enums.ClothingType;
 import com.mycompany.clothing.store.manager.domain.enums.Gender;
-import com.mycompany.clothing.store.manager.domain.enums.ShirtSize;
+import com.mycompany.clothing.store.manager.domain.enums.Size;
 
 /**
  *
@@ -15,5 +15,5 @@ import com.mycompany.clothing.store.manager.domain.enums.ShirtSize;
 public record ShirtRequestDTO(String color, Double price, Integer quantity, String fabric,
                               String brand, String style, Gender gender, String pattern, 
                               Integer pocket, String closureType, ClothingType clothingType,
-                              Integer sleeve, Integer collar, ShirtSize size) implements ClothingRequestDTO {
+                              Integer sleeve, Integer collar, Size size) implements ClothingRequestDTO {
 }

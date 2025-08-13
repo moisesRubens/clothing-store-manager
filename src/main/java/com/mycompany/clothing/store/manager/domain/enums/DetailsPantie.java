@@ -8,8 +8,12 @@ package com.mycompany.clothing.store.manager.domain.enums;
  *
  * @author moise
  */
-public enum ShirtSize {
-    SMALL,
-    MEDIUM, 
-    LARGE
+public enum DetailsPantie {
+    LACE,         // Renda
+    BOW,          // Laço
+    EMBROIDERY,   // Bordado
+    PRINT,        // Estampa
+    RUFFLES,      // Babados
+    MESH,         // Tule / Tela
+    SEQUINS      // Lantejoulas
 }

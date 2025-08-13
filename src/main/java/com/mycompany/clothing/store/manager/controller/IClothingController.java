@@ -22,8 +22,6 @@ public interface IClothingController {
     
     <T extends ClothingResponseDTO> List<T> getClothingsList(ClothingRequestDTO dto) throws Exception;
     
-    void incrementClothing(Integer id, Integer quantity) throws Exception;
-    
     void decrementClothing(Integer id, Integer quantity) throws Exception;
     
     void deleteClothing(Integer id) throws Exception;

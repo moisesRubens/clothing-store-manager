@@ -12,7 +12,7 @@ import com.mycompany.clothing.store.manager.domain.dto.ShirtRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ShirtResponseDTO;
 import com.mycompany.clothing.store.manager.domain.enums.ClothingType;
 import com.mycompany.clothing.store.manager.domain.enums.Gender;
-import com.mycompany.clothing.store.manager.domain.enums.ShirtSize;
+import com.mycompany.clothing.store.manager.domain.enums.Size;
 import com.mycompany.clothing.store.manager.repository.IShirtRepository;
 import com.mycompany.clothing.store.manager.repository.ShirtSpecification;
 import com.mycompany.clothing.store.manager.service.mapper.ClothingMapper;
