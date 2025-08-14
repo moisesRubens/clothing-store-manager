@@ -4,11 +4,12 @@
  */
 package com.mycompany.clothing.store.manager.controller;
 
+import com.mycompany.clothing.store.manager.interfaces.IClothingController;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingResponseDTO;
 import com.mycompany.clothing.store.manager.domain.dto.PantRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.PantResponseDTO;
-import com.mycompany.clothing.store.manager.service.IClothingService;
+import com.mycompany.clothing.store.manager.interfaces.IClothingService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

@@ -4,6 +4,7 @@
  */
 package com.mycompany.clothing.store.manager.service;
 
+import com.mycompany.clothing.store.manager.interfaces.IClothingService;
 import com.mycompany.clothing.store.manager.domain.Pant;
 import com.mycompany.clothing.store.manager.domain.Shirt;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
@@ -15,11 +16,11 @@ import com.mycompany.clothing.store.manager.domain.dto.ShirtResponseDTO;
 import com.mycompany.clothing.store.manager.domain.enums.ClothingType;
 import com.mycompany.clothing.store.manager.domain.enums.Gender;
 import com.mycompany.clothing.store.manager.domain.enums.PantLengthType;
+import com.mycompany.clothing.store.manager.interfaces.IClothingMapper;
 import com.mycompany.clothing.store.manager.repository.IPantRepository;
 import com.mycompany.clothing.store.manager.repository.IShirtRepository;
 import com.mycompany.clothing.store.manager.repository.PantSpecification;
 import com.mycompany.clothing.store.manager.repository.ShirtSpecification;
-import com.mycompany.clothing.store.manager.service.mapper.ClothingMapper;
 import com.mycompany.clothing.store.manager.service.mapper.PantMapper;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +37,7 @@ import org.springframework.stereotype.Service;
 public class PantService implements IClothingService {
 
     private IPantRepository pantRepository;
-    private ClothingMapper pantMapper;
+    private IClothingMapper pantMapper;
 
     @Autowired
     public PantService(IPantRepository pantRepository, PantMapper pantMapper) {
@@ -48,9 +49,7 @@ public class PantService implements IClothingService {
 
     @Override
     public void registerClothing(ClothingRequestDTO dto) throws Exception {
-
-        PantRequestDTO pantDTO = (PantRequestDTO) dto;
-        Pant pant = (Pant) pantMapper.RequestDTOToEntity(pantDTO);
+        Pant pant = pantMapper.RequestDTOToEntity(dto);
         Optional<Pant> found = pantRepository.findExistingPant(pant.getColor(), pant.getClothingType(), pant.getFabric(), 
                 pant.getBrand(), pant.getStyle(), pant.getGender(), pant.getPattern(), pant.getPocket(), pant.getClosureType(),
                 pant.getSize(), pant.getHemType(), pant.getLength(), pant.getWaistType());

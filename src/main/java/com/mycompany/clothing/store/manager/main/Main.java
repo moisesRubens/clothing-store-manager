@@ -1,7 +1,7 @@
 package com.mycompany.clothing.store.manager.main;
 
 import com.mycompany.clothing.store.manager.configuration.SpringConfig;
-import com.mycompany.clothing.store.manager.controller.IClothingController;
+import com.mycompany.clothing.store.manager.interfaces.IClothingController;
 import com.mycompany.clothing.store.manager.controller.PantController;
 import com.mycompany.clothing.store.manager.controller.ShirtController;
 import com.mycompany.clothing.store.manager.service.PantService;

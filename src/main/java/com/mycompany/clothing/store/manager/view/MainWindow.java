@@ -5,7 +5,7 @@
 package com.mycompany.clothing.store.manager.view;
 
 import com.mycompany.clothing.store.manager.configuration.exception.RoupaNaoExistenteException;
-import com.mycompany.clothing.store.manager.controller.IClothingController;
+import com.mycompany.clothing.store.manager.interfaces.IClothingController;
 import com.mycompany.clothing.store.manager.domain.Clothing;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingResponseDTO;

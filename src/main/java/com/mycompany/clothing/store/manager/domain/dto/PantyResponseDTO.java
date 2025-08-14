@@ -16,7 +16,7 @@ import com.mycompany.clothing.store.manager.domain.enums.WaistType;
  *
  * @author moise
  */
-public record PantieResponseDTO(
+public record PantyResponseDTO(
     Integer id,
     String color,
     Integer quantity,

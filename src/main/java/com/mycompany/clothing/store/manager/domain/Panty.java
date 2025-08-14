@@ -19,40 +19,53 @@ import jakarta.persistence.Entity;
  * @author moise
  */
 @Entity
-public class Pantie extends Clothing {
-    
-    @Column(name="TAMANHO")
+public class Panty extends Clothing {
+
+    @Column(name = "TAMANHO")
     private Size size;
-    
-    @Column(name="CINTURA")
+
+    @Column(name = "CINTURA")
     private WaistType waist;
-    
-    @Column(nullable=true, name="FORRO")
+
+    @Column(nullable = true, name = "FORRO")
     private LiningType lining;
-    
-    @Column(nullable=true, name="CORTE")
+
+    @Column(nullable = true, name = "CORTE")
     private CutType cut;
-    
-    @Column(nullable=true, name="DETALHE")
+
+    @Column(nullable = true, name = "DETALHE")
     private DetailsPantie details;
 
-    public Pantie() {
+    @Column(nullable = true, name = "estilo")
+    private String style;
+
+    public Panty() {
     }
 
-    public Pantie(Size size, WaistType waist, LiningType lining, CutType cut, DetailsPantie details, String color, Double price, Integer quantity, ClothingType clothingType, String fabric, String brand, Gender gender, String pattern) {
+    public Panty(Size size, WaistType waist, LiningType lining, CutType cut, DetailsPantie details, String color, Double price, Integer quantity,
+            ClothingType clothingType, String fabric, String brand, Gender gender, String pattern, String style) {
         super(color, price, quantity, clothingType, fabric, brand, gender, pattern);
         this.size = size;
         this.waist = waist;
         this.lining = lining;
         this.cut = cut;
         this.details = details;
+        this.style = style;
     }
 
     @Override
     public String toString() {
-        return super.toString() + "Pantie{" + "size=" + size + ", waist=" + waist + ", lining=" + lining + ", cut=" + cut + ", details=" + details + '}';
+        return super.toString() + "Pantie{" + "size=" + size + ", waist=" + waist + ", lining=" + lining + ", cut=" + cut + ", details=" + details + ", style="+ style + '}';
     }
 
+    public String getStyle() {
+        return style;
+    }
+
+    public void setStyle(String style) {
+        this.style = style;
+    }
+    
     public Size getSize() {
         return size;
     }
@@ -92,7 +105,5 @@ public class Pantie extends Clothing {
     public void setDetails(DetailsPantie details) {
         this.details = details;
     }
-    
-    
-    
+
 }

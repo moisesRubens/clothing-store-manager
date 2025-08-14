@@ -7,9 +7,9 @@ package com.mycompany.clothing.store.manager.service.mapper;
 import com.mycompany.clothing.store.manager.domain.Clothing;
 import com.mycompany.clothing.store.manager.domain.Pant;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
-import com.mycompany.clothing.store.manager.domain.dto.ClothingResponseDTO;
 import com.mycompany.clothing.store.manager.domain.dto.PantRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.PantResponseDTO;
+import com.mycompany.clothing.store.manager.interfaces.IClothingMapper;
 import org.springframework.stereotype.Component;
 
 /**
@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
  * @author moise
  */
 @Component
-public class PantMapper extends ClothingMapper {
+public class PantMapper implements IClothingMapper {
 
     @Override
     public PantResponseDTO EntityToResponseDTO(Clothing clothing) throws Exception {

@@ -4,11 +4,12 @@
  */
 package com.mycompany.clothing.store.manager.controller;
 
+import com.mycompany.clothing.store.manager.interfaces.IClothingController;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingResponseDTO;
-import com.mycompany.clothing.store.manager.domain.dto.PantieRequestDTO;
-import com.mycompany.clothing.store.manager.domain.dto.PantieResponseDTO;
-import com.mycompany.clothing.store.manager.service.IClothingService;
+import com.mycompany.clothing.store.manager.domain.dto.PantyRequestDTO;
+import com.mycompany.clothing.store.manager.domain.dto.PantyResponseDTO;
+import com.mycompany.clothing.store.manager.interfaces.IClothingService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -16,27 +17,27 @@ import org.springframework.beans.factory.annotation.Autowired;
  *
  * @author moise
  */
-public class PantieController implements IClothingController {
+public class PantyController implements IClothingController {
     
     @Autowired
     private IClothingService pantieService;
     
     @Override
     public void createClothing(ClothingRequestDTO clothingData) throws Exception {
-        if(!(clothingData instanceof PantieRequestDTO)) {
+        if(!(clothingData instanceof PantyRequestDTO)) {
             throw new IllegalArgumentException("Passe um PantieRequestDTO");
         }
         pantieService.registerClothing(clothingData);
     }
 
     @Override
-    public List<PantieResponseDTO> getAllClothings() throws Exception {
+    public List<PantyResponseDTO> getAllClothings() throws Exception {
         return pantieService.getAllClothings();
     }
 
     @Override
-    public List<PantieResponseDTO> getClothingsList(ClothingRequestDTO dto) throws Exception {
-        if(!(dto instanceof PantieRequestDTO)) {
+    public List<PantyResponseDTO> getClothingsList(ClothingRequestDTO dto) throws Exception {
+        if(!(dto instanceof PantyRequestDTO)) {
             throw new IllegalArgumentException("Passe um PantieResponseDTO");
         }
         return pantieService.getListClothings(dto);

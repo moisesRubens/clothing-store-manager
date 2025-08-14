@@ -4,6 +4,7 @@
  */
 package com.mycompany.clothing.store.manager.service;
 
+import com.mycompany.clothing.store.manager.interfaces.IClothingService;
 import com.mycompany.clothing.store.manager.domain.Clothing;
 import com.mycompany.clothing.store.manager.domain.Shirt;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
@@ -13,9 +14,9 @@ import com.mycompany.clothing.store.manager.domain.dto.ShirtResponseDTO;
 import com.mycompany.clothing.store.manager.domain.enums.ClothingType;
 import com.mycompany.clothing.store.manager.domain.enums.Gender;
 import com.mycompany.clothing.store.manager.domain.enums.Size;
+import com.mycompany.clothing.store.manager.interfaces.IClothingMapper;
 import com.mycompany.clothing.store.manager.repository.IShirtRepository;
 import com.mycompany.clothing.store.manager.repository.ShirtSpecification;
-import com.mycompany.clothing.store.manager.service.mapper.ClothingMapper;
 import com.mycompany.clothing.store.manager.service.mapper.ShirtMapper;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +33,7 @@ import org.springframework.stereotype.Service;
 public class ShirtService implements IClothingService {
 
     private IShirtRepository shirtRepository;
-    private ClothingMapper shirtMapper;
+    private IClothingMapper shirtMapper;
 
     @Autowired
     public ShirtService(IShirtRepository shirtRepository, ShirtMapper shirtMapper) {
