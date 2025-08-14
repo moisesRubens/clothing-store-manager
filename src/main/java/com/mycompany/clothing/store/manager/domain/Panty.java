@@ -34,7 +34,7 @@ public class Panty extends Clothing {
     private CutType cut;
 
     @Column(nullable = true, name = "DETALHE")
-    private DetailsPantie details;
+    private DetailsPantie detail;
 
     @Column(nullable = true, name = "estilo")
     private String style;
@@ -42,20 +42,20 @@ public class Panty extends Clothing {
     public Panty() {
     }
 
-    public Panty(Size size, WaistType waist, LiningType lining, CutType cut, DetailsPantie details, String color, Double price, Integer quantity,
+    public Panty(Size size, WaistType waist, LiningType lining, CutType cut, DetailsPantie detail, String color, Double price, Integer quantity,
             ClothingType clothingType, String fabric, String brand, Gender gender, String pattern, String style) {
         super(color, price, quantity, clothingType, fabric, brand, gender, pattern);
         this.size = size;
         this.waist = waist;
         this.lining = lining;
         this.cut = cut;
-        this.details = details;
+        this.detail = detail;
         this.style = style;
     }
 
     @Override
     public String toString() {
-        return super.toString() + "Pantie{" + "size=" + size + ", waist=" + waist + ", lining=" + lining + ", cut=" + cut + ", details=" + details + ", style="+ style + '}';
+        return super.toString() + "Pantie{" + "size=" + size + ", waist=" + waist + ", lining=" + lining + ", cut=" + cut + ", details=" + detail + ", style="+ style + '}';
     }
 
     public String getStyle() {
@@ -98,12 +98,12 @@ public class Panty extends Clothing {
         this.cut = cut;
     }
 
-    public DetailsPantie getDetails() {
-        return details;
+    public DetailsPantie getDetail() {
+        return detail;
     }
 
-    public void setDetails(DetailsPantie details) {
-        this.details = details;
+    public void setDetails(DetailsPantie detail) {
+        this.detail = detail;
     }
 
 }

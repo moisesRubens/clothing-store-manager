@@ -27,7 +27,7 @@ public record PantyResponseDTO(
     Gender gender,
     String pattern,
     ClothingType clothingType, CutType cut,
-    DetailsPantie details, LiningType lining, 
+    DetailsPantie detail, LiningType lining, 
     Size size, WaistType waist) implements ClothingResponseDTO{
 
 }

@@ -8,11 +8,13 @@ import com.mycompany.clothing.store.manager.domain.Clothing;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingResponseDTO;
 import java.util.List;
+import org.springframework.stereotype.Component;
 
 /**
  *
  * @author moise
  */
+@Component
 public interface IClothingService {
     
     void registerClothing(ClothingRequestDTO dto) throws Exception;

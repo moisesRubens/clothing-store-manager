@@ -3,8 +3,10 @@ package com.mycompany.clothing.store.manager.main;
 import com.mycompany.clothing.store.manager.configuration.SpringConfig;
 import com.mycompany.clothing.store.manager.interfaces.IClothingController;
 import com.mycompany.clothing.store.manager.controller.PantController;
+import com.mycompany.clothing.store.manager.controller.PantyController;
 import com.mycompany.clothing.store.manager.controller.ShirtController;
 import com.mycompany.clothing.store.manager.service.PantService;
+import com.mycompany.clothing.store.manager.service.PantyService;
 import com.mycompany.clothing.store.manager.view.MainWindow;
 import java.util.HashMap;
 import java.util.Map;
@@ -37,9 +39,13 @@ public class Main {
         PantService pantService = context.getBean(PantService.class);
         PantController pantController = context.getBean(PantController.class);
         
+        PantyService pantyService = context.getBean(PantyService.class);
+        PantyController pantyController = context.getBean(PantyController.class);
+        
         Map controllers = new HashMap<String, IClothingController>();
         controllers.put("shirtController", shirtController);
         controllers.put("pantController", pantController);
+        controllers.put("pantyController", pantyController);
         
         MainWindow window = new MainWindow(controllers);
         window.setVisible(true);

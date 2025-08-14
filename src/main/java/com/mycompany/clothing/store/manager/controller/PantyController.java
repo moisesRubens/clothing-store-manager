@@ -12,27 +12,29 @@ import com.mycompany.clothing.store.manager.domain.dto.PantyResponseDTO;
 import com.mycompany.clothing.store.manager.interfaces.IClothingService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
 /**
  *
  * @author moise
  */
+@Controller
 public class PantyController implements IClothingController {
     
     @Autowired
-    private IClothingService pantieService;
+    private IClothingService pantyService;
     
     @Override
     public void createClothing(ClothingRequestDTO clothingData) throws Exception {
         if(!(clothingData instanceof PantyRequestDTO)) {
             throw new IllegalArgumentException("Passe um PantieRequestDTO");
         }
-        pantieService.registerClothing(clothingData);
+        pantyService.registerClothing(clothingData);
     }
 
     @Override
     public List<PantyResponseDTO> getAllClothings() throws Exception {
-        return pantieService.getAllClothings();
+        return pantyService.getAllClothings();
     }
 
     @Override
@@ -40,12 +42,12 @@ public class PantyController implements IClothingController {
         if(!(dto instanceof PantyRequestDTO)) {
             throw new IllegalArgumentException("Passe um PantieResponseDTO");
         }
-        return pantieService.getListClothings(dto);
+        return pantyService.getListClothings(dto);
     }
 
     @Override
     public void decrementClothing(Integer id, Integer quantity) throws Exception {
-        pantieService.decrementClothing(id, quantity);
+        pantyService.decrementClothing(id, quantity);
     }
     
     @Override

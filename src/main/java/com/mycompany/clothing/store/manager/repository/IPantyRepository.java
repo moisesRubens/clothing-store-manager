@@ -18,6 +18,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 /**
  *
@@ -40,7 +41,7 @@ public interface IPantyRepository extends JpaRepository<Panty, Integer>, JpaSpec
     AND (:cut IS NULL OR p.cut = :cut)
     AND (:detail IS NULL OR p.detail = :detail)
     """)
-    Optional<Panty> findExistingPant(
+    Optional<Panty> findExistingPanty(
             @Param("color") String color,
             @Param("clothingType") ClothingType clothingType,
             @Param("fabric") String fabric,
@@ -48,7 +49,7 @@ public interface IPantyRepository extends JpaRepository<Panty, Integer>, JpaSpec
             @Param("gender") Gender gender,
             @Param("pattern") String pattern,
             @Param("style") String style,
-            @Param("details") DetailsPantie detail,
+            @Param("detail") DetailsPantie detail,
             @Param("size") Size size, 
             @Param("lining") LiningType lining,
             @Param("cut") CutType cut,

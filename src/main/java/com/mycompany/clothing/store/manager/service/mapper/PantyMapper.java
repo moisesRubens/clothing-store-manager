@@ -10,11 +10,13 @@ import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.PantyRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.PantyResponseDTO;
 import com.mycompany.clothing.store.manager.interfaces.IClothingMapper;
+import org.springframework.stereotype.Component;
 
 /**
  *
  * @author moise
  */
+@Component
 public class PantyMapper implements IClothingMapper {
 
     @Override
@@ -22,7 +24,7 @@ public class PantyMapper implements IClothingMapper {
         if (clothing instanceof Panty panty) {
             return new PantyResponseDTO(panty.getId(), panty.getColor(), panty.getQuantity(), panty.getPrice(),
                     panty.getFabric(), panty.getBrand(), panty.getStyle(), panty.getGender(), panty.getPattern(), panty.getClothingType(),
-                    panty.getCut(), panty.getDetails(), panty.getLining(), panty.getSize(), panty.getWaist());
+                    panty.getCut(), panty.getDetail(), panty.getLining(), panty.getSize(), panty.getWaist());
         }
         throw new IllegalArgumentException("Passe um Panty");
     }
@@ -30,7 +32,7 @@ public class PantyMapper implements IClothingMapper {
     @Override
     public Panty RequestDTOToEntity(ClothingRequestDTO dto) throws Exception {
         if (dto instanceof PantyRequestDTO pantyDTO) {
-            return new Panty(pantyDTO.size(), pantyDTO.waist(), pantyDTO.lining(), pantyDTO.cut(), pantyDTO.details(),
+            return new Panty(pantyDTO.size(), pantyDTO.waist(), pantyDTO.lining(), pantyDTO.cut(), pantyDTO.detail(),
                     pantyDTO.color(), pantyDTO.price(), pantyDTO.quantity(), pantyDTO.clothingType(), pantyDTO.fabric(),
                     pantyDTO.brand(), pantyDTO.gender(), pantyDTO.pattern(), pantyDTO.style());
         }

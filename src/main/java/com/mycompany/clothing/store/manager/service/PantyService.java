@@ -19,26 +19,33 @@ import com.mycompany.clothing.store.manager.domain.enums.Size;
 import com.mycompany.clothing.store.manager.domain.enums.WaistType;
 import com.mycompany.clothing.store.manager.interfaces.IClothingMapper;
 import com.mycompany.clothing.store.manager.repository.IPantyRepository;
+import com.mycompany.clothing.store.manager.service.mapper.PantyMapper;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author moise
  */
+@Service
 public class PantyService implements IClothingService {
 
-    @Autowired
     private IPantyRepository pantyRepository;
-    @Autowired
     private IClothingMapper pantyMapper;
 
+    @Autowired
+    public PantyService(IPantyRepository pantyRepository, PantyMapper pantyMapper) {
+        this.pantyRepository = pantyRepository;
+        this.pantyMapper = pantyMapper;
+    }
+    
     @Override
     public void registerClothing(ClothingRequestDTO dto) throws Exception {
         Panty panty = pantyMapper.RequestDTOToEntity(dto);
-        Optional<Panty> found = pantyRepository.findExistingPant(panty.getColor() , panty.getClothingType(), panty.getFabric(), panty.getBrand(),
-                panty.getGender(), panty.getPattern(), panty.getStyle(), panty.getDetails(), panty.getSize(), panty.getLining(), panty.getCut(),
+        Optional<Panty> found = pantyRepository.findExistingPanty(panty.getColor() , panty.getClothingType(), panty.getFabric(), panty.getBrand(),
+                panty.getGender(), panty.getPattern(), panty.getStyle(), panty.getDetail(), panty.getSize(), panty.getLining(), panty.getCut(),
                 panty.getWaist());
 
         if (found.isPresent()) {
