@@ -6,7 +6,7 @@ package com.mycompany.clothing.store.manager.domain.dto;
 
 import com.mycompany.clothing.store.manager.domain.enums.ClothingType;
 import com.mycompany.clothing.store.manager.domain.enums.CutType;
-import com.mycompany.clothing.store.manager.domain.enums.DetailsPantie;
+import com.mycompany.clothing.store.manager.domain.enums.DetailPanty;
 import com.mycompany.clothing.store.manager.domain.enums.Gender;
 import com.mycompany.clothing.store.manager.domain.enums.LiningType;
 import com.mycompany.clothing.store.manager.domain.enums.Size;
@@ -27,7 +27,7 @@ public record PantyRequestDTO(
     Gender gender,
     String pattern,
     ClothingType clothingType, CutType cut,
-    DetailsPantie detail, LiningType lining, 
+    DetailPanty detail, LiningType lining, 
     Size size, WaistType waist) implements ClothingRequestDTO {
 
 }

@@ -10,16 +10,19 @@ import com.mycompany.clothing.store.manager.domain.Pant;
 import com.mycompany.clothing.store.manager.domain.Panty;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingResponseDTO;
+import com.mycompany.clothing.store.manager.domain.dto.PantyResponseDTO;
 import com.mycompany.clothing.store.manager.domain.enums.ClothingType;
 import com.mycompany.clothing.store.manager.domain.enums.CutType;
-import com.mycompany.clothing.store.manager.domain.enums.DetailsPantie;
+import com.mycompany.clothing.store.manager.domain.enums.DetailPanty;
 import com.mycompany.clothing.store.manager.domain.enums.Gender;
 import com.mycompany.clothing.store.manager.domain.enums.LiningType;
 import com.mycompany.clothing.store.manager.domain.enums.Size;
 import com.mycompany.clothing.store.manager.domain.enums.WaistType;
 import com.mycompany.clothing.store.manager.interfaces.IClothingMapper;
 import com.mycompany.clothing.store.manager.repository.IPantyRepository;
+import com.mycompany.clothing.store.manager.repository.PantySpecification;
 import com.mycompany.clothing.store.manager.service.mapper.PantyMapper;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,17 +62,40 @@ public class PantyService implements IClothingService {
 
     @Override
     public void decrementClothing(Integer id, Integer quantity) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        Panty panty = pantyRepository.findById(id)
+                .orElseThrow(() -> new IllegalStateException("Calcinha de id " + id + " não encontrada"));
+        int newQuantity = panty.getQuantity() - quantity;
+        if(newQuantity < 0) {
+            throw new IllegalStateException("Quantidade insuficiente para a remoção do modelo de calcinha: "+id);
+        } else if(newQuantity == 0) {
+            pantyRepository.delete(panty);
+        } else {
+            panty.setQuantity(newQuantity);
+            pantyRepository.save(panty);
+        }
+        
     }
 
     @Override
-    public <T extends ClothingResponseDTO> List<T> getAllClothings() throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public List<PantyResponseDTO> getAllClothings() throws Exception {
+        List <Panty> list = pantyRepository.findAll();
+        List<PantyResponseDTO> listDTO = new ArrayList<>();
+        for(Panty p : list) {
+            listDTO.add(pantyMapper.EntityToResponseDTO(p));
+        }
+        return listDTO;
     }
 
     @Override
-    public <T extends ClothingResponseDTO> List<T> getListClothings(ClothingRequestDTO dto) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public List<PantyResponseDTO> getListClothings(ClothingRequestDTO dto) throws Exception {
+        Panty pantyFilter = pantyMapper.RequestDTOToEntity(dto);
+        List<Panty> filteredPants = pantyRepository.findAll(PantySpecification.withFilters(pantyFilter));
+        List<PantyResponseDTO> list = new ArrayList<>();
+        
+        for(Panty panty: filteredPants) {
+            list.add(pantyMapper.EntityToResponseDTO(panty));
+        }
+        return list;
     }
 
 }

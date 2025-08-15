@@ -6,7 +6,7 @@ package com.mycompany.clothing.store.manager.domain;
 
 import com.mycompany.clothing.store.manager.domain.enums.ClothingType;
 import com.mycompany.clothing.store.manager.domain.enums.CutType;
-import com.mycompany.clothing.store.manager.domain.enums.DetailsPantie;
+import com.mycompany.clothing.store.manager.domain.enums.DetailPanty;
 import com.mycompany.clothing.store.manager.domain.enums.Gender;
 import com.mycompany.clothing.store.manager.domain.enums.LiningType;
 import com.mycompany.clothing.store.manager.domain.enums.Size;
@@ -34,7 +34,7 @@ public class Panty extends Clothing {
     private CutType cut;
 
     @Column(nullable = true, name = "DETALHE")
-    private DetailsPantie detail;
+    private DetailPanty detail;
 
     @Column(nullable = true, name = "estilo")
     private String style;
@@ -42,7 +42,7 @@ public class Panty extends Clothing {
     public Panty() {
     }
 
-    public Panty(Size size, WaistType waist, LiningType lining, CutType cut, DetailsPantie detail, String color, Double price, Integer quantity,
+    public Panty(Size size, WaistType waist, LiningType lining, CutType cut, DetailPanty detail, String color, Double price, Integer quantity,
             ClothingType clothingType, String fabric, String brand, Gender gender, String pattern, String style) {
         super(color, price, quantity, clothingType, fabric, brand, gender, pattern);
         this.size = size;
@@ -98,11 +98,11 @@ public class Panty extends Clothing {
         this.cut = cut;
     }
 
-    public DetailsPantie getDetail() {
+    public DetailPanty getDetail() {
         return detail;
     }
 
-    public void setDetails(DetailsPantie detail) {
+    public void setDetails(DetailPanty detail) {
         this.detail = detail;
     }
 

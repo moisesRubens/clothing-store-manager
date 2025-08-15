@@ -8,7 +8,7 @@ import com.mycompany.clothing.store.manager.domain.Pant;
 import com.mycompany.clothing.store.manager.domain.Panty;
 import com.mycompany.clothing.store.manager.domain.enums.ClothingType;
 import com.mycompany.clothing.store.manager.domain.enums.CutType;
-import com.mycompany.clothing.store.manager.domain.enums.DetailsPantie;
+import com.mycompany.clothing.store.manager.domain.enums.DetailPanty;
 import com.mycompany.clothing.store.manager.domain.enums.Gender;
 import com.mycompany.clothing.store.manager.domain.enums.LiningType;
 import com.mycompany.clothing.store.manager.domain.enums.Size;
@@ -24,7 +24,7 @@ import org.springframework.stereotype.Repository;
  *
  * @author moise
  */
-public interface IPantyRepository extends JpaRepository<Panty, Integer>, JpaSpecificationExecutor<Panty>{
+public interface IPantyRepository extends JpaRepository<Panty, Integer>, JpaSpecificationExecutor<Panty> {
     
     @Query("""
     SELECT p FROM Panty p
@@ -49,7 +49,7 @@ public interface IPantyRepository extends JpaRepository<Panty, Integer>, JpaSpec
             @Param("gender") Gender gender,
             @Param("pattern") String pattern,
             @Param("style") String style,
-            @Param("detail") DetailsPantie detail,
+            @Param("detail") DetailPanty detail,
             @Param("size") Size size, 
             @Param("lining") LiningType lining,
             @Param("cut") CutType cut,

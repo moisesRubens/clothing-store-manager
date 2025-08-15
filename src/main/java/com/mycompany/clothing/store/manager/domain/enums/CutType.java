@@ -12,8 +12,6 @@ public enum CutType {
     THONG,      // Fio dental — parte traseira mínima
     BIKINI,     // Corte tradicional de biquíni
     HIPSTER,    // Cós baixo e laterais mais largas
-    BOYSHORT,   // Corte tipo shortinho
-    G_STRING,   // Fio dental ainda mais minimalista que o thong
     TANGA,      // Laterais finas e parte traseira média
     FULL_BRIEF  // Modelo com maior cobertura frontal e traseira
 }

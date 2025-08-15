@@ -2309,11 +2309,9 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="PanelAddPantie">
+    <Container class="javax.swing.JPanel" name="AddPantyPanelColor">
       <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="99" green="99" red="0" type="rgb"/>
-        </Property>
+        <Property name="name" type="java.lang.String" value="AddPantyPanelColor" noResource="true"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -2327,100 +2325,112 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="jButtonAddPantieBack" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="360" max="32767" attributes="0"/>
-                          <Component id="jButtonAddPantie" min="-2" pref="130" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="343" max="-2" attributes="0"/>
-                          <Component id="jButtonAddPantieExit" min="-2" max="-2" attributes="0"/>
-                      </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel5" alignment="0" min="-2" pref="24" max="-2" attributes="0"/>
-                                      <Component id="jLabel8" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
-                                      <Component id="jLabel10" alignment="0" min="-2" pref="51" max="-2" attributes="0"/>
+                                      <Component id="jLabel19" alignment="0" min="-2" pref="24" max="-2" attributes="0"/>
+                                      <Component id="jLabel22" alignment="0" min="-2" pref="51" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jTextFieldAddPantieSize" min="-2" pref="71" max="-2" attributes="0"/>
-                                      <Component id="jTextFieldAddPantieBrand" min="-2" pref="71" max="-2" attributes="0"/>
-                                      <Component id="jTextFieldAddPantieColor" min="-2" pref="71" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldAddPantyPanelBrand" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldAddPantyPanelColor" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel9" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                                      <Component id="jLabelAddPantiePrice" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
-                                      <Component id="jLabel13" alignment="0" min="-2" pref="53" max="-2" attributes="0"/>
-                                      <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabelAddPantiePrice1" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
-                                      <Component id="jLabelAddPantiePrice3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel21" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                                      <Component id="jLabelAddPantiePrice2" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
+                                      <Component id="jLabel16" alignment="0" min="-2" pref="53" max="-2" attributes="0"/>
+                                      <Component id="jLabel23" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelAddPantiePrice4" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
+                                      <Component id="jLabelAddPantyCut" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel24" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jCheckBoxAddPantieStyleTraditional" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxAddPantyPanelDetailLace" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jCheckBoxAddPantieStyleThong" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxAddPantyPanelDetailBow" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jCheckBoxAddPantieStyleTanga" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxAddPantyPanelDetailEmbroidery" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jCheckBoxAddPantieStyleBikini" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxAddPantyPanelDetailRuffles" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="jCheckBoxAddPantieStyleRetro" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldAddPantyPanelStyle" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldAddPantyPanelPattern" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jCheckBoxAddPantieStyleHighWaist" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxAddPantyPanelLiningTypeCotton" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jCheckBoxAddPantieStyleSeamless" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxAddPantyPanelLiningTypeMicrofiber" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jCheckBoxAddPantieStyleBoyShort" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="jTextFieldAddPantieFabric" min="-2" pref="71" max="-2" attributes="0"/>
-                                      <Component id="jTextFieldAddPantiePattern" min="-2" pref="71" max="-2" attributes="0"/>
-                                      <Component id="jTextFieldAddPantiePrice" min="-2" pref="71" max="-2" attributes="0"/>
-                                      <Component id="jTextFieldAddPantieQuantity" min="-2" pref="71" max="-2" attributes="0"/>
-                                      <Group type="102" attributes="0">
-                                          <Component id="jCheckBoxAddPantieLingingTypeCotton" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxAddPantyPanelLiningTypeViscose" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jCheckBoxAddPantieLingingTypeMicrofiber" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jCheckBoxAddPantieLingingTypeViscose" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jCheckBoxAddPantieLingingTypePolyester" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxAddPantyPanelLiningTypePolyester" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jCheckBoxAddPantieSideTypeThin" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxAddPantyPanelCutTypeBiquini" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jCheckBoxAddPantieSideTypeMid" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxAddPantyPanelCutTypeHipster" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jCheckBoxAddPantieSideTypeWide" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxAddPantyPanelCutTypeFullBrief" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxAddPantyPanelCutTypeTanga" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxAddPantyPanelCutTypeThong" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jCheckBoxAddPantieWaistTypeLow" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxAddPantyPanelWaistTypeLow" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jCheckBoxAddPantieWaistTypeMid" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jCheckBoxAddPantyPanelWaistTypeMid" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" attributes="0">
-                                                  <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="AddPantyPanelGender" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Component id="jTextFieldAddPantieGender" min="-2" pref="71" max="-2" attributes="0"/>
+                                                  <Component id="jTextFieldAddPantyPanelGender" min="-2" pref="71" max="-2" attributes="0"/>
                                               </Group>
-                                              <Group type="102" attributes="0">
-                                                  <Component id="jCheckBoxAddPantieWaistTypeHigh" min="-2" max="-2" attributes="0"/>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="jCheckBoxAddPantyPanelWaistTypeHigh" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Component id="jCheckBoxAddPantieWaistTypeElastic" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jCheckBoxAddPantyPanelWaistTypeElastic" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jTextFieldAddPantyPanelPrice" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
+                                              <Component id="jTextFieldAddPantyPanelQuantity" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace pref="359" max="32767" attributes="0"/>
+                                          <Component id="jButtonAddPanty" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabelAddPantiePrice5" min="-2" pref="96" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="jCheckBoxAddPantyPanelSizeSmall" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="jCheckBoxAddPantyPanelSizeMid" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="jCheckBoxAddPantyPanelSizeLarge" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="AddPantyPanelFabric" min="-2" pref="51" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldAddPantyPanelFabric" min="-2" pref="71" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="181" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="jButton4" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -2429,98 +2439,104 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                          <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldAddPantieGender" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="AddPantyPanelGender" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldAddPantyPanelGender" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                          <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldAddPantyPanelColor" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="AddPantyPanelFabric" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldAddPantyPanelFabric" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldAddPantyPanelBrand" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextFieldAddPantyPanelQuantity" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabelAddPantiePrice2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextFieldAddPantyPanelPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                          <Component id="jButtonAddPanty" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldAddPantyPanelPattern" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel23" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldAddPantyPanelStyle" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabelAddPantiePrice4" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxAddPantyPanelWaistTypeMid" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxAddPantyPanelWaistTypeHigh" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxAddPantyPanelWaistTypeLow" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxAddPantyPanelWaistTypeElastic" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldAddPantieColor" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCheckBoxAddPantyPanelCutTypeHipster" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCheckBoxAddPantyPanelCutTypeFullBrief" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCheckBoxAddPantyPanelCutTypeBiquini" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCheckBoxAddPantyPanelCutTypeTanga" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCheckBoxAddPantyPanelCutTypeThong" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <Component id="jLabelAddPantyCut" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextFieldAddPantieSize" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelAddPantiePrice5" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxAddPantyPanelSizeMid" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxAddPantyPanelSizeLarge" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxAddPantyPanelSizeSmall" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextFieldAddPantieBrand" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextFieldAddPantieQuantity" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabelAddPantiePrice" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextFieldAddPantiePrice" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextFieldAddPantiePattern" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextFieldAddPantieFabric" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabelAddPantiePrice1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCheckBoxAddPantieWaistTypeMid" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCheckBoxAddPantieWaistTypeHigh" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCheckBoxAddPantieWaistTypeLow" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCheckBoxAddPantieWaistTypeElastic" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                          <Component id="jCheckBoxAddPantieSideTypeMid" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCheckBoxAddPantieSideTypeWide" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCheckBoxAddPantieSideTypeThin" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Component id="jLabelAddPantiePrice3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCheckBoxAddPantieLingingTypeMicrofiber" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCheckBoxAddPantieLingingTypeViscose" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCheckBoxAddPantieLingingTypePolyester" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCheckBoxAddPantieLingingTypeCotton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel24" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxAddPantyPanelLiningTypeMicrofiber" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxAddPantyPanelLiningTypeViscose" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxAddPantyPanelLiningTypePolyester" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCheckBoxAddPantyPanelLiningTypeCotton" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jCheckBoxAddPantieStyleThong" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jCheckBoxAddPantieStyleTanga" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jCheckBoxAddPantieStyleTraditional" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jCheckBoxAddPantieStyleBikini" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jCheckBoxAddPantieStyleSeamless" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jCheckBoxAddPantieStyleBoyShort" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jCheckBoxAddPantieStyleHighWaist" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jCheckBoxAddPantieStyleRetro" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                          <Component id="jCheckBoxAddPantyPanelDetailBow" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCheckBoxAddPantyPanelDetailEmbroidery" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCheckBoxAddPantyPanelDetailLace" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCheckBoxAddPantyPanelDetailRuffles" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="46" max="32767" attributes="0"/>
+                  <EmptySpace pref="60" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jButtonAddPantieBack" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButtonAddPantieExit" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButtonAddPantie" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButton4" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -2528,224 +2544,280 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="jButtonAddPantieExit">
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxAddPantyPanelCutTypeFullBrief">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Sair"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="jButtonAddPantie">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Adicionar Calcinha"/>
+            <Property name="text" type="java.lang.String" value="CALCINHA ALTA"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAddPantieActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxAddPantyPanelCutTypeFullBriefActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButtonAddPantieBack">
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxAddPantyPanelCutTypeBiquini">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Voltar"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAddPantieBackActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel5">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="COR"/>
+            <Property name="text" type="java.lang.String" value="BIQU&#xcd;NI"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel8">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="TAMANHO"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel9">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="QUANTIDADE"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel10">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="MARCA"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel11">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="TECIDO"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel12">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="TIPO DE FORRO"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel13">
+        <Component class="javax.swing.JLabel" name="jLabel16">
           <Properties>
             <Property name="text" type="java.lang.String" value="ESTAMPA"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabelAddPantiePrice">
+        <Component class="javax.swing.JLabel" name="jLabel17">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="DETALHE"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelAddPantiePrice2">
           <Properties>
             <Property name="text" type="java.lang.String" value="PRE&#xc7;O"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabelAddPantiePrice1">
+        <Component class="javax.swing.JLabel" name="jLabelAddPantiePrice4">
           <Properties>
             <Property name="text" type="java.lang.String" value="TIPO DE CINTURA"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabelAddPantiePrice3">
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxAddPantyPanelDetailRuffles">
           <Properties>
-            <Property name="text" type="java.lang.String" value="TIPO DE LATERAL"/>
+            <Property name="text" type="java.lang.String" value="BABADO"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldAddPantieQuantity">
+        <Component class="javax.swing.JLabel" name="jLabelAddPantyCut">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="TIPO DE CORTE"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxAddPantyPanelDetailBow">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="LA&#xc7;O"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldAddPantyPanelQuantity">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldAddPantieQuantityActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldAddPantyPanelQuantityActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldAddPantieColor">
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxAddPantyPanelDetailEmbroidery">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="BORDADO"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldAddPantyPanelColor">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldAddPantieColorActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldAddPantyPanelColorActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldAddPantiePrice">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldAddPantiePriceActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldAddPantieFabric">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldAddPantieFabricActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldAddPantiePattern">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldAddPantiePatternActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldAddPantieSize">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldAddPantieSizeActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldAddPantieBrand">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldAddPantieBrandActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBoxAddPantieWaistTypeMid">
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxAddPantyPanelDetailLace">
           <Properties>
-            <Property name="text" type="java.lang.String" value="M&#xc9;DIA"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBoxAddPantieWaistTypeHigh">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="ALTA"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBoxAddPantieWaistTypeLow">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="BAIXA"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBoxAddPantieWaistTypeElastic">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="EL&#xc1;STICA"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBoxAddPantieLingingTypeMicrofiber">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="MICROFIBRA"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBoxAddPantieLingingTypeViscose">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="VISCOSE"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBoxAddPantieLingingTypeCotton">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="ALGOD&#xc3;O"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBoxAddPantieLingingTypePolyester">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="POLIESTER"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBoxAddPantieSideTypeMid">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="M&#xc9;DIA"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBoxAddPantieSideTypeWide">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="LARGA"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBoxAddPantieSideTypeThin">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="FINA"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel14">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="MODELO"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBoxAddPantieStyleBoyShort">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="SHORTINHO"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBoxAddPantieStyleHighWaist">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="CINTURA ALTA"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBoxAddPantieStyleThong">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="FIO DENTAL"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBoxAddPantieStyleTanga">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="TANGA"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBoxAddPantieStyleTraditional">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="TRADICIONAL"/>
+            <Property name="text" type="java.lang.String" value="RENDA"/>
             <Property name="name" type="java.lang.String" value="" noResource="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBoxAddPantieStyleBikini">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="BIQUINI"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBoxAddPantieStyleRetro">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="RETR&#xd4;"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBoxAddPantieStyleSeamless">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="SEM COSTURA"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldAddPantieGender">
+        <Component class="javax.swing.JTextField" name="jTextFieldAddPantyPanelPrice">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldAddPantieGenderActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldAddPantyPanelPriceActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel15">
+        <Component class="javax.swing.JTextField" name="jTextFieldAddPantyPanelStyle">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldAddPantyPanelStyleActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldAddPantyPanelPattern">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldAddPantyPanelPatternActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldAddPantyPanelGender">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldAddPantyPanelGenderActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldAddPantyPanelBrand">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldAddPantyPanelBrandActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="AddPantyPanelGender">
           <Properties>
             <Property name="text" type="java.lang.String" value="G&#xca;NERO"/>
           </Properties>
         </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxAddPantyPanelWaistTypeMid">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="M&#xc9;DIA"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxAddPantyPanelWaistTypeHigh">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="ALTA"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxAddPantyPanelWaistTypeLow">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="BAIXA"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxAddPantyPanelWaistTypeElastic">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="EL&#xc1;STICA"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxAddPantyPanelLiningTypeMicrofiber">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="MICROFIBRA"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel19">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="COR"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxAddPantyPanelLiningTypeViscose">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="VISCOSE"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxAddPantyPanelLiningTypeCotton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="ALGOD&#xc3;O"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel21">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="QUANTIDADE"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxAddPantyPanelLiningTypePolyester">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="POLIESTER"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel22">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="MARCA"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxAddPantyPanelCutTypeHipster">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="HIPSTER"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel23">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="ESTILO"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel24">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="TIPO DE FORRO"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxAddPantyPanelCutTypeTanga">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="TANGA"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxAddPantyPanelCutTypeThong">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="FIO DENTAL"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxAddPantyPanelSizeMid">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="M"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxAddPantyPanelSizeLarge">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="G"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="jCheckBoxAddPantyPanelSizeSmall">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="P"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelAddPantiePrice5">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="TAMANHO"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldAddPantyPanelFabric">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldAddPantyPanelFabricActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="AddPantyPanelFabric">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="TECIDO"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButton1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="VOLTAR"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButtonAddPanty">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="FINALIZAR"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAddPantyActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButton4">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="SAIR"/>
+          </Properties>
+        </Component>
       </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="SearchPantyPanel">
+      <Properties>
+        <Property name="name" type="java.lang.String" value="SearchPantyPanel" noResource="true"/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="0" y="0" width="-1" height="-1"/>
+        </Constraint>
+      </Constraints>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="100" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="100" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+    </Container>
+    <Container class="javax.swing.JPanel" name="RemovePantyPanel">
+      <Properties>
+        <Property name="name" type="java.lang.String" value="RemovePantyPanel" noResource="true"/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="0" y="0" width="-1" height="-1"/>
+        </Constraint>
+      </Constraints>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="100" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="100" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+      </Layout>
     </Container>
   </SubComponents>
 </Form>
