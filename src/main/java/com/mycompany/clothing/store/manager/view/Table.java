@@ -77,7 +77,6 @@ public class Table extends javax.swing.JFrame {
 
     public void fillTable(List<ClothingResponseDTO> list, ClothingPiece p) {
         DefaultTableModel model = new DefaultTableModel();
-                        System.out.println(list);
         fillTableAux(model, p);
 
         if (list == null) {

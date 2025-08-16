@@ -10,5 +10,6 @@ package com.mycompany.clothing.store.manager.domain.enums;
  */
 public enum ClothingPiece {
         SHIRT,
-        PANT
+        PANT,
+        PANTY
 }
