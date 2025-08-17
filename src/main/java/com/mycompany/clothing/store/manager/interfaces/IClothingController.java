@@ -26,5 +26,5 @@ public interface IClothingController {
     
     void deleteClothing(Integer id) throws Exception;
     
-    void deleteClothingsList(ClothingRequestDTO dto) throws Exception;
+    void deleteAllClothings() throws Exception;
 }

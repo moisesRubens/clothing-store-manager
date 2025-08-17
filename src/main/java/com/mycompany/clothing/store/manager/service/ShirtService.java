@@ -101,4 +101,21 @@ public class ShirtService implements IClothingService {
         }
         return list;
     }
+
+    @Override
+    public void deleteClothing(Integer id) throws Exception {
+        shirtRepository.deleteById(id);
+    }
+
+    @Override
+    public ShirtResponseDTO getClothingById(Integer id) throws Exception {
+        Shirt shirt = shirtRepository.findById(id)
+                .orElseThrow(() -> new IllegalStateException("Camisa com id: "+id+" não encontrada"));
+        return shirtMapper.EntityToResponseDTO(shirt);
+    }
+
+    @Override
+    public void deleteAllClothings() throws Exception {
+        shirtRepository.deleteAll();
+    }
 }

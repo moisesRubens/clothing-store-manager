@@ -101,5 +101,21 @@ public class PantService implements IClothingService {
         }
         return list;
     }
-    
+
+    @Override
+    public void deleteClothing(Integer id) throws Exception {
+        pantRepository.deleteById(id);
+    }
+
+    @Override
+    public void deleteAllClothings() throws Exception {
+        pantRepository.deleteAll();
+    }
+
+    @Override
+    public PantResponseDTO getClothingById(Integer id) throws Exception {
+        Pant pant = pantRepository.findById(id)
+                .orElseThrow(() -> new IllegalStateException("Calça com id: "+id+" não existente."));
+        return pantMapper.EntityToResponseDTO(pant);
+    }
 }

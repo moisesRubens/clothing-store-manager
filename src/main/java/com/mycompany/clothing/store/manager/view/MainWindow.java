@@ -30,6 +30,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
+import javax.swing.JCheckBox;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPopupMenu;
@@ -3386,7 +3387,6 @@ public class MainWindow extends javax.swing.JFrame {
     private void jButtonSearchRemovePantyConsultListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchRemovePantyConsultListActionPerformed
         try {
             List<ClothingResponseDTO> resultDTO = controllers.get("pantyController").getAllClothings();
-            System.out.println(resultDTO);
             allClothings = true;
             switch (f) {
                 case SEARCH -> {
@@ -3441,8 +3441,8 @@ public class MainWindow extends javax.swing.JFrame {
         String brand = jTextFieldSearchRemovePantyPanelBrand.getText();
         String fabric = jTextFieldSearchRemovePantyPanelFabric.getText();
         String style = jTextFieldSearchRemovePantyPanelStyle.getText();
-        Integer quantity = Integer.valueOf(jTextFieldSearchRemovePantyPanelQuantity.getText());
-        Double price = Double.valueOf(jTextFieldSearchRemovePantyPanelPrice.getText());
+        Integer quantity = (!jTextFieldSearchRemovePantyPanelQuantity.getText().isBlank()) ? Integer.valueOf(jTextFieldSearchRemovePantyPanelQuantity.getText()) : -1;
+        Double price = (!jTextFieldSearchRemovePantyPanelPrice.getText().isBlank()) ? Double.valueOf(jTextFieldSearchRemovePantyPanelPrice.getText()) : -1D;
         Gender gender = null;
         WaistType waistType = null;
         CutType cutType = null;
@@ -3450,58 +3450,35 @@ public class MainWindow extends javax.swing.JFrame {
         LiningType liningType = null;
         DetailPanty detail = null;
 
-        switch (jTextFieldSearchRemovePantyPanelGender.getText()) {
-            case "M" ->
-                gender = Gender.MALE;
-            case "F" ->
-                gender = Gender.FEMALE;
-            default ->
-                throw new IllegalArgumentException("Insira um gênero válido");
+        if(jTextFieldSearchRemovePantyPanelGender.getText().equals("M")) {
+            gender = Gender.MALE;
+        } else if (jTextFieldSearchRemovePantyPanelGender.getText().equals("F")) {
+            gender = Gender.FEMALE;
+        } else if (!jTextFieldSearchRemovePantyPanelGender.getText().isBlank()) {
+            throw new IllegalArgumentException("Insira um gênero válido");
         }
 
-        if ((jCheckBoxSearchRemovePantyPanelSizeSmall.isSelected() && jCheckBoxSearchRemovePantyPanelSizeMid.isSelected())
-                || (jCheckBoxSearchRemovePantyPanelSizeSmall.isSelected() && jCheckBoxSearchRemovePantyPanelSizeLarge.isSelected())
-                || (jCheckBoxSearchRemovePantyPanelSizeMid.isSelected() && jCheckBoxSearchRemovePantyPanelSizeLarge.isSelected())) {
+        if(invalidCheckBoxGroup(jCheckBoxSearchRemovePantyPanelSizeSmall, jCheckBoxSearchRemovePantyPanelSizeMid, jCheckBoxSearchRemovePantyPanelSizeLarge)) {
             throw new IllegalArgumentException("Selecione apenas um tipo de tamanho");
         }
-
-        if ((jCheckBoxSearchRemovePantyPanelWaistTypeLow.isSelected() && jCheckBoxSearchRemovePantyPanelWaistTypeMid.isSelected())
-                || (jCheckBoxSearchRemovePantyPanelWaistTypeLow.isSelected() && jCheckBoxSearchRemovePantyPanelWaistTypeHigh.isSelected())
-                || (jCheckBoxSearchRemovePantyPanelWaistTypeLow.isSelected() && jCheckBoxSearchRemovePantyPanelWaistTypeElastic.isSelected())
-                || (jCheckBoxSearchRemovePantyPanelWaistTypeMid.isSelected() && jCheckBoxSearchRemovePantyPanelWaistTypeHigh.isSelected())
-                || (jCheckBoxSearchRemovePantyPanelWaistTypeMid.isSelected() && jCheckBoxSearchRemovePantyPanelWaistTypeElastic.isSelected())
-                || (jCheckBoxSearchRemovePantyPanelWaistTypeHigh.isSelected() && jCheckBoxSearchRemovePantyPanelWaistTypeElastic.isSelected())) {
+        
+        if(invalidCheckBoxGroup(jCheckBoxSearchRemovePantyPanelWaistTypeLow, jCheckBoxSearchRemovePantyPanelWaistTypeMid, jCheckBoxSearchRemovePantyPanelWaistTypeHigh,
+        jCheckBoxSearchRemovePantyPanelWaistTypeElastic)) {
             throw new IllegalArgumentException("Selecione apenas um tipo de cintura");
         }
 
-        if ((jCheckBoxSearchRemovePantyPanelLiningTypeCotton.isSelected() && jCheckBoxSearchRemovePantyPanelLiningTypeMicrofiber.isSelected())
-                || (jCheckBoxSearchRemovePantyPanelLiningTypeCotton.isSelected() && jCheckBoxSearchRemovePantyPanelLiningTypePolyester.isSelected())
-                || (jCheckBoxSearchRemovePantyPanelLiningTypeCotton.isSelected() && jCheckBoxSearchRemovePantyPanelLiningTypeViscose.isSelected())
-                || (jCheckBoxSearchRemovePantyPanelLiningTypeMicrofiber.isSelected() && jCheckBoxSearchRemovePantyPanelLiningTypePolyester.isSelected())
-                || (jCheckBoxSearchRemovePantyPanelLiningTypeMicrofiber.isSelected() && jCheckBoxSearchRemovePantyPanelLiningTypeViscose.isSelected())
-                || (jCheckBoxSearchRemovePantyPanelLiningTypePolyester.isSelected() && jCheckBoxSearchRemovePantyPanelLiningTypeViscose.isSelected())) {
+        if(invalidCheckBoxGroup(jCheckBoxSearchRemovePantyPanelLiningTypeCotton, jCheckBoxSearchRemovePantyPanelLiningTypeMicrofiber, 
+                jCheckBoxSearchRemovePantyPanelLiningTypePolyester, jCheckBoxSearchRemovePantyPanelLiningTypeViscose)) {
             throw new IllegalArgumentException("Selecione apenas um tipo de forro");
         }
-
-        if ((jCheckBoxSearchRemovePantyPanelDetailLace.isSelected() && jCheckBoxSearchRemovePantyPanelDetailRuffles.isSelected())
-                || (jCheckBoxSearchRemovePantyPanelDetailLace.isSelected() && jCheckBoxSearchRemovePantyPanelDetailEmbroidery.isSelected())
-                || (jCheckBoxSearchRemovePantyPanelDetailLace.isSelected() && jCheckBoxSearchRemovePantyPanelDetailBow.isSelected())
-                || (jCheckBoxSearchRemovePantyPanelDetailRuffles.isSelected() && jCheckBoxSearchRemovePantyPanelDetailEmbroidery.isSelected())
-                || (jCheckBoxSearchRemovePantyPanelDetailRuffles.isSelected() && jCheckBoxSearchRemovePantyPanelDetailBow.isSelected())
-                || (jCheckBoxSearchRemovePantyPanelDetailEmbroidery.isSelected() && jCheckBoxSearchRemovePantyPanelDetailBow.isSelected())) {
+        
+        if(invalidCheckBoxGroup(jCheckBoxSearchRemovePantyPanelDetailLace, jCheckBoxSearchRemovePantyPanelDetailRuffles,
+                jCheckBoxSearchRemovePantyPanelDetailEmbroidery, jCheckBoxSearchRemovePantyPanelDetailBow)) {
             throw new IllegalArgumentException("Selecione apenas um tipo de detalhe");
         }
-
-        if ((jCheckBoxSearchRemovePantyPanelCutTypeBiquini.isSelected() && jCheckBoxSearchRemovePantyPanelCutTypeFullBrief.isSelected())
-                || (jCheckBoxSearchRemovePantyPanelCutTypeBiquini.isSelected() && jCheckBoxSearchRemovePantyPanelCutTypeHipster.isSelected())
-                || (jCheckBoxSearchRemovePantyPanelCutTypeBiquini.isSelected() && jCheckBoxSearchRemovePantyPanelCutTypeTanga.isSelected())
-                || (jCheckBoxSearchRemovePantyPanelCutTypeBiquini.isSelected() && jCheckBoxSearchRemovePantyPanelCutTypeThong.isSelected())
-                || (jCheckBoxSearchRemovePantyPanelCutTypeFullBrief.isSelected() && jCheckBoxSearchRemovePantyPanelCutTypeHipster.isSelected())
-                || (jCheckBoxSearchRemovePantyPanelCutTypeFullBrief.isSelected() && jCheckBoxSearchRemovePantyPanelCutTypeTanga.isSelected())
-                || (jCheckBoxSearchRemovePantyPanelCutTypeFullBrief.isSelected() && jCheckBoxSearchRemovePantyPanelCutTypeThong.isSelected())
-                || (jCheckBoxSearchRemovePantyPanelCutTypeHipster.isSelected() && jCheckBoxSearchRemovePantyPanelCutTypeTanga.isSelected())
-                || (jCheckBoxSearchRemovePantyPanelCutTypeHipster.isSelected() && jCheckBoxSearchRemovePantyPanelCutTypeThong.isSelected())
-                || (jCheckBoxSearchRemovePantyPanelCutTypeTanga.isSelected() && jCheckBoxSearchRemovePantyPanelCutTypeThong.isSelected())) {
+        
+        if(invalidCheckBoxGroup(jCheckBoxSearchRemovePantyPanelCutTypeBiquini, jCheckBoxSearchRemovePantyPanelCutTypeFullBrief,
+                jCheckBoxSearchRemovePantyPanelCutTypeHipster, jCheckBoxSearchRemovePantyPanelCutTypeTanga, jCheckBoxSearchRemovePantyPanelCutTypeThong)) {
             throw new IllegalArgumentException("Selecione apenas um tipo de corte");
         }
 
@@ -3569,6 +3546,15 @@ public class MainWindow extends javax.swing.JFrame {
                 pattern, ClothingType.UNDERWEAR, cutType, detail, liningType, size, waistType);
     }
 
+    private boolean invalidCheckBoxGroup(JCheckBox...c) {
+        int sum = 0;
+        for (JCheckBox c1 : c) {
+            if (c1.isSelected()) sum += 1;
+            if(sum > 1) return true;
+        }
+        return false;
+    }
+    
     private void addPanty() throws Exception {
         String color = jTextFieldAddPantyPanelColor.getText();
         String pattern = jTextFieldAddPantyPanelPattern.getText();
@@ -3803,9 +3789,12 @@ public class MainWindow extends javax.swing.JFrame {
             throw new IllegalArgumentException("INSIRA UM GENERO VALIDO");
         }
 
-        if ((jCheckBoxRemoveCollarSim.isSelected() && jCheckBoxRemoveCollarNao.isSelected())
-                || (jCheckBoxRemoveSleeveSim.isSelected() && jCheckBoxRemoveSleeveNao.isSelected())) {
-            throw new IllegalArgumentException("INSIRA APENAS UM VALOR PARA GOLA E MANGA");
+        if(invalidCheckBoxGroup(jCheckBoxRemoveCollarSim, jCheckBoxRemoveCollarNao)) {
+            throw new IllegalArgumentException("INSIRA APENAS UM VALOR PARA GOLA");
+        }
+        
+        if(invalidCheckBoxGroup(jCheckBoxRemoveSleeveSim, jCheckBoxRemoveSleeveNao)) {
+            throw new IllegalArgumentException("INSIRA APENAS UM VALOR PARA MANGA");
         }
 
         if (jCheckBoxRemoveCollarSim.isSelected()) {
@@ -3841,22 +3830,16 @@ public class MainWindow extends javax.swing.JFrame {
         PantLengthType length = null;
         Gender gender = null;
 
-        if ((jCheckBoxCalcaComprimentoCurto.isSelected() && jCheckBoxCalcaComprimentoNormal.isSelected())
-                || (jCheckBoxCalcaComprimentoCurto.isSelected() && jCheckBoxCalcaComprimentoLongo.isSelected())
-                || (jCheckBoxCalcaComprimentoNormal.isSelected() && jCheckBoxCalcaComprimentoLongo.isSelected())) {
+        
+        if(invalidCheckBoxGroup(jCheckBoxCalcaComprimentoCurto, jCheckBoxCalcaComprimentoNormal, jCheckBoxCalcaComprimentoLongo)) {
             throw new IllegalArgumentException("Selecione apenas uma opcao de comprimento");
         }
-        if ((jCheckBoxConsultCalcaTipoBarraDobrada.isSelected() && jCheckBoxConsultCalcaTipoBarraReta.isSelected())
-                || (jCheckBoxConsultCalcaTipoBarraDobrada.isSelected() && jCheckBoxConsultCalcaTipoBarraElastica.isSelected())
-                || (jCheckBoxConsultCalcaTipoBarraElastica.isSelected() && jCheckBoxConsultCalcaTipoBarraReta.isSelected())) {
+        
+        if(invalidCheckBoxGroup(jCheckBoxConsultCalcaTipoBarraDobrada, jCheckBoxConsultCalcaTipoBarraReta, jCheckBoxConsultCalcaTipoBarraElastica)) {
             throw new IllegalArgumentException("Selecione apenas uma opcao de tipo de barra");
         }
-        if ((jCheckBoxTipoCinturaBaixa.isSelected() && jCheckBoxTipoCinturaMedia.isSelected())
-                || (jCheckBoxTipoCinturaBaixa.isSelected() && jCheckBoxTipoCinturaAlta.isSelected())
-                || (jCheckBoxTipoCinturaBaixa.isSelected() && jCheckBoxTipoCinturaElastica.isSelected())
-                || (jCheckBoxTipoCinturaMedia.isSelected() && jCheckBoxTipoCinturaAlta.isSelected())
-                || (jCheckBoxTipoCinturaMedia.isSelected() && jCheckBoxTipoCinturaElastica.isSelected())
-                || (jCheckBoxTipoCinturaAlta.isSelected() && jCheckBoxTipoCinturaElastica.isSelected())) {
+        
+        if(invalidCheckBoxGroup(jCheckBoxTipoCinturaBaixa, jCheckBoxTipoCinturaMedia, jCheckBoxTipoCinturaAlta, jCheckBoxTipoCinturaElastica)) {
             throw new IllegalArgumentException("Selecione apenas uma opcao de cintura");
         }
 
@@ -3933,10 +3916,13 @@ public class MainWindow extends javax.swing.JFrame {
         } else if (!jTextFieldConsultGender.getText().isBlank()) {
             throw new IllegalArgumentException("INSIRA UM GENERO VALIDO");
         }
-
-        if ((jCheckBoxConsultCollarSim.isSelected() && jCheckBoxConsultCollarNao.isSelected())
-                || (jCheckBoxConsultSleeveSim.isSelected() && jCheckBoxConsultSleeveNao.isSelected())) {
-            throw new IllegalArgumentException("INSIRA APENAS UM VALOR PARA GOLA E MANGA");
+        
+        if(invalidCheckBoxGroup(jCheckBoxConsultCollarSim, jCheckBoxConsultCollarNao)) {
+            throw new IllegalArgumentException("INSIRA APENAS UM VALOR PARA GOLA");
+        }
+        
+        if(invalidCheckBoxGroup(jCheckBoxConsultSleeveSim, jCheckBoxConsultSleeveNao)) {
+            throw new IllegalArgumentException("INSIRA APENAS UM VALOR PARA MANGA");
         }
 
         if (jCheckBoxConsultCollarSim.isSelected()) {

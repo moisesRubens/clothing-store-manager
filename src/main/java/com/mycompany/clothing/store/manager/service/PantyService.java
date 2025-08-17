@@ -98,4 +98,21 @@ public class PantyService implements IClothingService {
         return list;
     }
 
+    @Override
+    public void deleteClothing(Integer id) throws Exception {
+        pantyRepository.deleteById(id);
+    }
+
+    @Override
+    public void deleteAllClothings() throws Exception {
+        pantyRepository.deleteAll();
+    }
+
+    @Override
+    public PantyResponseDTO getClothingById(Integer id) throws Exception {
+        Panty panty = pantyRepository.findById(id)
+                .orElseThrow(() -> new IllegalStateException("Calçinha com id: "+id+" não existente."));
+        return pantyMapper.EntityToResponseDTO(panty);
+    }
+
 }
