@@ -63,4 +63,9 @@ public class ShirtController implements IClothingController {
     public void deleteAllClothings() throws Exception {
         shirtService.deleteAllClothings();
     }
+
+    @Override
+    public List<String> getColumnsNames() {
+        return shirtService.getColumnsNames();
+    }
 }

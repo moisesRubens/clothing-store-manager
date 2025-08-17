@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author moise
  */
-public interface IClothingController {
+public interface IClothingController extends IClothingRename {
     
     void createClothing(ClothingRequestDTO clothingData) throws Exception;
     

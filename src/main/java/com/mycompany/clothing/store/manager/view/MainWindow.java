@@ -25,7 +25,10 @@ import com.mycompany.clothing.store.manager.domain.enums.LiningType;
 import com.mycompany.clothing.store.manager.domain.enums.PantLengthType;
 import com.mycompany.clothing.store.manager.domain.enums.Size;
 import com.mycompany.clothing.store.manager.domain.enums.WaistType;
+import jakarta.persistence.Column;
 import java.awt.CardLayout;
+import java.lang.reflect.Field;
+import java.lang.reflect.RecordComponent;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -53,6 +56,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     /**
      * Creates new form MainWindow
+     *
      * @param mapController
      */
     public MainWindow(Map<String, IClothingController> mapController) {
@@ -63,7 +67,7 @@ public class MainWindow extends javax.swing.JFrame {
         configurarPopupMenu(jPopupMenuRemove, Function.REMOVE);
 
         getContentPane().setLayout(new CardLayout());
-        
+
         getContentPane().add(PainelPrincipal, "PainelPrincipal");
         getContentPane().add(PainelAdicionarCamisa, "PainelAdicionarCamisa");
         getContentPane().add(PainelConsultarCamisa, "PainelConsultarCamisa");
@@ -75,7 +79,7 @@ public class MainWindow extends javax.swing.JFrame {
         getContentPane().add(AddPantyPanel, "AddPantyPanel");
         getContentPane().add(SearchRemovePantyPanel, "SearchRemovePantyPanel");
         getContentPane().add(RemovePantyPanel, "RemovePantyPanel");
-        
+
         System.out.println("COMECO");
         CardLayout a = (CardLayout) getContentPane().getLayout();
         a.show(getContentPane(), "PainelPrincipal");
@@ -2769,7 +2773,8 @@ public class MainWindow extends javax.swing.JFrame {
                     panel = "SearchRemovePantyPanel";
                     f = Function.REMOVE;
                 }
-                default -> throw new IllegalStateException("Função não reconhecida");
+                default ->
+                    throw new IllegalStateException("Função não reconhecida");
             }
             a.show(getContentPane(), panel);
         });
@@ -2794,9 +2799,10 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jButtonRemoveSearchShirtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemoveSearchShirtActionPerformed
         try {
+            IClothingController controller = controllers.get("shirtController");
             ShirtRequestDTO shirtData = searchShirtToRemove();
-            List<ClothingResponseDTO> listSearchToRemove = controllers.get("shirtController").getClothingsList(shirtData);
-            fillTable(listSearchToRemove, ClothingPiece.SHIRT, jTableRemoverCamisa);
+            List<ClothingResponseDTO> listSearchToRemove = controller.getClothingsList(shirtData);
+            fillTable(listSearchToRemove, controller, jTableRemoverCamisa);
             allClothings = false;
             CardLayout a = (CardLayout) getContentPane().getLayout();
             a.show(getContentPane(), "PainelRemoveShirt");
@@ -2905,8 +2911,9 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void buttonViewAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonViewAllActionPerformed
         try {
-            List<ClothingResponseDTO> list = controllers.get("shirtController").getAllClothings();
-            fillTable(list, ClothingPiece.SHIRT, jTableRemoverCamisa);
+            IClothingController controller = controllers.get("shirtController");
+            List<ClothingResponseDTO> list = controller.getAllClothings();
+            fillTable(list, controller, jTableRemoverCamisa);
             allClothings = true;
             CardLayout a = (CardLayout) getContentPane().getLayout();
             a.show(getContentPane(), "PainelRemoveShirt");
@@ -3210,10 +3217,11 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try {
+            IClothingController controller = controllers.get("pantController");
             allClothings = true;
-            List<ClothingResponseDTO> list = controllers.get("pantController").getAllClothings();
+            List<ClothingResponseDTO> list = controller.getAllClothings();
             if (f.equals(Function.REMOVE)) {
-                fillTable(list, ClothingPiece.PANT, jTableRemoverCalca);
+                fillTable(list, controller, jTableRemoverCalca);
                 CardLayout a = (CardLayout) getContentPane().getLayout();
                 a.show(getContentPane(), "PainelRemoverCalca");
             } else {
@@ -3247,8 +3255,9 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jButtonConsultarCalcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsultarCalcaActionPerformed
         try {
+            IClothingController controller = controllers.get("pantController");
             PantRequestDTO pantData = consultarCalca();
-            List<ClothingResponseDTO> listSearch = controllers.get("pantController").getClothingsList(pantData);
+            List<ClothingResponseDTO> listSearch = controller.getClothingsList(pantData);
             allClothings = false;
             if (f.equals(Function.SEARCH)) {
                 Table table = new Table(controllers.get("pantController"));
@@ -3256,7 +3265,7 @@ public class MainWindow extends javax.swing.JFrame {
                 table.setLocationRelativeTo(null);
                 table.setVisible(true);
             } else {
-                fillTable(listSearch, ClothingPiece.PANT, jTableRemoverCalca);
+                fillTable(listSearch, controller, jTableRemoverCalca);
                 CardLayout a = (CardLayout) getContentPane().getLayout();
                 a.show(getContentPane(), "PainelRemoverCalca");
             }
@@ -3361,8 +3370,9 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jButtonSearchRemovePantyConsultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchRemovePantyConsultActionPerformed
         try {
+            IClothingController controller = controllers.get("pantyController");
             PantyRequestDTO pantyDTO = fillPantyRequestDTO();
-            List<ClothingResponseDTO> resultDTO = controllers.get("pantyController").getClothingsList(pantyDTO);
+            List<ClothingResponseDTO> resultDTO = controller.getClothingsList(pantyDTO);
             allClothings = false;
             switch (f) {
                 case SEARCH -> {
@@ -3372,7 +3382,7 @@ public class MainWindow extends javax.swing.JFrame {
                     t.setVisible(true);
                 }
                 case REMOVE -> {
-                    fillTable(resultDTO, ClothingPiece.PANTY, jTableRemovePanty);
+                    fillTable(resultDTO, controller, jTableRemovePanty);
                     CardLayout a = (CardLayout) getContentPane().getLayout();
                     a.show(getContentPane(), "RemovePantyPanel");
                 }
@@ -3386,7 +3396,8 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jButtonSearchRemovePantyConsultListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchRemovePantyConsultListActionPerformed
         try {
-            List<ClothingResponseDTO> resultDTO = controllers.get("pantyController").getAllClothings();
+            IClothingController controller = controllers.get("pantyController");
+            List<ClothingResponseDTO> resultDTO = controller.getAllClothings();
             allClothings = true;
             switch (f) {
                 case SEARCH -> {
@@ -3396,7 +3407,7 @@ public class MainWindow extends javax.swing.JFrame {
                     t.setVisible(true);
                 }
                 case REMOVE -> {
-                    fillTable(resultDTO, ClothingPiece.PANTY, jTableRemovePanty);
+                    fillTable(resultDTO, controller, jTableRemovePanty);
                     CardLayout a = (CardLayout) getContentPane().getLayout();
                     a.show(getContentPane(), "RemovePantyPanel");
                 }
@@ -3432,7 +3443,7 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        
+
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private PantyRequestDTO fillPantyRequestDTO() {
@@ -3450,7 +3461,7 @@ public class MainWindow extends javax.swing.JFrame {
         LiningType liningType = null;
         DetailPanty detail = null;
 
-        if(jTextFieldSearchRemovePantyPanelGender.getText().equals("M")) {
+        if (jTextFieldSearchRemovePantyPanelGender.getText().equals("M")) {
             gender = Gender.MALE;
         } else if (jTextFieldSearchRemovePantyPanelGender.getText().equals("F")) {
             gender = Gender.FEMALE;
@@ -3458,26 +3469,26 @@ public class MainWindow extends javax.swing.JFrame {
             throw new IllegalArgumentException("Insira um gênero válido");
         }
 
-        if(invalidCheckBoxGroup(jCheckBoxSearchRemovePantyPanelSizeSmall, jCheckBoxSearchRemovePantyPanelSizeMid, jCheckBoxSearchRemovePantyPanelSizeLarge)) {
+        if (invalidCheckBoxGroup(jCheckBoxSearchRemovePantyPanelSizeSmall, jCheckBoxSearchRemovePantyPanelSizeMid, jCheckBoxSearchRemovePantyPanelSizeLarge)) {
             throw new IllegalArgumentException("Selecione apenas um tipo de tamanho");
         }
-        
-        if(invalidCheckBoxGroup(jCheckBoxSearchRemovePantyPanelWaistTypeLow, jCheckBoxSearchRemovePantyPanelWaistTypeMid, jCheckBoxSearchRemovePantyPanelWaistTypeHigh,
-        jCheckBoxSearchRemovePantyPanelWaistTypeElastic)) {
+
+        if (invalidCheckBoxGroup(jCheckBoxSearchRemovePantyPanelWaistTypeLow, jCheckBoxSearchRemovePantyPanelWaistTypeMid, jCheckBoxSearchRemovePantyPanelWaistTypeHigh,
+                jCheckBoxSearchRemovePantyPanelWaistTypeElastic)) {
             throw new IllegalArgumentException("Selecione apenas um tipo de cintura");
         }
 
-        if(invalidCheckBoxGroup(jCheckBoxSearchRemovePantyPanelLiningTypeCotton, jCheckBoxSearchRemovePantyPanelLiningTypeMicrofiber, 
+        if (invalidCheckBoxGroup(jCheckBoxSearchRemovePantyPanelLiningTypeCotton, jCheckBoxSearchRemovePantyPanelLiningTypeMicrofiber,
                 jCheckBoxSearchRemovePantyPanelLiningTypePolyester, jCheckBoxSearchRemovePantyPanelLiningTypeViscose)) {
             throw new IllegalArgumentException("Selecione apenas um tipo de forro");
         }
-        
-        if(invalidCheckBoxGroup(jCheckBoxSearchRemovePantyPanelDetailLace, jCheckBoxSearchRemovePantyPanelDetailRuffles,
+
+        if (invalidCheckBoxGroup(jCheckBoxSearchRemovePantyPanelDetailLace, jCheckBoxSearchRemovePantyPanelDetailRuffles,
                 jCheckBoxSearchRemovePantyPanelDetailEmbroidery, jCheckBoxSearchRemovePantyPanelDetailBow)) {
             throw new IllegalArgumentException("Selecione apenas um tipo de detalhe");
         }
-        
-        if(invalidCheckBoxGroup(jCheckBoxSearchRemovePantyPanelCutTypeBiquini, jCheckBoxSearchRemovePantyPanelCutTypeFullBrief,
+
+        if (invalidCheckBoxGroup(jCheckBoxSearchRemovePantyPanelCutTypeBiquini, jCheckBoxSearchRemovePantyPanelCutTypeFullBrief,
                 jCheckBoxSearchRemovePantyPanelCutTypeHipster, jCheckBoxSearchRemovePantyPanelCutTypeTanga, jCheckBoxSearchRemovePantyPanelCutTypeThong)) {
             throw new IllegalArgumentException("Selecione apenas um tipo de corte");
         }
@@ -3546,15 +3557,19 @@ public class MainWindow extends javax.swing.JFrame {
                 pattern, ClothingType.UNDERWEAR, cutType, detail, liningType, size, waistType);
     }
 
-    private boolean invalidCheckBoxGroup(JCheckBox...c) {
+    private boolean invalidCheckBoxGroup(JCheckBox... c) {
         int sum = 0;
         for (JCheckBox c1 : c) {
-            if (c1.isSelected()) sum += 1;
-            if(sum > 1) return true;
+            if (c1.isSelected()) {
+                sum += 1;
+            }
+            if (sum > 1) {
+                return true;
+            }
         }
         return false;
     }
-    
+
     private void addPanty() throws Exception {
         String color = jTextFieldAddPantyPanelColor.getText();
         String pattern = jTextFieldAddPantyPanelPattern.getText();
@@ -3752,7 +3767,7 @@ public class MainWindow extends javax.swing.JFrame {
         } catch (Exception e) {
             handleException(e);
         } finally {
-            fillTable(list, p, t);
+            fillTable(list, controller, t);
         }
     }
 
@@ -3789,11 +3804,11 @@ public class MainWindow extends javax.swing.JFrame {
             throw new IllegalArgumentException("INSIRA UM GENERO VALIDO");
         }
 
-        if(invalidCheckBoxGroup(jCheckBoxRemoveCollarSim, jCheckBoxRemoveCollarNao)) {
+        if (invalidCheckBoxGroup(jCheckBoxRemoveCollarSim, jCheckBoxRemoveCollarNao)) {
             throw new IllegalArgumentException("INSIRA APENAS UM VALOR PARA GOLA");
         }
-        
-        if(invalidCheckBoxGroup(jCheckBoxRemoveSleeveSim, jCheckBoxRemoveSleeveNao)) {
+
+        if (invalidCheckBoxGroup(jCheckBoxRemoveSleeveSim, jCheckBoxRemoveSleeveNao)) {
             throw new IllegalArgumentException("INSIRA APENAS UM VALOR PARA MANGA");
         }
 
@@ -3830,16 +3845,15 @@ public class MainWindow extends javax.swing.JFrame {
         PantLengthType length = null;
         Gender gender = null;
 
-        
-        if(invalidCheckBoxGroup(jCheckBoxCalcaComprimentoCurto, jCheckBoxCalcaComprimentoNormal, jCheckBoxCalcaComprimentoLongo)) {
+        if (invalidCheckBoxGroup(jCheckBoxCalcaComprimentoCurto, jCheckBoxCalcaComprimentoNormal, jCheckBoxCalcaComprimentoLongo)) {
             throw new IllegalArgumentException("Selecione apenas uma opcao de comprimento");
         }
-        
-        if(invalidCheckBoxGroup(jCheckBoxConsultCalcaTipoBarraDobrada, jCheckBoxConsultCalcaTipoBarraReta, jCheckBoxConsultCalcaTipoBarraElastica)) {
+
+        if (invalidCheckBoxGroup(jCheckBoxConsultCalcaTipoBarraDobrada, jCheckBoxConsultCalcaTipoBarraReta, jCheckBoxConsultCalcaTipoBarraElastica)) {
             throw new IllegalArgumentException("Selecione apenas uma opcao de tipo de barra");
         }
-        
-        if(invalidCheckBoxGroup(jCheckBoxTipoCinturaBaixa, jCheckBoxTipoCinturaMedia, jCheckBoxTipoCinturaAlta, jCheckBoxTipoCinturaElastica)) {
+
+        if (invalidCheckBoxGroup(jCheckBoxTipoCinturaBaixa, jCheckBoxTipoCinturaMedia, jCheckBoxTipoCinturaAlta, jCheckBoxTipoCinturaElastica)) {
             throw new IllegalArgumentException("Selecione apenas uma opcao de cintura");
         }
 
@@ -3916,12 +3930,12 @@ public class MainWindow extends javax.swing.JFrame {
         } else if (!jTextFieldConsultGender.getText().isBlank()) {
             throw new IllegalArgumentException("INSIRA UM GENERO VALIDO");
         }
-        
-        if(invalidCheckBoxGroup(jCheckBoxConsultCollarSim, jCheckBoxConsultCollarNao)) {
+
+        if (invalidCheckBoxGroup(jCheckBoxConsultCollarSim, jCheckBoxConsultCollarNao)) {
             throw new IllegalArgumentException("INSIRA APENAS UM VALOR PARA GOLA");
         }
-        
-        if(invalidCheckBoxGroup(jCheckBoxConsultSleeveSim, jCheckBoxConsultSleeveNao)) {
+
+        if (invalidCheckBoxGroup(jCheckBoxConsultSleeveSim, jCheckBoxConsultSleeveNao)) {
             throw new IllegalArgumentException("INSIRA APENAS UM VALOR PARA MANGA");
         }
 
@@ -3957,125 +3971,39 @@ public class MainWindow extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, e.getMessage(), "RESULTADO", JOptionPane.ERROR_MESSAGE);
     }
 
-    public void fillTable(List<ClothingResponseDTO> list, ClothingPiece p, JTable t) throws Exception {
-        DefaultTableModel model = new DefaultTableModel();
-        fillTableAux(model, p);
-
+    public void fillTable(List<ClothingResponseDTO> list, IClothingController controller, JTable t) throws Exception {
         if (list == null) {
             return;
         }
-
         if (!list.isEmpty()) {
-            switch (p) {
-                case ClothingPiece.SHIRT -> {
-                    for (ClothingResponseDTO data : list) {
-                        ShirtResponseDTO shirtData = (ShirtResponseDTO) data;
-                        model.addRow(new Object[]{
-                            shirtData.id(),
-                            shirtData.color(),
-                            shirtData.quantity(),
-                            shirtData.brand(),
-                            shirtData.gender(),
-                            shirtData.clothingType(),
-                            shirtData.pattern(),
-                            shirtData.fabric(),
-                            shirtData.style(),
-                            shirtData.price(),
-                            shirtData.size(),
-                            shirtData.collar(),
-                            shirtData.sleeve(),
-                            shirtData.closureType(),
-                            shirtData.pocket()
-                        });
-                    }
-                }
-                case ClothingPiece.PANT -> {
-                    for (ClothingResponseDTO data : list) {
-                        PantResponseDTO pantData = (PantResponseDTO) data;
-                        model.addRow(new Object[]{
-                            pantData.id(),
-                            pantData.color(),
-                            pantData.quantity(),
-                            pantData.brand(),
-                            pantData.gender(),
-                            pantData.clothingType(),
-                            pantData.pattern(),
-                            pantData.fabric(),
-                            pantData.style(),
-                            pantData.price(),
-                            pantData.size(),
-                            pantData.length(),
-                            pantData.hemType(),
-                            pantData.waistType(),
-                            pantData.closureType(),
-                            pantData.pocket()
-                        });
-                    }
-                }
-                case ClothingPiece.PANTY -> {
-                    for (ClothingResponseDTO data : list) {
-                        PantyResponseDTO dto = (PantyResponseDTO) data;
-                        model.addRow(new Object[]{
-                            dto.id(),
-                            dto.color(),
-                            dto.quantity(),
-                            dto.brand(),
-                            dto.gender(),
-                            dto.clothingType(),
-                            dto.pattern(),
-                            dto.fabric(),
-                            dto.style(),
-                            dto.price(),
-                            dto.lining(),
-                            dto.cut(),
-                            dto.detail(),
-                            dto.waist()
-                        });
-                    }
-                }
-
-            }
-
+            DefaultTableModel model = new DefaultTableModel();
+            fillTableColumns(model, controller);
+            fillTableRows(model, list);
+            t.setModel(model);
         }
-        t.setModel(model);
     }
 
-    private void fillTableAux(DefaultTableModel model, ClothingPiece p) {
-        model.addColumn("ID");
-        model.addColumn("COR");
-        model.addColumn("QUANTIDADE");
-        model.addColumn("MARCA");
-        model.addColumn("GENERO");
-        model.addColumn("TIPO DE ROUPA");
-        model.addColumn("ESTAMPA");
-        model.addColumn("TECIDO");
-        model.addColumn("ESTILO");
+    private void fillTableColumns(DefaultTableModel model, IClothingController controller) {
+        List<String> columns = controller.getColumnsNames();
+        for (String s : columns) {
+            model.addColumn(s);
+        }
+    }
 
-        switch (p) {
-            case ClothingPiece.SHIRT -> {
-                model.addColumn("VALOR");
-                model.addColumn("TAMANHO");
-                model.addColumn("GOLA");
-                model.addColumn("MANGA");
-                model.addColumn("TIPO DE FECHAMENTO");
-                model.addColumn("QUANTIDADE DE BOLSOS");
+    private void fillTableRows(DefaultTableModel model, List<ClothingResponseDTO> list) {
+        Class clazz = list.get(0).getClass();
+        RecordComponent[] components = clazz.getRecordComponents();
+        for (ClothingResponseDTO dto : list) {
+            List<Object> rowData = new ArrayList<>();
+            try {
+                for (RecordComponent c : components) {
+                    Object value = c.getAccessor().invoke(dto);
+                    rowData.add(value);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            case ClothingPiece.PANT -> {
-                model.addColumn("VALOR");
-                model.addColumn("NUMERAÇÃO");
-                model.addColumn("COMPRIMENTO");
-                model.addColumn("TIPO DE BARRA");
-                model.addColumn("TIPO DE CINTURA");
-                model.addColumn("TIPO DE FECHAMENTO");
-                model.addColumn("QUANTIDADE DE BOLSOS");
-            }
-            case ClothingPiece.PANTY -> {
-                model.addColumn("VALOR");
-                model.addColumn("FORRO");
-                model.addColumn("CORTE");
-                model.addColumn("DETALHE");
-                model.addColumn("CINTURA");
-            }
+            model.addRow(rowData.toArray());
         }
     }
     /**

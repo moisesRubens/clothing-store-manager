@@ -5,10 +5,14 @@
 package com.mycompany.clothing.store.manager.repository;
 
 import com.mycompany.clothing.store.manager.domain.Clothing;
+import com.mycompany.clothing.store.manager.domain.Panty;
 import com.mycompany.clothing.store.manager.domain.Shirt;
 import com.mycompany.clothing.store.manager.domain.enums.ClothingType;
 import com.mycompany.clothing.store.manager.domain.enums.Gender;
 import com.mycompany.clothing.store.manager.domain.enums.Size;
+import jakarta.persistence.Column;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -67,4 +71,17 @@ public interface IShirtRepository extends JpaRepository<Shirt, Integer>, JpaSpec
             @Param("collar") Integer collar
     );
 
+    default List<String> getNames() {
+        Field[] fields = Shirt.class.getDeclaredFields();
+        List<String> names = new ArrayList<>();
+        for (Field f : fields) {
+            Column c = f.getAnnotation(Column.class);
+            if(c != null) {
+                names.add(c.name());
+            } else {
+                names.add(f.getName());
+            }
+        }
+        return names;
+    }
 }

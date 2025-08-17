@@ -13,6 +13,11 @@ import com.mycompany.clothing.store.manager.domain.enums.Gender;
 import com.mycompany.clothing.store.manager.domain.enums.LiningType;
 import com.mycompany.clothing.store.manager.domain.enums.Size;
 import com.mycompany.clothing.store.manager.domain.enums.WaistType;
+import jakarta.persistence.Column;
+import java.lang.reflect.Field;
+import java.lang.reflect.RecordComponent;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
@@ -55,4 +60,18 @@ public interface IPantyRepository extends JpaRepository<Panty, Integer>, JpaSpec
             @Param("cut") CutType cut,
             @Param("waist") WaistType waist
     );
+    
+    default List<String> getNames() {
+        Field[] fields = Panty.class.getDeclaredFields();
+        List<String> names = new ArrayList<>();
+        for (Field f : fields) {
+            Column c = f.getAnnotation(Column.class);
+            if(c != null) {
+                names.add(c.name());
+            } else {
+                names.add(f.getName());
+            }
+        }
+        return names;
+    }
 }

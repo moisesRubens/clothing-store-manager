@@ -118,4 +118,9 @@ public class ShirtService implements IClothingService {
     public void deleteAllClothings() throws Exception {
         shirtRepository.deleteAll();
     }
+
+    @Override
+    public List<String> getColumnsNames() {
+        return shirtRepository.getNames();
+    }
 }

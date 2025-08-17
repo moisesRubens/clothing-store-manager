@@ -62,4 +62,9 @@ public class PantController implements IClothingController {
         pantService.deleteAllClothings();
     }
 
+    @Override
+    public List<String> getColumnsNames() {
+        return pantService.getColumnsNames();
+    }
+
 }

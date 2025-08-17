@@ -6,6 +6,7 @@ package com.mycompany.clothing.store.manager.domain.dto;
 
 import com.mycompany.clothing.store.manager.domain.enums.ClothingType;
 import com.mycompany.clothing.store.manager.domain.enums.Gender;
+import jakarta.persistence.Column;
 
 /**
  *

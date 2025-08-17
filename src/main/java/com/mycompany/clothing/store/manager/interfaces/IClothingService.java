@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
  * @author moise
  */
 @Component
-public interface IClothingService {
+public interface IClothingService extends IClothingRename {
     
     void registerClothing(ClothingRequestDTO dto) throws Exception;
     

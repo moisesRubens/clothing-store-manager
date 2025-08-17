@@ -11,13 +11,17 @@ import com.mycompany.clothing.store.manager.domain.enums.Gender;
 import com.mycompany.clothing.store.manager.domain.enums.LiningType;
 import com.mycompany.clothing.store.manager.domain.enums.Size;
 import com.mycompany.clothing.store.manager.domain.enums.WaistType;
+import jakarta.persistence.Column;
 
 /**
  *
  * @author moise
  */
 public record PantyResponseDTO(
+    @Column(name="ID")
     Integer id,
+    
+    @Column(name="COR")
     String color,
     Integer quantity,
     Double price,

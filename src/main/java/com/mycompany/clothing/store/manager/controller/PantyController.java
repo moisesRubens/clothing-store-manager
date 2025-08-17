@@ -9,6 +9,7 @@ import com.mycompany.clothing.store.manager.domain.dto.ClothingRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.ClothingResponseDTO;
 import com.mycompany.clothing.store.manager.domain.dto.PantyRequestDTO;
 import com.mycompany.clothing.store.manager.domain.dto.PantyResponseDTO;
+import com.mycompany.clothing.store.manager.interfaces.IClothingRename;
 import com.mycompany.clothing.store.manager.interfaces.IClothingService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,5 +65,9 @@ public class PantyController implements IClothingController {
     public void deleteAllClothings() throws Exception {
         pantyService.deleteAllClothings();
     }
-    
+
+    @Override
+    public List<String> getColumnsNames() {
+        return pantyService.getColumnsNames();
+    }
 }

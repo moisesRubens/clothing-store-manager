@@ -19,6 +19,7 @@ import com.mycompany.clothing.store.manager.domain.enums.LiningType;
 import com.mycompany.clothing.store.manager.domain.enums.Size;
 import com.mycompany.clothing.store.manager.domain.enums.WaistType;
 import com.mycompany.clothing.store.manager.interfaces.IClothingMapper;
+import com.mycompany.clothing.store.manager.interfaces.IClothingRename;
 import com.mycompany.clothing.store.manager.repository.IPantyRepository;
 import com.mycompany.clothing.store.manager.repository.PantySpecification;
 import com.mycompany.clothing.store.manager.service.mapper.PantyMapper;
@@ -115,4 +116,8 @@ public class PantyService implements IClothingService {
         return pantyMapper.EntityToResponseDTO(panty);
     }
 
+    @Override
+    public List<String> getColumnsNames() {
+        return pantyRepository.getNames();
+    }
 }

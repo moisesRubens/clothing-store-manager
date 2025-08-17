@@ -118,4 +118,9 @@ public class PantService implements IClothingService {
                 .orElseThrow(() -> new IllegalStateException("Calça com id: "+id+" não existente."));
         return pantMapper.EntityToResponseDTO(pant);
     }
+
+    @Override
+    public List<String> getColumnsNames() {
+        return pantRepository.getNames();
+    }
 }
