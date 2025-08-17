@@ -2757,6 +2757,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="VOLTAR"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonAddPanty">
           <Properties>
@@ -2807,21 +2810,14 @@
                                   </Group>
                                   <EmptySpace min="25" pref="25" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jTextFieldSearchRemovePantyPanelBrand" min="-2" pref="71" max="-2" attributes="0"/>
-                                              <Component id="jTextFieldSearchRemovePantyPanelPrice" min="-2" pref="71" max="-2" attributes="0"/>
-                                              <Component id="jTextFieldSearchRemovePantyPanelFabric" min="-2" pref="71" max="-2" attributes="0"/>
-                                              <Component id="jTextFieldSearchRemovePantyPanelPattern" min="-2" pref="71" max="-2" attributes="0"/>
-                                              <Component id="jTextFieldSearchRemovePantyPanelStyle" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jTextFieldSearchRemovePantyPanelColor" min="-2" pref="71" max="-2" attributes="0"/>
-                                          <EmptySpace min="237" max="32767" attributes="0"/>
-                                      </Group>
+                                      <Component id="jTextFieldSearchRemovePantyPanelBrand" min="-2" pref="71" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldSearchRemovePantyPanelPrice" min="-2" pref="71" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldSearchRemovePantyPanelFabric" min="-2" pref="71" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldSearchRemovePantyPanelPattern" min="-2" pref="71" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldSearchRemovePantyPanelStyle" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldSearchRemovePantyPanelColor" alignment="0" min="-2" pref="71" max="-2" attributes="0"/>
                                   </Group>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -3369,6 +3365,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Remover"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton8ActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

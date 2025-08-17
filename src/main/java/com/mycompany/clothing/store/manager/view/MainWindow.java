@@ -52,6 +52,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     /**
      * Creates new form MainWindow
+     * @param mapController
      */
     public MainWindow(Map<String, IClothingController> mapController) {
         this.controllers = mapController;
@@ -61,7 +62,7 @@ public class MainWindow extends javax.swing.JFrame {
         configurarPopupMenu(jPopupMenuRemove, Function.REMOVE);
 
         getContentPane().setLayout(new CardLayout());
-
+        
         getContentPane().add(PainelPrincipal, "PainelPrincipal");
         getContentPane().add(PainelAdicionarCamisa, "PainelAdicionarCamisa");
         getContentPane().add(PainelConsultarCamisa, "PainelConsultarCamisa");
@@ -71,7 +72,13 @@ public class MainWindow extends javax.swing.JFrame {
         getContentPane().add(PainelConsultarRemoverCalca, "PainelConsultarRemoverCalca");
         getContentPane().add(PainelRemoverCalca, "PainelRemoverCalca");
         getContentPane().add(AddPantyPanel, "AddPantyPanel");
-        getContentPane().add(AddPantyPanel, "SearchRemovePantyPanel");
+        getContentPane().add(SearchRemovePantyPanel, "SearchRemovePantyPanel");
+        getContentPane().add(RemovePantyPanel, "RemovePantyPanel");
+        
+        System.out.println("COMECO");
+        CardLayout a = (CardLayout) getContentPane().getLayout();
+        a.show(getContentPane(), "PainelPrincipal");
+        System.out.println("FIM");
     }
 
     /**
@@ -2090,6 +2097,11 @@ public class MainWindow extends javax.swing.JFrame {
         AddPantyPanelFabric.setText("TECIDO");
 
         jButton1.setText("VOLTAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButtonAddPanty.setText("FINALIZAR");
         jButtonAddPanty.addActionListener(new java.awt.event.ActionListener() {
@@ -2428,9 +2440,7 @@ public class MainWindow extends javax.swing.JFrame {
                                             .addComponent(jTextFieldSearchRemovePantyPanelPattern, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jTextFieldSearchRemovePantyPanelStyle, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(0, 0, Short.MAX_VALUE))
-                                    .addGroup(SearchRemovePantyPanelLayout.createSequentialGroup()
-                                        .addComponent(jTextFieldSearchRemovePantyPanelColor, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                    .addComponent(jTextFieldSearchRemovePantyPanelColor, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addContainerGap())
                     .addGroup(SearchRemovePantyPanelLayout.createSequentialGroup()
                         .addGroup(SearchRemovePantyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2617,6 +2627,11 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         jButton8.setText("Remover");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout RemovePantyPanelLayout = new javax.swing.GroupLayout(RemovePantyPanel);
         RemovePantyPanel.setLayout(RemovePantyPanelLayout);
@@ -2753,8 +2768,7 @@ public class MainWindow extends javax.swing.JFrame {
                     panel = "SearchRemovePantyPanel";
                     f = Function.REMOVE;
                 }
-                default ->
-                    throw new IllegalStateException("Função não reconhecida");
+                default -> throw new IllegalStateException("Função não reconhecida");
             }
             a.show(getContentPane(), panel);
         });
@@ -3359,7 +3373,7 @@ public class MainWindow extends javax.swing.JFrame {
                 case REMOVE -> {
                     fillTable(resultDTO, ClothingPiece.PANTY, jTableRemovePanty);
                     CardLayout a = (CardLayout) getContentPane().getLayout();
-                    a.addLayoutComponent(getContentPane(), "RemovePantyPanel");
+                    a.show(getContentPane(), "RemovePantyPanel");
                 }
                 default ->
                     throw new IllegalStateException("Função não reconhecida");
@@ -3372,6 +3386,7 @@ public class MainWindow extends javax.swing.JFrame {
     private void jButtonSearchRemovePantyConsultListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchRemovePantyConsultListActionPerformed
         try {
             List<ClothingResponseDTO> resultDTO = controllers.get("pantyController").getAllClothings();
+            System.out.println(resultDTO);
             allClothings = true;
             switch (f) {
                 case SEARCH -> {
@@ -3383,7 +3398,7 @@ public class MainWindow extends javax.swing.JFrame {
                 case REMOVE -> {
                     fillTable(resultDTO, ClothingPiece.PANTY, jTableRemovePanty);
                     CardLayout a = (CardLayout) getContentPane().getLayout();
-                    a.addLayoutComponent(getContentPane(), "RemovePantyPanel");
+                    a.show(getContentPane(), "RemovePantyPanel");
                 }
                 default ->
                     throw new IllegalStateException("Função não reconhecida");
@@ -3399,17 +3414,26 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         CardLayout a = (CardLayout) getContentPane().getLayout();
-        a.addLayoutComponent(getContentPane(), "PainelPrincipal");
+        a.show(getContentPane(), "PainelPrincipal");
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         CardLayout a = (CardLayout) getContentPane().getLayout();
-        a.addLayoutComponent(getContentPane(), "SearchRemovePantyPanel");
+        a.show(getContentPane(), "SearchRemovePantyPanel");
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        CardLayout a = (CardLayout) getContentPane().getLayout();
+        a.show(getContentPane(), "PainelPrincipal");
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        
+    }//GEN-LAST:event_jButton8ActionPerformed
 
     private PantyRequestDTO fillPantyRequestDTO() {
         String color = jTextFieldSearchRemovePantyPanelColor.getText();
@@ -3956,21 +3980,20 @@ public class MainWindow extends javax.swing.JFrame {
         }
 
         if (!list.isEmpty()) {
-            model.addRow(new Object[]{
-                list.get(0).id(),
-                list.get(0).color(),
-                list.get(0).quantity(),
-                list.get(0).brand(),
-                list.get(0).gender(),
-                list.get(0).clothingType(),
-                list.get(0).pattern(),
-                list.get(0).fabric(),
-                list.get(0).style()});
             switch (p) {
                 case ClothingPiece.SHIRT -> {
                     for (ClothingResponseDTO data : list) {
                         ShirtResponseDTO shirtData = (ShirtResponseDTO) data;
                         model.addRow(new Object[]{
+                            shirtData.id(),
+                            shirtData.color(),
+                            shirtData.quantity(),
+                            shirtData.brand(),
+                            shirtData.gender(),
+                            shirtData.clothingType(),
+                            shirtData.pattern(),
+                            shirtData.fabric(),
+                            shirtData.style(),
                             shirtData.price(),
                             shirtData.size(),
                             shirtData.collar(),
@@ -3984,6 +4007,15 @@ public class MainWindow extends javax.swing.JFrame {
                     for (ClothingResponseDTO data : list) {
                         PantResponseDTO pantData = (PantResponseDTO) data;
                         model.addRow(new Object[]{
+                            pantData.id(),
+                            pantData.color(),
+                            pantData.quantity(),
+                            pantData.brand(),
+                            pantData.gender(),
+                            pantData.clothingType(),
+                            pantData.pattern(),
+                            pantData.fabric(),
+                            pantData.style(),
                             pantData.price(),
                             pantData.size(),
                             pantData.length(),
@@ -3998,14 +4030,26 @@ public class MainWindow extends javax.swing.JFrame {
                     for (ClothingResponseDTO data : list) {
                         PantyResponseDTO dto = (PantyResponseDTO) data;
                         model.addRow(new Object[]{
+                            dto.id(),
+                            dto.color(),
+                            dto.quantity(),
+                            dto.brand(),
+                            dto.gender(),
+                            dto.clothingType(),
+                            dto.pattern(),
+                            dto.fabric(),
+                            dto.style(),
                             dto.price(),
                             dto.lining(),
                             dto.cut(),
                             dto.detail(),
-                            dto.waist()});
+                            dto.waist()
+                        });
                     }
                 }
+
             }
+
         }
         t.setModel(model);
     }

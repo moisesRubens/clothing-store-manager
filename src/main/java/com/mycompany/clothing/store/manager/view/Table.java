@@ -12,6 +12,8 @@ import com.mycompany.clothing.store.manager.domain.enums.ClothingPiece;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import com.mycompany.clothing.store.manager.domain.dto.PantResponseDTO;
+import com.mycompany.clothing.store.manager.domain.dto.PantyResponseDTO;
+import javax.swing.JTable;
 
 /**
  *
@@ -91,40 +93,63 @@ public class Table extends javax.swing.JFrame {
                         model.addRow(new Object[]{
                             shirtData.id(),
                             shirtData.color(),
-                            shirtData.price(),
                             shirtData.quantity(),
                             shirtData.brand(),
                             shirtData.gender(),
-                            shirtData.closureType(),
                             shirtData.clothingType(),
                             shirtData.pattern(),
                             shirtData.fabric(),
-                            shirtData.pocket(),
+                            shirtData.style(),
+                            shirtData.price(),
                             shirtData.size(),
                             shirtData.collar(),
-                            shirtData.sleeve()
+                            shirtData.sleeve(),
+                            shirtData.closureType(),
+                            shirtData.pocket()
                         });
                     }
                 }
                 case ClothingPiece.PANT -> {
                     for (ClothingResponseDTO data : list) {
-                        PantResponseDTO pantieData = (PantResponseDTO) data;
+                        PantResponseDTO pantData = (PantResponseDTO) data;
                         model.addRow(new Object[]{
-                            pantieData.id(),
-                            pantieData.color(),
-                            pantieData.price(),
-                            pantieData.quantity(),
-                            pantieData.brand(),
-                            pantieData.gender(),
-                            pantieData.closureType(),
-                            pantieData.clothingType(),
-                            pantieData.pattern(),
-                            pantieData.fabric(),
-                            pantieData.pocket(),
-                            pantieData.size(),
-                            pantieData.length(),
-                            pantieData.hemType(),
-                            pantieData.waistType()
+                            pantData.id(),
+                            pantData.color(),
+                            pantData.quantity(),
+                            pantData.brand(),
+                            pantData.gender(),
+                            pantData.clothingType(),
+                            pantData.pattern(),
+                            pantData.fabric(),
+                            pantData.style(),
+                            pantData.price(),
+                            pantData.size(),
+                            pantData.length(),
+                            pantData.hemType(),
+                            pantData.waistType(),
+                            pantData.closureType(),
+                            pantData.pocket()
+                        });
+                    }
+                }
+                case ClothingPiece.PANTY -> {
+                    for (ClothingResponseDTO data : list) {
+                        PantyResponseDTO dto = (PantyResponseDTO) data;
+                        model.addRow(new Object[]{
+                            dto.id(),
+                            dto.color(),
+                            dto.quantity(),
+                            dto.brand(),
+                            dto.gender(),
+                            dto.clothingType(),
+                            dto.pattern(),
+                            dto.fabric(),
+                            dto.style(),
+                            dto.price(),
+                            dto.lining(),
+                            dto.cut(),
+                            dto.detail(),
+                            dto.waist()
                         });
                     }
                 }
@@ -138,28 +163,38 @@ public class Table extends javax.swing.JFrame {
     private void fillTableAux(DefaultTableModel model, ClothingPiece p) {
         model.addColumn("ID");
         model.addColumn("COR");
-        model.addColumn("VALOR");
         model.addColumn("QUANTIDADE");
         model.addColumn("MARCA");
         model.addColumn("GENERO");
-        model.addColumn("TIPO DE FECHAMENTO");
         model.addColumn("TIPO DE ROUPA");
         model.addColumn("ESTAMPA");
         model.addColumn("TECIDO");
+        model.addColumn("ESTILO");
 
         switch (p) {
             case ClothingPiece.SHIRT -> {
+                model.addColumn("VALOR");
                 model.addColumn("TAMANHO");
                 model.addColumn("GOLA");
                 model.addColumn("MANGA");
+                model.addColumn("TIPO DE FECHAMENTO");
                 model.addColumn("QUANTIDADE DE BOLSOS");
             }
             case ClothingPiece.PANT -> {
+                model.addColumn("VALOR");
                 model.addColumn("NUMERAÇÃO");
                 model.addColumn("COMPRIMENTO");
                 model.addColumn("TIPO DE BARRA");
                 model.addColumn("TIPO DE CINTURA");
+                model.addColumn("TIPO DE FECHAMENTO");
                 model.addColumn("QUANTIDADE DE BOLSOS");
+            }
+            case ClothingPiece.PANTY -> {
+                model.addColumn("VALOR");
+                model.addColumn("FORRO");
+                model.addColumn("CORTE");
+                model.addColumn("DETALHE");
+                model.addColumn("CINTURA");
             }
         }
     }
