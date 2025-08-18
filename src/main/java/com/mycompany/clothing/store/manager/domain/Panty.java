@@ -21,19 +21,19 @@ import jakarta.persistence.Entity;
 @Entity
 public class Panty extends Clothing {
 
-    @Column(name = "TAMANHO")
+    @Column(name = "tamanho")
     private Size size;
 
-    @Column(name = "CINTURA")
+    @Column(name = "cintura")
     private WaistType waist;
 
-    @Column(nullable = true, name = "FORRO")
+    @Column(nullable = true, name = "forro")
     private LiningType lining;
 
-    @Column(nullable = true, name = "CORTE")
+    @Column(nullable = true, name = "corte")
     private CutType cut;
 
-    @Column(nullable = true, name = "DETALHE")
+    @Column(nullable = true, name = "detalhe")
     private DetailPanty detail;
 
     @Column(nullable = true, name = "estilo")
@@ -43,8 +43,8 @@ public class Panty extends Clothing {
     }
 
     public Panty(Size size, WaistType waist, LiningType lining, CutType cut, DetailPanty detail, String color, Double price, Integer quantity,
-            ClothingType clothingType, String fabric, String brand, Gender gender, String pattern, String style) {
-        super(color, price, quantity, clothingType, fabric, brand, gender, pattern);
+            String fabric, String brand, Gender gender, String pattern, String style) {
+        super(color, price, quantity, fabric, brand, gender, pattern);
         this.size = size;
         this.waist = waist;
         this.lining = lining;

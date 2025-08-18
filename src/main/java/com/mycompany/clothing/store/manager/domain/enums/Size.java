@@ -9,7 +9,7 @@ package com.mycompany.clothing.store.manager.domain.enums;
  * @author moise
  */
 public enum Size {
-    SMALL,
-    MEDIUM, 
-    LARGE
+    P,
+    M, 
+    G
 }

@@ -3016,11 +3016,11 @@ public class MainWindow extends javax.swing.JFrame {
 
         switch (jTextFieldAdicionarCamisaSize.getText().charAt(0)) {
             case 'P' ->
-                size = Size.SMALL;
+                size = Size.P;
             case 'M' ->
-                size = Size.MEDIUM;
+                size = Size.M;
             case 'G' ->
-                size = Size.LARGE;
+                size = Size.G;
             default ->
                 throw new IllegalArgumentException("INSIRA UM TAMANHO VALIDO");
         }
@@ -3074,13 +3074,13 @@ public class MainWindow extends javax.swing.JFrame {
         }
 
         if (jCheckBoxTipoCinturaBaixa.isSelected()) {
-            waistType = WaistType.LOW;
+            waistType = WaistType.BAIXA;
         } else if (jCheckBoxTipoCinturaMedia.isSelected()) {
-            waistType = WaistType.MID;
+            waistType = WaistType.MEDIA;
         } else if (jCheckBoxTipoCinturaAlta.isSelected()) {
-            waistType = WaistType.HIGH;
+            waistType = WaistType.ALTA;
         } else if (jCheckBoxTipoCinturaAlta.isSelected()) {
-            waistType = WaistType.ELASTIC;
+            waistType = WaistType.ELASTICA;
         }
 
         if (jCheckBoxTipoBarraReta.isSelected()) {
@@ -3494,61 +3494,61 @@ public class MainWindow extends javax.swing.JFrame {
         }
 
         if (jCheckBoxSearchRemovePantyPanelSizeSmall.isSelected()) {
-            size = Size.SMALL;
+            size = Size.P;
         } else if (jCheckBoxSearchRemovePantyPanelSizeMid.isSelected()) {
-            size = Size.MEDIUM;
+            size = Size.M;
         } else {
-            size = Size.LARGE;
+            size = Size.G;
         }
 
         if (jCheckBoxSearchRemovePantyPanelCutTypeBiquini.isSelected()) {
-            cutType = CutType.BIKINI;
+            cutType = CutType.BIQUINI;
         } else if (jCheckBoxSearchRemovePantyPanelCutTypeFullBrief.isSelected()) {
-            cutType = CutType.FULL_BRIEF;
+            cutType = CutType.INTEIRO;
         } else if (jCheckBoxSearchRemovePantyPanelCutTypeHipster.isSelected()) {
-            cutType = CutType.HIPSTER;
+            cutType = CutType.BAIXO;
         } else if (jCheckBoxSearchRemovePantyPanelCutTypeTanga.isSelected()) {
             cutType = CutType.TANGA;
         } else {
-            cutType = CutType.THONG;
+            cutType = CutType.FIO_DENTAL;
         }
 
         if (jCheckBoxSearchRemovePantyPanelDetailLace.isSelected()) {
-            detail = DetailPanty.LACE;
+            detail = DetailPanty.RENDA;
         } else if (jCheckBoxSearchRemovePantyPanelDetailRuffles.isSelected()) {
-            detail = DetailPanty.RUFFLES;
+            detail = DetailPanty.BABADO;
         } else if (jCheckBoxSearchRemovePantyPanelDetailEmbroidery.isSelected()) {
-            detail = DetailPanty.EMBROIDERY;
+            detail = DetailPanty.BORDADO;
         } else {
-            detail = DetailPanty.BOW;
+            detail = DetailPanty.LACO;
         }
 
         if (jCheckBoxSearchRemovePantyPanelWaistTypeLow.isSelected()) {
-            waistType = WaistType.LOW;
+            waistType = WaistType.BAIXA;
         } else if (jCheckBoxSearchRemovePantyPanelWaistTypeMid.isSelected()) {
-            waistType = WaistType.MID;
+            waistType = WaistType.MEDIA;
         } else if (jCheckBoxSearchRemovePantyPanelWaistTypeHigh.isSelected()) {
-            waistType = WaistType.HIGH;
+            waistType = WaistType.ALTA;
         } else {
-            waistType = WaistType.ELASTIC;
+            waistType = WaistType.ELASTICA;
         }
 
         if (jCheckBoxSearchRemovePantyPanelLiningTypeCotton.isSelected()) {
-            liningType = LiningType.COTTON;
+            liningType = LiningType.ALGODAO;
         } else if (jCheckBoxSearchRemovePantyPanelLiningTypeMicrofiber.isSelected()) {
-            liningType = LiningType.MICROFIBER;
+            liningType = LiningType.MICROFIBRA;
         } else if (jCheckBoxSearchRemovePantyPanelLiningTypePolyester.isSelected()) {
-            liningType = LiningType.POLYESTER;
+            liningType = LiningType.POLIESTER;
         } else {
             liningType = LiningType.VISCOSE;
         }
 
         if (jCheckBoxSearchRemovePantyPanelLiningTypeCotton.isSelected()) {
-            liningType = LiningType.COTTON;
+            liningType = LiningType.ALGODAO;
         } else if (jCheckBoxSearchRemovePantyPanelLiningTypeMicrofiber.isSelected()) {
-            liningType = LiningType.MICROFIBER;
+            liningType = LiningType.MICROFIBRA;
         } else if (jCheckBoxSearchRemovePantyPanelLiningTypePolyester.isSelected()) {
-            liningType = LiningType.POLYESTER;
+            liningType = LiningType.POLIESTER;
         } else {
             liningType = LiningType.VISCOSE;
         }
@@ -3641,61 +3641,61 @@ public class MainWindow extends javax.swing.JFrame {
         }
 
         if (jCheckBoxAddPantyPanelSizeSmall.isSelected()) {
-            size = Size.SMALL;
+            size = Size.P;
         } else if (jCheckBoxAddPantyPanelSizeMid.isSelected()) {
-            size = Size.MEDIUM;
+            size = Size.M;
         } else {
-            size = Size.LARGE;
+            size = Size.G;
         }
 
         if (jCheckBoxAddPantyPanelCutTypeBiquini.isSelected()) {
-            cutType = CutType.BIKINI;
+            cutType = CutType.BIQUINI;
         } else if (jCheckBoxAddPantyPanelCutTypeFullBrief.isSelected()) {
-            cutType = CutType.FULL_BRIEF;
+            cutType = CutType.INTEIRO;
         } else if (jCheckBoxAddPantyPanelCutTypeHipster.isSelected()) {
-            cutType = CutType.HIPSTER;
+            cutType = CutType.BAIXO;
         } else if (jCheckBoxAddPantyPanelCutTypeTanga.isSelected()) {
             cutType = CutType.TANGA;
         } else {
-            cutType = CutType.THONG;
+            cutType = CutType.FIO_DENTAL;
         }
 
         if (jCheckBoxAddPantyPanelDetailLace.isSelected()) {
-            detail = DetailPanty.LACE;
+            detail = DetailPanty.RENDA;
         } else if (jCheckBoxAddPantyPanelDetailRuffles.isSelected()) {
-            detail = DetailPanty.RUFFLES;
+            detail = DetailPanty.BABADO;
         } else if (jCheckBoxAddPantyPanelDetailEmbroidery.isSelected()) {
-            detail = DetailPanty.EMBROIDERY;
+            detail = DetailPanty.BORDADO;
         } else {
-            detail = DetailPanty.BOW;
+            detail = DetailPanty.LACO;
         }
 
         if (jCheckBoxAddPantyPanelWaistTypeLow.isSelected()) {
-            waistType = WaistType.LOW;
+            waistType = WaistType.BAIXA;
         } else if (jCheckBoxAddPantyPanelWaistTypeMid.isSelected()) {
-            waistType = WaistType.MID;
+            waistType = WaistType.MEDIA;
         } else if (jCheckBoxAddPantyPanelWaistTypeHigh.isSelected()) {
-            waistType = WaistType.HIGH;
+            waistType = WaistType.ALTA;
         } else {
-            waistType = WaistType.ELASTIC;
+            waistType = WaistType.ELASTICA;
         }
 
         if (jCheckBoxAddPantyPanelLiningTypeCotton.isSelected()) {
-            liningType = LiningType.COTTON;
+            liningType = LiningType.ALGODAO;
         } else if (jCheckBoxAddPantyPanelLiningTypeMicrofiber.isSelected()) {
-            liningType = LiningType.MICROFIBER;
+            liningType = LiningType.MICROFIBRA;
         } else if (jCheckBoxAddPantyPanelLiningTypePolyester.isSelected()) {
-            liningType = LiningType.POLYESTER;
+            liningType = LiningType.POLIESTER;
         } else {
             liningType = LiningType.VISCOSE;
         }
 
         if (jCheckBoxAddPantyPanelLiningTypeCotton.isSelected()) {
-            liningType = LiningType.COTTON;
+            liningType = LiningType.ALGODAO;
         } else if (jCheckBoxAddPantyPanelLiningTypeMicrofiber.isSelected()) {
-            liningType = LiningType.MICROFIBER;
+            liningType = LiningType.MICROFIBRA;
         } else if (jCheckBoxAddPantyPanelLiningTypePolyester.isSelected()) {
-            liningType = LiningType.POLYESTER;
+            liningType = LiningType.POLIESTER;
         } else {
             liningType = LiningType.VISCOSE;
         }
@@ -3787,11 +3787,11 @@ public class MainWindow extends javax.swing.JFrame {
         Gender gender = null;
 
         if (jTextFieldRemoveSize.getText().equals("P")) {
-            shirtSize = Size.SMALL;
+            shirtSize = Size.P;
         } else if (jTextFieldRemoveSize.getText().equals("M")) {
-            shirtSize = Size.MEDIUM;
+            shirtSize = Size.M;
         } else if (jTextFieldRemoveSize.getText().equals("G")) {
-            shirtSize = Size.LARGE;
+            shirtSize = Size.G;
         } else if (!jTextFieldRemoveSize.getText().isEmpty() || !jTextFieldRemoveSize.getText().isBlank()) {
             throw new IllegalArgumentException("INSIRA UM TAMANHO VALIDO");
         }
@@ -3866,13 +3866,13 @@ public class MainWindow extends javax.swing.JFrame {
         }
 
         if (jCheckBoxConsultCalcaTipoCinturaBaixa.isSelected()) {
-            waistType = WaistType.LOW;
+            waistType = WaistType.BAIXA;
         } else if (jCheckBoxConsultCalcaTipoCinturaMedia.isSelected()) {
-            waistType = WaistType.MID;
+            waistType = WaistType.MEDIA;
         } else if (jCheckBoxConsultCalcaTipoCinturaAlta.isSelected()) {
-            waistType = WaistType.HIGH;
+            waistType = WaistType.ALTA;
         } else if (jCheckBoxConsultCalcaTipoCinturaElastica.isSelected()) {
-            waistType = WaistType.ELASTIC;
+            waistType = WaistType.ELASTICA;
         }
 
         if (jCheckBoxConsultCalcaComprimentoCurto.isSelected()) {
@@ -3914,11 +3914,11 @@ public class MainWindow extends javax.swing.JFrame {
         Gender gender = null;
 
         if (jTextFieldConsultShirtSize.getText().equals("P")) {
-            shirtSize = Size.SMALL;
+            shirtSize = Size.P;
         } else if (jTextFieldConsultShirtSize.getText().equals("M")) {
-            shirtSize = Size.MEDIUM;
+            shirtSize = Size.M;
         } else if (jTextFieldConsultShirtSize.getText().equals("G")) {
-            shirtSize = Size.LARGE;
+            shirtSize = Size.G;
         } else if (!jTextFieldConsultShirtSize.getText().isBlank()) {
             throw new IllegalArgumentException("INSIRA UM TAMANHO VALIDO");
         }
@@ -3985,6 +3985,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void fillTableColumns(DefaultTableModel model, IClothingController controller) {
         List<String> columns = controller.getColumnsNames();
+        System.out.println(columns);
         for (String s : columns) {
             model.addColumn(s);
         }
@@ -4003,6 +4004,7 @@ public class MainWindow extends javax.swing.JFrame {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+            System.out.println(rowData);
             model.addRow(rowData.toArray());
         }
     }

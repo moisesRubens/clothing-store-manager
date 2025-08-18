@@ -32,10 +32,6 @@ public class ShirtSpecification {
                 predicates.add(builder.greaterThanOrEqualTo(root.get("quantity"), filter.getQuantity()));
             }
 
-            if (filter.getClothingType() != null) {
-                predicates.add(builder.equal(root.get("clothingType"), filter.getClothingType()));
-            }
-
             if (filter.getFabric() != null && !filter.getFabric().isBlank()) {
                 predicates.add(builder.like(root.get("fabric"), "%" + filter.getFabric() + "%"));
             }

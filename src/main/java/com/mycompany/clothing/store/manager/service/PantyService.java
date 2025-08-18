@@ -48,7 +48,7 @@ public class PantyService implements IClothingService {
     @Override
     public void registerClothing(ClothingRequestDTO dto) throws Exception {
         Panty panty = pantyMapper.RequestDTOToEntity(dto);
-        Optional<Panty> found = pantyRepository.findExistingPanty(panty.getColor() , panty.getClothingType(), panty.getFabric(), panty.getBrand(),
+        Optional<Panty> found = pantyRepository.findExistingPanty(panty.getColor(), panty.getFabric(), panty.getBrand(),
                 panty.getGender(), panty.getPattern(), panty.getStyle(), panty.getDetail(), panty.getSize(), panty.getLining(), panty.getCut(),
                 panty.getWaist());
 
@@ -80,10 +80,12 @@ public class PantyService implements IClothingService {
     @Override
     public List<PantyResponseDTO> getAllClothings() throws Exception {
         List <Panty> list = pantyRepository.findAll();
+        System.out.println("Lista de Panty: " + list);
         List<PantyResponseDTO> listDTO = new ArrayList<>();
         for(Panty p : list) {
             listDTO.add(pantyMapper.EntityToResponseDTO(p));
         }
+        System.out.println("meus dto: "+listDTO);
         return listDTO;
     }
 

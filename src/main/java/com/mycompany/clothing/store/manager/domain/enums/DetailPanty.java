@@ -9,8 +9,8 @@ package com.mycompany.clothing.store.manager.domain.enums;
  * @author moise
  */
 public enum DetailPanty {
-    LACE,         // Renda
-    BOW,          // Laço
-    EMBROIDERY,   // Bordado
-    RUFFLES,      // Babados
+    RENDA,         // Renda
+    LACO,          // Laço
+    BORDADO,   // Bordado
+    BABADO,      // Babados
 }

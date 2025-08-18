@@ -30,11 +30,10 @@ import org.springframework.stereotype.Repository;
  * @author moise
  */
 public interface IPantyRepository extends JpaRepository<Panty, Integer>, JpaSpecificationExecutor<Panty> {
-    
+
     @Query("""
     SELECT p FROM Panty p
     WHERE p.color = :color
-    AND p.clothingType = :clothingType
     AND (:fabric IS NULL OR p.fabric = :fabric)
     AND p.brand = :brand
     AND (:style IS NULL OR p.style = :style)
@@ -48,30 +47,37 @@ public interface IPantyRepository extends JpaRepository<Panty, Integer>, JpaSpec
     """)
     Optional<Panty> findExistingPanty(
             @Param("color") String color,
-            @Param("clothingType") ClothingType clothingType,
             @Param("fabric") String fabric,
             @Param("brand") String brand,
             @Param("gender") Gender gender,
             @Param("pattern") String pattern,
             @Param("style") String style,
             @Param("detail") DetailPanty detail,
-            @Param("size") Size size, 
+            @Param("size") Size size,
             @Param("lining") LiningType lining,
             @Param("cut") CutType cut,
             @Param("waist") WaistType waist
     );
-    
+
     default List<String> getNames() {
-        Field[] fields = Panty.class.getDeclaredFields();
+        Class clazz = Panty.class;
+        Class<?> superClazz = clazz.getSuperclass();
         List<String> names = new ArrayList<>();
-        for (Field f : fields) {
-            Column c = f.getAnnotation(Column.class);
-            if(c != null) {
-                names.add(c.name());
-            } else {
-                names.add(f.getName());
+        Class[] classes = new Class[]{superClazz, clazz};
+
+        for (Class c : classes) {
+            Field[] fields = c.getDeclaredFields();
+            for (Field f : fields) {
+                Column column = f.getAnnotation(Column.class);
+                if (column != null) {
+                    names.add(column.name());
+                } else {
+                    names.add(f.getName());
+                }
             }
         }
+        System.out.println("NOMES: "+ names);
+
         return names;
     }
 }

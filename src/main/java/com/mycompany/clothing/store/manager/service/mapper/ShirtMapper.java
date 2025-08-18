@@ -25,7 +25,7 @@ public class ShirtMapper implements IClothingMapper {
         if (clothing instanceof Shirt shirt) {
             return new ShirtResponseDTO(shirt.getId(), shirt.getColor(), shirt.getPrice(), shirt.getQuantity(), shirt.getFabric(),
                     shirt.getBrand(), shirt.getStyle(), shirt.getGender(), shirt.getPattern(), shirt.getPocket(),
-                    shirt.getClosureType(), shirt.getClothingType(), shirt.getSleeve(), shirt.getCollar(), shirt.getSize());
+                    shirt.getClosureType(), shirt.getSleeve(), shirt.getCollar(), shirt.getSize());
         }
         throw new IllegalArgumentException("Passe uma instância Shirt");
     }
@@ -34,7 +34,7 @@ public class ShirtMapper implements IClothingMapper {
     public Shirt RequestDTOToEntity(ClothingRequestDTO dto) throws Exception {
         if (dto instanceof ShirtRequestDTO shirtDTO) {
             return new Shirt(shirtDTO.color(), shirtDTO.price(), shirtDTO.quantity(),
-                    shirtDTO.clothingType(), shirtDTO.fabric(), shirtDTO.brand(), shirtDTO.style(),
+                    shirtDTO.fabric(), shirtDTO.brand(), shirtDTO.style(),
                     shirtDTO.gender(), shirtDTO.pattern(), shirtDTO.pocket(), shirtDTO.closureType(),
                     shirtDTO.size(), shirtDTO.sleeve(), shirtDTO.collar());
         }

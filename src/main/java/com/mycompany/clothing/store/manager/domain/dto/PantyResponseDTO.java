@@ -18,20 +18,19 @@ import jakarta.persistence.Column;
  * @author moise
  */
 public record PantyResponseDTO(
-    @Column(name="ID")
-    Integer id,
-    
-    @Column(name="COR")
-    String color,
-    Integer quantity,
-    Double price,
-    String fabric,
-    String brand,
-    String style,
-    Gender gender,
-    String pattern,
-    ClothingType clothingType, CutType cut,
-    DetailPanty detail, LiningType lining, 
-    Size size, WaistType waist) implements ClothingResponseDTO{
+        Integer id,
+        String color,
+        Double price,
+        Integer quantity,
+        String fabric,
+        String brand,
+        Gender gender,
+        String pattern,
+        Size size,
+        WaistType waist,
+        LiningType lining,
+        CutType cut,
+        DetailPanty detail,
+        String style) implements ClothingResponseDTO {
 
 }

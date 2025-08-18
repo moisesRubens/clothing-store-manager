@@ -49,8 +49,8 @@ public class Pant extends Clothing {
    
     public Pant() {}
 
-    public Pant(HemType hemType, WaistType waistType, PantLengthType length, Integer size, String color, Double price, Integer quantity, ClothingType clothingType, String fabric, String brand, String style, Gender gender, String pattern, Integer pocket, String closureType) {
-        super(color, price, quantity, clothingType, fabric, brand, gender, pattern);
+    public Pant(HemType hemType, WaistType waistType, PantLengthType length, Integer size, String color, Double price, Integer quantity, String fabric, String brand, String style, Gender gender, String pattern, Integer pocket, String closureType) {
+        super(color, price, quantity, fabric, brand, gender, pattern);
         this.hemType = hemType;
         this.waistType = waistType;
         this.length = length;

@@ -50,7 +50,7 @@ public class ShirtService implements IClothingService {
 
         ShirtRequestDTO shirtDTO = (ShirtRequestDTO) dto;
         Shirt shirt = (Shirt) shirtMapper.RequestDTOToEntity(shirtDTO);
-        Optional<Shirt> found = shirtRepository.findExistingShirt(shirt.getColor(), shirt.getClothingType(), shirt.getFabric(),
+        Optional<Shirt> found = shirtRepository.findExistingShirt(shirt.getColor(), shirt.getFabric(),
                 shirt.getBrand(), shirt.getStyle(), shirt.getGender(), shirt.getPattern(), shirt.getPocket(),
                 shirt.getClosureType(), shirt.getSize(), shirt.getSleeve(), shirt.getCollar());
 

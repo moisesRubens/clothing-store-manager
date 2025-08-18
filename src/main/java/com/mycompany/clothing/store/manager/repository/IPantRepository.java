@@ -27,16 +27,16 @@ import org.springframework.data.repository.query.Param;
  * @author moise
  */
 public interface IPantRepository extends JpaRepository<Pant, Integer>, JpaSpecificationExecutor<Pant> {
-    
+
     @Query("""
-    select p.id from Pant p where p.color = :color and
-        p.clothingType = :clothingType and p.fabric = :fabric and
+    select p.id from Pant p where p.color = :color 
+           and p.fabric = :fabric and
         p.brand = :brand and p.style = :style and
         p.gender = :gender and p.pattern = :pattern and
         p.pocket = :pocket and p.closureType = :closureType and
         p.size = :size and p.length = :length and p.hemType = :hemType and 
         p.waistType = :waistType and p.size = :size""")
-    Integer getId(@Param("color") String color, @Param("clothingType") ClothingType clothingType,
+    Integer getId(@Param("color") String color,
             @Param("fabric") String fabric, @Param("brand") String brand,
             @Param("style") String style, @Param("gender") Gender gender,
             @Param("pattern") String pattern, @Param("pocket") Integer pocket,
@@ -48,7 +48,6 @@ public interface IPantRepository extends JpaRepository<Pant, Integer>, JpaSpecif
     @Query("""
     SELECT p FROM Pant p
     WHERE p.color = :color
-    AND p.clothingType = :clothingType
     AND (:fabric IS NULL OR p.fabric = :fabric)
     AND p.brand = :brand
     AND (:style IS NULL OR p.style = :style)
@@ -63,7 +62,6 @@ public interface IPantRepository extends JpaRepository<Pant, Integer>, JpaSpecif
     """)
     Optional<Pant> findExistingPant(
             @Param("color") String color,
-            @Param("clothingType") ClothingType clothingType,
             @Param("fabric") String fabric,
             @Param("brand") String brand,
             @Param("style") String style,
@@ -71,18 +69,18 @@ public interface IPantRepository extends JpaRepository<Pant, Integer>, JpaSpecif
             @Param("pattern") String pattern,
             @Param("pocket") Integer pocket,
             @Param("closureType") String closureType,
-            @Param("size") Integer size, 
+            @Param("size") Integer size,
             @Param("hemType") HemType hemType,
             @Param("length") PantLengthType length,
             @Param("waistType") WaistType waistType
     );
-    
+
     default List<String> getNames() {
         Field[] fields = Pant.class.getDeclaredFields();
         List<String> names = new ArrayList<>();
         for (Field f : fields) {
             Column c = f.getAnnotation(Column.class);
-            if(c != null) {
+            if (c != null) {
                 names.add(c.name());
             } else {
                 names.add(f.getName());

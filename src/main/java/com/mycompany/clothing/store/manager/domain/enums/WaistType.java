@@ -9,8 +9,8 @@ package com.mycompany.clothing.store.manager.domain.enums;
  * @author moise
  */
 public enum WaistType {
-    HIGH,       // cintura alta
-    MID,        // cintura média
-    LOW,        // cintura baixa
-    ELASTIC     // cintura elástica
+    ALTA,       // cintura alta
+    MEDIA,        // cintura média
+    BAIXA,        // cintura baixa
+    ELASTICA     // cintura elástica
 }

@@ -22,9 +22,9 @@ public class PantyMapper implements IClothingMapper {
     @Override
     public PantyResponseDTO EntityToResponseDTO(Clothing clothing) throws Exception {
         if (clothing instanceof Panty panty) {
-            return new PantyResponseDTO(panty.getId(), panty.getColor(), panty.getQuantity(), panty.getPrice(),
-                    panty.getFabric(), panty.getBrand(), panty.getStyle(), panty.getGender(), panty.getPattern(), panty.getClothingType(),
-                    panty.getCut(), panty.getDetail(), panty.getLining(), panty.getSize(), panty.getWaist());
+            return new PantyResponseDTO(panty.getId(), panty.getColor(), panty.getPrice(), panty.getQuantity(), panty.getFabric(),
+                    panty.getBrand(), panty.getGender(), panty.getPattern(), panty.getSize(), panty.getWaist(),
+                    panty.getLining(), panty.getCut(), panty.getDetail(), panty.getStyle());
         }
         throw new IllegalArgumentException("Passe um Panty");
     }
@@ -33,7 +33,7 @@ public class PantyMapper implements IClothingMapper {
     public Panty RequestDTOToEntity(ClothingRequestDTO dto) throws Exception {
         if (dto instanceof PantyRequestDTO pantyDTO) {
             return new Panty(pantyDTO.size(), pantyDTO.waist(), pantyDTO.lining(), pantyDTO.cut(), pantyDTO.detail(),
-                    pantyDTO.color(), pantyDTO.price(), pantyDTO.quantity(), pantyDTO.clothingType(), pantyDTO.fabric(),
+                    pantyDTO.color(), pantyDTO.price(), pantyDTO.quantity(), pantyDTO.fabric(),
                     pantyDTO.brand(), pantyDTO.gender(), pantyDTO.pattern(), pantyDTO.style());
         }
         throw new IllegalArgumentException("Passe um PantyRequestDTO");

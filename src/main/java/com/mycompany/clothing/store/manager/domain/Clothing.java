@@ -30,52 +30,47 @@ public abstract class Clothing {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="ID")
+    @Column(name="id")
     Integer id;
 
-    @Column(name="COR")
+    @Column(name="cor")
     String color;
 
-    @Column(name="VALOR")
+    @Column(name="valor")
     Double price;
 
-    @Column(name="QUANTIDADE")
+    @Column(name="quantidade")
     Integer quantity;
 
-    @Column(name="TECIDO", nullable = true)
+    @Column(name="tecido", nullable = true)
     String fabric;
 
-    @Column(name="MARCA")
+    @Column(name="marca")
     String brand;
 
-    @Column(name="GENERO")
+    @Column(name="gênero")
     @Enumerated(EnumType.STRING)
     Gender gender;
 
-    @Column(name="ESTAMPA", nullable = true)
+    @Column(name="estampa", nullable = true)
     String pattern;
-
-    @Column(name="TIPO DE ROUPA")
-    @Enumerated(EnumType.STRING)
-    ClothingType clothingType;
 
     public Clothing() {
     }
 
-    public Clothing(String color, Double price, Integer quantity, ClothingType clothingType, String fabric, String brand, Gender gender, String pattern) {
+    public Clothing(String color, Double price, Integer quantity, String fabric, String brand, Gender gender, String pattern) {
         this.color = color;
         this.price = price;
         this.quantity = quantity;
         this.brand = brand;
         this.gender = gender;
-        this.clothingType = clothingType;
         this.fabric = fabric;
         this.pattern = pattern;
     }
 
     @Override
     public String toString() {
-        return "Clothing{" + "id=" + id + ", color=" + color + ", price=" + price + ", quantity=" + quantity + ", fabric=" + fabric + ", brand=" + brand + ", gender=" + gender + ", pattern=" + pattern + ", clothingType=" + clothingType + '}';
+        return "Clothing{" + "id=" + id + ", color=" + color + ", price=" + price + ", quantity=" + quantity + ", fabric=" + fabric + ", brand=" + brand + ", gender=" + gender + ", pattern=" + pattern + '}';
     }
 
     public Integer getId() {
@@ -136,13 +131,5 @@ public abstract class Clothing {
 
     public void setPattern(String pattern) {
         this.pattern = pattern;
-    }
-
-    public ClothingType getClothingType() {
-        return clothingType;
-    }
-
-    public void setClothingType(ClothingType clothingType) {
-        this.clothingType = clothingType;
     }
 }

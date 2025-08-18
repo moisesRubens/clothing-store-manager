@@ -50,7 +50,7 @@ public class PantService implements IClothingService {
     @Override
     public void registerClothing(ClothingRequestDTO dto) throws Exception {
         Pant pant = pantMapper.RequestDTOToEntity(dto);
-        Optional<Pant> found = pantRepository.findExistingPant(pant.getColor(), pant.getClothingType(), pant.getFabric(), 
+        Optional<Pant> found = pantRepository.findExistingPant(pant.getColor(), pant.getFabric(), 
                 pant.getBrand(), pant.getStyle(), pant.getGender(), pant.getPattern(), pant.getPocket(), pant.getClosureType(),
                 pant.getSize(), pant.getHemType(), pant.getLength(), pant.getWaistType());
 

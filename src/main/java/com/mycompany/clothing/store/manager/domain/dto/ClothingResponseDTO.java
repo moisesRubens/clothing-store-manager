@@ -20,6 +20,5 @@ public interface ClothingResponseDTO {
     String brand(); 
     String style();
     Gender gender();
-    String pattern();
-    ClothingType clothingType(); 
+    String pattern(); 
 }

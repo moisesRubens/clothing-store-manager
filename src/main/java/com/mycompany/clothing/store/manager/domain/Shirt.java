@@ -43,9 +43,9 @@ public class Shirt extends Clothing {
 
     public Shirt() {}
 
-    public Shirt(String color, Double price, Integer quantity, ClothingType clothingType, String fabric, String brand,
+    public Shirt(String color, Double price, Integer quantity, String fabric, String brand,
                  String style, Gender gender, String pattern, Integer pocket, String closureType, Size size, Integer sleeve, Integer collar) {
-        super(color, price, quantity, clothingType, fabric, brand, gender, pattern);
+        super(color, price, quantity, fabric, brand, gender, pattern);
         this.size = size;
         this.sleeve = sleeve;
         this.collar = collar;

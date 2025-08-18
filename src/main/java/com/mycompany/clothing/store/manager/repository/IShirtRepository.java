@@ -27,13 +27,13 @@ import org.springframework.data.repository.query.Param;
 public interface IShirtRepository extends JpaRepository<Shirt, Integer>, JpaSpecificationExecutor<Shirt> {
 
     @Query("""
-    select s.id from Shirt s where s.color = :color and
-        s.clothingType = :clothingType and s.fabric = :fabric and
+    select s.id from Shirt s where s.color = :color 
+           and s.fabric = :fabric and
         s.brand = :brand and s.style = :style and
         s.gender = :gender and s.pattern = :pattern and
         s.pocket = :pocket and s.closureType = :closureType and
         s.size = :size and s.sleeve = :sleeve and s.collar = :collar""")
-    Integer getId(@Param("color") String color, @Param("clothingType") ClothingType clothingType,
+    Integer getId(@Param("color") String color,
             @Param("fabric") String fabric, @Param("brand") String brand,
             @Param("style") String style, @Param("gender") Gender gender,
             @Param("pattern") String pattern, @Param("pocket") Integer pocket,
@@ -44,7 +44,6 @@ public interface IShirtRepository extends JpaRepository<Shirt, Integer>, JpaSpec
     @Query("""
     SELECT s FROM Shirt s
     WHERE s.color = :color
-    AND s.clothingType = :clothingType
     AND (:fabric IS NULL OR s.fabric = :fabric)
     AND s.brand = :brand
     AND (:style IS NULL OR s.style = :style)
@@ -58,7 +57,6 @@ public interface IShirtRepository extends JpaRepository<Shirt, Integer>, JpaSpec
     """)
     Optional<Shirt> findExistingShirt(
             @Param("color") String color,
-            @Param("clothingType") ClothingType clothingType,
             @Param("fabric") String fabric,
             @Param("brand") String brand,
             @Param("style") String style,

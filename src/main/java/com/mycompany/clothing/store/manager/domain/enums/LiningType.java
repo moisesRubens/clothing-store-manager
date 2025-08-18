@@ -9,8 +9,8 @@ package com.mycompany.clothing.store.manager.domain.enums;
  * @author moise
  */
 public enum LiningType {
-    COTTON,
-    MICROFIBER,
+    ALGODAO,
+    MICROFIBRA,
     VISCOSE,
-    POLYESTER
+    POLIESTER
 }
