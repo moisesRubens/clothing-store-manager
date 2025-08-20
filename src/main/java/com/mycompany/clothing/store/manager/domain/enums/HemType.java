@@ -9,9 +9,9 @@ package com.mycompany.clothing.store.manager.domain.enums;
  * @author moise
  */
 public enum HemType {
-    STRAIGHT,   // barra reta
-    CUFFED,     // barra dobrada
-    ELASTIC     // barra elástica
+    BARRA_RETA,   // barra reta
+    BARRA_DOBRADA,     // barra dobrada
+    BARRA_ELASTICA     // barra elástica
 }
 
 

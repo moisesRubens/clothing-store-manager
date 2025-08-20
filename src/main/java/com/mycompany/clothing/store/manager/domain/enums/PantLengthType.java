@@ -9,9 +9,9 @@ package com.mycompany.clothing.store.manager.domain.enums;
  * @author moise
  */
 public enum PantLengthType {
-    SHORT,      // calça curta
+    CURTO,      // calça curta
     REGULAR,    // comprimento normal
-    LONG        // calça longa
+    LONGO        // calça longa
 }
 
 

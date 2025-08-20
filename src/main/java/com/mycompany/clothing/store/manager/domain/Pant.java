@@ -23,28 +23,28 @@ import java.util.EnumSet;
  */
 @Entity
 public class Pant extends Clothing {
-    @Column(name="TIPO_BARRA", nullable=true)
+    @Column(name="barra", nullable=true)
     @Enumerated(EnumType.STRING)
     HemType hemType;
     
-    @Column(name="TIPO_CINTURA", nullable=true)
+    @Column(name="cintura", nullable=true)
     @Enumerated(EnumType.STRING)        
     WaistType waistType;
     
-    @Column(name="COMPRIMENTO")
+    @Column(name="comprimento")
     @Enumerated(EnumType.STRING)
     PantLengthType length;
     
-    @Column(name="TAMANHO")
+    @Column(name="tamanho")
     Integer size;
     
-    @Column(name="QUANT_BOLSOS", nullable=true)
+    @Column(name="bolso", nullable=true)
     Integer pocket;
     
-    @Column(name="TIPO_FECHAMENTO", nullable=true)
+    @Column(name="fechamento", nullable=true)
     String closureType;
     
-    @Column(name="MODELO", nullable=true)
+    @Column(name="estilo", nullable=true)
     String style;
    
     public Pant() {}

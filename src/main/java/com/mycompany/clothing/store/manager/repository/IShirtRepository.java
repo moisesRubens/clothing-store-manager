@@ -70,14 +70,20 @@ public interface IShirtRepository extends JpaRepository<Shirt, Integer>, JpaSpec
     );
 
     default List<String> getNames() {
-        Field[] fields = Shirt.class.getDeclaredFields();
         List<String> names = new ArrayList<>();
-        for (Field f : fields) {
-            Column c = f.getAnnotation(Column.class);
-            if(c != null) {
-                names.add(c.name());
-            } else {
-                names.add(f.getName());
+        Class clazz = Shirt.class;
+        Class superClazz = clazz.getSuperclass();
+        Class[] classes = new Class[]{superClazz, clazz};
+        
+        for (Class c : classes) {       
+            Field[] fields = Shirt.class.getDeclaredFields();
+            for (Field f : fields) {
+                Column column = f.getAnnotation(Column.class);
+                if (column != null) {
+                    names.add(column.name());
+                } else {
+                    names.add(f.getName());
+                }
             }
         }
         return names;

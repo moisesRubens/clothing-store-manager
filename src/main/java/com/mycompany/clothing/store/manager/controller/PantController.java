@@ -26,10 +26,11 @@ public class PantController implements IClothingController {
 
     @Override
     public void createClothing(ClothingRequestDTO clothingData) throws Exception {
-        if (!(clothingData instanceof PantRequestDTO pantDTO)) {
+        if (clothingData instanceof PantRequestDTO pantDTO) {
+            pantService.registerClothing(pantDTO);        
+        } else {
             throw new IllegalArgumentException("Forneça dados corretos para a criação de uma calça");
-        } 
-        pantService.registerClothing(clothingData);
+        }
     }
 
     @Override

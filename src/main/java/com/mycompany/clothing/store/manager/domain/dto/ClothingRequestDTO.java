@@ -20,6 +20,5 @@ public interface ClothingRequestDTO {
     String style();
     Gender gender();
     String pattern();
-    ClothingType clothingType(); 
 }
 
