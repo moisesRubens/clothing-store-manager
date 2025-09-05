@@ -12,5 +12,6 @@ public enum LiningType {
     ALGODAO,
     MICROFIBRA,
     VISCOSE,
-    POLIESTER
+    POLIESTER,
+    JEANS
 }

@@ -453,6 +453,23 @@ public class MainWindow extends javax.swing.JFrame {
         jLabel78 = new javax.swing.JLabel();
         jLabel79 = new javax.swing.JLabel();
         jTextFieldAddSkirtPocket = new javax.swing.JTextField();
+        jLabel88 = new javax.swing.JLabel();
+        jTextFieldAddSkirtQuantity = new javax.swing.JTextField();
+        jTextFieldAddSkirtSize = new javax.swing.JTextField();
+        jCheckBoxAddSkirtTipoFechamentoBotao = new javax.swing.JCheckBox();
+        jCheckBoxAddSkirtTipoFechamentoZiper = new javax.swing.JCheckBox();
+        jCheckBoxAddSkirtLiningTypeAlgodao = new javax.swing.JCheckBox();
+        jCheckBoxAddSkirtLiningTypeMicrofibra = new javax.swing.JCheckBox();
+        jCheckBoxAddSkirtLiningTypePoliester = new javax.swing.JCheckBox();
+        jCheckBoxAddSkirtLiningTypeJeans = new javax.swing.JCheckBox();
+        jCheckBoxAddSkirtLiningTypeViscose = new javax.swing.JCheckBox();
+        jCheckBoxAddSkirtWaistTypeMedia = new javax.swing.JCheckBox();
+        jCheckBoxAddSkirtWaistTypeElastica = new javax.swing.JCheckBox();
+        jCheckBoxAddSkirtWaistTypeBaixa2 = new javax.swing.JCheckBox();
+        jCheckBoxAddSkirtWaistTypeAlta = new javax.swing.JCheckBox();
+        jButtonAddSkirtExit = new javax.swing.JButton();
+        jButtonAddSkirtCadastrar = new javax.swing.JButton();
+        jButtonAddSkirtBack = new javax.swing.JButton();
         AddBodySuitPanel = new javax.swing.JPanel();
         jLabel52 = new javax.swing.JLabel();
         jLabel53 = new javax.swing.JLabel();
@@ -3069,6 +3086,41 @@ public class MainWindow extends javax.swing.JFrame {
 
         jLabel79.setText("BOLSO");
 
+        jLabel88.setText("QUANTIDADE");
+
+        jCheckBoxAddSkirtTipoFechamentoBotao.setText("BOTÃO");
+
+        jCheckBoxAddSkirtTipoFechamentoZiper.setText("ZÍPER");
+
+        jCheckBoxAddSkirtLiningTypeAlgodao.setText("ALGODÃO");
+
+        jCheckBoxAddSkirtLiningTypeMicrofibra.setText("MICROFIBRA");
+
+        jCheckBoxAddSkirtLiningTypePoliester.setText("POLIESTER");
+
+        jCheckBoxAddSkirtLiningTypeJeans.setText("JEANS");
+
+        jCheckBoxAddSkirtLiningTypeViscose.setText("VISCOSE");
+
+        jCheckBoxAddSkirtWaistTypeMedia.setText("MÉDIA");
+
+        jCheckBoxAddSkirtWaistTypeElastica.setText("ELÁSTICA");
+
+        jCheckBoxAddSkirtWaistTypeBaixa2.setText("BAIXA");
+
+        jCheckBoxAddSkirtWaistTypeAlta.setText("ALTA");
+
+        jButtonAddSkirtExit.setText("Sair");
+
+        jButtonAddSkirtCadastrar.setText("Cadastrar");
+
+        jButtonAddSkirtBack.setText("Voltar");
+        jButtonAddSkirtBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddSkirtBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout AddSkirtPanelLayout = new javax.swing.GroupLayout(AddSkirtPanel);
         AddSkirtPanel.setLayout(AddSkirtPanelLayout);
         AddSkirtPanelLayout.setHorizontalGroup(
@@ -3076,36 +3128,81 @@ public class MainWindow extends javax.swing.JFrame {
             .addGroup(AddSkirtPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(AddSkirtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel58)
-                    .addComponent(jLabel76, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckBoxAddSkirtInfantil)
-                    .addComponent(jLabel77)
-                    .addComponent(jLabel78)
-                    .addGroup(AddSkirtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, AddSkirtPanelLayout.createSequentialGroup()
-                            .addComponent(jLabel79, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextFieldAddSkirtPocket, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, AddSkirtPanelLayout.createSequentialGroup()
-                            .addGroup(AddSkirtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel62, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel63, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel61, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel59)
-                                .addComponent(jLabel60, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(46, 46, 46)
-                            .addGroup(AddSkirtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextFieldAddSkirtFabric, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextFieldAddSkirtPattern, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextFieldAddSkirtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextFieldAddSkirtColor, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextFieldAddSkirtBrand, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(695, Short.MAX_VALUE))
+                    .addGroup(AddSkirtPanelLayout.createSequentialGroup()
+                        .addGroup(AddSkirtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel58)
+                            .addComponent(jCheckBoxAddSkirtInfantil)
+                            .addGroup(AddSkirtPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel78)
+                                .addGap(18, 18, 18)
+                                .addComponent(jCheckBoxAddSkirtTipoFechamentoBotao)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jCheckBoxAddSkirtTipoFechamentoZiper))
+                            .addComponent(jLabel76, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(AddSkirtPanelLayout.createSequentialGroup()
+                                .addGroup(AddSkirtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel62, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel63, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel61, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel59)
+                                    .addComponent(jLabel60, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel77)
+                                    .addComponent(jLabel79, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel88))
+                                .addGap(23, 23, 23)
+                                .addGroup(AddSkirtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldAddSkirtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldAddSkirtFabric, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldAddSkirtPattern, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldAddSkirtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldAddSkirtColor, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldAddSkirtBrand, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldAddSkirtSize, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(AddSkirtPanelLayout.createSequentialGroup()
+                                        .addGroup(AddSkirtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(AddSkirtPanelLayout.createSequentialGroup()
+                                                .addComponent(jCheckBoxAddSkirtLiningTypeAlgodao)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jCheckBoxAddSkirtLiningTypeMicrofibra))
+                                            .addGroup(AddSkirtPanelLayout.createSequentialGroup()
+                                                .addComponent(jCheckBoxAddSkirtWaistTypeBaixa2)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jCheckBoxAddSkirtWaistTypeMedia)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jCheckBoxAddSkirtWaistTypeAlta)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(AddSkirtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jCheckBoxAddSkirtLiningTypePoliester)
+                                            .addComponent(jCheckBoxAddSkirtWaistTypeElastica)))
+                                    .addComponent(jTextFieldAddSkirtPocket, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                        .addComponent(jCheckBoxAddSkirtLiningTypeViscose)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jCheckBoxAddSkirtLiningTypeJeans)
+                        .addGap(354, 354, 354))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AddSkirtPanelLayout.createSequentialGroup()
+                        .addComponent(jButtonAddSkirtBack)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonAddSkirtCadastrar)
+                        .addGap(365, 365, 365)
+                        .addComponent(jButtonAddSkirtExit)
+                        .addContainerGap())))
         );
         AddSkirtPanelLayout.setVerticalGroup(
             AddSkirtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AddSkirtPanelLayout.createSequentialGroup()
-                .addGap(91, 91, 91)
+                .addGroup(AddSkirtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(AddSkirtPanelLayout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(jTextFieldAddSkirtPocket, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AddSkirtPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel79)))
+                .addGap(21, 21, 21)
+                .addGroup(AddSkirtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel88)
+                    .addComponent(jTextFieldAddSkirtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(AddSkirtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel62)
                     .addComponent(jTextFieldAddSkirtBrand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -3126,24 +3223,41 @@ public class MainWindow extends javax.swing.JFrame {
                     .addComponent(jLabel60, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldAddSkirtFabric, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel58)
+                .addGroup(AddSkirtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel58)
+                    .addComponent(jTextFieldAddSkirtSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jCheckBoxAddSkirtInfantil)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel76)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel77)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel78)
+                .addGroup(AddSkirtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel76)
+                    .addComponent(jCheckBoxAddSkirtLiningTypeAlgodao)
+                    .addComponent(jCheckBoxAddSkirtLiningTypeMicrofibra)
+                    .addComponent(jCheckBoxAddSkirtLiningTypePoliester)
+                    .addComponent(jCheckBoxAddSkirtLiningTypeJeans)
+                    .addComponent(jCheckBoxAddSkirtLiningTypeViscose))
                 .addGap(18, 18, 18)
                 .addGroup(AddSkirtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel79)
-                    .addComponent(jTextFieldAddSkirtPocket, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(102, Short.MAX_VALUE))
+                    .addComponent(jLabel77)
+                    .addComponent(jCheckBoxAddSkirtWaistTypeMedia)
+                    .addComponent(jCheckBoxAddSkirtWaistTypeElastica)
+                    .addComponent(jCheckBoxAddSkirtWaistTypeBaixa2)
+                    .addComponent(jCheckBoxAddSkirtWaistTypeAlta))
+                .addGap(18, 18, 18)
+                .addGroup(AddSkirtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel78)
+                    .addComponent(jCheckBoxAddSkirtTipoFechamentoBotao)
+                    .addComponent(jCheckBoxAddSkirtTipoFechamentoZiper))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
+                .addGroup(AddSkirtPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonAddSkirtExit)
+                    .addComponent(jButtonAddSkirtCadastrar)
+                    .addComponent(jButtonAddSkirtBack))
+                .addContainerGap())
         );
 
         getContentPane().add(AddSkirtPanel);
-        AddSkirtPanel.setBounds(0, 0, 871, 589);
+        AddSkirtPanel.setBounds(0, 0, 900, 589);
 
         AddBodySuitPanel.setName("AddBodySuitPanel"); // NOI18N
 
@@ -4401,6 +4515,10 @@ public class MainWindow extends javax.swing.JFrame {
         a.show(getContentPane(), "PainelPrincipal");
     }//GEN-LAST:event_jButtonAddUnderPantBackActionPerformed
 
+    private void jButtonAddSkirtBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddSkirtBackActionPerformed
+        ((CardLayout) getContentPane().getLayout()).show(getContentPane(), "PainelPrincipal");
+    }//GEN-LAST:event_jButtonAddSkirtBackActionPerformed
+
     private PantyRequestDTO fillPantyRequestDTO() {
         String color = jTextFieldSearchRemovePantyPanelColor.getText();
         String pattern = jTextFieldSearchRemovePantyPanelPattern.getText();
@@ -5000,6 +5118,9 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButtonAddPanty;
+    private javax.swing.JButton jButtonAddSkirtBack;
+    private javax.swing.JButton jButtonAddSkirtCadastrar;
+    private javax.swing.JButton jButtonAddSkirtExit;
     private javax.swing.JButton jButtonAddUnderPant;
     private javax.swing.JButton jButtonAddUnderPantBack;
     private javax.swing.JButton jButtonAddUnderPantExit;
@@ -5060,6 +5181,17 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBoxAddPantyPanelWaistTypeMid;
     private javax.swing.JCheckBox jCheckBoxAddShortsInfantil;
     private javax.swing.JCheckBox jCheckBoxAddSkirtInfantil;
+    private javax.swing.JCheckBox jCheckBoxAddSkirtLiningTypeAlgodao;
+    private javax.swing.JCheckBox jCheckBoxAddSkirtLiningTypeJeans;
+    private javax.swing.JCheckBox jCheckBoxAddSkirtLiningTypeMicrofibra;
+    private javax.swing.JCheckBox jCheckBoxAddSkirtLiningTypePoliester;
+    private javax.swing.JCheckBox jCheckBoxAddSkirtLiningTypeViscose;
+    private javax.swing.JCheckBox jCheckBoxAddSkirtTipoFechamentoBotao;
+    private javax.swing.JCheckBox jCheckBoxAddSkirtTipoFechamentoZiper;
+    private javax.swing.JCheckBox jCheckBoxAddSkirtWaistTypeAlta;
+    private javax.swing.JCheckBox jCheckBoxAddSkirtWaistTypeBaixa2;
+    private javax.swing.JCheckBox jCheckBoxAddSkirtWaistTypeElastica;
+    private javax.swing.JCheckBox jCheckBoxAddSkirtWaistTypeMedia;
     private javax.swing.JCheckBox jCheckBoxAddUnderPantG;
     private javax.swing.JCheckBox jCheckBoxAddUnderPantInfantil;
     private javax.swing.JCheckBox jCheckBoxAddUnderPantInfantil1;
@@ -5203,6 +5335,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel85;
     private javax.swing.JLabel jLabel86;
     private javax.swing.JLabel jLabel87;
+    private javax.swing.JLabel jLabel88;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelAddPantiePrice2;
     private javax.swing.JLabel jLabelAddPantiePrice4;
@@ -5324,6 +5457,8 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldAddSkirtPattern;
     private javax.swing.JTextField jTextFieldAddSkirtPocket;
     private javax.swing.JTextField jTextFieldAddSkirtPrice;
+    private javax.swing.JTextField jTextFieldAddSkirtQuantity;
+    private javax.swing.JTextField jTextFieldAddSkirtSize;
     private javax.swing.JTextField jTextFieldAddUnderPantBrand;
     private javax.swing.JTextField jTextFieldAddUnderPantColor;
     private javax.swing.JTextField jTextFieldAddUnderPantFabric;
