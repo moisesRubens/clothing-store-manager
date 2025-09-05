@@ -409,6 +409,30 @@ public class MainWindow extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         AddUnderPantPanel = new javax.swing.JPanel();
+        jTextFieldAddUnderPantPrice = new javax.swing.JTextField();
+        jTextFieldAddUnderPantPattern = new javax.swing.JTextField();
+        jTextFieldAddUnderPantFabric = new javax.swing.JTextField();
+        jLabel80 = new javax.swing.JLabel();
+        jCheckBoxAddUnderPantInfantil = new javax.swing.JCheckBox();
+        jLabel81 = new javax.swing.JLabel();
+        jLabel82 = new javax.swing.JLabel();
+        jLabel83 = new javax.swing.JLabel();
+        jLabel84 = new javax.swing.JLabel();
+        jLabel85 = new javax.swing.JLabel();
+        jTextFieldAddUnderPantBrand = new javax.swing.JTextField();
+        jTextFieldAddUnderPantColor = new javax.swing.JTextField();
+        jTextFieldAddUnderPantQuantity = new javax.swing.JTextField();
+        jLabel86 = new javax.swing.JLabel();
+        jCheckBoxAddUnderPantInfantil1 = new javax.swing.JCheckBox();
+        jCheckBoxAddUnderPantSizeP = new javax.swing.JCheckBox();
+        jCheckBoxAddUnderPantG = new javax.swing.JCheckBox();
+        jLabel87 = new javax.swing.JLabel();
+        jCheckBoxAddUnderPantTypeNormal = new javax.swing.JCheckBox();
+        jCheckBoxAddUnderTypePantBox = new javax.swing.JCheckBox();
+        jCheckBoxAddUnderPantTypeSwimBrief = new javax.swing.JCheckBox();
+        jButtonAddUnderPantBack = new javax.swing.JButton();
+        jButtonAddUnderPantExit = new javax.swing.JButton();
+        jButtonAddUnderPant = new javax.swing.JButton();
         SearchUnderPantPanel = new javax.swing.JPanel();
         RemoveUnderPantPanel = new javax.swing.JPanel();
         AddSkirtPanel = new javax.swing.JPanel();
@@ -1687,7 +1711,7 @@ public class MainWindow extends javax.swing.JFrame {
         );
 
         getContentPane().add(PainelAdicionarCalca);
-        PainelAdicionarCalca.setBounds(0, 0, 1002, 566);
+        PainelAdicionarCalca.setBounds(0, 0, 1003, 566);
 
         PainelConsultarRemoverCalca.setBackground(new java.awt.Color(0, 153, 153));
         PainelConsultarRemoverCalca.setName("PainelConsultarRemoverCalca"); // NOI18N
@@ -2808,19 +2832,174 @@ public class MainWindow extends javax.swing.JFrame {
 
         AddUnderPantPanel.setName("AddUnderPantPanel"); // NOI18N
 
+        jTextFieldAddUnderPantPrice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldAddUnderPantPriceActionPerformed(evt);
+            }
+        });
+
+        jTextFieldAddUnderPantFabric.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldAddUnderPantFabricActionPerformed(evt);
+            }
+        });
+
+        jLabel80.setText("TAMANHO");
+
+        jCheckBoxAddUnderPantInfantil.setText("M");
+
+        jLabel81.setText("ESTAMPA");
+
+        jLabel82.setText("TECIDO");
+
+        jLabel83.setText("PREÇO");
+
+        jLabel84.setText("MARCA");
+
+        jLabel85.setText("COR");
+
+        jTextFieldAddUnderPantQuantity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldAddUnderPantQuantityActionPerformed(evt);
+            }
+        });
+
+        jLabel86.setText("QUANTIDADE");
+
+        jCheckBoxAddUnderPantInfantil1.setText("INFANTIL");
+
+        jCheckBoxAddUnderPantSizeP.setText("P");
+
+        jCheckBoxAddUnderPantG.setText("G");
+
+        jLabel87.setText("TIPO");
+
+        jCheckBoxAddUnderPantTypeNormal.setText("NORMAL");
+
+        jCheckBoxAddUnderTypePantBox.setText("BOX");
+
+        jCheckBoxAddUnderPantTypeSwimBrief.setText("SUNGA");
+
+        jButtonAddUnderPantBack.setText("Voltar");
+        jButtonAddUnderPantBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddUnderPantBackActionPerformed(evt);
+            }
+        });
+
+        jButtonAddUnderPantExit.setText("Sair");
+        jButtonAddUnderPantExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddUnderPantExitActionPerformed(evt);
+            }
+        });
+
+        jButtonAddUnderPant.setText("Cadastrar");
+
         javax.swing.GroupLayout AddUnderPantPanelLayout = new javax.swing.GroupLayout(AddUnderPantPanel);
         AddUnderPantPanel.setLayout(AddUnderPantPanelLayout);
         AddUnderPantPanelLayout.setHorizontalGroup(
             AddUnderPantPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGroup(AddUnderPantPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(AddUnderPantPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(AddUnderPantPanelLayout.createSequentialGroup()
+                        .addComponent(jButtonAddUnderPantBack)
+                        .addGap(368, 368, 368)
+                        .addComponent(jButtonAddUnderPant)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 392, Short.MAX_VALUE)
+                        .addComponent(jButtonAddUnderPantExit))
+                    .addGroup(AddUnderPantPanelLayout.createSequentialGroup()
+                        .addGroup(AddUnderPantPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jCheckBoxAddUnderPantInfantil1)
+                            .addGroup(AddUnderPantPanelLayout.createSequentialGroup()
+                                .addGroup(AddUnderPantPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel84, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel85, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel83, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel81)
+                                    .addComponent(jLabel82, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel86, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(21, 21, 21)
+                                .addGroup(AddUnderPantPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldAddUnderPantQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldAddUnderPantFabric, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldAddUnderPantPattern, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldAddUnderPantPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldAddUnderPantColor, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldAddUnderPantBrand, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(AddUnderPantPanelLayout.createSequentialGroup()
+                                .addGroup(AddUnderPantPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel80)
+                                    .addComponent(jLabel87))
+                                .addGap(39, 39, 39)
+                                .addGroup(AddUnderPantPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(AddUnderPantPanelLayout.createSequentialGroup()
+                                        .addComponent(jCheckBoxAddUnderPantSizeP)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jCheckBoxAddUnderPantInfantil)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jCheckBoxAddUnderPantG))
+                                    .addGroup(AddUnderPantPanelLayout.createSequentialGroup()
+                                        .addComponent(jCheckBoxAddUnderPantTypeNormal, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jCheckBoxAddUnderPantTypeSwimBrief)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jCheckBoxAddUnderTypePantBox)))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         AddUnderPantPanelLayout.setVerticalGroup(
             AddUnderPantPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGroup(AddUnderPantPanelLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addGroup(AddUnderPantPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel84)
+                    .addComponent(jTextFieldAddUnderPantBrand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(AddUnderPantPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel85)
+                    .addComponent(jTextFieldAddUnderPantColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(AddUnderPantPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel83)
+                    .addComponent(jTextFieldAddUnderPantPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(AddUnderPantPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel81)
+                    .addComponent(jTextFieldAddUnderPantPattern, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(AddUnderPantPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel82, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldAddUnderPantFabric, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(AddUnderPantPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel86, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldAddUnderPantQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(AddUnderPantPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel80)
+                    .addComponent(jCheckBoxAddUnderPantInfantil)
+                    .addComponent(jCheckBoxAddUnderPantSizeP)
+                    .addComponent(jCheckBoxAddUnderPantG))
+                .addGap(18, 18, 18)
+                .addGroup(AddUnderPantPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel87, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCheckBoxAddUnderPantTypeNormal)
+                    .addComponent(jCheckBoxAddUnderPantTypeSwimBrief)
+                    .addComponent(jCheckBoxAddUnderTypePantBox))
+                .addGap(18, 18, 18)
+                .addComponent(jCheckBoxAddUnderPantInfantil1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 175, Short.MAX_VALUE)
+                .addGroup(AddUnderPantPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonAddUnderPantBack)
+                    .addComponent(jButtonAddUnderPantExit)
+                    .addComponent(jButtonAddUnderPant))
+                .addContainerGap())
         );
 
         getContentPane().add(AddUnderPantPanel);
-        AddUnderPantPanel.setBounds(0, 0, 100, 100);
+        AddUnderPantPanel.setBounds(0, 0, 996, 571);
 
         SearchUnderPantPanel.setName("SearchUnderPantPanel"); // NOI18N
 
@@ -2964,7 +3143,7 @@ public class MainWindow extends javax.swing.JFrame {
         );
 
         getContentPane().add(AddSkirtPanel);
-        AddSkirtPanel.setBounds(0, 0, 870, 589);
+        AddSkirtPanel.setBounds(0, 0, 871, 589);
 
         AddBodySuitPanel.setName("AddBodySuitPanel"); // NOI18N
 
@@ -3078,7 +3257,7 @@ public class MainWindow extends javax.swing.JFrame {
         );
 
         getContentPane().add(AddBodySuitPanel);
-        AddBodySuitPanel.setBounds(0, 0, 793, 585);
+        AddBodySuitPanel.setBounds(0, 0, 794, 585);
 
         AddBlousePanel.setName("AddBlousePanel"); // NOI18N
 
@@ -3312,7 +3491,7 @@ public class MainWindow extends javax.swing.JFrame {
         );
 
         getContentPane().add(AddShortsPanel);
-        AddShortsPanel.setBounds(0, 0, 1017, 610);
+        AddShortsPanel.setBounds(0, 0, 1019, 610);
 
         AddJumpSuitPanel.setName("AddJumpSuitPanel"); // NOI18N
 
@@ -3386,11 +3565,9 @@ public class MainWindow extends javax.swing.JFrame {
                                         .addGap(78, 78, 78)
                                         .addComponent(jLabel65, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jTextFieldAddJumpSuitPocket, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(AddJumpSuitPanelLayout.createSequentialGroup()
-                                .addComponent(jTextFieldAddJumpSuitPattern, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(368, 867, Short.MAX_VALUE))))
+                                        .addComponent(jTextFieldAddJumpSuitPocket, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jTextFieldAddJumpSuitPattern, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(AddJumpSuitPanelLayout.createSequentialGroup()
                         .addGroup(AddJumpSuitPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel34)
@@ -3451,7 +3628,7 @@ public class MainWindow extends javax.swing.JFrame {
         );
 
         getContentPane().add(AddJumpSuitPanel);
-        AddJumpSuitPanel.setBounds(0, 0, 1042, 626);
+        AddJumpSuitPanel.setBounds(0, 0, 392, 626);
 
         getAccessibleContext().setAccessibleName("mainPanel");
 
@@ -4203,6 +4380,27 @@ public class MainWindow extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldAddSkirtFabricActionPerformed
 
+    private void jTextFieldAddUnderPantPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAddUnderPantPriceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldAddUnderPantPriceActionPerformed
+
+    private void jTextFieldAddUnderPantFabricActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAddUnderPantFabricActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldAddUnderPantFabricActionPerformed
+
+    private void jTextFieldAddUnderPantQuantityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAddUnderPantQuantityActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldAddUnderPantQuantityActionPerformed
+
+    private void jButtonAddUnderPantExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddUnderPantExitActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jButtonAddUnderPantExitActionPerformed
+
+    private void jButtonAddUnderPantBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddUnderPantBackActionPerformed
+        CardLayout a = (CardLayout) getContentPane().getLayout();
+        a.show(getContentPane(), "PainelPrincipal");
+    }//GEN-LAST:event_jButtonAddUnderPantBackActionPerformed
+
     private PantyRequestDTO fillPantyRequestDTO() {
         String color = jTextFieldSearchRemovePantyPanelColor.getText();
         String pattern = jTextFieldSearchRemovePantyPanelPattern.getText();
@@ -4802,6 +5000,9 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButtonAddPanty;
+    private javax.swing.JButton jButtonAddUnderPant;
+    private javax.swing.JButton jButtonAddUnderPantBack;
+    private javax.swing.JButton jButtonAddUnderPantExit;
     private javax.swing.JButton jButtonAdicionar;
     private javax.swing.JButton jButtonAdicionarCamisa;
     private javax.swing.JButton jButtonAdicionarCamisaBack;
@@ -4859,6 +5060,13 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBoxAddPantyPanelWaistTypeMid;
     private javax.swing.JCheckBox jCheckBoxAddShortsInfantil;
     private javax.swing.JCheckBox jCheckBoxAddSkirtInfantil;
+    private javax.swing.JCheckBox jCheckBoxAddUnderPantG;
+    private javax.swing.JCheckBox jCheckBoxAddUnderPantInfantil;
+    private javax.swing.JCheckBox jCheckBoxAddUnderPantInfantil1;
+    private javax.swing.JCheckBox jCheckBoxAddUnderPantSizeP;
+    private javax.swing.JCheckBox jCheckBoxAddUnderPantTypeNormal;
+    private javax.swing.JCheckBox jCheckBoxAddUnderPantTypeSwimBrief;
+    private javax.swing.JCheckBox jCheckBoxAddUnderTypePantBox;
     private javax.swing.JCheckBox jCheckBoxAdicionarCamisaCollar;
     private javax.swing.JCheckBox jCheckBoxAdicionarCamisaSleeve;
     private javax.swing.JCheckBox jCheckBoxCalcaComprimentoCurto;
@@ -4987,6 +5195,14 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel78;
     private javax.swing.JLabel jLabel79;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel80;
+    private javax.swing.JLabel jLabel81;
+    private javax.swing.JLabel jLabel82;
+    private javax.swing.JLabel jLabel83;
+    private javax.swing.JLabel jLabel84;
+    private javax.swing.JLabel jLabel85;
+    private javax.swing.JLabel jLabel86;
+    private javax.swing.JLabel jLabel87;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelAddPantiePrice2;
     private javax.swing.JLabel jLabelAddPantiePrice4;
@@ -5108,6 +5324,12 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldAddSkirtPattern;
     private javax.swing.JTextField jTextFieldAddSkirtPocket;
     private javax.swing.JTextField jTextFieldAddSkirtPrice;
+    private javax.swing.JTextField jTextFieldAddUnderPantBrand;
+    private javax.swing.JTextField jTextFieldAddUnderPantColor;
+    private javax.swing.JTextField jTextFieldAddUnderPantFabric;
+    private javax.swing.JTextField jTextFieldAddUnderPantPattern;
+    private javax.swing.JTextField jTextFieldAddUnderPantPrice;
+    private javax.swing.JTextField jTextFieldAddUnderPantQuantity;
     private javax.swing.JTextField jTextFieldAdicionarCalcaBrand;
     private javax.swing.JTextField jTextFieldAdicionarCalcaClosureType;
     private javax.swing.JTextField jTextFieldAdicionarCalcaColor;
